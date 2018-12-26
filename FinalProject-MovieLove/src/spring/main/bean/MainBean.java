@@ -3,6 +3,7 @@ package spring.main.bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+//안녕하세요
 @Controller
 public class MainBean {
 	@RequestMapping("main.do")
