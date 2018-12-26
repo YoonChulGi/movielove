@@ -3,11 +3,11 @@ package spring.main.bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-<<<<<<< HEAD
+
 //안녕하세요 ㅎㅎㅎㅎㅎㅎ
-=======
+
 //hello
->>>>>>> 99503549875edd426350ba243839d123652f67d6
+
 @Controller
 public class MainBean {
 	@RequestMapping("main.do")
