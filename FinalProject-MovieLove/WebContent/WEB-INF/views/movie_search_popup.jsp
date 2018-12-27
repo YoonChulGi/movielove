@@ -23,10 +23,16 @@ body{
 	    	<div class="review-search">
 	    		<ul>
 	    			<li><input id="search-input" name="search" placeholder="영화 검색" class="form-control input-lg" autocomplete="off" type="text" style="padding-top:0px;padding-bottom:0px;"></li>
-	           		<li><button class="btn btn-lg btn-search">검색</button></li>
+	           		<li><button class="btn btn-lg btn-search" onclick="search()">검색</button></li>
 	            </ul>
        		</div>
     	</div>
+    	<script type="text/javascript">
+    		function search(){
+    			opener.location.href="movie_analysis_page2.do";
+    			self.close();
+    		}
+    	</script>
     	<br />
     	<br />
     	<br />

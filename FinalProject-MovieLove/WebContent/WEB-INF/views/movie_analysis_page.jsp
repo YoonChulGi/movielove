@@ -14,7 +14,7 @@
     
     <div class="container"> <!-- container -->
     	
-    	<div class="row"> <!-- search row -->
+    	<div class="row mb_50"> <!-- search row -->
     		<div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
     		
     		</div>

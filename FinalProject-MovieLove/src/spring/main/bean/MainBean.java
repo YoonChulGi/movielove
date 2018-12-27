@@ -42,14 +42,19 @@ public class MainBean {
 		return "movie_recommend_page";
 	}
 	@RequestMapping("movie_review_page.do")
-	public String movie_review() {
-		System.out.println("MainBean-movie_review()");
+	public String movie_review_page() {
+		System.out.println("MainBean-movie_review_page()");
 		return "movie_review_page";
 	}
 	@RequestMapping("movie_analysis_page.do")
 	public String movie_analysis_page() {
 		System.out.println("movie_analysis_page");
 		return "movie_analysis_page";
+	}
+	@RequestMapping("movie_analysis_page2.do")
+	public String movie_analysis_page2() {
+		System.out.println("movie_analysis_page2");
+		return "movie_analysis_page2";
 	}
 	@RequestMapping("movie_search_popup.do")
 	public String movie_search_popup() {
