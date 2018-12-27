@@ -3032,19 +3032,20 @@ a.btn_red_s {
 	display: inline-block;
 }
 .movie_list li.movie_li {
-	width:67%;
-	height: 240px;
+	width:80%;
+	height: 270px;
 	display:inline-block;
     position: relative;
     border: 1px solid #e6e6e6;
     padding: 0 0 10px 190px;
     margin-bottom: 40px;
-    margin-left: 16.5%;
-    margin-right: 16.5%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 .review_summary {
 	position: relative;
 	display: inline-block;
+	padding-left: 10px;
 }
 .movie_list li.movie_li div.review_summary span.comment_span {
 	font-weight: bold;
@@ -3077,18 +3078,26 @@ a.btn_red_s {
     left: 0;
     border: 1px solid #e0e0e0;
     width: 180px;
-    height: 240px;
+    height: 270px;
+}
+.review-writer {
+	float: left;
+	width: 90px;
+    line-height: 2;
+	margin-right: 10px;
 }
 .review-comment {
 	float: left;
+	width: 400px;
+    line-height: 2;
 	margin-right: 10px;
 }
-.raking_grade {
+.review_grade {
 	display: inline-block;
-	padding-left: 10px;
+	padding-left: 50px;
 	right: 0;
 }
-.raking_grade .bg_star {
+.review_grade .bg_star {
     display: block;
     float: left;
     width: 106px;
@@ -3097,7 +3106,7 @@ a.btn_red_s {
     margin-bottom: 5.5px;
     background: url(//i1.daumcdn.net/img-contents/movie/2016/pc/bg_star_170614_v2.png) no-repeat 0 0;
 }
-.raking_grade .bg_star .inner_star {
+.review_grade .bg_star .inner_star {
     overflow: hidden;
     font-size: 0;
     line-height: 0;
@@ -3105,7 +3114,7 @@ a.btn_red_s {
     background-position: 0 -20px;
     text-indent: -9999px;
 }
-.raking_grade .emph_grade {
+.review_grade .emph_grade {
     float: left;
     color: #2a2a2a;
     padding-left: 10px;
@@ -3114,15 +3123,12 @@ a.btn_red_s {
     font-size: 18px;
     font-weight: bold;
 }
-.raking_grade .txt_grade {
+.review_grade .txt_grade {
     float: left;
     font-size: 18px;
     margin-top: 2px;
     margin-bottom: 2px;
     color: #989898;
-}
-.review-comment {
-    line-height: 2;
 }
 /* --- 영화 감상평 페이지 End --- */
 

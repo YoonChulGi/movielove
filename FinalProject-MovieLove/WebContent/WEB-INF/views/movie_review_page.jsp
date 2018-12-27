@@ -58,12 +58,18 @@
 					<span class="movie_title"><%=movie_title%></span>
 					<span class="review_more"><a href="#">더 보기</a></span>
 					<div style="height: 25px;"></div>
+					<div class="review-summary-menu">
+        				<span class="review-writer" style="font-weight:bold;">작성자</span>
+        				<span class="review-comment" style="font-weight:bold;"><a href="#">감상평</a></span> 
+        				<span class="review_grade" style="font-weight:bold;">평점</span>
+	        		</div>
         			<% for(int j=1;j<=5;j++) {%>
 		        		<div>
         					<!-- 감상평 -->
+        					<span class="review-writer">las139</span>
         					<span class="review-comment"><a href="#">정말 재미있었네요~~~~~~~~~~ 정말 재미있었네요~~~~~~~~~~</a></span> 
         					<!-- 별점 -->
-        					<a class="raking_grade" style="height:32px;">
+        					<a class="review_grade" style="height:32px;">
 								<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:71.7%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
 								<em class="emph_grade">7.1</em>
 								<span class="txt_grade">/10</span>
