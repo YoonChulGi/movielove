@@ -51,25 +51,27 @@
         
 		<ul class="movie_list">
 			<% for(int i=0;i<10;i++){ %>
-			<li class="movie_li">
+			<li class="movie_li cols-xs-12">
 				<a href="#"><img src="<%=movie_img%>" alt="" class="movie_thumb" target="_blank"></a>
-				<div class="review_summary">
+				<div class="review-summary">
 					<span class="comment_span">[40자평]</span>
 					<span class="movie_title"><%=movie_title%></span>
-					<span class="review_more"><a href="#">더 보기</a></span>
+					<button class="btn btn-lg btn_review_more">더 보기</button>
 					<div style="height: 25px;"></div>
 					<div class="review-summary-menu">
-        				<span class="review-writer" style="font-weight:bold;">작성자</span>
-        				<span class="review-comment" style="font-weight:bold;"><a href="#">감상평</a></span> 
-        				<span class="review_grade" style="font-weight:bold;">평점</span>
+        				<span class="review_writer" style="font-weight:bold">작성자</span>
+        				<span class="review_comment" style="font-weight:bold"><a href="#">감상평</a></span>
+        				<span class="review_date" style="font-weight:bold">작성 날짜</span>
+        				<span class="review_grade" style="font-weight:bold">평점</span>
 	        		</div>
         			<% for(int j=1;j<=5;j++) {%>
 		        		<div>
         					<!-- 감상평 -->
-        					<span class="review-writer">las139</span>
-        					<span class="review-comment"><a href="#">정말 재미있었네요~~~~~~~~~~ 정말 재미있었네요~~~~~~~~~~</a></span> 
+        					<span class="review_writer">las139</span>
+        					<span class="review_comment"><a href="#">정말 재미있었네요~~~~~~~~~~ 정말 재미있었네요~~~~~~~~~~</a></span> 
+        					<span class="review_date">2018.11.25 17:31</span>
         					<!-- 별점 -->
-        					<a class="review_grade" style="height:32px;">
+        					<a class="review_grade" style="height:32px">
 								<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:71.7%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
 								<em class="emph_grade">7.1</em>
 								<span class="txt_grade">/10</span>

@@ -3032,45 +3032,47 @@ a.btn_red_s {
 	display: inline-block;
 }
 .movie_list li.movie_li {
-	width:80%;
+	width: 88%;
 	height: 270px;
 	display:inline-block;
     position: relative;
     border: 1px solid #e6e6e6;
     padding: 0 0 10px 190px;
+    margin-left: 6%;
+    margin-right: 6%;
     margin-bottom: 40px;
-    margin-left: 10%;
-    margin-right: 10%;
 }
-.review_summary {
+.review-summary {
 	position: relative;
 	display: inline-block;
 	padding-left: 10px;
 }
-.movie_list li.movie_li div.review_summary span.comment_span {
+.movie_list li.movie_li div.review-summary span.comment_span {
 	font-weight: bold;
 	color: #d43f3a;
 	font-size: 14px;
 	padding-top: 10px;
 	display: block;
 }
-.movie_list li.movie_li div.review_summary span.movie_title {
+.movie_list li.movie_li div.review-summary span.movie_title {
 	font-weight: bold;
 	font-size: 17px;
 	display: block;
 }
-.movie_list li.movie_li div.review_summary span.review_more {
+.movie_list li.movie_li div.review-summary button.btn_review_more {
 	position: absolute;
 	right: 0;
-	color: #a3a3a3;
-	font-weight: bold;
+	color: #fff;
+	height: 30px;
+	padding-top: 5px;
+    background-color: #4E5D6C;
+    border-color: #4E5D6C;
 	font-size: 14px;
-	padding-right: 10px;
+	margin-right: 5px;
 }
-.movie_list li.movie_li div.review_summary div {
+.movie_list li.movie_li div.review-summary div {
 	font-size: 14px;
 	height: 28px;
-	margin-top: 2px;
 	padding-right:10px;
 }
 .movie_list li.movie_li .movie_thumb {
@@ -3080,22 +3082,30 @@ a.btn_red_s {
     width: 180px;
     height: 270px;
 }
-.review-writer {
+.review_writer {
 	float: left;
 	width: 90px;
     line-height: 2;
-	margin-right: 10px;
+    font-size: 14px;
+	margin-right: 20px;
 }
-.review-comment {
+.review_comment {
 	float: left;
 	width: 400px;
     line-height: 2;
-	margin-right: 10px;
+    font-size: 14px;
+	margin-right: 20px;
+}
+.review_date {
+	float: left;
+	width: 100px;
+    line-height: 2;
+    font-size: 14px;
+	margin-right: 20px;
 }
 .review_grade {
-	display: inline-block;
-	padding-left: 50px;
-	right: 0;
+	float: left;
+	width: 165px;
 }
 .review_grade .bg_star {
     display: block;
