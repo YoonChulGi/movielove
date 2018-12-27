@@ -61,7 +61,7 @@
         			<% for(int j=1;j<=5;j++) {%>
 		        		<div>
         					<!-- 감상평 -->
-        					<span class="review-comment">정말 재미있었네요~~~~~~~~~~ 정말 재미있었네요~~~~~~~~~~</span> 
+        					<span class="review-comment"><a href="#">정말 재미있었네요~~~~~~~~~~ 정말 재미있었네요~~~~~~~~~~</a></span> 
         					<!-- 별점 -->
         					<a class="raking_grade" style="height:32px;">
 								<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:71.7%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
