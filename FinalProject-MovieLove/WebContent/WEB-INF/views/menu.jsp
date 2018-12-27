@@ -158,7 +158,7 @@
                     <li> <a href="checkout_page.html">비교 분석</a></li>
                   </ul>
                 </li>
-                <li> <a href="movie_review.do">감상평</a></li>
+                <li> <a href="movie_review_page.do">감상평</a></li>
               </ul>
             </div>
             <!-- /.nav-collapse -->
