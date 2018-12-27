@@ -82,7 +82,12 @@
     		</div>
     	</div>
     	
-    	<a class="btn btn-primary btn-lg" href="#" style="position:fixed;right:200px;bottom:20px;">다른영화와 비교분석하기</a>
+    	<a class="btn btn-primary btn-lg" onclick="openMovieSearch()" style="position:fixed;right:200px;bottom:20px;">다른영화와 비교분석하기</a>
+    	<script type="text/javascript">
+    		function openMovieSearch(){
+    			open("movie_search_popup.do", "영화 검색", "toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=777, height=533");
+    		}
+    	</script>
     	
     </div>
     

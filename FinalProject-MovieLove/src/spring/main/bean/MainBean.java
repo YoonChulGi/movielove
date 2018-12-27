@@ -51,4 +51,9 @@ public class MainBean {
 		System.out.println("movie_analysis_page");
 		return "movie_analysis_page";
 	}
+	@RequestMapping("movie_search_popup.do")
+	public String movie_search_popup() {
+		System.out.println("movie_search_popup.do");
+		return "movie_search_popup";
+	}
 }
