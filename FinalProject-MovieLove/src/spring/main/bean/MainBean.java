@@ -46,4 +46,9 @@ public class MainBean {
 		System.out.println("MainBean-movie_review()");
 		return "movie_review";
 	}
+	@RequestMapping("movie_analysis_page.do")
+	public String movie_analysis_page() {
+		System.out.println("movie_analysis_page");
+		return "movie_analysis_page";
+	}
 }

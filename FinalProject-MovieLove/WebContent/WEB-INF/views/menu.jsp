@@ -64,12 +64,7 @@
           	<div class="col-xs-12 col-sm-4"></div>
             <div class="navbar-header col-xs-6 col-sm-4 center-block"> <a class="navbar-brand" href="main.do"> <img alt="themini" src="images/logo.png"> </a> </div>
           </div>
-          <div class="row">
-              <div class="mb_10" style="float:right; margin-right: 5px;">
-			  	<a href="login.do">로그인<a/> / <a href="register.do">회원가입</a>
-			  </div>
-          </div>
-          
+                    
           <nav class="navbar">
             <p>menu</p>
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse"> <span class="i-bar"><i class="fa fa-bars"></i></span></button>
@@ -157,7 +152,7 @@
                     <li> <a href="movie_recommend_page.do">연도별</a></li>
                     <li> <a href="movie_recommend_page.do">연령별</a></li>
                   </ul>
-                <li class="dropdown"> <a href="main.jsp" class="dropdown-toggle">영화 분석</a>
+                <li class="dropdown"> <a href="movie_analysis_page.do" class="dropdown-toggle">영화 분석</a>
                   <ul class="dropdown-menu">
                     <li> <a href="cart_page.html">상세 분석</a></li>
                     <li> <a href="checkout_page.html">비교 분석</a></li>
