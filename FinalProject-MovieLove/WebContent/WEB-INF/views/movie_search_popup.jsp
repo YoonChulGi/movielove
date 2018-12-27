@@ -7,12 +7,34 @@
     <link href="css/small-business.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
+<style>
+body{
+	display:flex;
+  	align-items:center;
+}
+
+</style>
 <body>
 	
     
-    <div class="container"> <!-- container -->
-    	<h2 style="position:relative;top:50%;transform:translateY(-50%);">쎈fdsafdsafdas터</h2>
+    <div class="container" align="center" style="width:100%"> <!-- container -->
+    	<div class="row">
+    		<h3>비교하고 싶은 영화를 검색해주세요♥</h3>
+	    	<div class="review-search">
+	    		<ul>
+	    			<li><input id="search-input" name="search" placeholder="영화 검색" class="form-control input-lg" autocomplete="off" type="text" style="padding-top:0px;padding-bottom:0px;"></li>
+	           		<li><button class="btn btn-lg btn-search">검색</button></li>
+	            </ul>
+       		</div>
+    	</div>
+    	<br />
+    	<br />
+    	<br />
+    	<br />
+    	<br />
     </div>
+    
+    	 
     
     
     
