@@ -41,10 +41,10 @@ public class MainBean {
 		System.out.println("MainBean-movie_recommend_page()");
 		return "movie_recommend_page";
 	}
-	@RequestMapping("movie_review.do")
+	@RequestMapping("movie_review_page.do")
 	public String movie_review() {
 		System.out.println("MainBean-movie_review()");
-		return "movie_review";
+		return "movie_review_page";
 	}
 	@RequestMapping("movie_analysis_page.do")
 	public String movie_analysis_page() {
