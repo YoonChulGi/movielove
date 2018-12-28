@@ -85,8 +85,10 @@
 		
     	<a class="btn btn-primary btn-lg" onclick="openReviewWrite()" style="position:fixed;right:200px;bottom:20px;">감상평 작성</a>
     	<script type="text/javascript">
+    		var popupX = (window.screen.width/2) - (750/2);  // 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+    		var popupY= (window.screen.height/2) - (450/2);   // 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
     		function openReviewWrite(){
-    			open("review_write_popup.do", "감상평 작성", "toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=750, height=450");
+    			window.open('review_write_popup.do', '감상평 작성', 'toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=750,height=450,left='+popupX+',top='+popupY);
     		}
     	</script>
     </div>
