@@ -56,7 +56,7 @@
                           <div class="row">
                             <div class="col-lg-12">
                               <div class="login-menu text-center">
-                                <a href="register.jsp" tabindex="5" class="register">회원가입</a>  |  
+                                <a href="register.do" tabindex="5" class="register">회원가입</a>  |  
                                 <a href="#" tabindex="5" class="forgot-id">아이디 찾기</a>  |  
                                 <a href="#" tabindex="5" class="forgot-password">비밀번호 찾기</a>
                               </div>
