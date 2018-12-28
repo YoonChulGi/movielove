@@ -46,6 +46,11 @@ public class MainBean {
 		System.out.println("MainBean-movie_review_page()");
 		return "movie_review_page";
 	}
+	@RequestMapping("review_write_popup.do")
+	public String review_write_popup() {
+		System.out.println("review_write_popup.do");
+		return "review_write_popup";
+	}
 	@RequestMapping("movie_analysis_page.do")
 	public String movie_analysis_page() {
 		System.out.println("movie_analysis_page");

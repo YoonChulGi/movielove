@@ -82,6 +82,13 @@
 	        </li>
 			<%} %>
 		</ul>
+		
+    	<a class="btn btn-primary btn-lg" onclick="openReviewWrite()" style="position:fixed;right:200px;bottom:20px;">감상평 작성</a>
+    	<script type="text/javascript">
+    		function openReviewWrite(){
+    			open("review_write_popup.do", "감상평 작성", "toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=750, height=450");
+    		}
+    	</script>
     </div>
     <!-- /.container -->
         
