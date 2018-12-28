@@ -3,15 +3,25 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+
+$(document).ready(function(){
+$('.starRev span').click(function(){
+	  $(this).parent().children('span').removeClass('on');
+	  $(this).addClass('on').prevAll('span').addClass('on');
+	  return false;
+	});
+});
+</script>
+<script>
 $(function() {
-      $('#review-content').keyup(function (e){
-          var content = $(this).val();
-          $(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
-          if(content.length < 40){
-          	$('#review-counter').html(content.length + '/40자');
-          }
-      });
-      $('#review-content').keyup();
+	$('#review-content').keyup(function (e){
+		var content = $(this).val();
+        $(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
+        if(content.length < 40){
+        	$('#review-counter').html(content.length + '/40자');
+        }
+    });
+    $('#review-content').keyup();
 });
 </script>
 
@@ -48,8 +58,19 @@ body{
 					<span class="popup-menu">평점</span>
        				<!-- 별점 -->
         			<a class="review_grade popup-content" style="height:32px">
-						<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:71.7%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
-						<em class="emph_grade">7.1</em>
+        				<div class="starRev">
+  							<span class="starR1 on">별1_왼쪽</span>
+   							<span class="starR2">별1_오른쪽</span>
+   							<span class="starR1">별2_왼쪽</span>
+   							<span class="starR2">별2_오른쪽</span>
+   							<span class="starR1">별3_왼쪽</span>
+   							<span class="starR2">별3_오른쪽</span>
+  							<span class="starR1">별4_왼쪽</span>
+  							<span class="starR2">별4_오른쪽</span>
+  							<span class="starR1">별5_왼쪽</span>
+  							<span class="starR2">별5_오른쪽</span>
+  						</div>
+  						<em class="emph_grade">7.1</em>
 						<span class="txt_grade">/10</span>
 					</a>
 				</div>
