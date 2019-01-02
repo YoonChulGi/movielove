@@ -3,11 +3,6 @@ package spring.main.bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-//윤철기 좆까凸 자꾸 고장나  ddddd
-
-//hello456
-
 @Controller
 public class MainBean {
 	@RequestMapping("main.do")
@@ -23,6 +18,7 @@ public class MainBean {
 	@RequestMapping("register.do")
 	public String register() {
 		System.out.println("MainBean-register()");
+		
 		return "register";
 	}
 	@RequestMapping("movie_info_page.do")
