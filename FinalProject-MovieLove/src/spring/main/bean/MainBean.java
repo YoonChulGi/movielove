@@ -1,10 +1,17 @@
 package spring.main.bean;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
+
 @Controller
 public class MainBean {
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
+	
 	@RequestMapping("main.do")
 	public String Main() {
 		System.out.println("MainBean-Main()");
@@ -18,6 +25,22 @@ public class MainBean {
 	@RequestMapping("register.do")
 	public String register() {
 		System.out.println("MainBean-register()");
+		String pw = "1234";
+		String encryptPassword = passwordEncoder.encode(pw);
+		System.out.println("암호화 전 pw: " + pw + "암호화 후 pw: " + encryptPassword);
+		
+		if(passwordEncoder.matches("4242", encryptPassword)) {
+			System.out.println("비밀번호 일치");
+		} else {
+			System.out.println("비밀번호 불일치");
+		}
+		
+		
+		if(passwordEncoder.matches(pw, encryptPassword)) {
+			System.out.println("일치");
+		} else {
+			System.out.println("불일치");
+		}
 		
 		return "register";
 	}
