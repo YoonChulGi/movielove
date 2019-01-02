@@ -51,8 +51,23 @@ body{
 	    	<div class="row row-review mb_10" align="center">
        			<div class="row-menu">
 					<span class="popup-menu">제목</span>
-					<input id="search-input" name="search" placeholder="영화 검색" class="form-control input-lg popup-content" type="text" style="width:60%">
-					<button class="btn btn-lg btn-search" onclick="search()">검색</button>
+					<fieldset style="block">
+						<input id="search-input" name="search" placeholder="영화 검색" class="form-control input-lg popup-content" type="text" style="width:60%">
+						<button class="btn btn-lg btn-search" onclick="search()">검색</button>
+					</fieldset>
+					<div class="pcsgt_layer">
+						<div class="cate_pcsgt" id="movie_suggest_pc">
+							<strong id="movie_suggest_title_pc" class="tit_pcsgt">영화</strong>
+							<ul id="movie_suggest_list_pc" class="list_pcsgt">
+							</ul>
+						</div>
+						<div class="cate_pcsgt cate_name" id="person_suggest_pc"> <!-- 영화인 cate_name클래스 -->
+							<strong id="person_suggest_title_pc" class="tit_pcsgt">영화인</strong>
+							<ul id="person_suggest_list_pc" class="list_pcsgt">
+							</ul>
+						</div>
+						<a href="" class="link_pcsgt #gnb #search #result">검색결과 전체보기<span class="ico_popcorn ico_arr"></span></a>
+					</div>
 				</div>
        		</div>
        		<div class="row row-review mb_10" align="center">
