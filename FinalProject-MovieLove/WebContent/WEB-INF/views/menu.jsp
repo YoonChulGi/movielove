@@ -76,61 +76,7 @@
             </div>
             <div class="collapse navbar-collapse js-navbar-collapse"  style="float:right;">
               <ul id="menu" class="nav navbar-nav">
-                <li class="dropdown mega-dropdown"> <a href="main.do" class="dropdown-toggle">Home</a>
-                  <ul class="dropdown-menu mega-dropdown-menu row">
-                    <li class="col-md-3">
-                      <ul>
-                        <li class="dropdown-header">Women's</li>
-                        <li><a href="#">Unique Features</a></li>
-                        <li><a href="#">Image Responsive</a></li>
-                        <li><a href="#">Auto Carousel</a></li>
-                        <li><a href="#">Newsletter Form</a></li>
-                        <li><a href="#">Four columns</a></li>
-                        <li><a href="#">Four columns</a></li>
-                        <li><a href="#">Good Typography</a></li>
-                      </ul>
-                    </li>
-                    <li class="col-md-3">
-                      <ul>
-                        <li class="dropdown-header">Man's</li>
-                        <li><a href="#">Unique Features</a></li>
-                        <li><a href="#">Image Responsive</a></li>
-                        <li><a href="#">Four columns</a></li>
-                        <li><a href="#">Auto Carousel</a></li>
-                        <li><a href="#">Newsletter Form</a></li>
-                        <li><a href="#">Four columns</a></li>
-                        <li><a href="#">Good Typography</a></li>
-                      </ul>
-                    </li>
-                    <li class="col-md-3">
-                      <ul>
-                        <li class="dropdown-header">Children's</li>
-                        <li><a href="#">Unique Features</a></li>
-                        <li><a href="#">Four columns</a></li>
-                        <li><a href="#">Image Responsive</a></li>
-                        <li><a href="#">Auto Carousel</a></li>
-                        <li><a href="#">Newsletter Form</a></li>
-                        <li><a href="#">Four columns</a></li>
-                        <li><a href="#">Good Typography</a></li>
-                      </ul>
-                    </li>
-                    <li class="col-md-3">
-                      <ul>
-                        <li id="myCarousel" class="carousel slide" data-ride="carousel">
-                          <div class="carousel-inner">
-                            <div class="item active"> <a href="#"><img src="images/gr1.png" class="img-responsive" alt="Banner1"></a></div>
-                            <!-- End Item -->
-                            <div class="item"> <a href="#"><img src="images/gr2.png" class="img-responsive" alt="Banner1"></a></div>
-                            <!-- End Item -->
-                            <div class="item"> <a href="#"><img src="images/gr3.png" class="img-responsive" alt="Banner1"></a></div>
-                            <!-- End Item -->
-                          </div>
-                          <!-- End Carousel Inner -->
-                        </li>
-                        <!-- /.carousel -->
-                      </ul>
-                    </li>
-                  </ul>
+                <li class="dropdown mega-dropdown"> <a href="main.do" class="">Home</a>
                 </li>
                 <li class="dropdown"> <a href="movie_info_page.do" class="dropdown-toggle">영화 정보</a>
                   <ul class="dropdown-menu">
