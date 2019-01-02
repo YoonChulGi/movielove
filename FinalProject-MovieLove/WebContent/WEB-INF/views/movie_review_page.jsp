@@ -57,12 +57,13 @@
 					<span class="comment_span">[40자평]</span>
 					<span class="movie_title"><%=movie_title%></span>
 					<button class="btn btn-lg btn_review_more">더 보기</button>
-					<div style="height: 25px;"></div>
+					<div style="height:20px"></div>
 					<div class="review-summary-menu">
         				<span class="review_writer" style="font-weight:bold">작성자</span>
         				<span class="review_comment" style="font-weight:bold"><a href="#">감상평</a></span>
         				<span class="review_date" style="font-weight:bold">작성 날짜</span>
         				<span class="review_grade" style="font-weight:bold">평점</span>
+        				<span class="review_sympathy" style="font-weight:bold">공감수</span>
 	        		</div>
         			<% for(int j=1;j<=5;j++) {%>
 		        		<div>
@@ -76,6 +77,7 @@
 								<em class="emph_grade">7.1</em>
 								<span class="txt_grade">/10</span>
 							</a>
+        				<span class="review_sympathy" style="padding-left:10px">201</span>
 	        			</div>
 	        		<%} %>
 	        	</div>
@@ -85,8 +87,8 @@
 		
     	<a class="btn btn-primary btn-lg" onclick="openReviewWrite()" style="position:fixed;right:200px;bottom:20px;">감상평 작성</a>
     	<script type="text/javascript">
-    		var popupX = (window.screen.width/2) - (750/2);
-    		var popupY = (window.screen.height/2) - (450/2);
+    		var popupX = (window.screen.width)/2 - (750/2);
+    		var popupY = (window.screen.height)/2 - (450/2);
     		function openReviewWrite(){
     			window.open('review_write_popup.do', '감상평 작성', 'toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=750,height=450,left='+popupX+',top='+popupY);
     		}

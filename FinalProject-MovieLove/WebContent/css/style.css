@@ -3032,14 +3032,14 @@ a.btn_red_s {
 	display: inline-block;
 }
 .movie_list li.movie_li {
-	width: 88%;
+	width: 94%;
 	height: 270px;
 	display:inline-block;
     position: relative;
     border: 1px solid #e6e6e6;
     padding: 0 0 10px 190px;
-    margin-left: 6%;
-    margin-right: 6%;
+    margin-left: 2%;
+    margin-right: 2%;
     margin-bottom: 40px;
 }
 .review-summary {
@@ -3062,6 +3062,7 @@ a.btn_red_s {
 .movie_list li.movie_li div.review-summary button.btn_review_more {
 	position: absolute;
 	right: 0;
+	top: 34px;
 	color: #fff;
 	height: 30px;
 	padding-top: 5px;
@@ -3106,6 +3107,45 @@ a.btn_red_s {
 .review_grade {
 	float: left;
 	width: 165px;
+	margin-right: 20px;
+}
+.review_grade .bg_star {
+    display: block;
+    float: left;
+    width: 106px;
+    height: 17px;
+    margin-top: 5.5px;
+    margin-bottom: 5.5px;
+    background: url(//i1.daumcdn.net/img-contents/movie/2016/pc/bg_star_170614_v2.png) no-repeat 0 0;
+}
+.review_grade .bg_star .inner_star {
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    margin-top: -0.1px;
+    background-position: 0 -20px;
+    text-indent: -9999px;
+}
+.review_grade .emph_grade {
+    float: left;
+    color: #2a2a2a;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.review_grade .txt_grade {
+    float: left;
+    font-size: 18px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #989898;
+}
+.review_sympathy {
+	float: left;
+	width: 50px;
+    line-height: 2;
+    font-size: 14px;
 }
 .starR1{
     background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat -52px 0;
@@ -3127,21 +3167,6 @@ a.btn_red_s {
 }
 .starR1.on{background-position:0 0;}
 .starR2.on{background-position:-15px 0;}
-.review_grade .emph_grade {
-    float: left;
-    color: #2a2a2a;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    font-size: 18px;
-    font-weight: bold;
-}
-.review_grade .txt_grade {
-    float: left;
-    font-size: 18px;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    color: #989898;
-}
 .popup-title {
 	margin-bottom: 50px;
 }
