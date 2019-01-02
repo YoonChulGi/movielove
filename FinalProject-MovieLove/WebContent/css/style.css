@@ -3032,14 +3032,14 @@ a.btn_red_s {
 	display: inline-block;
 }
 .movie_list li.movie_li {
-	width: 94%;
+	width: 92%;
 	height: 270px;
 	display:inline-block;
     position: relative;
     border: 1px solid #e6e6e6;
     padding: 0 0 10px 190px;
-    margin-left: 2%;
-    margin-right: 2%;
+    margin-left: 4%;
+    margin-right: 4%;
     margin-bottom: 40px;
 }
 .review-summary {
@@ -3106,7 +3106,8 @@ a.btn_red_s {
 }
 .review_grade {
 	float: left;
-	width: 165px;
+	width: 140px;
+    line-height: 2;
 	margin-right: 20px;
 }
 .review_grade .bg_star {
@@ -3129,17 +3130,9 @@ a.btn_red_s {
 .review_grade .emph_grade {
     float: left;
     color: #2a2a2a;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    font-size: 18px;
+    margin-left: 5px;
+    font-size: 16px;
     font-weight: bold;
-}
-.review_grade .txt_grade {
-    float: left;
-    font-size: 18px;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    color: #989898;
 }
 .review_sympathy {
 	float: left;

@@ -72,11 +72,10 @@
         					<span class="review_comment"><a href="#">정말 재미있었네요~~~~~~~~~~ 정말 재미있었네요~~~~~~~~~~</a></span> 
         					<span class="review_date">2018.11.25 17:31</span>
         					<!-- 별점 -->
-        					<a class="review_grade" style="height:32px">
+        					<span class="review_grade">
 								<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:71.7%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
 								<em class="emph_grade">7.1</em>
-								<span class="txt_grade">/10</span>
-							</a>
+							</span>
         				<span class="review_sympathy" style="padding-left:10px">201</span>
 	        			</div>
 	        		<%} %>
@@ -87,8 +86,8 @@
 		
     	<a class="btn btn-primary btn-lg" onclick="openReviewWrite()" style="position:fixed;right:200px;bottom:20px;">감상평 작성</a>
     	<script type="text/javascript">
-    		var popupX = (window.screen.width)/2 - (750/2);
-    		var popupY = (window.screen.height)/2 - (450/2);
+    		var popupX = (window.screen.width/2) - (750/2);
+    		var popupY = (window.screen.height/2) - (450/2);
     		function openReviewWrite(){
     			window.open('review_write_popup.do', '감상평 작성', 'toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=750,height=450,left='+popupX+',top='+popupY);
     		}
