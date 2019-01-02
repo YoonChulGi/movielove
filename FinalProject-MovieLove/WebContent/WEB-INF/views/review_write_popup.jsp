@@ -3,11 +3,13 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+var grade = 0.5;
 
 $(document).ready(function(){
 $('.starRev span').click(function(){
 	  $(this).parent().children('span').removeClass('on');
 	  $(this).addClass('on').prevAll('span').addClass('on');
+	  $("#review_grade").html($(this).attr('value'));
 	  return false;
 	});
 });
@@ -59,19 +61,20 @@ body{
        				<!-- 별점 -->
         			<a class="review_grade popup-content" style="height:32px">
         				<div class="starRev">
-  							<span class="starR1 on">별1_왼쪽</span>
-   							<span class="starR2">별1_오른쪽</span>
-   							<span class="starR1">별2_왼쪽</span>
-   							<span class="starR2">별2_오른쪽</span>
-   							<span class="starR1">별3_왼쪽</span>
-   							<span class="starR2">별3_오른쪽</span>
-  							<span class="starR1">별4_왼쪽</span>
-  							<span class="starR2">별4_오른쪽</span>
-  							<span class="starR1">별5_왼쪽</span>
-  							<span class="starR2">별5_오른쪽</span>
+  							<span class="starR-left on" value="0.5">별1_왼쪽</span>
+   							<span class="starR-right" value="1.0">별1_오른쪽</span>
+   							<span class="starR-left" value="1.5">별2_왼쪽</span>
+   							<span class="starR-right" value="2.0">별2_오른쪽</span>
+   							<span class="starR-left" value="2.5">별3_왼쪽</span>
+   							<span class="starR-right" value="3.0">별3_오른쪽</span>
+  							<span class="starR-left" value="3.5">별4_왼쪽</span>
+  							<span class="starR-right" value="4.0">별4_오른쪽</span>
+  							<span class="starR-left" value="4.5">별5_왼쪽</span>
+  							<span class="starR-right" value="5.0">별5_오른쪽</span>
   						</div>
-  						<em class="emph_grade">7.1</em>
-						<span class="txt_grade">/10</span>
+  						<em id="review_grade" class="emph_grade" style="font-size:18px">7.1</em>
+						<span class="txt_grade" style="margin-left:5px;margin-right:5px;">/</span>
+						<span class="txt_grade">10</span>
 					</a>
 				</div>
        		</div>
