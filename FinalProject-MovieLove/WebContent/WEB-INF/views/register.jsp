@@ -35,7 +35,7 @@
 </script>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
   <head>
     <!-- Custom styles for this template -->
@@ -70,7 +70,10 @@
                       <form id="login-form" action="#" method="post">
                       	<div>아이디</div>
                         <div class="form-group">
-                          <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="아이디" value="">
+                          <div class="row">
+                          	<div class="col-sm-9 col-lg-9 col-xs-9 col-md-9" style="padding-left:0;"><input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="아이디" value=""></div> 
+                          	<div class="col-sm-3 col-lg-3 col-xs-3 col-md-3" style="padding-right:0;"><input type="button" value="중복 확인" class="form-control btn" style="height:48px;"></div>
+                          </div>
                         </div>
                       	<div>비밀번호</div>
                         <div class="form-group">
