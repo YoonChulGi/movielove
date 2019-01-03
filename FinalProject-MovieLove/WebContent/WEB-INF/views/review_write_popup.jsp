@@ -21,8 +21,11 @@
 	#ui-id-1 {
 	    z-index: 99999;
 	    position: absolute;
+	    max-height: 175px;
+	    overflow-x: hidden;
+	    overflow-y: scroll;
 	    left: 221px;
-	    top: 153px;
+	    top: 142px;
 	    border-top: 0px;
 	    border-left: 1px solid #565656;
 	    border-right: 1px solid #565656;
@@ -88,7 +91,7 @@
 	    text-overflow: ellipsis;
 	}
 </style>
-	
+
 <!--  영화 검색 자동완성 스크립트 -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -96,47 +99,65 @@
   $( function() {
     var movie_info = [
       {
+    	  label: "스윙키즈",
+    	  year: "2018",
+    	  link: "#",
+          img_src: "images/poster3.jpg"
+      },
+      {
+    	  label: "범블비",
+    	  year: "2018",
+    	  link: "#",
+          img_src: "images/poster2.jpg"
+      },
+      {
     	  label: "아쿠아맨",
     	  year: "2018",
     	  link: "#",
-          img_src: "images/poster.jpg"
+          img_src: "images/poster1.jpg"
       },
       {
     	  label: "아쿠아맨1",
     	  year: "2018",
           link: "#",
-          img_src: "images/poster.jpg"
+          img_src: "images/poster1.jpg"
       },
       {
-          label: "아쿠아맨2",
-          year: "2018",
+    	  label: "아쿠아맨2",
+          year: "2019",
           link: "#",
-          img_src: "images/poster.jpg"
+          img_src: "images/poster1.jpg"
       },
       {
-          label: "아쿠아맨3",
-          year: "2018",
+    	  label: "아쿠아맨3",
+          year: "2020",
           link: "#",
-          img_src: "images/poster.jpg"
-        }
+          img_src: "images/poster1.jpg"
+      }
     ];
  
     $( "#search-movie" ).autocomplete({
-      minLength: 0,
+      minLength: 1,
       source: movie_info,
+      success: function (result) {
+    	    response($.map(movie_info.slice (0,3), function(item) {
+    	    return {
+    	    value: item.label
+    	    };
+    	    }));
+      },
       focus: function( event, ui ) {
-        $( "#search-movie" ).val( ui.item.label );
-        return false;
+        //$( "#search-movie" ).val( ui.item.label );
+        //return false;
       },
       select: function( event, ui ) {
         $( "#search-movie" ).val( ui.item.label );
- 
         return false;
       }
     })
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
       return $( "<li id='movie_list_li'>" )
-        .append("<a href='"+item.link+"' class='link_item #gnb #search #suggest'> <span class='thumb_g'> <img src='" + item.img_src + "' width='30' height='40' class='thumb_img'></span> <div class='cont_item'> <strong class='tit_item'> <span class='emph_sgt'>" + item.label + "</span></strong> <span class='txt_year'>" + item.year + "</span></div></a>")
+        .append("<div class='link_item'> <span class='thumb_g'> <img src='"+item.img_src+"' width='30' height='40' class='thumb_img'></span> <div class='cont_item'> <strong class='tit_item'> <span class='emph_sgt'>"+item.label+"</span></strong> <span class='txt_year'>"+item.year+"</span></div></div>")
       	.append("</li>")
         .appendTo( ul );
     };
@@ -178,50 +199,17 @@ $(function() {
 	    	<div class="row row-review mb_10" align="center">
        			<div class="row-menu">
 					<span class="popup-menu">제목</span>
-					<fieldset style="block">
-						<input id="search-movie" name="search" placeholder="영화 검색" class="form-control input-lg popup-content" type="text" style="width:78%">
-						<button class="btn btn-lg btn-search" onclick="search()">검색</button>
-					</fieldset>
-					
-					<div class="pcsgt_layer">
-						<div class="cate_pcsgt" id="movie_suggest_pc">
-							<ul id="movie_suggest_list_pc" class="list_pcsgt">
-								<li id="movie_list_li" class="pcsgt_on">
-									<a href="/moviedb/main?movieId=94484" class="link_item #gnb #search #suggest @1">
-										<span class="thumb_g">
-											<img src="//img1.daumcdn.net/thumb/C100x144/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F4eeebce90dc441cdb208d11e27e356421544513634869" width="35" height="49" class="thumb_img" alt="아쿠아맨" onload="noImageOnLoad($(this))">
-										</span>
-										<div class="cont_item">
-											<strong class="tit_item"><span class="emph_sgt">아쿠아맨</span></strong>
-											<span class="txt_year">2018</span>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a href="/moviedb/main?movieId=94484" class="link_item #gnb #search #suggest @2">
-										<span class="thumb_g">
-											<img src="//img1.daumcdn.net/thumb/C100x144/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F4eeebce90dc441cdb208d11e27e356421544513634869" width="35" height="49" class="thumb_img" alt="아쿠아맨" onload="noImageOnLoad($(this))">
-										</span>
-										<div class="cont_item">
-											<strong class="tit_item"><span class="emph_sgt">아쿠아맨</span></strong>
-											<span class="txt_year">2018</span>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a href="/moviedb/main?movieId=94484" class="link_item #gnb #search #suggest @3">
-										<span class="thumb_g">
-											<img src="//img1.daumcdn.net/thumb/C100x144/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F4eeebce90dc441cdb208d11e27e356421544513634869" width="35" height="49" class="thumb_img" alt="아쿠아맨" onload="noImageOnLoad($(this))">
-										</span>
-										<div class="cont_item">
-											<strong class="tit_item"><span class="emph_sgt">아쿠아맨</span></strong>
-											<span class="txt_year">2018</span>
-										</div>
-									</a>
-								</li>
-							</ul>
+        			<div class="popup-content">
+						<fieldset>
+							<input id="search-movie" name="search" placeholder="영화 검색" class="form-control input-lg popup-content" type="text" style="width:100%">
+						</fieldset>
+						<div class="pcsgt_layer">
+							<div class="cate_pcsgt" id="movie_suggest_pc">
+								<ul id="movie_suggest_list_pc" class="list_pcsgt">	
+								</ul>
+							</div>
+							<a href="/search/main?searchText=%EC%95%84%EC%BF%A0%EC%95%84%EB%A7%A8&amp;returnUrl=https%3A%2F%2Fmovie.daum.net%2Fmoviedb%2Fmain%3FmovieId%3D94484" class="link_pcsgt #gnb #search #result">검색결과 전체보기<span class="ico_popcorn ico_arr"></span></a>
 						</div>
-						<a href="/search/main?searchText=%EC%95%84%EC%BF%A0%EC%95%84%EB%A7%A8&amp;returnUrl=https%3A%2F%2Fmovie.daum.net%2Fmoviedb%2Fmain%3FmovieId%3D94484" class="link_pcsgt #gnb #search #result">검색결과 전체보기<span class="ico_popcorn ico_arr"></span></a>
 					</div>
 				</div>
 			</div>
