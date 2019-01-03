@@ -1,9 +1,14 @@
 package spring.main.bean;
 
+import java.util.List;
+
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import spring.vo.bean.MemVO;
 
 
 
@@ -11,6 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainBean {
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
+	@Autowired
+	private SqlSessionTemplate sqlSession = null;
+	@Autowired
+	MemVO Memvo = null;
 	
 	@RequestMapping("main.do")
 	public String Main() {
@@ -34,14 +43,16 @@ public class MainBean {
 		} else {
 			System.out.println("비밀번호 불일치");
 		}
-		
-		
 		if(passwordEncoder.matches(pw, encryptPassword)) {
 			System.out.println("일치");
 		} else {
 			System.out.println("불일치");
 		}
+		Memvo = (MemVO)sqlSession.selectOne("mem.selectAll");
 		
+		System.out.println(Memvo.getMEM_ID());
+		System.out.println(Memvo.getMEM_PW());
+		System.out.println(Memvo.getMEM_GENDER());
 		return "register";
 	}
 	@RequestMapping("movie_info_page.do")
