@@ -6,4 +6,9 @@
 	<select id="selectAll" resultType="MemVO">
 		select * from mem
 	</select>
+	<select id="idcheck" parameterType="String" resultType="Integer">
+      SELECT COUNT(*) FROM mem
+      WHERE
+          MEM_ID = #{username}
+	</select>
 </mapper>

@@ -72,7 +72,84 @@
                         <div class="form-group">
                           <div class="row">
                           	<div class="col-sm-9 col-lg-9 col-xs-9 col-md-9" style="padding-left:0;"><input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="아이디" value=""></div> 
-                          	<div class="col-sm-3 col-lg-3 col-xs-3 col-md-3" style="padding-right:0;"><input type="button" value="중복 확인" class="form-control btn" style="height:48px;"></div>
+                          	<div class="col-sm-3 col-lg-3 col-xs-3 col-md-3" style="padding-right:0;"><input type="button" value="중복 확인" class="form-control btn" style="height:48px;" id="confirmBtn"></div>
+                          	<script>
+                          		var idck = 0;
+                          		$(function(){
+                          			$("#confirmBtn").click(function(){
+                          				var username = $("#username").val();
+                          				$.ajax({
+                          					async : true,
+                          					type : 'POST',
+                          					data : username,
+                          					url : "idcheck.do",
+                          					
+                          					success : function(data) {
+                          						var cnt = parseInt(data);
+                          						if(cnt > 0) {
+                          							alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
+                          							$("#username").focus();
+                          						} else {
+                          							alert("사용가능한 아이디입니다. ");
+                          							idck = 1;
+                          						}
+                          					},
+                          					error : function(error) {
+                          						alert("error : " + error);
+                          						console.dir(error);
+                          					}
+                          				});
+                          			});
+                          			
+                          			$("#register-submit").click(function(){
+                          				var username = $("#username").val();
+                          				var pw = $("#password").val();
+                          				var pw_confirm = $("#password-confirm").val();
+                          				var birth_year = $("#birth_year").val();
+                          				var birth_month = $("#birth_month").val();
+                          				var birth_day = $("#birth_day").val();
+                          				
+                          				if(username=="") {
+                          					alert("아이디를 입력하세요");
+                          					$("#username").focus();
+                          					return; 
+                          				} else if(idck!=1){
+                          					alert("아이디 중복확인을 해주세요");
+                          					$("#confirmBtn").focus();
+                          					return;
+                          				} else if(pw=="") {
+                          					alert("비밀번호를 입력하세요");
+                          					$("#password").focus();
+                          					return;
+                          				} else if(pw_confirm=="") {
+                          					alert("비밀번호 확인칸을 입력해주세요");
+                          					$("#password-confirm").focus();
+                          					return; 
+                          				} else if(birth_year==""){
+                          					alert("생년월일을 확인해주세요");
+                          					$("#birth_year").focus();
+                          					return;
+                          				} else if(birth_month==""){
+                          					alert("생년월일을 확인해주세요");
+                          					$("#birth_month").focus();
+                          					return;
+                          				}  else if(birth_day==""){
+                          					$("#birth_day").focus();
+                          					alert("생년월일을 확인해주세요");
+                          					return;
+                          				} else if(pw!=pw_confirm) {
+                          					$("#password").val() = '';
+                          					$("#password-confirm").val() = '';
+                          					$("#password").focus();
+                          					return; 
+                          				} else {
+                          					alert("ffff");
+                          				}
+                          				
+                          			});
+                          			
+                          		});
+                          	</script>
                           </div>
                         </div>
                       	<div>비밀번호</div>
@@ -119,7 +196,7 @@
                           		<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class="btn" style="padding:5px;"><br>
                         	</div>
                         	<div class="form-group">
-                          		<input type="text" name="address_normal" id="address_normal" tabindex="4" class="form-control" placeholder="기본 주소">
+                          		<input type="text" name="address_normal" id="address_normal" tabindex="4" class="form-control" placeholder="기본 주소" readonly onclick="execDaumPostcode()">
                         	</div>
                         	<div class="form-group" style="height:50px;">
                           		<input type="text" name="address_detail" id="address_detail" tabindex="5" class="form-control" placeholder="상세 주소">
@@ -136,8 +213,8 @@
                         </div>
                         <div class="form-group">
                           <div class="row">
-                            <div">
-                              <input type="submit" name="register-submit" id="register-submit" value="회원가입" tabindex="7" class="form-control btn btn-register">
+                            <div>
+                              <input type="button" name="register-submit" id="register-submit" value="회원가입" tabindex="7" class="form-control btn btn-register">
                             </div>
                           </div>
                         </div>

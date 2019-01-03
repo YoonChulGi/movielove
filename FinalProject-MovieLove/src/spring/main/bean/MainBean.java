@@ -1,12 +1,17 @@
 package spring.main.bean;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import spring.vo.bean.MemVO;
 
@@ -95,5 +100,16 @@ public class MainBean {
 	public String movie_search_popup() {
 		System.out.println("movie_search_popup.do");
 		return "movie_search_popup";
+	}
+	@RequestMapping("idcheck.do")
+		@ResponseBody
+		public String idcheck(@RequestBody String username){
+		int count = 0;
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		
+		count = (Integer)sqlSession.selectOne("mem.idcheck",username);
+		System.out.println("count: " + count);
+		map.put("cnt", count);
+		return count+"";
 	}
 }
