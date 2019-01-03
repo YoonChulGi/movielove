@@ -1,69 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- 영화검색 자동완성 스크립트 -->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript">
-//<![CDATA[
-
-  <script>
-  $( function() {
-    var projects = [
-      {
-    	  label: "아쿠아맨",
-    	  year: "2018",
-    	  link: "#",
-    	  img_src: "images/poster.jpg",
-      },
-      {
-    	  label: "아쿠아맨1",
-          year: "2018",
-          link: "#",
-          img_src: "images/poster.jpg",
-      },
-      {
-          label: "아쿠아맨2",
-          year: "2018",
-          link: "#",
-          img_src: "images/poster.jpg",
-      },
-      {
-          label: "아쿠아맨3",
-          year: "2018",
-          link: "#",
-          img_src: "images/poster.jpg",
-      }
-    ];
- 
-    $( "#search-movie" ).autocomplete({
-      minLength: 0,
-      source: projects,
-      focus: function( event, ui ) {
-        $( "#search-movie" ).val( ui.item.label );
-        return false;
-      },
-      select: function( event, ui ) {
-        $( "#search-movie" ).val( ui.item.label );
- 
-        return false;
-      }
-    })
-    .autocomplete( "instance" )._renderItem = function( ul, item ) {
-      return $( "<li id='movie_list_li'>" )
-        .append("<a href='"+item.link+"' class='link_item #gnb #search #suggest'> <span class='thumb_g'> <img src='" + item.img_src + "' width='35' height='49' class='thumb_img'></span> <div class='cont_item'> <strong class='tit_item'> <span class='emph_sgt'>" + item.label + "</span></strong> <span class='txt_year'>" + item.year + "</span></div></a>")
-      	.append("</li>")
-        .appendTo( ul );
-    };
-  } );
-//]]>
-</script>
-
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -72,6 +9,9 @@
     <link href="css/small-business.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	
 <style>  
 	body{
@@ -154,7 +94,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
   $( function() {
-    var projects = [
+    var movie_info = [
       {
     	  label: "아쿠아맨",
     	  year: "2018",
@@ -183,7 +123,7 @@
  
     $( "#search-movie" ).autocomplete({
       minLength: 0,
-      source: projects,
+      source: movie_info,
       focus: function( event, ui ) {
         $( "#search-movie" ).val( ui.item.label );
         return false;
