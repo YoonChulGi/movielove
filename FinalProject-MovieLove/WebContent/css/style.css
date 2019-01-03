@@ -3228,8 +3228,7 @@ a.btn_red_s {
     display: none;
     z-index: 99999;
     position: absolute;
-    left: 102.5px;
-    width: 319.5px;
+    width: 100%;
     border-left: 1px solid #e5e5e5;
     border-right: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
