@@ -56,7 +56,7 @@
 				<div class="review-summary">
 					<span class="comment_span">[40자평]</span>
 					<span class="movie_title"><%=movie_title%></span>
-					<button class="btn btn-lg btn_review_more">더 보기</button>
+					<a href="#"><button class="btn btn-lg btn_review_more">더 보기</button></a>
 					<div style="height:20px"></div>
 					<div class="review-summary-menu">
         				<span class="review_writer" style="font-weight:bold">작성자</span>
