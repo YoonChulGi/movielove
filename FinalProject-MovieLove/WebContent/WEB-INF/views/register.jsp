@@ -226,12 +226,12 @@
                         </div>
                       	<div>관심있는 영화 장르 (중복 선택 가능)</div>
                         <div class="register_checkbox form-group text-left">
-                          <input type="checkbox" tabindex="6" name="remember" id="reg_checkbox_action" class="register_checkbox" style="margin-left:2px"> 액션/SF  
-                          <input type="checkbox" tabindex="6" name="remember" id="reg_checkbox_melo" class="register_checkbox"> 멜로/드라마  
-                          <input type="checkbox" tabindex="6" name="remember" id="reg_checkbox_comedy" class="register_checkbox"> 코미디  <br/>
-                          <input type="checkbox" tabindex="6" name="remember" id="reg_checkbox_horror" class="register_checkbox" style="margin-left:2px"> 공포/스릴러  
-                          <input type="checkbox" tabindex="6" name="remember" id="reg_checkbox_ani" class="register_checkbox"> 애니메이션  
-                          <input type="checkbox" tabindex="6" name="remember" id="reg_checkbox_etc" class="register_checkbox"> 기타
+                          <input type="checkbox" tabindex="6" name="genre1" id="reg_checkbox_action" class="register_checkbox" style="margin-left:2px"> 액션/SF  
+                          <input type="checkbox" tabindex="6" name="genre2" id="reg_checkbox_melo" class="register_checkbox"> 멜로/드라마  
+                          <input type="checkbox" tabindex="6" name="genre3" id="reg_checkbox_comedy" class="register_checkbox"> 코미디  <br/>
+                          <input type="checkbox" tabindex="6" name="genre4" id="reg_checkbox_horror" class="register_checkbox" style="margin-left:2px"> 공포/스릴러  
+                          <input type="checkbox" tabindex="6" name="genre5" id="reg_checkbox_ani" class="register_checkbox"> 애니메이션  
+                          <input type="checkbox" tabindex="6" name="genre6" id="reg_checkbox_etc" class="register_checkbox"> 기타
                         </div>
                         <div class="form-group">
                           <div class="row">
