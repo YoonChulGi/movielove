@@ -1,13 +1,18 @@
 package spring.main.bean;
 
+import java.io.UnsupportedEncodingException;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -105,11 +110,31 @@ public class MainBean {
 		@ResponseBody
 		public String idcheck(@RequestBody String username){
 		int count = 0;
-		Map<Object, Object> map = new HashMap<Object, Object>();
-		
+		System.out.println("idcheck.do");
+		System.out.println("username: " + username);
 		count = (Integer)sqlSession.selectOne("mem.idcheck",username);
 		System.out.println("count: " + count);
-		map.put("cnt", count);
 		return count+"";
+	}
+	@RequestMapping("registerPro.do")
+	public String regsterPro(HttpServletRequest request) {
+		
+		System.out.println(request.getParameterNames());
+		Enumeration names = request.getParameterNames();
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		while(names.hasMoreElements()) {
+			String name = (String) names.nextElement();
+			System.out.print(name);
+			System.out.println(": "+request.getParameter(name));
+		}
+		
+		
+		
+		return null;
 	}
 }

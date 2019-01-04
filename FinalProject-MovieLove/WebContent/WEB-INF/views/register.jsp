@@ -67,7 +67,7 @@
                 <div class="panel-body">
                   <div class="row">
                     <div class="col-lg-12">
-                      <form id="login-form" action="#" method="post">
+                      <form id="login-form" action="registerPro.do" method="post">
                       	<div>아이디</div>
                         <div class="form-group">
                           <div class="row">
@@ -78,6 +78,10 @@
                           		$(function(){
                           			$("#confirmBtn").click(function(){
                           				var username = $("#username").val();
+                          				if(username==''){
+                          					alert('아이디를 입력해주세요');
+                          					return;
+                          				}
                           				$.ajax({
                           					async : true,
                           					type : 'POST',
@@ -88,6 +92,7 @@
                           						var cnt = parseInt(data);
                           						if(cnt > 0) {
                           							alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
+                          							idck = 0;
                           							$("#username").focus();
                           						} else {
                           							alert("사용가능한 아이디입니다. ");
@@ -101,6 +106,10 @@
                           				});
                           			});
                           			
+                          			$("#username").change(function(){
+                          				idck = 0;
+                          			});
+                          			
                           			$("#register-submit").click(function(){
                           				var username = $("#username").val();
                           				var pw = $("#password").val();
@@ -108,6 +117,8 @@
                           				var birth_year = $("#birth_year").val();
                           				var birth_month = $("#birth_month").val();
                           				var birth_day = $("#birth_day").val();
+                          				var address_normal = $("#address_normal").val();
+                          				var address_detail = $("#address_detail").val();
                           				
                           				if(username=="") {
                           					alert("아이디를 입력하세요");
@@ -138,12 +149,23 @@
                           					alert("생년월일을 확인해주세요");
                           					return;
                           				} else if(pw!=pw_confirm) {
+                          					alert('비밀번호를 확인해주세요');
                           					$("#password").val() = '';
                           					$("#password-confirm").val() = '';
                           					$("#password").focus();
                           					return; 
+                          				} else if(address_normal==''){
+                          					 alert("주소를 확인해주세요");
+                          					 $("#address_normal").focus();
+                          					 return;
+                          				} else if(address_detail==''){
+                          					alert("주소를 확인해주세요");
+                         					 $("#address_detail").focus();
+                         					 return;
                           				} else {
-                          					alert("ffff");
+                          					alert("submit");
+                          					alert($("#address_normal").val());
+                          					$("#login-form").submit();
                           				}
                           				
                           			});
@@ -188,8 +210,8 @@
                         </div>
                         <div>성별</div>
                         <div class="form-group">
-                          <input type="radio" name="gender" value="남" checked>남
-                          <input type="radio" name="gender" value="여">여
+                          <input type="radio" name="gender" value="MALE" checked>남
+                          <input type="radio" name="gender" value="FEMALE">여
                         </div>
                         <div class="form-group">
                       		<div class="mb_5">주소 

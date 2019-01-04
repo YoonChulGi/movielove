@@ -3,6 +3,7 @@ package spring.vo.bean;
 public class MemVO {
 	private String MEM_ID;
 	private String MEM_PW;
+	private String MEM_AGE;
 	private String MEM_GENDER;
 	private String MEM_ADDRESS1;
 	private String MEM_ADDRESS2;
@@ -24,6 +25,12 @@ public class MemVO {
 	}
 	public void setMEM_GENDER(String mEM_GENDER) {
 		MEM_GENDER = mEM_GENDER;
+	}
+	public String getMEM_AGE() {
+		return MEM_AGE;
+	}
+	public void setMEM_AGE(String mEM_AGE) {
+		MEM_AGE = mEM_AGE;
 	}
 	public String getMEM_ADDRESS1() {
 		return MEM_ADDRESS1;
