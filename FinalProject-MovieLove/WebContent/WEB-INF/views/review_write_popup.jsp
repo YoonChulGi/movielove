@@ -171,7 +171,7 @@ $(document).ready(function(){
 $('.starRev span').click(function(){
 	  $(this).parent().children('span').removeClass('on');
 	  $(this).addClass('on').prevAll('span').addClass('on');
-	  $("#review_grade").html($(this).attr('value'));
+	  $("#review_rating").html($(this).attr('value'));
 	  return false;
 	});
 });
@@ -180,14 +180,14 @@ $('.starRev span').click(function(){
 <!-- 글자수 제한 스크립트 -->
 <script>
 $(function() {
-	$('#review-content').keyup(function (e){
+	$('#review-contents').keyup(function (e){
 		var content = $(this).val();
         $(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
         if(content.length < 41){
         	$('#review-counter').html(content.length + '/40자');
         }
     });
-    $('#review-content').keyup();
+    $('#review-contents').keyup();
 });
 </script>
 </head>
@@ -195,14 +195,14 @@ $(function() {
 <body>
     <div class="container" align="center" style="width:100%"> <!-- container -->
     	<h3 class="popup-title">[40자평 작성]</h3>
-    	<form action="writePro.do" method="get">
+    	<form action="review_writePro.do" method="get">
     	<div class="col-sm-11" style="display:inline-block ;margin-left:4.1666%; margin-right:4.1666%;">
 	    	<div class="row row-review mb_10" align="center">
        			<div class="row-menu">
 					<span class="popup-menu">제목</span>
         			<div class="popup-content">
 						<fieldset>
-							<input id="search-movie" name="search" placeholder="영화 검색" class="form-control input-lg popup-content" type="text" style="width:100%">
+							<input id="search-movie" name="review_mvname" placeholder="영화 검색" class="form-control input-lg popup-content" type="text" style="width:100%">
 						</fieldset>
 						<div class="pcsgt_layer">
 							<div class="cate_pcsgt" id="movie_suggest_pc">
@@ -220,18 +220,27 @@ $(function() {
        				<!-- 별점 -->
         			<a class="review_grade popup-content" style="height:32px">
         				<div class="starRev">
-  							<span class="starR-left on" value="1">별1_왼쪽</span>
-   							<span class="starR-right" value="2">별1_오른쪽</span>
-   							<span class="starR-left" value="3">별2_왼쪽</span>
-   							<span class="starR-right" value="4">별2_오른쪽</span>
-   							<span class="starR-left" value="5">별3_왼쪽</span>
-   							<span class="starR-right" value="6">별3_오른쪽</span>
-  							<span class="starR-left" value="7">별4_왼쪽</span>
-  							<span class="starR-right" value="8">별4_오른쪽</span>
-  							<span class="starR-left" value="9">별5_왼쪽</span>
-  							<span class="starR-right" value="10">별5_오른쪽</span>
+  							<span name="starR" class="starR-left on" value="1">별1_왼쪽</span>
+   							<span name="starR" class="starR-right" value="2">별1_오른쪽</span>
+   							<span name="starR" class="starR-left" value="3">별2_왼쪽</span>
+   							<span name="starR" class="starR-right" value="4">별2_오른쪽</span>
+   							<span name="starR" class="starR-left" value="5">별3_왼쪽</span>
+   							<span name="starR" class="starR-right" value="6">별3_오른쪽</span>
+  							<span name="starR" class="starR-left" value="7">별4_왼쪽</span>
+  							<span name="starR" class="starR-right" value="8">별4_오른쪽</span>
+  							<span name="starR" class="starR-left" value="9">별5_왼쪽</span>
+  							<span name="starR" class="starR-right" value="10">별5_오른쪽</span>
   						</div>
-  						<em id="review_grade" class="emph_grade" style="font-size:18px">1</em>
+  						<em id="review_rating" class="emph_grade" style="font-size:18px">1</em>
+  						<input name="review_rating" type="hidden" value="1" id="review_rating_hidden"/>
+  						<script type="text/javascript">
+  							$(function(){
+  								$("span[name=starR]").click(function(){
+  									$("#review_rating_hidden").val($("#review_rating").html());
+  								});
+  							});
+  						</script>
+  						
 						<span class="txt_grade" style="margin-left:5px;margin-right:5px;">/</span>
 						<span class="txt_grade">10</span>
 					</a>
@@ -240,10 +249,11 @@ $(function() {
 	    	<div class="row row-review mb_10" align="center">
        			<div class="row-menu">
 	       			<span class="popup-menu">내용</span>
-       				<textarea id="review-content" class="popup-content" maxlength="40" placeholder="40자 감상평을 작성해주세요"></textarea>
+       				<textarea id="review_contents" name="review_contents" class="popup-content" maxlength="40" placeholder="40자 감상평을 작성해주세요"></textarea>
        				<span id="review-counter">0</span>
        			</div>
        		</div>
+       		<input name="review_writer" type="hidden" value="test"/>
        		<button id="btn-review_write" class="btn btn-primary btn-lg">작성</button>
        		</form>
        	</div>

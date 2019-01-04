@@ -1,40 +1,42 @@
 package spring.vo.bean;
 
+import java.sql.Timestamp;
+
 public class ReviewVO {
-	private String REVIEW_MVNAME;
-	private String REVIEW_CONTENTS;
-	private String REVIEW_RATING;
-	private String REVIEW_WRITER;
-	private String REVIEW_DATE;
+	private String review_mvname;
+	private String review_contents;
+	private String review_rating;
+	private String review_writer;
+	private Timestamp review_date;
 	
-	public String getREVIEW_MVNAME() {
-		return REVIEW_MVNAME;
+	public String getReview_mvname() {
+		return review_mvname;
 	}
-	public void setREVIEW_MVNAME(String rEVIEW_MVNAME) {
-		REVIEW_MVNAME = rEVIEW_MVNAME;
+	public void setReview_mvname(String review_mvname) {
+		this.review_mvname = review_mvname;
 	}
-	public String getREVIEW_CONTENTS() {
-		return REVIEW_CONTENTS;
+	public String getReview_contents() {
+		return review_contents;
 	}
-	public void setREVIEW_CONTENTS(String rEVIEW_CONTENTS) {
-		REVIEW_CONTENTS = rEVIEW_CONTENTS;
+	public void setReview_contents(String review_contents) {
+		this.review_contents = review_contents;
 	}
-	public String getREVIEW_RATING() {
-		return REVIEW_RATING;
+	public String getReview_rating() {
+		return review_rating;
 	}
-	public void setREVIEW_RATING(String rEVIEW_RATING) {
-		REVIEW_RATING = rEVIEW_RATING;
+	public void setReview_rating(String review_rating) {
+		this.review_rating = review_rating;
 	}
-	public String getREVIEW_WRITER() {
-		return REVIEW_WRITER;
+	public String getReview_writer() {
+		return review_writer;
 	}
-	public void setREVIEW_WRITER(String rEVIEW_WRITER) {
-		REVIEW_WRITER = rEVIEW_WRITER;
+	public void setReview_writer(String review_writer) {
+		this.review_writer = review_writer;
 	}
-	public String getREVIEW_DATE() {
-		return REVIEW_DATE;
+	public Timestamp getReview_date() {
+		return review_date;
 	}
-	public void setREVIEW_DATE(String rEVIEW_DATE) {
-		REVIEW_DATE = rEVIEW_DATE;
+	public void setReview_date(Timestamp review_date) {
+		this.review_date = review_date;
 	}
 }

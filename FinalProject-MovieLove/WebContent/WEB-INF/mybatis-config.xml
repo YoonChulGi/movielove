@@ -5,10 +5,12 @@
 <configuration>
 	<typeAliases >
 		<typeAlias type="spring.vo.bean.MemVO" alias="MemVO"/>
+		<typeAlias type="spring.vo.bean.ReviewVO" alias="ReviewVO"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="/sql/mybatisSQL.xml" />
+		<mapper resource="/sql/reviewSQL.xml" />
 	</mappers>
 	
 </configuration>

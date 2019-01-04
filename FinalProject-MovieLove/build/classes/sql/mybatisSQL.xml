@@ -15,5 +15,4 @@
 		insert into review(review_mvname, review_contents, review_rating, review_writer, review_date) 
 		values(#{review_mvname}, #{review_contents}, #{review_rating}, #{review_writer}, #{review_date})
 	</insert>
-	
 </mapper>

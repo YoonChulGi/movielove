@@ -3312,11 +3312,6 @@ a.btn_red_s {
 	background-color: #d9534f;
 	border-color: #d43f3a;
 }
-#btn-review_write:hover, #btn-review_write:focus {
-    background: #808080 none repeat scroll 0 0;
-    color: #fff;
-    text-decoration: none;
-}
 /* --- 영화 감상평 페이지 End --- */
 
     /* =====  END RESPONSIVE CSS  =====*/
