@@ -195,6 +195,7 @@ $(function() {
 <body>
     <div class="container" align="center" style="width:100%"> <!-- container -->
     	<h3 class="popup-title">[40자평 작성]</h3>
+    	<form action="writePro.do" method="get">
     	<div class="col-sm-11" style="display:inline-block ;margin-left:4.1666%; margin-right:4.1666%;">
 	    	<div class="row row-review mb_10" align="center">
        			<div class="row-menu">
@@ -244,6 +245,7 @@ $(function() {
        			</div>
        		</div>
        		<button id="btn-review_write" class="btn btn-primary btn-lg">작성</button>
+       		</form>
        	</div>
     </div>
     
