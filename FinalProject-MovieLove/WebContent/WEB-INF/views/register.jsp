@@ -206,6 +206,23 @@
                          			for (i=1;i<=31;i++) document.write("<option>"+i);
                          			document.write("</select>일");
                          	</script>
+                         	<input type="hidden" name="year" id="year"/>
+                         	<input type="hidden" name="month" id="month"/>
+                         	<input type="hidden" name="day" id="day"/>
+                         	<script>
+								$("#birth_year").change(function(){
+									alert('year');
+									$("#year").val($("#birth_year").val());
+	                         	});
+	                         	$("#birth_month").change(function(){
+	                         		alert('month');
+	                         		$("#month").val($("#birth_month").val());
+	                         	});
+	                         	$("#birth_day").change(function(){
+	                         		alert('day');
+	                         		$("#day").val($("#birth_day").val());
+	                         	});
+                         	</script>
                     		</td>
                         </div>
                         <div>성별</div>

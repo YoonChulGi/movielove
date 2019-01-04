@@ -1,7 +1,9 @@
 package spring.main.bean;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
@@ -96,6 +98,9 @@ public class MainBean {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String gender = request.getParameter("gender");
+		int year = Integer.parseInt(request.getParameter("year"));
+		int month = Integer.parseInt(request.getParameter("month"));
+		int day = Integer.parseInt(request.getParameter("day"));
 		String address_normal = request.getParameter("address_normal");
 		String address_detail = request.getParameter("address_detail");
 		String genre1 = request.getParameter("genre1");
@@ -105,43 +110,57 @@ public class MainBean {
 		String genre5 = request.getParameter("genre5");
 		String genre6 = request.getParameter("genre6");
 		String genre = "";
-		if (genre1.equals("on")) {
+		if (genre1!=null) {
 			genre += "1";
 		} else {
 			genre += "0";
 		}
 
-		if (genre2.equals("on")) {
+		if (genre2!=null) {
 			genre += "1";
 		} else {
 			genre += "0";
 		}
 
-		if (genre3.equals("on")) {
+		if (genre3!=null) {
 			genre += "1";
 		} else {
 			genre += "0";
 		}
 
-		if (genre4.equals("on")) {
+		if (genre4!=null) {
 			genre += "1";
 		} else {
 			genre += "0";
 		}
 
-		if (genre5.equals("on")) {
+		if (genre5!=null) {
 			genre += "1";
 		} else {
 			genre += "0";
 		}
 
-		if (genre6.equals("on")) {
+		if (genre6!=null) {
 			genre += "1";
 		} else {
 			genre += "0";
 		}
-
 		System.out.println(genre);
+		
+		String pattern = "yyyy-MM-dd";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		
+		
+		
+		Date d = new Date();
+		d.setYear(year-1900);
+		d.setMonth(month-1);
+		d.setDate(day);
+		
+		String date = simpleDateFormat.format(d);
+		
+		System.out.println("date: " + date);
+		
 		return null;
 	}
 
