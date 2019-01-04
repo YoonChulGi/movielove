@@ -118,23 +118,69 @@ public class MainBean {
 	}
 	@RequestMapping("registerPro.do")
 	public String regsterPro(HttpServletRequest request) {
-		
-		System.out.println(request.getParameterNames());
-		Enumeration names = request.getParameterNames();
 		try {
 			request.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		Enumeration names = request.getParameterNames();
+		
 		while(names.hasMoreElements()) {
 			String name = (String) names.nextElement();
 			System.out.print(name);
 			System.out.println(": "+request.getParameter(name));
 		}
 		
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		String gender = request.getParameter("gender");
+		String address_normal = request.getParameter("address_normal");
+		String address_detail = request.getParameter("address_detail");
+		String genre1 = request.getParameter("genre1");
+		String genre2 = request.getParameter("genre2");
+		String genre3 = request.getParameter("genre3");
+		String genre4 = request.getParameter("genre4");
+		String genre5 = request.getParameter("genre5");
+		String genre6 = request.getParameter("genre6");
+		String genre = "";
+		if(genre1.equals("on")) {
+			genre += "1";
+		} else {
+			genre += "0";
+		}
 		
+		if(genre2.equals("on")) {
+			genre += "1";
+		} else {
+			genre += "0";
+		}
 		
+		if(genre3.equals("on")) {
+			genre += "1";
+		} else {
+			genre += "0";
+		}
+		
+		if(genre4.equals("on")) {
+			genre += "1";
+		} else {
+			genre += "0";
+		}
+		
+		if(genre5.equals("on")) {
+			genre += "1";
+		} else {
+			genre += "0";
+		}
+		
+		if(genre6.equals("on")) {
+			genre += "1";
+		} else {
+			genre += "0";
+		}
+		
+		System.out.println(genre);
 		return null;
 	}
 }
