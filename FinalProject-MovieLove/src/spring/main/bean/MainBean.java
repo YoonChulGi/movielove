@@ -238,4 +238,10 @@ public class MainBean {
 		System.out.println("movie_search_popup.do");
 		return "movie_search_popup";
 	}
+	@RequestMapping("register_confirm.do")
+	public String register_confirm() {
+		System.out.println("register_confirm");
+		return "register_confirm";
+	}
+	
 }
