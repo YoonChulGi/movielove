@@ -81,6 +81,7 @@ public class MainBean {
 
 	@RequestMapping("registerPro.do")
 	public String regsterPro(HttpServletRequest request) {
+		System.out.println("MainBean-registerPro()");
 		try {
 			request.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {

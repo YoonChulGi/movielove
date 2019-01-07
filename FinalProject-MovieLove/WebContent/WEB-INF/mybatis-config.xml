@@ -9,7 +9,7 @@
 	</typeAliases>
 	
 	<mappers>
-		<mapper resource="/sql/mybatisSQL.xml" />
+		<mapper resource="/sql/memberSQL.xml" />
 		<mapper resource="/sql/reviewSQL.xml" />
 	</mappers>
 	
