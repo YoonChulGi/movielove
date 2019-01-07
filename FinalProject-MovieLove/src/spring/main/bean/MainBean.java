@@ -43,6 +43,16 @@ public class MainBean {
 		return "login";
 	}
 
+	public String loginPro(HttpServletRequest request) {
+		System.out.println("MainBean-loginPro()");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		System.out.println("username: "+username);
+		System.out.println("password: "+password);
+		
+		return null;
+	}
+	
 	@RequestMapping("register.do")
 	public String register() {
 		System.out.println("MainBean-register()");
@@ -179,6 +189,7 @@ public class MainBean {
 		System.out.println("MainBean-movie_recommend_page()");
 		return "movie_recommend_page";
 	}
+	
 	@RequestMapping("movie_review_page.do")
 	public String movie_review_page() {
 		System.out.println("MainBean-movie_review_page()");
@@ -238,6 +249,7 @@ public class MainBean {
 		System.out.println("movie_search_popup.do");
 		return "movie_search_popup";
 	}
+	
 	@RequestMapping("register_confirm.do")
 	public String register_confirm() {
 		System.out.println("register_confirm");

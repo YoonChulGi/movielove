@@ -34,7 +34,7 @@
                 <div class="panel-body">
                   <div class="row">
                     <div class="col-lg-12">
-                      <form id="login-form" action="#" method="post">
+                      <form id="login-form" action="loginPro.do" method="post">
                         <div class="form-group">
                           <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="아이디" value="">
                         </div>
@@ -47,8 +47,27 @@
                         </div>
                         <div class="form-group">
                           <div class="row">
-                            <div">
-                              <input type="submit" name="login-submit" id="login-submit" value="로그인" tabindex="4" class="form-control btn btn-login">
+                            <div>
+                              <input type="button" name="login-submit" id="login-submit" value="로그인" tabindex="4" class="form-control btn btn-login">
+                              <script>
+                              $(function(){
+                            	 $("#login-submit").click(function() {
+                            		  var username = $("#username").val();
+                            		  var password = $("#password").val();
+                            		  if(username==''){
+                            			  alert("아이디를 입력하세요");
+                            			  $("#username").focus();
+                            			  return;
+                            		  } else if(password==''){
+                            			 alert("비밀번호를 입력하세요");
+                            			 $("#password").focus();
+                            			 return;
+                            		  } else {
+                            			  $("#login-form").submit();
+                            		  }
+                            	 });
+                              });
+                              </script>
                             </div>
                           </div>
                         </div>
