@@ -11,69 +11,28 @@
 
 	<!-- =====  HEADER START  ===== -->
 
-<div class="main-header">
-        <div class="container">
-          <div class="row">
-          	<div class="col-xs-12 col-sm-4"></div>
-            <div class="navbar-header col-xs-6 col-sm-4 center-block"> <a class="navbar-brand" href="main.do"> <img alt="themini" src="images/logo.png"> </a> </div>
-          </div>
-                    
-          <nav class="navbar">
-            <p>menu</p>
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse"> <span class="i-bar"><i class="fa fa-bars"></i></span></button>
-            <div class="main-search">
-                <input id="search-input" name="search" value="" placeholder="영화 검색" class="form-control input-lg mb_10" autocomplete="off" type="text">
-                <span class="input-group-btn">
-              		<button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
-            	</span>
-            </div>
-            <div class="collapse navbar-collapse js-navbar-collapse" style="float:right;">
-              <ul id="menu" class="nav navbar-nav">
-                <li class="dropdown mega-dropdown"> <a href="main.do" class="">Home</a>
-                </li>
-                <li class="dropdown"> <a href="movie_info_page.do" class="dropdown-toggle">영화 정보</a>
-                  <ul class="dropdown-menu">
-                    <li> <a href="movie_info_page.do?sel=1">상영중</a></li>
-                    <li> <a href="movie_info_page.do?sel=2">개봉 예정</a></li>
-                    <li> <a href="movie_info_page.do?sel=3">지난 영화</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown"> <a href="movie_ranking_page.do" class="dropdown-toggle">랭킹</a>
-                  <ul class="dropdown-menu">
-                    <li> <a href="movie_ranking_page.do?sel=1">일간 박스오피스 순위</a></li>
-                    <li> <a href="movie_ranking_page.do?sel=2">주간 박스오피스 순위</a></li>
-                    <li> <a href="movie_ranking_page.do?sel=3">올해의 박스오피스 순위</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown"> <a href="movie_recommend_page.do" class="dropdown-toggle">추천 영화</a>
-                  <ul class="dropdown-menu">
-                    <li> <a href="movie_recommend_page.do">장르별</a></li>
-                    <li> <a href="movie_recommend_page.do">연도별</a></li>
-                    <li> <a href="movie_recommend_page.do">연령별</a></li>
-                  </ul>
-                </li><li class="dropdown"> <a href="movie_analysis_page.do" class="dropdown-toggle">영화 분석</a>
-                  <ul class="dropdown-menu">
-                    <li> <a href="cart_page.html">상세 분석</a></li>
-                    <li> <a href="checkout_page.html">비교 분석</a></li>
-                  </ul>
-                </li>
-                <li> <a href="movie_review_page.do">40자평</a></li>
-              </ul>
-            </div>
-            <!-- /.nav-collapse -->
-          </nav>
-        </div>
-      </div>      
+         
     <jsp:include page="menu.jsp" flush="false"/>
     <!-- =====  HEADER END  ===== -->
     
-    <div class="container"> <!-- container -->
-    
+    <div class="container" style="padding-bottom:140px;" >
+    <div class="row">
+    <div class="col-lg-12 col-sm-6">
+    <div class="submit" style=" padding-top:50px; padding-bottom:60px; color:gray; " >
+    	<h2 align="center" style="padding-top:60px;"><img alt="themini" src="images/logo.png">회원가입을 축하합니다!</h2>
+    	<div class="button lg col-lg-12 text-center" style="align:center; padding-top:40px;">
+    	<a class="btn btn-primary btn" href="main.do" style="width:100px;" >메인으로</a>
+    	<a class="btn btn-primary btn" href="login.do" style="width:100px;">로그인</a>
+    	</div>
+    	</div>
     </div>
-    
+    </div>
+    </div> 
+    <!-- container -->
+  
     <!-- =====  FOOTER START  ===== -->
     <jsp:include page="footer.jsp" flush="false"/>
-    <!-- =====  FOOTER END  ===== -->
+    <!-- =====  FOOTER END  ===== -->	
     
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
