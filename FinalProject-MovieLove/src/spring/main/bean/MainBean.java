@@ -46,25 +46,6 @@ public class MainBean {
 	@RequestMapping("register.do")
 	public String register() {
 		System.out.println("MainBean-register()");
-		String pw = "1234";
-		String encryptPassword = passwordEncoder.encode(pw);
-		System.out.println("암호화 전 pw: " + pw + "암호화 후 pw: " + encryptPassword);
-
-		if (passwordEncoder.matches("4242", encryptPassword)) {
-			System.out.println("비밀번호 일치");
-		} else {
-			System.out.println("비밀번호 불일치");
-		}
-		if (passwordEncoder.matches(pw, encryptPassword)) {
-			System.out.println("일치");
-		} else {
-			System.out.println("불일치");
-		}
-		Memvo = (MemVO) sqlSession.selectOne("mem.selectAll");
-
-		System.out.println(Memvo.getMEM_ID());
-		System.out.println(Memvo.getMEM_PW());
-		System.out.println(Memvo.getMEM_GENDER());
 		return "register";
 	}
 
@@ -95,9 +76,13 @@ public class MainBean {
 			System.out.print(name);
 			System.out.println(": " + request.getParameter(name));
 		}
+		
+		
 
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		String enc_pw = passwordEncoder.encode(password);
+		
 		String gender = request.getParameter("gender");
 		int year = Integer.parseInt(request.getParameter("year"));
 		int month = Integer.parseInt(request.getParameter("month"));
@@ -161,6 +146,18 @@ public class MainBean {
 		String date = simpleDateFormat.format(d);
 		
 		System.out.println("date: " + date);
+		
+		Memvo.setMEM_ID(username);
+		Memvo.setMEM_PW(enc_pw);
+		Memvo.setMEM_AGE(date);
+		Memvo.setMEM_GENDER(gender);
+		Memvo.setMEM_ADDRESS1(address_normal);
+		Memvo.setMEM_ADDRESS2(address_detail);
+		Memvo.setMEM_GENRE(genre);
+		
+		
+		sqlSession.insert("mem.registerMember", Memvo);
+		
 		
 		return null;
 	}
