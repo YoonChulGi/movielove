@@ -118,7 +118,7 @@ public class MainBean {
 	}
 
 	@RequestMapping("registerPro.do")
-	public String regsterPro(HttpServletRequest request, HttpServletResponse response) {
+	public String regsterPro(HttpServletRequest request) {
 		System.out.println("MainBean-registerPro()");
 		try {
 			request.setCharacterEncoding("UTF-8");
@@ -174,16 +174,8 @@ public class MainBean {
 		Memvo.setMEM_GENRE(genre);
 		
 		sqlSession.insert("mem.registerMember", Memvo);
-		try {
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>alert('회원가입이 완료되었습니다.');</script>");
-			out.flush();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		
-		return "main";
+		return "registerConfirm";
 	}
 
 	@RequestMapping("movie_info_page.do")
