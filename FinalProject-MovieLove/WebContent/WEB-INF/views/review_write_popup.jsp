@@ -253,7 +253,7 @@ $(function() {
        				<span id="review-counter">0</span>
        			</div>
        		</div>
-       		<input name="review_writer" type="hidden" value="test"/>
+       		<input name="review_writer" type="hidden" value="<%=session.getAttribute("memId")%>"/>
        		<button id="btn-review_write" class="btn btn-primary btn-lg">작성</button>
        		</form>
        	</div>

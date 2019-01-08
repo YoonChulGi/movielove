@@ -9,6 +9,7 @@
 	//String movie_img="http://placehold.it/180x240";
 	String sel1="", sel2="", sel3="";
 	String sel = request.getParameter("sel");
+	String sessionId = (String)session.getAttribute("memId");
 	
 	if(sel != null){
 		if(sel.equals("1")){
@@ -88,8 +89,13 @@
     	<script type="text/javascript">
     		var popupX = (window.screen.width/2) - (750/2);
     		var popupY = (window.screen.height/2) - (450/2);
+    		var memId = <%= sessionId %>;
     		function openReviewWrite(){
-    			window.open('review_write_popup.do', '감상평 작성', 'toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=750,height=450,left='+popupX+',top='+popupY);
+    			if(memId!=null) {
+    				window.open('review_write_popup.do', '감상평 작성', 'toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=750,height=450,left='+popupX+',top='+popupY);
+    			} else {
+    				alert("로그인 후 작성하실 수 있습니다.");
+    			}
     		}
     	</script>
     </div>

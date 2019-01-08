@@ -209,12 +209,12 @@ public class MainBean {
 	}
 
 	@RequestMapping("review_writePro.do")
-	public String review_writePro(ReviewVO vo, HttpServletRequest request) throws Exception {
+	public String review_writePro(ReviewVO vo, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("MainBean-review_writePro()");
+		
 		try {
 			request.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		vo.setReview_mvname(request.getParameter("review_mvname"));
@@ -222,20 +222,25 @@ public class MainBean {
 		vo.setReview_rating(request.getParameter("review_rating"));
 		vo.setReview_writer(request.getParameter("review_writer"));
 		vo.setReview_date(new Timestamp(System.currentTimeMillis()));
-		sqlSession.insert("review.insertReview", vo);
-
-		//System.out.println("영화 제목: "+request.getParameter("review_mvname"));
-		//System.out.println("리뷰 내용: "+request.getParameter("review_contents"));
-		//System.out.println("평점: "+request.getParameter("review_rating"));
-		//System.out.println("작성자: "+request.getParameter("review_writer"));
+		
 		System.out.println("영화 제목: "+vo.getReview_mvname());
 		System.out.println("리뷰 내용: "+vo.getReview_contents());
 		System.out.println("평점: "+vo.getReview_rating());
 		System.out.println("작성자: "+vo.getReview_writer());
 		System.out.println("작성날짜: "+vo.getReview_date());
+
+		sqlSession.insert("review.insertReview", vo);
+		try {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('작성이 완료되었습니다.');history.go(-1);</script>");
+			out.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		//ReviewDAO.insertArticle(vo);
 		
-		return null;
+		return "movie_review_page";
 	}
 	
 	@RequestMapping("movie_analysis_page.do")
