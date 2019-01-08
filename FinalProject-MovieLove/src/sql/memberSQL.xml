@@ -20,9 +20,4 @@
 		Insert into mem(MEM_ID, MEM_PW,MEM_AGE,MEM_GENDER,MEM_ADDRESS1,MEM_ADDRESS2,MEM_GENRE)
 		values(#{MEM_ID}, #{MEM_PW}, #{MEM_AGE}, #{MEM_GENDER}, #{MEM_ADDRESS1}, #{MEM_ADDRESS2}, #{MEM_GENRE})
 	</insert>
-	
-	<insert id="insertReview" parameterType="ReviewVO">
-		insert into review(review_mvname, review_contents, review_rating, review_writer, review_date) 
-		values(#{review_mvname}, #{review_contents}, #{review_rating}, #{review_writer}, #{review_date})
-	</insert>
 </mapper>

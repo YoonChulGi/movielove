@@ -8,6 +8,7 @@ public class MemVO {
 	private String MEM_ADDRESS1;
 	private String MEM_ADDRESS2;
 	private String MEM_GENRE;
+	
 	public String getMEM_ID() {
 		return MEM_ID;
 	}
