@@ -51,31 +51,44 @@ public class MainBean {
 	public String loginPro(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("MainBean-loginPro()");
 		
-		String username = request.getParameter("username");
+		String id = request.getParameter("username");
 		String password = request.getParameter("password");
-		System.out.println("username: "+username);
+		System.out.println("username: "+id);
 		System.out.println("password: "+password);
 		
-		MemVO vo = new MemVO();
-		vo.setMEM_ID(username);
-		vo.setMEM_PW(password);
-		int result = (Integer) sqlSession.selectOne("mem.loginCheck", vo);
-		
-		if(result == 1) {
-			HttpSession session = request.getSession();
-			session.setAttribute("memId", username);
-			return "main";
-		} else {
+		MemVO vo = sqlSession.selectOne("mem.selectMem", id);
+		//입력한 id가 DB에 있을 경우
+		if(vo != null) {
+			//비밀번호 일치
+			if(passwordEncoder.matches(password, vo.getMEM_PW())){
+				HttpSession session = request.getSession();
+				session.setAttribute("memId", id);
+				return "main";
+			}
+			//비밀번호 불일치
+			else {
+				try {
+					response.setContentType("text/html; charset=UTF-8");
+					PrintWriter out = response.getWriter();
+					out.println("<script>alert('비밀번호가 일치하지 않습니다.');history.go(-1);</script>");
+					out.flush();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		//입력한 id가 DB에 없는 경우
+		else {
 			try {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();
-				out.println("<script>alert('아이디 혹은 비밀번호가 일치하지 않습니다.');history.go(-1);</script>");
+				out.println("<script>alert('입력한 아이디가 존재하지 않습니다.');history.go(-1);</script>");
 				out.flush();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			return null;
 		}
+		return null;
 	}
 
 	@RequestMapping("logout.do")

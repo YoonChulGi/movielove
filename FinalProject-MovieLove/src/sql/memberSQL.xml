@@ -3,9 +3,14 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mem">
+	<select id="selectMem" parameterType="String" resultType="MemVO">
+		select * from MEM where MEM_ID=#{MEM_ID}
+	</select>
+	
 	<select id="selectAll" resultType="MemVO">
 		select * from mem
 	</select>
+	
 	<select id="idcheck" parameterType="String" resultType="Integer">
       SELECT COUNT(*) FROM mem
       WHERE
