@@ -1,5 +1,7 @@
 package spring.main.bean;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.sql.Timestamp;
@@ -7,6 +9,8 @@ import java.text.SimpleDateFormat;
 import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,14 +47,44 @@ public class MainBean {
 		return "login";
 	}
 
-	public String loginPro(HttpServletRequest request) {
+	@RequestMapping("loginPro.do")
+	public String loginPro(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("MainBean-loginPro()");
+		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		System.out.println("username: "+username);
 		System.out.println("password: "+password);
 		
-		return null;
+		MemVO vo = new MemVO();
+		vo.setMEM_ID(username);
+		vo.setMEM_PW(password);
+		int result = (Integer) sqlSession.selectOne("mem.loginCheck", vo);
+		
+		if(result == 1) {
+			HttpSession session = request.getSession();
+			session.setAttribute("memId", username);
+			return "main";
+		} else {
+			try {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>alert('아이디 혹은 비밀번호가 일치하지 않습니다.');history.go(-1);</script>");
+				out.flush();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return null;
+		}
+	}
+
+	@RequestMapping("logout.do")
+	public String logout(HttpServletRequest request) {
+		System.out.println("MainBean-logout()");
+
+		HttpSession session = request.getSession();
+		session.invalidate();
+		return "main";
 	}
 	
 	@RequestMapping("register.do")
@@ -87,8 +121,6 @@ public class MainBean {
 			System.out.println(": " + request.getParameter(name));
 		}
 		
-		
-
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String enc_pw = passwordEncoder.encode(password);

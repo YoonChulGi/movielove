@@ -12,7 +12,11 @@
           MEM_ID = #{username}
 	</select>
 	
-	<insert id="registerMember" parameterType="Memvo">
+	<select id="loginCheck" parameterType="MemVO" resultType="Integer">
+		select count(*) from MEM where MEM_ID=#{MEM_ID} and MEM_PW=#{MEM_PW}
+	</select>
+	
+	<insert id="registerMember" parameterType="MemVO">
 		Insert into mem(MEM_ID, MEM_PW,MEM_AGE,MEM_GENDER,MEM_ADDRESS1,MEM_ADDRESS2,MEM_GENRE)
 		values(#{MEM_ID}, #{MEM_PW}, #{MEM_AGE}, #{MEM_GENDER}, #{MEM_ADDRESS1}, #{MEM_ADDRESS2}, #{MEM_GENRE})
 	</insert>

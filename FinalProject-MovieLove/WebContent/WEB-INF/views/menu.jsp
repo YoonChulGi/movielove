@@ -48,8 +48,13 @@
             </div>
             <div class="col-xs-12 col-sm-8">
               <ul class="header-top-right text-right" style="text-size:18px; margin-top:auto; margin-bottom:auto;">
-                <li class="account"><a href="login.do" style="color:#555555">로그인</a></li> | 
-                <li class="account"><a href="register.do" style="color:#555555">회원가입</a></li> | 
+   				<% if(session.getAttribute("memId")==null){%>
+                	<li class="account"><a href="login.do" style="color:#555555">로그인</a></li> | 
+                	<li class="account"><a href="register.do" style="color:#555555">회원가입</a></li> |
+                <%} else {%>
+                	<li class="account"><a style="color:#555555"><%=session.getAttribute("memId")%> 님 환영합니다!</a></li> | 
+                	<li class="account"><a href="logout.do" style="color:#555555">로그아웃</a></li> |
+                <%} %>
                 <li class="account"><a href="login.do" style="color:#555555">고객센터</a></li>
               </ul>
             </div>
