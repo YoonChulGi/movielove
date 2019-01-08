@@ -180,14 +180,14 @@ $('.starRev span').click(function(){
 <!-- 글자수 제한 스크립트 -->
 <script>
 $(function() {
-	$('#review-contents').keyup(function (e){
+	$('#review_contents').keyup(function (e){
 		var content = $(this).val();
         $(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
         if(content.length < 41){
         	$('#review-counter').html(content.length + '/40자');
         }
     });
-    $('#review-contents').keyup();
+    $('#review_contents').keyup();
 });
 </script>
 </head>
