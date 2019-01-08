@@ -163,7 +163,6 @@ public class MainBean {
 		d.setDate(day);
 		
 		String date = simpleDateFormat.format(d);
-		
 		System.out.println("date: " + date);
 		
 		Memvo.setMEM_ID(username);
@@ -174,9 +173,7 @@ public class MainBean {
 		Memvo.setMEM_ADDRESS2(address_detail);
 		Memvo.setMEM_GENRE(genre);
 		
-		
 		sqlSession.insert("mem.registerMember", Memvo);
-
 		try {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
