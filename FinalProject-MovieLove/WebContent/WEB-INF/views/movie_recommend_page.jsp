@@ -193,9 +193,7 @@
 				style="width: 880px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
 
 				<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
-					<strong
-						style="padding-right: 30px; display: inline-block; width: 66px; height: 20px;">NO.1</strong>
-					<span
+					<strong style="padding-right: 15px;">NO.1</strong> <span
 						style="padding-right: 30px; display: inline-block; width: 220px; height: 20px;">주먹왕
 						랄프 2-인터넷 속으로</span> <img
 						src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81061/81061_185.jpg"
@@ -205,12 +203,17 @@
 						style="color: red; padding-left: 15px; display: inline-block; width: 59px; height: 20px;">48.3%</strong>
 					<strong
 						style="padding-left: 15px; padding-right: 15px; display: inline-block; width: 136px; height: 20px;">2019.01.03
-						개봉</strong> <span class="starR on" style="color: red;">★</span> <span
-						class="starR" style="color: red;">★</span> <span class="starR"
-						style="color: red;">★</span> <span class="starR"
-						style="color: red;">★</span> <span class="starR">☆</span> <strong
-						style="padding-left: 10px;">평점</strong><span
-						style="padding-right: 50px; display: inline-block; width: 68px; height: 20px;">7.7</span>
+						개봉</strong> <strong style="padding-left: 5px;">평점7.7</strong>
+					<div class="review_grade"
+						style="float: right; padding-top: 27px; padding-left: 10px;">
+						<div class="bg_star star_grade">
+							<div class="bg_star inner_star" style="width: 80.5%;"></div>
+							<!-- 116px이 100%, % 계산에서 width값에 적용-->
+
+
+						</div>
+
+					</div>
 
 				</div>
 			</div>
@@ -219,9 +222,7 @@
 				style="width: 880px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
 
 				<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
-					<strong
-						style="padding-right: 30px; display: inline-block; width: 66px; height: 20px;">NO.2</strong>
-					<span
+					<strong style="padding-right: 15px;">NO.2</strong> <span
 						style="padding-right: 30px; display: inline-block; width: 220px; height: 20px;">아쿠아맨</span>
 
 
@@ -233,12 +234,17 @@
 						style="color: red; padding-left: 15px; display: inline-block; width: 59px; height: 20px;">17.9%</strong>
 					<strong
 						style="padding-left: 15px; padding-right: 15px; display: inline-block; width: 136px; height: 20px;">2018.12.19
-						개봉</strong> <span class="starR on" style="color: red;">★</span> <span
-						class="starR" style="color: red;">★</span> <span class="starR"
-						style="color: red;">★</span> <span class="starR"
-						style="color: red;">★</span> <span class="starR">☆</span> <strong
-						style="padding-left: 10px;">평점</strong><span
-						style="padding-right: 50px; display: inline-block; width: 68px; height: 20px;">7.5</span>
+						개봉</strong> <strong style="padding-left: 5px;">평점7.5</strong>
+					<div class="review_grade"
+						style="float: right; padding-top: 27px; padding-left: 10px;">
+						<div class="bg_star star_grade">
+							<div class="bg_star inner_star" style="width: 77.5%;"></div>
+							<!-- 116px이 100%, % 계산에서 width값에 적용-->
+
+
+						</div>
+
+					</div>
 				</div>
 			</div>
 			<div class="post col-lg-12 col-md-6 col-sm-2 col-xs-2"
@@ -246,7 +252,7 @@
 
 				<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
 
-					<strong style="padding-right: 30px;">NO.3</strong><span
+					<strong style="padding-right: 15px;">NO.3</strong><span
 						style="padding-right: 30px; display: inline-block; width: 220px; height: 20px;">보헤미안
 						랩소디</span> <img
 						src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81127/81127_185.jpg"
@@ -257,12 +263,17 @@
 						style="color: red; padding-left: 15px; display: inline-block; width: 59px; height: 20px;">7.1%</strong>
 					<strong
 						style="padding-left: 15px; padding-right: 15px; display: inline-block; width: 136px; height: 20px;">2018.10.31
-						개봉</strong> <span class="starR on" style="color: red;">★</span> <span
-						class="starR" style="color: red;">★</span> <span class="starR"
-						style="color: red;">★</span> <span class="starR"
-						style="color: red;">★</span> <span class="starR"
-						style="color: red;">★</span> <strong style="padding-left: 10px;">평점</strong><span
-						style="padding-right: 50px; display: inline-block; width: 68px; height: 20px;">9.0</span>
+						개봉</strong> <strong style="padding-left: 5px;">평점9.0</strong>
+					<div class="review_grade"
+						style="float: right; padding-top: 27px; padding-left: 10px;">
+						<div class="bg_star star_grade">
+							<div class="bg_star inner_star" style="width: 90.5%;"></div>
+							<!-- 116px이 100%, % 계산에서 width값에 적용-->
+
+
+						</div>
+
+					</div>
 				</div>
 			</div>
 
@@ -270,7 +281,7 @@
 				style="width: 880px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
 				<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
 
-					<strong style="padding-right: 30px;">NO.4 </strong><span
+					<strong style="padding-right: 15px;">NO.4 </strong><span
 						style="padding-right: 30px; display: inline-block; width: 220px; height: 20px;">말모이</span>
 
 					<img
@@ -281,18 +292,22 @@
 						style="color: red; padding-left: 15px; display: inline-block; width: 59px; height: 20px;">5.0%</strong>
 					<strong
 						style="padding-left: 15px; padding-right: 15px; display: inline-block; width: 136px; height: 20px;">2019.01.09
-						개봉</strong> <span class="starR on" style="color: red;">★</span> <span
-						class="starR" style="color: red;">★</span> <span class="starR"
-						style="color: red;">★</span> <span class="starR"
-						style="color: red;">★</span> <span class="starR"
-						style="color: red;">★</span> <strong style="padding-left: 10px;">평점</strong><span
-						style="padding-right: 50px; display: inline-block; width: 68px; height: 20px;">8.8</span>
+						개봉</strong> <strong style="padding-left: 5px;">평점8.8</strong>
+					<div class="review_grade"
+						style="float: right; padding-top: 27px; padding-left: 10px;">
+						<div class="bg_star star_grade">
+							<div class="bg_star inner_star" style="width: 88.7%;"></div>
+							<!-- 116px이 100%, % 계산에서 width값에 적용-->
+
+
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="post col-lg-12 col-md-6 col-sm-2 col-xs-2"
 				style="width: 880px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
 				<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
-					<strong style="padding-right: 30px;">NO.5 </strong><span
+					<strong style="padding-right: 15px;">NO.5 </strong><span
 						style="padding-right: 30px; display: inline-block; width: 220px; height: 20px;">PMC-더
 						벙커</span> <img
 						src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81381/81381_185.jpg"
@@ -302,22 +317,23 @@
 						style="color: red; padding-left: 15px; display: inline-block; width: 59px; height: 20px;">4.7%</strong>
 					<strong
 						style="padding-left: 15px; padding-right: 15px; display: inline-block; width: 136px; height: 20px;">2019.12.26
-						개봉</strong> <span class="starR on" style="color: red;">★</span> <span
-						class="starR" style="color: red;">★</span> <span class="starR"
-						style="color: red;">★</span> <span class="starR">☆</span> <span
-						class="starR">☆</span> <strong style="padding-left: 10px;">평점</strong><span
-						style="padding-right: 50px; display: inline-block; width: 68px; height: 20px;">5.5</span>
+						개봉</strong> <strong style="padding-left: 5px;">평점5.5</strong>
+					<div class="review_grade"
+						style="float: right; padding-top: 27px; padding-left: 10px;">
+						<div class="bg_star star_grade">
+							<div class="bg_star inner_star" style="width: 57.5%;"></div>
+							<!-- 116px이 100%, % 계산에서 width값에 적용-->
+
+
+						</div>
+
+					</div>
 				</div>
 
 			</div>
+
 		</div>
 	</div>
-
-
-
-
-
-
 
 
 
