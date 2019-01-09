@@ -135,6 +135,10 @@
           img_src: "images/poster1.jpg"
       }
     ];
+
+    $('#search-movie').focus(function(){
+    	$( "#search-movie" ).autocomplete( "enable" );
+    });
  
     $( "#search-movie" ).autocomplete({
       minLength: 1,
@@ -147,11 +151,12 @@
     	    }));
       },
       focus: function( event, ui ) {
-        //$( "#search-movie" ).val( ui.item.label );
-        //return false;
+        $( "#search-movie" ).val( ui.item.label );
+        return false;
       },
       select: function( event, ui ) {
         $( "#search-movie" ).val( ui.item.label );
+        $( "#search-movie" ).autocomplete( "disable" );
         return false;
       }
     })
