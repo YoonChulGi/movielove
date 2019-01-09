@@ -2939,6 +2939,10 @@ a.btn_red_s {
 .search_option_area .search_option li:last-child {
     border: none;
 }
+.officetd a img {
+	margin-left: 5px;
+	margin-right: 5px;
+}
 /* --- 영화 추천 페이지 End --- */
 
 /* --- 로그인 페이지 Start --- */
