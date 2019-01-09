@@ -3,28 +3,27 @@
 
 <% 
 	String movie_title="보헤미안 랩소디";
-	String movie_rate="10.3%";
-	String movie_date="2018.12.31 개봉";
 	String movie_img="images/poster.jpg";
 	//String movie_img="http://placehold.it/180x240";
-	String sel1="", sel2="", sel3="";
-	String sel = request.getParameter("sel");
 	String sessionId = (String)session.getAttribute("memId");
-	
-	if(sel != null){
-		if(sel.equals("1")){
-			sel1 = "on";
-		} else if(sel.equals("2")){
-			sel2 = "on";
-		} else if(sel.equals("3")){
-			sel3 = "on";
-		}
-	} else{
-		sel1 = "on";
-	}
-	
+	System.out.println("sessionId: "+sessionId);
 %>
 
+<script> var session_id = '<%=sessionId%>'; </script>
+<script type="text/javascript">
+	var popupX = (window.screen.width/2) - (750/2);
+	var popupY = (window.screen.height/2) - (450/2);
+    		
+	function openReviewWrite(){
+    	if(session_id == "null") {
+    		alert("로그인 후 작성하실 수 있습니다.");
+    		window.location.href='login.do';
+    	} else {
+    		window.open('review_write_popup.do', '감상평 작성', 'toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=750,height=450,left='+popupX+',top='+popupY);
+    	}
+    }
+</script>
+    	
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,18 +85,6 @@
 		</ul>
 		
     	<a class="btn btn-primary btn-lg" onclick="openReviewWrite()" style="position:fixed;right:200px;bottom:20px;">감상평 작성</a>
-    	<script type="text/javascript">
-    		var popupX = (window.screen.width/2) - (750/2);
-    		var popupY = (window.screen.height/2) - (450/2);
-    		var memId = <%= sessionId %>;
-    		function openReviewWrite(){
-    			if(memId!=null) {
-    				window.open('review_write_popup.do', '감상평 작성', 'toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=750,height=450,left='+popupX+',top='+popupY);
-    			} else {
-    				alert("로그인 후 작성하실 수 있습니다.");
-    			}
-    		}
-    	</script>
     </div>
     <!-- /.container -->
         

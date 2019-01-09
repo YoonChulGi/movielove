@@ -233,7 +233,7 @@ public class MainBean {
 		try {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('작성이 완료되었습니다.');history.go(-1);</script>");
+			out.println("<script>alert('작성이 완료되었습니다.');history.go(-1);window.close();</script>");
 			out.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
