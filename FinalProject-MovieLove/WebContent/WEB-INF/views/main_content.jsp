@@ -48,7 +48,7 @@
       </div>
       <br />
       <br />
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel" style="background-color:#aaa;padding-top:10px;padding-bottom:10px;">
 		  <!-- Indicators -->
 		  <ol class="carousel-indicators">
 		    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -89,6 +89,7 @@
           	<a id="mainSlideNextBtn" href="#myCarousel" data-slide="next" class="ico_movie ico_next #top #arrow #right" style="display: block;">다음</a>
           </div>
           
+          <!-- 
 		  <a class="left carousel-control" href="#myCarousel" data-slide="prev" id="btn-left">
 		    <span class="glyphicon glyphicon-chevron-left"></span>
 		    <span class="sr-only">Previous</span>
@@ -97,6 +98,7 @@
 		    <span class="glyphicon glyphicon-chevron-right"></span>
 		    <span class="sr-only">Next</span>
 		  </a>
+		   -->
 	</div>
 	
 	</div>

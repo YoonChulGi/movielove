@@ -2791,7 +2791,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 .paging_feature .ico_movie {
     position: absolute;
-    top: 110px;
+    top: 120px;
     width: 53px;
     height: 53px;
     z-index: 30;
