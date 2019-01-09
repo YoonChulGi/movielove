@@ -203,6 +203,7 @@ $(function() {
         			<div class="popup-content">
 						<fieldset>
 							<input id="search-movie" name="review_mvname" placeholder="영화 검색" class="form-control input-lg popup-content" type="text" style="width:100%">
+							<i class="fa fa-search" style="position:absolute;right:0;margin-top:12px;margin-right:10px;"></i>
 						</fieldset>
 						<div class="pcsgt_layer">
 							<div class="cate_pcsgt" id="movie_suggest_pc">
