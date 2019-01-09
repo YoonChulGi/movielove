@@ -2780,6 +2780,32 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     }
 }
 
+/* --- 메인 페이지 Start--- */
+.paging_feature .ico_prev {
+    left: 20px;
+    background-position: 0 0;
+}
+.paging_feature .ico_next {
+    right: 20px;
+    background-position: -60px 0;
+}
+.paging_feature .ico_movie {
+    position: absolute;
+    top: 110px;
+    width: 53px;
+    height: 53px;
+    z-index: 30;
+}
+.ico_movie {
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    background: url(//t1.daumcdn.net/movie/images/pc/ico_movie_180628.png) 0 0 no-repeat;
+    vertical-align: top;
+    text-indent: -9999px;
+}
+/* --- 메인 페이지 End--- */
+
 /* --- 영화 정보 페이지 Start--- */
 #movie_info_menu {
 	padding-left:40px;

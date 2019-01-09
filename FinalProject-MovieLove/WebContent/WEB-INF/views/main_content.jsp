@@ -43,7 +43,6 @@
       <!-- /.row -->
 
       <!-- Call to Action Well -->
-      
       <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12">
       	<h2>박스 오피스 순위</h2>
       </div>
@@ -85,6 +84,11 @@
 		  </div>
 
 		  <!-- Left and right controls -->
+		  <div id="mainSlideArrowBtn" class="paging_feature">
+          	<a id="mainSlidePrevBtn" href="#myCarousel" data-slide="prev" class="ico_movie ico_prev #top #arrow #left" style="display: block;">이전</a>
+          	<a id="mainSlideNextBtn" href="#myCarousel" data-slide="next" class="ico_movie ico_next #top #arrow #right" style="display: block;">다음</a>
+          </div>
+          
 		  <a class="left carousel-control" href="#myCarousel" data-slide="prev" id="btn-left">
 		    <span class="glyphicon glyphicon-chevron-left"></span>
 		    <span class="sr-only">Previous</span>
@@ -94,7 +98,7 @@
 		    <span class="sr-only">Next</span>
 		  </a>
 	</div>
-      
+	
 	</div>
       <!-- Content Row -->
       <div class="row">
