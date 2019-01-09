@@ -183,6 +183,12 @@ public class MainBean {
 		System.out.println("MainBean-movie_info_page()");
 		return "movie_info_page";
 	}
+	
+	@RequestMapping("movie_detail_page.do")
+	public String movie_detail_page() {
+		System.out.println("MainBean-movie_detail_page()");
+		return "movie_detail_page";
+	}
 
 	@RequestMapping("movie_ranking_page.do")
 	public String movie_ranking_page() {

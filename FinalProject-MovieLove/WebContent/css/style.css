@@ -2780,7 +2780,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     }
 }
 
-/* --- 영화 정보 페이지 Start--- */
+/* --- �쁺�솕 �젙蹂� �럹�씠吏� Start--- */
 #movie_info_menu {
 	padding-left:40px;
 	padding-right:40px;
@@ -2831,9 +2831,9 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 	font-size: 18px;
 	font-weight: bold;
 }
-/* --- 영화 정보 페이지 End --- */
+/* --- �쁺�솕 �젙蹂� �럹�씠吏� End --- */
 
-/* --- 영화 랭킹 페이지 Start --- */
+/* --- �쁺�솕 �옲�궧 �럹�씠吏� Start --- */
 #movie_ranking{
 	padding-left: 40px;
 	padding-right: 40px;
@@ -2890,9 +2890,9 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-/* --- 영화 랭킹 페이지 End --- */
+/* --- �쁺�솕 �옲�궧 �럹�씠吏� End --- */
 
-/* --- 영화 추천 페이지 Start --- */
+/* --- �쁺�솕 異붿쿇 �럹�씠吏� Start --- */
 .search_option_area {
     border: 7px solid #eee;
     padding: 10px 0;
@@ -2939,9 +2939,9 @@ a.btn_red_s {
 .search_option_area .search_option li:last-child {
     border: none;
 }
-/* --- 영화 추천 페이지 End --- */
+/* --- �쁺�솕 異붿쿇 �럹�씠吏� End --- */
 
-/* --- 로그인 페이지 Start --- */
+/* --- 濡쒓렇�씤 �럹�씠吏� Start --- */
 #login-submit{
 	height: 50px;
 	font-size: 16px;
@@ -2973,9 +2973,9 @@ a.btn_red_s {
 #password, #password-confirm{
 	height: 50px;
 }
-/* --- 로그인 페이지 End --- */
+/* --- 濡쒓렇�씤 �럹�씠吏� End --- */
 
-/* --- 회원가입 페이지 Start --- */
+/* --- �쉶�썝媛��엯 �럹�씠吏� Start --- */
 #register-submit{
 	height: 50px;
 	font-size: 16px;
@@ -2996,9 +2996,9 @@ a.btn_red_s {
 .register_checkbox input{
 	margin-left: 10px;
 }
-/* --- 회원가입 페이지 End --- */
+/* --- �쉶�썝媛��엯 �럹�씠吏� End --- */
 
-/* --- 영화 감상평 페이지 Start --- */
+/* --- �쁺�솕 媛먯긽�룊 �럹�씠吏� Start --- */
 .review-search {
 	margin-top:12px;
     margin-bottom: 30px;
@@ -3313,6 +3313,13 @@ a.btn_red_s {
 	background-color: #d9534f;
 	border-color: #d43f3a;
 }
-/* --- 영화 감상평 페이지 End --- */
+
+#container .movie_detail_top_area {
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: 50% 50% !important;
+    height: 430px;
+}
+/* --- �쁺�솕 媛먯긽�룊 �럹�씠吏� End --- */
 
     /* =====  END RESPONSIVE CSS  =====*/

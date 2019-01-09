@@ -57,7 +57,7 @@
 	    		<div class="col-lg-3 col-sm-6 portfolio-item">
 		          	<div class="card h-100">
 		          		<div class="img-body" align="center">
-	            			<a href="#"><img class="card-img-top" src="<%=movie_img%>" alt=""></a>
+	            			<a href="movie_detail_page.do"><img class="card-img-top" src="<%=movie_img%>" alt=""></a>
 	            		</div>
             			<div class="card-body" id="card-body" align="center">
 	              			<h4 class="card-title">
