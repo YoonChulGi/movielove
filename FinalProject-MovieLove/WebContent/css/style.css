@@ -3166,6 +3166,7 @@ a.btn_red_s {
 .starR-left.on {background-position:0 0;}
 .starR-right.on {background-position:-15px 0;}
 .popup-title {
+	color: #454545;
 	margin-bottom: 50px;
 }
 .popup-menu {
