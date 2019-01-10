@@ -2805,6 +2805,10 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     vertical-align: top;
     text-indent: -9999px;
 }
+.officetd a img {
+	margin-left: 3px;
+	margin-right: 3px;
+}
 /* --- 메인 페이지 End--- */
 
 /* --- 영화 정보 페이지 Start--- */

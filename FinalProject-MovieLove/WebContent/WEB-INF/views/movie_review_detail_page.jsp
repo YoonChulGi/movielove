@@ -52,11 +52,7 @@
 		<ul class="movie_list">
 			<% for(int i=0;i<10;i++){ %>
 			<li class="movie_li cols-xs-12">
-				<a href="#"><img src="<%=movie_img%>" alt="" class="movie_thumb" target="_blank"></a>
 				<div class="review-summary">
-					<span class="comment_span">[40자평]</span>
-					<span class="movie_title"><%=movie_title%></span>
-					<a href="movie_review_detail_page.do"><button class="btn btn-lg btn_review_more">더 보기</button></a>
 					<div style="height:20px"></div>
 					<div class="review-summary-menu">
         				<span class="review_writer" style="font-weight:bold">작성자</span>

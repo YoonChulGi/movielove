@@ -29,7 +29,7 @@
       <!-- Heading Row -->
       <div class="row my-4" style="position:relative">
         <div class="col-lg-8" align="center" class="embed-responsive embed-responsive-16by9" >
-		  <iframe width="100%" height="340" src="https://movie.naver.com/movie/bi/mi/videoPlayer.nhn?code=164192&type=movie&videoId=654D3EA4EB3CE46C264B2AB6BFF044000570&videoInKey=V12344d2512311da865e5f03b8ea3a88344d20c66ce06f8adf27d5261612b996f786ef03b8ea3a88344d2&coverImage=/multimedia/MOVIECLIP/TRAILER/40520_cover_20181106043247.jpg&mid=40520&autoPlay=true&playerSize=665x480"></iframe>
+		  <iframe width="100%" height="340" src="https://movie.naver.com/movie/bi/mi/videoPlayer.nhn?code=164192&type=movie&videoId=654D3EA4EB3CE46C264B2AB6BFF044000570&videoInKey=V126e35aea2e1aa7ae572f03b8ea3a88344d20c66ce06f8adf27d5261612b996f786ef03b8ea3a88344d2&coverImage=/multimedia/MOVIECLIP/TRAILER/40520_cover_20181106043247.jpg&mid=40520&autoPlay=true&playerSize=785x567"></iframe>
         </div>
         <!-- /.col-lg-8 -->
         <div class="col-lg-4">
@@ -85,8 +85,8 @@
 
 		  <!-- Left and right controls -->
 		  <div id="mainSlideArrowBtn" class="paging_feature">
-          	<a id="mainSlidePrevBtn" href="#myCarousel" data-slide="prev" class="ico_movie ico_prev #top #arrow #left" style="display: block;">이전</a>
-          	<a id="mainSlideNextBtn" href="#myCarousel" data-slide="next" class="ico_movie ico_next #top #arrow #right" style="display: block;">다음</a>
+          	<a id="mainSlidePrevBtn" href="#myCarousel" data-slide="prev" class="ico_movie ico_prev #top #arrow #left" style="display:block; left:20px;">이전</a>
+          	<a id="mainSlideNextBtn" href="#myCarousel" data-slide="next" class="ico_movie ico_next #top #arrow #right" style="display:block;">다음</a>
           </div>
           
           <!-- 
