@@ -3032,7 +3032,7 @@ a.btn_red_s {
 }
 /* --- �쉶�썝媛��엯 �럹�씠吏� End --- */
 
-/* --- �쁺�솕 媛먯긽�룊 �럹�씠吏� Start --- */
+/* --- 영화 감상평 페이지  Start --- */
 .review-search {
 	margin-top:12px;
     margin-bottom: 30px;
@@ -3165,12 +3165,12 @@ a.btn_red_s {
     float: left;
     color: #2a2a2a;
     margin-left: 10px;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: bold;
 }
 .review_grade .txt_grade {
     float: left;
-    font-size: 19px;
+    font-size: 18px;
     color: #989898;
 }
 .review_sympathy {
@@ -3347,7 +3347,259 @@ a.btn_red_s {
 	background-color: #d9534f;
 	border-color: #d43f3a;
 }
+/* --- 영화 감상평 페이지 End --- */
 
-/* --- �쁺�솕 媛먯긽�룊 �럹�씠吏� End --- */
+/*--- 영화 감상평 상세 페이지 Start ---*/
+body.movie_review_detail {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;
+    color: #222;
+    color: #2a2a2a;
+}
+.split_line {
+    display: inline-block;
+    content: '';
+    width: 1px;
+    height: 12px;
+    margin: 2px 10px 0 10px;
+    background-color: #cacaca;
+    vertical-align: -1px;
+}
+.detail_summarize {
+    overflow: hidden;
+    margin: 10px 10% 10px 10%;
+}
+.thumb_summary {
+    position: relative;
+    float: left;
+    margin-right: 30px;
+}
+.thumb_summary .img_summary {
+    display: block;
+    width: 270px;
+    height: 380px;
+}
+.movie_summary {
+    overflow: hidden;
+}
+.movie_summary div.subject_movie .review_grade .emph_grade{
+    padding-top: 6px;
+    line-height: 15px;
+}
+.movie_summary div.subject_movie .review_grade .txt_grade{
+	padding: 6px 0 0 2px;
+	line-height: 15px;
+}
+.movie_summary .tit_movie {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    padding-bottom: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    line-height: 25px;
+}
+.movie_summary .txt_origin {
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    height: 25px;
+    font-size: 14px;
+    line-height: 25px;
+    color: #989898;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+.movie_summary .list_main {
+    padding: 7px 0 9px 0;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #555;
+}
+.list_main dd, .list_main dt, .list_main em {
+	margin: 5px 0 0 0;
+}
+.screen_out {
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+.list_movie dd {
+    padding-bottom: 3px;
+}
+.desc_movie {
+    display: -webkit-box;
+    overflow: hidden;
+    clear: both;
+    width: 960px;
+    max-height: 140px;
+    min-height: 140px;
+    padding-top: 8px;
+    line-height: 27px;
+    color: #878787;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+}
+.desc_more {
+    max-height: none;
+    -webkit-line-clamp: initial;
+}
+.link_more, .link_more:hover, .link_more:active, .link_more:visited {
+    line-height: 27px;
+    font-weight: bold;
+    color: #444;
+}
+.link_hide {
+	display: none;
+}
+.link_hide, .link_hide:hover, .link_hide:active, .link_hide:visited {
+    line-height: 27px;
+    font-weight: bold;
+    color: #444;
+}
+
+.movie_review_list {
+    width: 80%;
+    display: inline-block;
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.movie_review_list h2 {
+	font-size: 17px;
+	font-weight: bold;
+	margin-bottom: 10px;	
+}
+.sorting_list {
+    overflow: hidden;
+    padding: 10px 0 11px;
+    border: 1px solid;
+    border-width: 1px 0;
+    border-color: #b7b7b7 transparent #dbdbdb;
+}
+.sorting_list li {
+    float: left;
+}
+.sorting_list li a {
+    margin-right: 16px;
+    padding-left: 11px;
+    background: url(https://ssl.pstatic.net/static/movie/2012/06/ico_chck_off.gif) no-repeat 0 50%;
+    font-size: 13px;
+    color: #666;
+}
+.sorting_list li.on {
+    font-weight: 600;
+}
+
+.sorting_list li.on a {
+    background: url(https://ssl.pstatic.net/static/movie/2012/06/ico_chck_on.gif) no-repeat 0 50%;
+}
+.score_result li {
+    position: relative;
+    float: none;
+    background: url(https://ssl.pstatic.net/static/movie/2012/06/dot_line.gif) repeat-x 0 100%;
+    padding: 20px 0 8px 0;
+    *zoom: 1;
+}
+.score_result .star_score span.st_off {
+    top: 1px;
+}
+.input_netizen .star_score span.st_off {
+    position: relative;
+    top: 1px;
+    width: 74px;
+    margin-right: 4px;
+    background-position: 0 -154px;
+}
+.input_netizen .star_score span.st_on {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-position: 0 -140px;
+}
+.star_score span.st_on {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-position: 0 -140px;
+    text-indent: -9999px;
+}
+.score_result .score_reple {
+    display: inline-block;
+    float: left;
+    width: 535px;
+    margin-left: 8px;
+}
+.score_result .score_reple p {
+    font-size: 13px;
+    color: #333;
+    line-height: 22px;
+    margin-top: -2px;
+    word-break: break-all;
+}
+.score_result .score_reple dl {
+    overflow: hidden;
+    margin: 8px 0 10px;
+}
+.score_result .score_reple dt em a span {
+    padding-right: 2px;
+    font-size: 13px;
+    color: #999;
+    font-family: '나눔고딕',NanumGothic,'돋움',Dotum,Helvetica,sans-serif;
+    cursor: pointer;
+}
+.score_result .score_reple dt em {
+    display: inline-block;
+    padding-right: 6px;
+    margin-right: 5px;
+    background: url(https://ssl.pstatic.net/static/movie/2012/06/bg_tx_line2.gif) no-repeat 100% 3px;
+    color: #999;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: tahoma;
+}
+.score_result .btn_area {
+    text-align: right;
+    clear: both;
+}
+.score_result .btn_area a {
+    display: inline-block;
+    overflow: hidden;
+    width: 50px;
+    height: 22px;
+    margin: 0 1px 0 4px;
+    background: url(https://ssl.pstatic.net/static/movie/2014/01/sp_ico_review.png) no-repeat 0 -44px;
+}
+.score_result .btn_area strong, .score_result .btn_area .count {
+    display: inline-block;
+    overflow: hidden;
+    height: 22px;
+    padding-left: 8px;
+    background: url(https://ssl.pstatic.net/static/movie/2014/01/sp_ico_review.png) no-repeat -50px 0;
+    line-height: 21px;
+    vertical-align: top;
+}
+.score_result .btn_area .count {
+    min-width: 13px;
+    padding: 0 5px 0 0;
+    background-position: 100% 0;
+    font-family: verdana;
+    font-size: 11px;
+    color: #e82828;
+    text-align: center;
+}
+.score_result .btn_area .count.v2 {
+    color: #3a5382;
+}
+/*--- 영화 감상평 상세 페이지 End ---*/
+
 
     /* =====  END RESPONSIVE CSS  =====*/

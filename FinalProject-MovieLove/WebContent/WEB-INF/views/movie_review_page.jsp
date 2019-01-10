@@ -74,7 +74,7 @@
         					<!-- 별점 -->
         					<span class="review_grade">
 								<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:71.7%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
-								<em class="emph_grade">7.1</em>
+								<em class="emph_grade" style="font-size:15.5px;">7.1</em>
 							</span>
         				<span class="review_sympathy" style="padding-left:10px">201</span>
 	        			</div>
