@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mem">
+	<select id="selectMem" parameterType="String" resultType="MemVO">
+		select * from MEM where MEM_ID=#{MEM_ID}
+	</select>
+	
+	<select id="selectAll" resultType="MemVO">
+		select * from mem
+	</select>
+	
+	<select id="idcheck" parameterType="String" resultType="Integer">
+      SELECT COUNT(*) FROM mem
+      WHERE
+          MEM_ID = #{username}
+	</select>
+	
+	<select id="loginCheck" parameterType="MemVO" resultType="Integer">
+		select count(*) from MEM where MEM_ID=#{MEM_ID} and MEM_PW=#{MEM_PW}
+	</select>
+	
+	<insert id="registerMember" parameterType="MemVO">
+		Insert into mem(MEM_ID, MEM_PW,MEM_AGE,MEM_GENDER,MEM_ADDRESS1,MEM_ADDRESS2,MEM_GENRE)
+		values(#{MEM_ID}, #{MEM_PW}, #{MEM_AGE}, #{MEM_GENDER}, #{MEM_ADDRESS1}, #{MEM_ADDRESS2}, #{MEM_GENRE})
+	</insert>
+</mapper>
