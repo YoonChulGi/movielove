@@ -34,7 +34,7 @@
     
   </head>
   
-  <body>
+  <body class="moview_review">
   
     <!-- =====  HEADER START  ===== -->
     <jsp:include page="menu.jsp" flush="false"/>
