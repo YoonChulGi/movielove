@@ -44,11 +44,7 @@
     left: 280px;
     bottom: 20px;
 }
-#container .movie_detail_top_area .mov_top .mov_info .tit {
-    font-weight: bold;
-    color: #fff;
-    font-size: 30px;
-}
+
 .tit {
     font-weight: bold;
     color: #fff;
