@@ -7,6 +7,61 @@
     <link href="css/small-business.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
+<style>
+.movie_detail_top_area {
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: 50% 50% !important;
+    height: 430px;
+    /*opacity: 0.5;*/
+}
+
+.top_area_cover {
+    height: 430px;
+    background: url(http://image.cine21.com/www1/common/bg_gradient.png) repeat-x left bottom;
+}
+
+.mov_top {
+    position: relative;
+    width: 970px;
+    margin: 0 auto;
+    height: 430px;
+}
+
+.mov_poster {
+    position: absolute;
+    left: 0;
+    top: 200px;
+}
+
+.mov_poster img {
+    width: 230px;
+    height: 330px;
+    border: 4px solid #fff;
+}
+.mov_info {
+    position: absolute;
+    left: 280px;
+    bottom: 20px;
+}
+#container .movie_detail_top_area .mov_top .mov_info .tit {
+    font-weight: bold;
+    color: #fff;
+    font-size: 30px;
+}
+.tit {
+    font-weight: bold;
+    color: #fff;
+    font-size: 30px;
+}
+
+.sub_info {
+    font-size: 14px;
+    color: #f4f4f4;
+    margin-bottom: 5px;
+}
+
+</style>
 <body>
 	<!-- =====  HEADER START  ===== -->
     <jsp:include page="menu.jsp" flush="false"/>
@@ -15,19 +70,27 @@
     <div class="container"> <!-- container -->
     
     	<div class="row">
-    		<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12" style="background:url('http://image.cine21.com/cine21/still/2018/1217/51955_5c174480e492c.jpg');">
-    			<!-- <img alt="내안의 그놈" src="http://image.cine21.com/cine21/still/2018/1217/51955_5c174480e492c.jpg" style="width:25%;">  -->
-    			<div>zzzzzzzzzzz</div>
-    			<div>zzzzzzzzzzz</div>
-    			<div>zzzzzzzzzzz</div>
-    			<div>zzzzzzzzzzz</div>
-    			<div>zzzzzzzzzzz</div>
-    			<div>zzzzzzzzzzz</div>
-    			<div>zzzzzzzzzzz</div>
-    			<div>zzzzzzzzzzz</div>
-    			<div>zzzzzzzzzzz</div>
-    			<div>zzzzzzzzzzz</div>
-    			<div>zzzzzzzzzzz</div>
+    		<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12 movie_detail_top_area" style="background:url('http://image.cine21.com/cine21/still/2018/1217/51955_5c174480e492c.jpg');">
+    			<div class="top_area_cover">
+    				<div class="mov_top">
+    					<div class="mov_poster">
+    						<img src="http://image.cine21.com/resize/cine21/poster/2018/1206/51955_5c08765455234[X230,330].jpg"/>
+    					</div>
+    					<div class="mov_info">
+    						<p class="tit">내안의 그놈</p>
+    						<p class="tit_eng"><span>Inside me</span></p>
+    						<p class="sub_info">
+	    						<span>2017</span>
+	    						<span>한국</span>
+	    						<span>15세 관람가</span>
+    						</p>
+							<p class="sub_info">
+								<span>코미디</span>
+								<span>상영시간 : 122분</span>
+							</p>
+    					</div>
+    				</div>
+    			</div>
     		</div>
     	</div>
     
