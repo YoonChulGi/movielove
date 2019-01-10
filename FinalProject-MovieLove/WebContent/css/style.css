@@ -3091,6 +3091,7 @@ a.btn_red_s {
 .movie_list li.movie_li div.review-summary span.movie_title {
 	font-weight: bold;
 	font-size: 17px;
+	color: #464646;
 	display: block;
 }
 .movie_list li.movie_li div.review-summary button.btn_review_more {
