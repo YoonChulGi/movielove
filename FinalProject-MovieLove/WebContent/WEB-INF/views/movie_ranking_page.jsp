@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService"%>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="test.MovieRanking" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
 	function fnMove(seq){
     	var offset = $("#ranking_menu" + seq).offset();
@@ -9,7 +12,16 @@
     }
 </script>
 
-<% 
+<%
+	MovieRanking rankingInfo = new MovieRanking();
+
+	HashMap<String, Object> dailyResult = rankingInfo.getDailyBoxoffice();
+	request.setAttribute("dailyResult", dailyResult);
+	HashMap<String, Object> weeklyResult = rankingInfo.getWeeklyBoxoffice("0");
+	request.setAttribute("weeklyResult", weeklyResult);
+	HashMap<String, Object> weekendResult = rankingInfo.getWeeklyBoxoffice("1");
+	request.setAttribute("weekendResult", weekendResult);
+	
 	String movie_title="보헤미안 랩소디";  //영화 제목
 	String movie_num="1,230,928";  //관객수
 	String movie_img="images/poster.jpg";
@@ -44,11 +56,10 @@
     <!-- =====  HEADER START  ===== -->
     <jsp:include page="menu.jsp" flush="false"/>
     <!-- =====  HEADER END  ===== -->
-    
     <!-- Page Content -->
     <div class="container">
       	<div class="row" id="movie_ranking" align="center">
-	    		<div class="col-lg-4">
+	    		<div class="col-lg-4" style="padding:0">
 		          	<div class="ranking">
 		          		<h4 class="card-title pt_10 pb_10 mb_5" style="background-color:#E16868">일간 박스오피스 순위</h4>
 	              		<div class="ranking-line" text-align="center" style="color:#E16868;">
@@ -56,16 +67,18 @@
 	              			<span class="ranking-title">영화 제목</span>
 	              			<span class="ranking-num" style="float:right;">관객수</span>
 	              		</div>
-	              		<% for(int i=1;i<=10;i++){ %>
+    					<c:if test="${not empty dailyResult.boxOfficeResult.dailyBoxOfficeList}">
+    						<c:forEach items="${dailyResult.boxOfficeResult.dailyBoxOfficeList}" var="boxoffice">
 		              		<div class="ranking-line" text-align="center" style="border-top: 1px solid #DDDDDD;">
-	              				<span class="ranking-no" style="float:left;"><%=i%></span>
-	              				<span class="ranking-title">국가부도의 날</span>
-	              				<span class="ranking-num" style="float:right;"><%=movie_num%>명</span>
+	              				<span class="ranking-no">${boxoffice.rank}</span>
+	              				<span class="ranking-title">${boxoffice.movieNm}</span>
+	              				<span class="ranking-num">${boxoffice.audiCnt}명</span>
 	              			</div>
-		              	<%} %>
+    						</c:forEach>
+    					</c:if>
           			</div>
         		</div>
-	    		<div class="col-lg-4">
+	    		<div class="col-lg-4" style="padding:0">
 		          	<div class="ranking">
 		          		<h4 class="card-title pt_10 pb_10 mb_5" style="background-color:#47a8ac;">주간 박스오피스 순위</h4>
 	              		<div class="ranking-line" text-align="center" style="color:#47a8ac;">
@@ -73,30 +86,34 @@
 	              			<span class="ranking-title">영화 제목</span>
 	              			<span class="ranking-num" style="float:right;">관객수</span>
 	              		</div>
-	              		<% for(int i=1;i<=10;i++){ %>
+    					<c:if test="${not empty weeklyResult.boxOfficeResult.weeklyBoxOfficeList}">
+    						<c:forEach items="${weeklyResult.boxOfficeResult.weeklyBoxOfficeList}" var="boxoffice">
 		              		<div class="ranking-line" text-align="center" style="border-top: 1px solid #DDDDDD;">
-	              				<span class="ranking-no" style="float:left;"><%=i%></span>
-	              				<span class="ranking-title">스파이더맨: 뉴 유니버스</span>
-	              				<span class="ranking-num" style="float:right;"><%=movie_num%>명</span>
+	              				<span class="ranking-no">${boxoffice.rank}</span>
+	              				<span class="ranking-title">${boxoffice.movieNm}</span>
+	              				<span class="ranking-num">${boxoffice.audiCnt}명</span>
 	              			</div>
-		              	<%} %>
+    						</c:forEach>
+    					</c:if>
           			</div>
         		</div>
-	    		<div class="col-lg-4">
+	    		<div class="col-lg-4" style="padding:0">
 		          	<div class="ranking">
-		          		<h4 class="card-title pt_10 pb_10 mb_5" style="background-color:#5f61ab;">올해의박스오피스 순위</h4>
+		          		<h4 class="card-title pt_10 pb_10 mb_5" style="background-color:#5f61ab;">주말 박스오피스 순위</h4>
 	              		<div class="ranking-line" text-align="center" style="color:#5f61ab;">
 	              			<span class="ranking-no" style="float:left;">순위</span>
-	              			<span class="ranking-title">영화 제목</span>
+	              			<span class="ranking-title" style="overflow:hidden">영화 제목</span>
 	              			<span class="ranking-num" style="float:right;">관객수</span>
 	              		</div>
-	              		<% for(int i=1;i<=10;i++){ %>
+    					<c:if test="${not empty weekendResult.boxOfficeResult.weeklyBoxOfficeList}">
+    						<c:forEach items="${weekendResult.boxOfficeResult.weeklyBoxOfficeList}" var="boxoffice">
 		              		<div class="ranking-line" text-align="center" style="border-top: 1px solid #DDDDDD;">
-	              				<span class="ranking-no" style="float:left;"><%=i%></span>
-	              				<span class="ranking-title"><%=movie_title%></span>
-	              				<span class="ranking-num" style="float:right;"><%=movie_num%>명</span>
+	              				<span class="ranking-no">${boxoffice.rank}</span>
+	              				<span class="ranking-title">${boxoffice.movieNm}</span>
+	              				<span class="ranking-num">${boxoffice.audiCnt}명</span>
 	              			</div>
-		              	<%} %>
+    						</c:forEach>
+    					</c:if>
           			</div>
         		</div>
       	</div>

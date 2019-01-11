@@ -2867,11 +2867,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 /* --- �쁺�솕 �젙蹂� �럹�씠吏� End --- */
 
-/* --- �쁺�솕 �옲�궧 �럹�씠吏� Start --- */
-#movie_ranking{
-	padding-left: 40px;
-	padding-right: 40px;
-}
+/* --- 영화 랭킹 페이지 Start --- */
 .ranking {
     margin-left: 20px;
     margin-right: 20px;
@@ -2882,11 +2878,22 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 .ranking div{
 	font-size: 13px;
 }
-.ranking-no{
+#movie_ranking  div  div  div span.ranking-no{
+	float: left;
 	width:27px;
 	margin-left: 10px;
 }
-.ranking-num{
+.ranking div .ranking-no{
+	float: left;
+}
+.ranking div .ranking-title{
+	display: inline-block;
+	overflow: hidden;
+	max-width: 220px;
+}
+.ranking div .ranking-num{
+	float: right;
+	margin-right: 15px;
 	width:72.7px;
 	margin-right: 10px;
 }
@@ -2924,7 +2931,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-/* --- �쁺�솕 �옲�궧 �럹�씠吏� End --- */
+/* --- 영화 랭킹 페이지 End --- */
 
 /* --- �쁺�솕 異붿쿇 �럹�씠吏� Start --- */
 .search_option_area {
