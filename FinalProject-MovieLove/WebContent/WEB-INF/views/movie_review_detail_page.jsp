@@ -152,9 +152,10 @@ function plotHideView() {
 		</div>
         
 		<ul class="movie_review_list">
-			<h2>40자 평</h2>
-			<button class="btn btn-lg btn-primary" style="background-color:#02958a; right:0;">감상평 남기기</button>
-			<div id="orderCheckbox" class="top_behavior">
+			<h2 style="float:left">40자 평</h2>
+			<button class="btn btn-lg btn-primary" style="float:right; background-color:#337ab7; font-size:16px">감상평 남기기</button>
+			
+			<div id="orderCheckbox" class="top_behavior" style="margin-top:48px">
 				<ul class="sorting_list">
 					<li class="on"><a href="#" onclick="parent.clickcr(this, 'ara.bysym', '', '', event); dislplayOrder('sympathyScore');">호감순</a></li>
 					<li><a href="#" onclick="parent.clickcr(this, 'ara.byrct', '', '', event); dislplayOrder('newest');">최신순</a></li>
