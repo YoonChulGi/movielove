@@ -44,7 +44,7 @@
 %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
   <head>
     <!-- Custom styles for this template -->
