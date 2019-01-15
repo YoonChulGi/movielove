@@ -7,6 +7,7 @@ import java.util.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,11 +17,13 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import spring.vo.bean.MemVO;
+import spring.vo.bean.MovieVO;
 import spring.vo.bean.ReviewDAOImpl;
 import spring.vo.bean.ReviewVO;
 
@@ -34,7 +37,9 @@ public class MainBean {
 	//private ReviewDAOImpl ReviewDAO = null;
 	@Autowired
 	private MemVO Memvo = null;
-
+	@Autowired
+	private MovieVO Movievo = null;
+	
 	@RequestMapping("main.do")
 	public String Main() {
 		System.out.println("MainBean-Main()");
@@ -179,8 +184,17 @@ public class MainBean {
 	}
 
 	@RequestMapping("movie_info_page.do")
-	public String movie_info_page() {
+	public String movie_info_page(Model model) {
 		System.out.println("MainBean-movie_info_page()");
+		List<MovieVO> list = sqlSession.selectList("movie.movieInfo");
+		for(int i=0;i<list.size();i++) {
+			System.out.println(list.get(i).getMOVIE_TITLE());
+			System.out.println(list.get(i).getMOVIE_YEAR());
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date date = new Date(list.get(i).getMOVIE_YEAR()+" 00:00:00.0");
+			System.out.println(sdf.format(date));
+		}
+		model.addAttribute("list",list);
 		return "movie_info_page";
 	}
 	

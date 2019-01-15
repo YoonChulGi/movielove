@@ -6,11 +6,13 @@
 	<typeAliases >
 		<typeAlias type="spring.vo.bean.MemVO" alias="MemVO"/>
 		<typeAlias type="spring.vo.bean.ReviewVO" alias="ReviewVO"/>
+		<typeAlias type="spring.vo.bean.MovieVO" alias="MovieVO"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="/sql/memberSQL.xml" />
 		<mapper resource="/sql/reviewSQL.xml" />
+		<mapper resource="/sql/movieSQL.xml" />
 	</mappers>
 	
 </configuration>

@@ -25,7 +25,7 @@
 %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
   <head>
     <!-- Custom styles for this template -->
@@ -42,36 +42,82 @@
     
     <!-- Page Content -->
     <div class="container">
+    	<!-- <h1>${list.get(0).getMOVIE_TITLE() }</h1> -->
     	<div class="row" id="movie_info_menu">
     		<ul> 
-    			<li style="width:33.33%"><a href="movie_info_page.jsp?sel=1" class="<%=sel1%>">현재 상영중<span class="ico"></span></a></li>
-    			<li style="width:33.33%"><a href="movie_info_page.jsp?sel=2" class="<%=sel2%>">개봉 예정<span class="ico"></span></a></li>
-    			<li style="width:33.33%"><a href="movie_info_page.jsp?sel=3" class="<%=sel3%>">지난 영화<span class="ico"></span></a></li>
+    			<li style="width:33.33%"><a href="movie_info_page.do?sel=1" class="<%=sel1%>">현재 상영중<span class="ico"></span></a></li>
+    			<li style="width:33.33%"><a href="movie_info_page.do?sel=2" class="<%=sel2%>">개봉 예정<span class="ico"></span></a></li>
+    			<li style="width:33.33%"><a href="movie_info_page.do?sel=3" class="<%=sel3%>">지난 영화<span class="ico"></span></a></li>
     		</ul>
     	</div>
 			
       	<div class="row mt_20">
-      		<% for(int i=0;i<3;i++){ %>
-      		<div id="movie_info_row">
-      			<% for(int j=0;j<4;j++){ %>
-	    		<div class="col-lg-3 col-sm-6 portfolio-item">
-		          	<div class="card h-100">
-		          		<div class="img-body" align="center">
-	            			<a href="movie_detail_page.do"><img class="card-img-top" src="<%=movie_img%>" alt=""></a>
-	            		</div>
-            			<div class="card-body" id="card-body" align="center">
-	              			<h4 class="card-title">
-			                	<a href="#"><%=movie_title%></a>
-              				</h4>
-              				<p class="card-text">예매율 <%=movie_rate%></p>
-              				<p class="card-text"><%=movie_date%></p>
-              				
-            			</div>
-          			</div>
-        		</div>
-        		<%} %>
-        	</div>
-        	<%} %>
+      	
+      	<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
+	      	<div class="row">
+		      	<c:forEach var="i" begin="1" end="4" step="1">
+			      	<div class="col-lg-3 col-sm-6 col-xs-6 col-md-6">
+			      		<div class="portfolio-item">
+			      			<div class="card h-100">
+			      				<div class="img-body" align="center">
+			      					<a href="movie_detail_page.do"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG()}" alt=""></a>
+			     				</div>
+			     				<div class="card-body" id="card-body" align="center">
+			     					<h4 class="card-title">
+			      						<a href="#">${list.get(i-1).getMOVIE_TITLE() }</a> 
+			      					</h4>
+			      					<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
+			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()}</p>
+			      				</div>
+			      			</div>
+			      		</div>
+			      	</div>
+		      	</c:forEach>
+	      	</div>
+	      	
+	      	<div class="row">
+		      	<c:forEach var="i" begin="5" end="8" step="1">
+			      	<div class="col-lg-3 col-sm-6 col-xs-6 col-md-6">
+			      		<div class="portfolio-item">
+			      			<div class="card h-100">
+			      				<div class="img-body" align="center">
+			      					<a href="movie_detail_page.do"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG()}" alt=""></a>
+			     				</div>
+			     				<div class="card-body" id="card-body" align="center">
+			     					<h4 class="card-title">
+			      						<a href="#">${list.get(i-1).getMOVIE_TITLE() }</a> 
+			      					</h4>
+			      					<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
+			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()}</p>
+			      				</div>
+			      			</div>
+			      		</div>
+			      	</div>
+		      	</c:forEach>
+	      	</div>
+	      	
+	      	<div class="row">
+		      	<c:forEach var="i" begin="9" end="10" step="1">
+			      	<div class="col-lg-3 col-sm-6 col-xs-6 col-md-6">
+			      		<div class="portfolio-item">
+			      			<div class="card h-100">
+			      				<div class="img-body" align="center">
+			      					<a href="movie_detail_page.do"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG()}" alt=""></a>
+			     				</div>
+			     				<div class="card-body" id="card-body" align="center">
+			     					<h4 class="card-title">
+			      						<a href="#">${list.get(i-1).getMOVIE_TITLE() }</a> 
+			      					</h4>
+			      					<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
+			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()}</p>
+			      				</div>
+			      			</div>
+			      		</div>
+			      	</div>
+		      	</c:forEach>
+	      	</div>
+      	</div>
+      	
        </div>
        <!-- /.row -->
        
