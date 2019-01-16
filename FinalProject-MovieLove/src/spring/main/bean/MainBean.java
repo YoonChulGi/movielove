@@ -190,9 +190,9 @@ public class MainBean {
 		for(int i=0;i<list.size();i++) {
 			System.out.println(list.get(i).getMOVIE_TITLE());
 			System.out.println(list.get(i).getMOVIE_YEAR());
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			Date date = new Date(list.get(i).getMOVIE_YEAR()+" 00:00:00.0");
-			System.out.println(sdf.format(date));
+			//SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			//Date date = new Date(list.get(i).getMOVIE_YEAR()+" 00:00:00.0");
+			//System.out.println(sdf.format(date));
 		}
 		model.addAttribute("list",list);
 		return "movie_info_page";
