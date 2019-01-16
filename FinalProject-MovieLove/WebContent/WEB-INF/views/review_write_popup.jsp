@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="spring.vo.bean.MovieVO" %>
+<%@ page import="java.util.List" %>
 
 <!DOCTYPE html>
 <html lang="kr">
@@ -92,6 +94,11 @@
 	}
 </style>
 
+<%
+	List<MovieVO> movieList = (List<MovieVO>)request.getAttribute("movieList");
+	System.out.println(movieList.get(0).getMOVIE_TITLE());
+%>
+
 <!--  영화 검색 자동완성 스크립트 -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -99,6 +106,7 @@
   $( function() {
 	// 리스트 생성
       var testList = new Array() ;
+	
 	
       for(var i=1; i<=10; i++){
           // 객체 생성
@@ -167,7 +175,7 @@
     	//json객체를 서버에서 내려받아서 리스트 뽑는 작업 
     			  $.ajax({
     				  //호출할 URL
-    				  url: '${movieList}',
+    				  url: 'search.jsp',
     				  //우선 jsontype json으로
     				  dataType: "json", 
     				  // parameter 값이다. 여러개를 줄수도 있다.
