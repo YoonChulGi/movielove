@@ -225,8 +225,16 @@ public class MainBean {
 	}
 
 	@RequestMapping("review_write_popup.do")
-	public String review_write_popup() {
+	public String review_write_popup(Model model) {
 		System.out.println("review_write_popup.do");
+		
+		List<MovieVO> list = sqlSession.selectList("movie.movieInfo");
+		for(int i=0;i<list.size();i++) {
+			System.out.println(list.get(i).getMOVIE_TITLE());
+			System.out.println(list.get(i).getMOVIE_YEAR());
+		}
+		model.addAttribute("movieList",list);
+		
 		return "review_write_popup";
 	}
 

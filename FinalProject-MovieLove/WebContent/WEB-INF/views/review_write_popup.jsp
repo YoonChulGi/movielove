@@ -97,6 +97,26 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
   $( function() {
+	// 리스트 생성
+      var testList = new Array() ;
+	
+      for(var i=1; i<=10; i++){
+          // 객체 생성
+          var data = new Object();
+          data.label = '${movieList.get(i).getMOVIE_TITLE()}';
+		  data.year = '${movieList.get(i).getMOVIE_YEAR()}';
+          data.img_src = "images/gr1.png";
+          data.id = '${movieList.get(i).getMOVIE_ID()}';
+          console.log(data.label);
+          // 리스트에 생성된 객체 삽입
+          testList.push(data) ;
+      }
+      
+    // String 형태로 변환
+    var jsonData = JSON.stringify(testList);
+    var jsonArray = JSON.parse(jsonData);
+    alert("jsonData: "+jsonData+"\n"+", jsonArray: "+jsonArray);
+    
     var movie_info = [
       {
     	  label: "스윙키즈",
@@ -142,9 +162,38 @@
  
     $( "#search-movie" ).autocomplete({
       minLength: 1,
-      source: movie_info,
+      source: function( request, response ) { 
+		//많이 봤죠? jquery Ajax로 비동기 통신한 후 
+    	//json객체를 서버에서 내려받아서 리스트 뽑는 작업 
+    			  $.ajax({
+    				  //호출할 URL
+    				  url: '${movieList}',
+    				  //우선 jsontype json으로
+    				  dataType: "json", 
+    				  // parameter 값이다. 여러개를 줄수도 있다.
+    				  data: { 
+    					  //request.term >> 이거 자체가 text박스내에 입력된 값이다. 
+    					  searchValue: request.term
+    				  }, 
+    				  success: function( result ) { 
+    					  //return 된놈을 response() 함수내에 다음과 같이 정의해서 뽑아온다.
+    					  response(
+    							  $.map( result, function( item ) { 
+    								  return { 
+    									  //label : 화면에 보여지는 텍스트
+    									  //value : 실제 text태그에 들어갈 값 
+    									  //본인은 둘다 똑같이 줬음
+    									  //화면에 보여지는 text가 즉, value가 되기때문 
+    									  label: item.data,
+    									  value: item.data 
+    									  } 
+    								  })
+    		    		  ); 
+        		      } 
+        	      });
+      },
       success: function (result) {
-    	    response($.map(movie_info.slice (0,3), function(item) {
+    	    response($.map(jsonArray.slice (0,3), function(item) {
     	    return {
     	    value: item.label
     	    };
@@ -197,7 +246,7 @@ $(function() {
 </script>
 </head>
 
-<body>
+<body class="review_write_popup">
     <div class="container" align="center" style="width:100%"> <!-- container -->
     	<h3 class="popup-title">[40자평 작성]</h3>
     	<form action="review_writePro.do" method="get">
