@@ -13,7 +13,7 @@
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	
-<style>  
+<style>
 	body{
 		display:flex;
  		align-items:center;
@@ -207,7 +207,7 @@ $(function() {
 					<span class="popup-menu">제목</span>
         			<div class="popup-content">
 						<fieldset>
-							<input id="search-movie" name="review_mvname" placeholder="영화 검색" class="form-control input-lg popup-content" type="text" style="width:100%">
+							<input id="search-movie" name="review_title" placeholder="영화 검색" class="form-control input-lg popup-content" type="text" style="width:100%">
 							<i class="fa fa-search" style="position:absolute;right:0;margin-top:12px;margin-right:10px;"></i>
 						</fieldset>
 						<div class="pcsgt_layer">

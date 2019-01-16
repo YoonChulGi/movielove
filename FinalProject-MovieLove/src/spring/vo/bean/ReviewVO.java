@@ -1,19 +1,18 @@
 package spring.vo.bean;
 
-import java.sql.Timestamp;
-
 public class ReviewVO {
-	private String review_mvname;
+	private String review_title;
 	private String review_contents;
 	private String review_rating;
 	private String review_writer;
-	private Timestamp review_date;
+	private String review_date;
+	private String review_movieid;
 	
-	public String getReview_mvname() {
-		return review_mvname;
+	public String getReview_title() {
+		return review_title;
 	}
-	public void setReview_mvname(String review_mvname) {
-		this.review_mvname = review_mvname;
+	public void setReview_title(String review_title) {
+		this.review_title = review_title;
 	}
 	public String getReview_contents() {
 		return review_contents;
@@ -33,10 +32,16 @@ public class ReviewVO {
 	public void setReview_writer(String review_writer) {
 		this.review_writer = review_writer;
 	}
-	public Timestamp getReview_date() {
+	public String getReview_date() {
 		return review_date;
 	}
-	public void setReview_date(Timestamp review_date) {
+	public void setReview_date(String review_date) {
 		this.review_date = review_date;
+	}
+	public String getReview_movieid() {
+		return review_movieid;
+	}
+	public void setReview_movieid(String review_movieid) {
+		this.review_movieid = review_movieid;
 	}
 }

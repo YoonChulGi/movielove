@@ -39,6 +39,8 @@ public class MainBean {
 	private MemVO Memvo = null;
 	@Autowired
 	private MovieVO Movievo = null;
+	@Autowired
+	private ReviewVO Reviewvo = null;
 	
 	@RequestMapping("main.do")
 	public String Main() {
@@ -229,7 +231,7 @@ public class MainBean {
 	}
 
 	@RequestMapping("review_writePro.do")
-	public String review_writePro(ReviewVO vo, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public String review_writePro(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("MainBean-review_writePro()");
 		
 		try {
@@ -237,19 +239,24 @@ public class MainBean {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		vo.setReview_mvname(request.getParameter("review_mvname"));
-		vo.setReview_contents(request.getParameter("review_contents"));
-		vo.setReview_rating(request.getParameter("review_rating"));
-		vo.setReview_writer(request.getParameter("review_writer"));
-		vo.setReview_date(new Timestamp(System.currentTimeMillis()));
+		Reviewvo.setReview_title(request.getParameter("review_title"));
+		Reviewvo.setReview_contents(request.getParameter("review_contents"));
+		Reviewvo.setReview_rating(request.getParameter("review_rating"));
+		Reviewvo.setReview_writer(request.getParameter("review_writer"));
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd HH:mm");
+		Reviewvo.setReview_date(sdf.format(date));
+		String movieid = sqlSession.selectOne("review.getMovieId", Reviewvo.getReview_title());
+		Reviewvo.setReview_movieid(movieid);
 		
-		System.out.println("영화 제목: "+vo.getReview_mvname());
-		System.out.println("리뷰 내용: "+vo.getReview_contents());
-		System.out.println("평점: "+vo.getReview_rating());
-		System.out.println("작성자: "+vo.getReview_writer());
-		System.out.println("작성날짜: "+vo.getReview_date());
+		System.out.println("영화 제목: "+Reviewvo.getReview_title());
+		System.out.println("리뷰 내용: "+Reviewvo.getReview_contents());
+		System.out.println("평점: "+Reviewvo.getReview_rating());
+		System.out.println("작성자: "+Reviewvo.getReview_writer());
+		System.out.println("작성날짜: "+Reviewvo.getReview_date());
+		System.out.println("영화 ID: "+Reviewvo.getReview_movieid());
 
-		sqlSession.insert("review.insertReview", vo);
+		sqlSession.insert("review.insertReview", Reviewvo);
 		try {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
@@ -258,7 +265,7 @@ public class MainBean {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		//ReviewDAO.insertArticle(vo);
+		//ReviewDAO.insertArticle(Reviewvo);
 		
 		return "movie_review_page";
 	}
