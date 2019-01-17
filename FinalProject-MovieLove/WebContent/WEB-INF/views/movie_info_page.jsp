@@ -50,7 +50,7 @@
     			<li style="width:33.33%"><a href="movie_info_page.do?sel=3" class="<%=sel3%>">지난 영화<span class="ico"></span></a></li>
     		</ul>
     	</div>
-			
+    	
       	<div class="row mt_20">
       	
       	<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">

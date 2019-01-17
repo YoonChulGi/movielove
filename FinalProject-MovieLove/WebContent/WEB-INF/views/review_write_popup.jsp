@@ -96,7 +96,9 @@
 
 <%
 	List<MovieVO> movieList = (List<MovieVO>)request.getAttribute("movieList");
-	System.out.println(movieList.get(0).getMOVIE_TITLE());
+	for(int i=0;i<movieList.size();i++){
+		System.out.println("["+(i+1)+"] jsp 영화제목: "+movieList.get(i).getMOVIE_TITLE());	
+	}
 %>
 
 <!--  영화 검색 자동완성 스크립트 -->
@@ -105,25 +107,52 @@
 <script>
   $( function() {
 	// 리스트 생성
-      var testList = new Array() ;
-	
-	
-      for(var i=1; i<=10; i++){
+      var testList = new Array();
+
+    
+      <c:forEach items="${movieList}" var="movie">
           // 객체 생성
           var data = new Object();
-          data.label = '${movieList.get(i).getMOVIE_TITLE()}';
-		  data.year = '${movieList.get(i).getMOVIE_YEAR()}';
-          data.img_src = "images/gr1.png";
-          data.id = '${movieList.get(i).getMOVIE_ID()}';
-          console.log(data.label);
+          data.label = '${movie.MOVIE_TITLE}';
+		  data.year = '${movie.MOVIE_YEAR}';
+          data.img_src = '${movie.MOVIE_IMG}';
+          data.id = '${movie.MOVIE_ID}';
+          console.log("data.label: "+data.label);
+          
           // 리스트에 생성된 객체 삽입
-          testList.push(data) ;
-      }
+          testList.push(data);
+    </c:forEach>
+    
+
+      /***
+      var data1 = new Object();
+      data1.label = '${movieList.get(1).getMOVIE_TITLE()}';
+	  data1.year = '${movieList.get(1).getMOVIE_YEAR()}';
+      data1.img_src = "images/gr1.png";
+      data1.id = '${movieList.get(1).getMOVIE_ID()}';
+      console.log("data1.label: "+data1.label);
+      testList.push(data1);
       
+      var data2 = new Object();
+      data2.label = '${movieList.get(2).getMOVIE_TITLE()}';
+      data2.year = '${movieList.get(2).getMOVIE_YEAR()}';
+      data2.img_src = "images/gr1.png";
+      data2.id = '${movieList.get(2).getMOVIE_ID()}';
+      console.log("data2.label: "+data2.label);
+      testList.push(data2);
+      
+      var data3 = new Object();
+      data3.label = '${movieList.get(3).getMOVIE_TITLE()}';
+      data3.year = '${movieList.get(3).getMOVIE_YEAR()}';
+      data3.img_src = "images/gr1.png";
+      data3.id = '${movieList.get(3).getMOVIE_ID()}';
+      console.log("data3.label: "+data3.label);
+      testList.push(data1);
+      ***/
     // String 형태로 변환
     var jsonData = JSON.stringify(testList);
     var jsonArray = JSON.parse(jsonData);
-    alert("jsonData: "+jsonData+"\n"+", jsonArray: "+jsonArray);
+    alert("[jsonData] \n"+jsonData+"\n[jsonArray] \n"+jsonArray);
     
     var movie_info = [
       {
@@ -170,36 +199,7 @@
  
     $( "#search-movie" ).autocomplete({
       minLength: 1,
-      source: function( request, response ) { 
-		//많이 봤죠? jquery Ajax로 비동기 통신한 후 
-    	//json객체를 서버에서 내려받아서 리스트 뽑는 작업 
-    			  $.ajax({
-    				  //호출할 URL
-    				  url: 'search.jsp',
-    				  //우선 jsontype json으로
-    				  dataType: "json", 
-    				  // parameter 값이다. 여러개를 줄수도 있다.
-    				  data: { 
-    					  //request.term >> 이거 자체가 text박스내에 입력된 값이다. 
-    					  searchValue: request.term
-    				  }, 
-    				  success: function( result ) { 
-    					  //return 된놈을 response() 함수내에 다음과 같이 정의해서 뽑아온다.
-    					  response(
-    							  $.map( result, function( item ) { 
-    								  return { 
-    									  //label : 화면에 보여지는 텍스트
-    									  //value : 실제 text태그에 들어갈 값 
-    									  //본인은 둘다 똑같이 줬음
-    									  //화면에 보여지는 text가 즉, value가 되기때문 
-    									  label: item.data,
-    									  value: item.data 
-    									  } 
-    								  })
-    		    		  ); 
-        		      } 
-        	      });
-      },
+      source: jsonArray,
       success: function (result) {
     	    response($.map(jsonArray.slice (0,3), function(item) {
     	    return {
@@ -253,6 +253,7 @@ $(function() {
 });
 </script>
 </head>
+
 
 <body class="review_write_popup">
     <div class="container" align="center" style="width:100%"> <!-- container -->
