@@ -105,11 +105,13 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
+
+var isClicked = false;
+
   $( function() {
 	// 리스트 생성
-      var testList = new Array();
+      var movieList = new Array();
 
-    
       <c:forEach items="${movieList}" var="movie">
           // 객체 생성
           var data = new Object();
@@ -117,82 +119,14 @@
 		  data.year = '${movie.MOVIE_YEAR}';
           data.img_src = '${movie.MOVIE_IMG}';
           data.id = '${movie.MOVIE_ID}';
-          console.log("data.label: "+data.label);
           
           // 리스트에 생성된 객체 삽입
-          testList.push(data);
+          movieList.push(data);
     </c:forEach>
     
-
-      /***
-      var data1 = new Object();
-      data1.label = '${movieList.get(1).getMOVIE_TITLE()}';
-	  data1.year = '${movieList.get(1).getMOVIE_YEAR()}';
-      data1.img_src = "images/gr1.png";
-      data1.id = '${movieList.get(1).getMOVIE_ID()}';
-      console.log("data1.label: "+data1.label);
-      testList.push(data1);
-      
-      var data2 = new Object();
-      data2.label = '${movieList.get(2).getMOVIE_TITLE()}';
-      data2.year = '${movieList.get(2).getMOVIE_YEAR()}';
-      data2.img_src = "images/gr1.png";
-      data2.id = '${movieList.get(2).getMOVIE_ID()}';
-      console.log("data2.label: "+data2.label);
-      testList.push(data2);
-      
-      var data3 = new Object();
-      data3.label = '${movieList.get(3).getMOVIE_TITLE()}';
-      data3.year = '${movieList.get(3).getMOVIE_YEAR()}';
-      data3.img_src = "images/gr1.png";
-      data3.id = '${movieList.get(3).getMOVIE_ID()}';
-      console.log("data3.label: "+data3.label);
-      testList.push(data1);
-      ***/
     // String 형태로 변환
-    var jsonData = JSON.stringify(testList);
+    var jsonData = JSON.stringify(movieList);
     var jsonArray = JSON.parse(jsonData);
-    alert("[jsonData] \n"+jsonData+"\n[jsonArray] \n"+jsonArray);
-    
-    var movie_info = [
-      {
-    	  label: "스윙키즈",
-    	  year: "2018",
-    	  link: "#",
-          img_src: "images/poster3.jpg"
-      },
-      {
-    	  label: "범블비",
-    	  year: "2018",
-    	  link: "#",
-          img_src: "images/poster2.jpg"
-      },
-      {
-    	  label: "아쿠아맨",
-    	  year: "2018",
-    	  link: "#",
-          img_src: "images/poster1.jpg"
-      },
-      {
-    	  label: "아쿠아맨1",
-    	  year: "2018",
-          link: "#",
-          img_src: "images/poster1.jpg"
-      },
-      {
-    	  label: "아쿠아맨2",
-          year: "2019",
-          link: "#",
-          img_src: "images/poster1.jpg"
-      },
-      {
-    	  label: "아쿠아맨3",
-          year: "2020",
-          link: "#",
-          img_src: "images/poster1.jpg"
-      }
-    ];
-
     $('#search-movie').focus(function(){
     	$( "#search-movie" ).autocomplete( "enable" );
     });
@@ -214,6 +148,7 @@
       select: function( event, ui ) {
         $( "#search-movie" ).val( ui.item.label );
         $( "#search-movie" ).autocomplete( "disable" );
+        isClicked = true;
         return false;
       }
     })
@@ -224,6 +159,24 @@
         .appendTo( ul );
     };
   } );
+</script>
+
+<!-- 작성 버튼 이벤트 스크립트 -->
+<script>
+  function review_write_click() {
+		if(isClicked){
+			var username = $("#review_contents").val();
+			if(username==''){
+				alert('내용을 입력해주세요.');
+				return;
+			} else{
+				document.getElementById('review_wirte_form').submit();
+			}
+		} else{
+			alert("먼저 영화를 검색한 후 눌러주세요.");
+			return;
+		}
+	}
 </script>
 
 <!-- 별점 주기 스크립트 -->
@@ -258,7 +211,7 @@ $(function() {
 <body class="review_write_popup">
     <div class="container" align="center" style="width:100%"> <!-- container -->
     	<h3 class="popup-title">[40자평 작성]</h3>
-    	<form action="review_writePro.do" method="get">
+    	<form action="review_writePro.do" method="get" id="review_wirte_form">
     	<div class="col-sm-11" style="display:inline-block ;margin-left:4.1666%; margin-right:4.1666%;">
 	    	<div class="row row-review mb_10" align="center">
        			<div class="row-menu">
@@ -318,7 +271,7 @@ $(function() {
        			</div>
        		</div>
        		<input name="review_writer" type="hidden" value="<%=session.getAttribute("memId")%>"/>
-       		<button id="btn-review_write" class="btn btn-primary btn-lg">작성</button>
+       		<button id="btn-review_write" class="btn btn-primary btn-lg" onclick="review_write_click()" type="button">작성</button>
        		</form>
        	</div>
     </div>
