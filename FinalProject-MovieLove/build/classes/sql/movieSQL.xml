@@ -6,5 +6,7 @@
 	<select id="movieInfo" resultType="MovieVO">
 		SELECT MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID
 		FROM MOVIE
+		WHERE MOVIE_SHOWING = '1'
+		ORDER BY MOVIE_RATE DESC
 	</select>
 </mapper>
