@@ -1,12 +1,12 @@
 package spring.vo.bean;
 
 public class MovieVO {
-	String MOVIE_TITLE;
-	String MOVIE_IMG;
-	String MOVIE_YEAR;
-	String MOVIE_RATE;
-	String MOVIE_SHOWING;
-	String MOVIE_ID;
+	private String MOVIE_TITLE;
+	private String MOVIE_IMG;
+	private String MOVIE_YEAR;
+	private String MOVIE_RATE;
+	private String MOVIE_SHOWING;
+	private String MOVIE_ID;
 	
 	public String getMOVIE_TITLE() {
 		return MOVIE_TITLE;
