@@ -164,6 +164,7 @@ var isClicked = false;
 <!-- 작성 버튼 이벤트 스크립트 -->
 <script>
   function review_write_click() {
+	    //영화 자동완성 검색을 클릭했는지 여부
 		if(isClicked){
 			var username = $("#review_contents").val();
 			if(username==''){

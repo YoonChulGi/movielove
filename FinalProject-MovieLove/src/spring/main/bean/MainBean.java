@@ -219,8 +219,27 @@ public class MainBean {
 	}
 	
 	@RequestMapping("movie_review_page.do")
-	public String movie_review_page() {
+	public String movie_review_page(Model model) {
 		System.out.println("MainBean-movie_review_page()");
+		
+		List<String> rateList = sqlSession.selectList("movie.movieRateRanking");
+		System.out.println("<예매율 순으로 정리>");
+		for(int i=0;i<rateList.size();i++) {
+			System.out.println("영화ID: "+rateList.get(i));
+		}
+		
+		List<ReviewVO> list = new List<ReviewVO>();
+		for(int i=0;i<rateList.size();i++) {
+			ReviewVO vo = new ReviewVO();
+			vo = sqlSession.selectOne("review.getReviewInfo", rateList.get(i));
+		}
+		for(int i=0;i<list.size();i++) {
+			System.out.println(list.get(i).getReview_title());
+			System.out.println(list.get(i).getReview_writer());
+			System.out.println(list.get(i).getReview_contents());
+		}
+		model.addAttribute("reviewList",list);
+		
 		return "movie_review_page";
 	}
 
