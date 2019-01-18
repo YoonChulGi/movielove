@@ -1,19 +1,17 @@
 package spring.main.bean;
 
-import java.io.UnsupportedEncodingException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Enumeration;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import spring.vo.bean.MemVO;
 
@@ -24,90 +22,66 @@ public class LoginBean {
 	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
-	@Autowired
-	private MemVO Memvo = null;
-	
-	@RequestMapping("register.do")
-	public String register() {
-		System.out.println("MainBean-register()");
-		return "register";
+			
+	@RequestMapping("login.do")
+	public String login() {
+		System.out.println("MainBean-login()");
+		return "login";
 	}
 
-	@RequestMapping("idcheck.do")
-	@ResponseBody
-	public String idcheck(@RequestBody String username) {
-		int count = 0;
-		System.out.println("idcheck.do");
-		System.out.println("username: " + username);
-		count = (Integer) sqlSession.selectOne("mem.idcheck", username);
-		System.out.println("count: " + count);
-		return count + "";
-	}
-
-	@RequestMapping("registerPro.do")
-	public String regsterPro(HttpServletRequest request) {
-		System.out.println("MainBean-registerPro()");
-		try {
-			request.setCharacterEncoding("UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Enumeration names = request.getParameterNames();
-
-		while (names.hasMoreElements()) {
-			String name = (String) names.nextElement();
-			System.out.print(name);
-			System.out.println(": " + request.getParameter(name));
-		}
+	@RequestMapping("loginPro.do")
+	public String loginPro(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("MainBean-loginPro()");
 		
-		String username = request.getParameter("username");
+		String id = request.getParameter("username");
 		String password = request.getParameter("password");
-		String enc_pw = passwordEncoder.encode(password);
-		String gender = request.getParameter("gender");
-		int year = Integer.parseInt(request.getParameter("year"));
-		int month = Integer.parseInt(request.getParameter("month"));
-		int day = Integer.parseInt(request.getParameter("day"));
-		String address_normal = request.getParameter("address_normal");
-		String address_detail = request.getParameter("address_detail");
+		System.out.println("username: "+id);
+		System.out.println("password: "+password);
 		
-		String genre = "";
-		for(int i=1;i<=6;i++) {
-			if(request.getParameter("genre"+i) != null) {
-				genre += "1";
-			} else {
-				genre += "0";
+		MemVO vo = sqlSession.selectOne("mem.selectMem", id);
+		//입력한 id가 DB에 있을 경우
+		if(vo != null) {
+			//비밀번호 일치
+			if(passwordEncoder.matches(password, vo.getMEM_PW())){
+				HttpSession session = request.getSession();
+				session.setAttribute("memId", id);
+				return "main";
+			}
+			//비밀번호 불일치
+			else {
+				try {
+					response.setContentType("text/html; charset=UTF-8");
+					PrintWriter out = response.getWriter();
+					out.println("<script>alert('비밀번호가 일치하지 않습니다.');history.go(-1);</script>");
+					out.flush();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
-		System.out.println(genre);
-		
-		String pattern = "yyyy-MM-dd";
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-		
-		Date d = new Date();
-		d.setYear(year-1900);
-		d.setMonth(month-1);
-		d.setDate(day);
-		
-		String date = simpleDateFormat.format(d);
-		System.out.println("date: " + date);
-		
-		Memvo.setMEM_ID(username);
-		Memvo.setMEM_PW(enc_pw);
-		Memvo.setMEM_AGE(date);
-		Memvo.setMEM_GENDER(gender);
-		Memvo.setMEM_ADDRESS1(address_normal);
-		Memvo.setMEM_ADDRESS2(address_detail);
-		Memvo.setMEM_GENRE(genre);
-		
-		sqlSession.insert("mem.registerMember", Memvo);
-		
-		return "registerConfirm";
+		//입력한 id가 DB에 없는 경우
+		else {
+			try {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>alert('입력한 아이디가 존재하지 않습니다.');history.go(-1);</script>");
+				out.flush();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+
+	@RequestMapping("logout.do")
+	public String logout(HttpServletRequest request) {
+		System.out.println("MainBean-logout()");
+
+		HttpSession session = request.getSession();
+		session.invalidate();
+		return "main";
 	}
 	
-	@RequestMapping("register_confirm.do")
-	public String register_confirm() {
-		System.out.println("register_confirm");
-		return "register_confirm";
-	}
+	
+
 }
