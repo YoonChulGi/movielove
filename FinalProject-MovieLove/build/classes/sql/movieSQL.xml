@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="movie">
-	<select id="movieInfo" resultType="MovieVO">
+	<select id="movieInfo_showing" resultType="MovieVO">
 		SELECT MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID
 		FROM MOVIE
 		WHERE MOVIE_SHOWING = '1'
