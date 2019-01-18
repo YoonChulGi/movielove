@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <% 
-	String movie_title="영화 제목";
+/* 	String movie_title="영화 제목";
 	String movie_rate="10.3%";
 	String movie_date="2018.12.31 개봉";
 	String movie_img="images/poster.jpg";
@@ -21,7 +21,7 @@
 	} else{
 		sel1 = "on";
 	}
-	
+ */	
 %>
 
 <!DOCTYPE html>
@@ -45,10 +45,27 @@
     	<!-- <h1>${list.get(0).getMOVIE_TITLE() }</h1> -->
     	<div class="row" id="movie_info_menu">
     		<ul> 
-    			<li style="width:33.33%"><a href="movie_info_page.do?sel=1" class="<%=sel1%>">현재 상영중<span class="ico"></span></a></li>
-    			<li style="width:33.33%"><a href="movie_info_page.do?sel=2" class="<%=sel2%>">개봉 예정<span class="ico"></span></a></li>
-    			<li style="width:33.33%"><a href="movie_info_page.do?sel=3" class="<%=sel3%>">지난 영화<span class="ico"></span></a></li>
+    			<li style="width:33.33%"><a id="show1" href="movie_info_page.do?sel=1">현재 상영중<span class="ico"></span></a></li>
+    			<li style="width:33.33%"><a id="show2" href="movie_info_page.do?sel=2">개봉 예정<span class="ico"></span></a></li>
+    			<li style="width:33.33%"><a id="show3" href="movie_info_page.do?sel=3">지난 영화<span class="ico"></span></a></li>
     		</ul>
+    		<script>
+    			var sel = ${sel};
+    			console.log(sel);
+    			if('${sel}'==null || '${sel}'=='' || '${sel}'=='1'){
+    				document.getElementById("show1").classList.add('on');
+    				document.getElementById("show2").classList.remove('on');
+    				document.getElementById("show3").classList.remove('on');
+    			} else if('${sel}'=='2') {
+    				document.getElementById("show2").classList.add('on');
+    				document.getElementById("show1").classList.remove('on');
+    				document.getElementById("show3").classList.remove('on');
+    			} else if('${sel}' == '3'){
+    				document.getElementById("show3").classList.add('on');
+    				document.getElementById("show1").classList.remove('on');
+    				document.getElementById("show2").classList.remove('on');
+    			}
+    		</script>
     	</div>
     	
       	<div class="row mt_20">
