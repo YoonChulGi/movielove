@@ -20,7 +20,7 @@ public class LoginBean {
 	@Autowired
 	private SqlSessionTemplate sqlSession = null;
 	
-	@Autowired
+	@Autowired 
 	BCryptPasswordEncoder passwordEncoder;
 			
 	@RequestMapping("login.do")
