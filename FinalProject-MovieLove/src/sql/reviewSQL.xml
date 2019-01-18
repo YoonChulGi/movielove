@@ -5,11 +5,11 @@
 <mapper namespace="review">
 	<insert id="insertReview" parameterType="ReviewVO">
 		insert into review(review_title, review_contents, review_rating, review_writer, review_date, review_movieid) 
-		values(#{review_title}, #{review_contents}, #{review_rating}, #{review_writer}, #{review_date}, ${review_movieid})
+		values(#{REVIEW_TITLE}, #{REVIEW_CONTENTS}, #{REVIEW_RATING}, #{REVIEW_WRITER}, #{REVIEW_DATE}, ${REVIEW_MOVIEID})
 	</insert>
 	
 	<select id="getMovieId" parameterType="String" resultType="String">
-		select MOVIE_ID from MOVIE where MOVIE_TITLE=#{review_title}
+		select MOVIE_ID from MOVIE where MOVIE_TITLE=#{REVIEW_TITLE}
 	</select>
 	
 	<select id="reviewInfo" resultType="ReviewVO">
@@ -17,6 +17,6 @@
 	</select>
 	
 	<select id="getReviewInfo" parameterType="String" resultType="ReviewVO">
-		select * from review where review_movieid=#{value};
+		select * from REVIEW where REVIEW_MOVIEID=#{value}
 	</select>
 </mapper>

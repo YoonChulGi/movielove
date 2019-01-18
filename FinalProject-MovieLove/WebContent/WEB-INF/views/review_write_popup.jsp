@@ -106,23 +106,23 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 
-var isClicked = false;
+  var isClicked = false;
 
   $( function() {
 	// 리스트 생성
-      var movieList = new Array();
+	var movieList = new Array();
 
-      <c:forEach items="${movieList}" var="movie">
-          // 객체 생성
-          var data = new Object();
-          data.label = '${movie.MOVIE_TITLE}';
-		  data.year = '${movie.MOVIE_YEAR}';
-          data.img_src = '${movie.MOVIE_IMG}';
-          data.id = '${movie.MOVIE_ID}';
+	<c:forEach items="${movieList}" var="movie">
+		// 객체 생성
+		var data = new Object();
+        data.label = '${movie.MOVIE_TITLE}';
+		data.year = '${movie.MOVIE_YEAR}';
+        data.img_src = '${movie.MOVIE_IMG}';
+        data.id = '${movie.MOVIE_ID}';
           
-          // 리스트에 생성된 객체 삽입
-          movieList.push(data);
-    </c:forEach>
+        // 리스트에 생성된 객체 삽입
+	    movieList.push(data);
+	</c:forEach>
     
     // String 형태로 변환
     var jsonData = JSON.stringify(movieList);
@@ -161,7 +161,7 @@ var isClicked = false;
   } );
 </script>
 
-<!-- 작성 버튼 이벤트 스크립트 -->
+<!-- 40자평 작성 버튼 이벤트 스크립트 -->
 <script>
   function review_write_click() {
 	    //영화 자동완성 검색을 클릭했는지 여부
@@ -273,8 +273,8 @@ $(function() {
        		</div>
        		<input name="review_writer" type="hidden" value="<%=session.getAttribute("memId")%>"/>
        		<button id="btn-review_write" class="btn btn-primary btn-lg" onclick="review_write_click()" type="button">작성</button>
-       		</form>
        	</div>
+       	</form>
     </div>
     
     <!-- Bootstrap core JavaScript -->

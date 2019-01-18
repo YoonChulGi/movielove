@@ -3073,14 +3073,14 @@ a.btn_red_s {
 	display: inline-block;
 }
 .movie_list li.movie_li {
-	width: 92%;
+	width: 99%;
 	height: 270px;
 	display:inline-block;
     position: relative;
     border: 1px solid #e6e6e6;
     padding: 0 0 10px 190px;
-    margin-left: 4%;
-    margin-right: 4%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
     margin-bottom: 40px;
 }
 .review-summary {
@@ -3115,7 +3115,7 @@ a.btn_red_s {
 }
 .movie_list li.movie_li div.review-summary div {
 	font-size: 14px;
-	height: 28px;
+	height: 30px;
 	padding-right:10px;
 }
 .movie_list li.movie_li .movie_thumb {
@@ -3124,6 +3124,14 @@ a.btn_red_s {
     border: 1px solid #e0e0e0;
     width: 180px;
     height: 270px;
+}
+.review_none {
+	float: left;
+	width: 100%;
+    line-height: 2;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 50px;
 }
 .review_writer {
 	float: left;
@@ -3134,14 +3142,14 @@ a.btn_red_s {
 }
 .review_comment {
 	float: left;
-	width: 400px;
+	width: 460px;
     line-height: 2;
     font-size: 14px;
 	margin-right: 20px;
 }
 .review_date {
 	float: left;
-	width: 100px;
+	width: 120px;
     line-height: 2;
     font-size: 14px;
 	margin-right: 20px;
@@ -3165,7 +3173,7 @@ a.btn_red_s {
     overflow: hidden;
     font-size: 0;
     line-height: 0;
-    margin-top: -0.1px;
+    margin-top: 0.9px;
     background-position: 0 -20px;
     text-indent: -9999px;
 }

@@ -1,47 +1,47 @@
 package spring.vo.bean;
 
 public class ReviewVO {
-	private String review_title;
-	private String review_contents;
-	private String review_rating;
-	private String review_writer;
-	private String review_date;
-	private String review_movieid;
+	private String REVIEW_TITLE;
+	private String REVIEW_CONTENTS;
+	private String REVIEW_RATING;
+	private String REVIEW_WRITER;
+	private String REVIEW_DATE;
+	private String REVIEW_MOVIEID;
 	
-	public String getReview_title() {
-		return review_title;
+	public String getREVIEW_TITLE() {
+		return REVIEW_TITLE;
 	}
-	public void setReview_title(String review_title) {
-		this.review_title = review_title;
+	public void setREVIEW_TITLE(String rEVIEW_TITLE) {
+		REVIEW_TITLE = rEVIEW_TITLE;
 	}
-	public String getReview_contents() {
-		return review_contents;
+	public String getREVIEW_CONTENTS() {
+		return REVIEW_CONTENTS;
 	}
-	public void setReview_contents(String review_contents) {
-		this.review_contents = review_contents;
+	public void setREVIEW_CONTENTS(String rEVIEW_CONTENTS) {
+		REVIEW_CONTENTS = rEVIEW_CONTENTS;
 	}
-	public String getReview_rating() {
-		return review_rating;
+	public String getREVIEW_RATING() {
+		return REVIEW_RATING;
 	}
-	public void setReview_rating(String review_rating) {
-		this.review_rating = review_rating;
+	public void setREVIEW_RATING(String rEVIEW_RATING) {
+		REVIEW_RATING = rEVIEW_RATING;
 	}
-	public String getReview_writer() {
-		return review_writer;
+	public String getREVIEW_WRITER() {
+		return REVIEW_WRITER;
 	}
-	public void setReview_writer(String review_writer) {
-		this.review_writer = review_writer;
+	public void setREVIEW_WRITER(String rEVIEW_WRITER) {
+		REVIEW_WRITER = rEVIEW_WRITER;
 	}
-	public String getReview_date() {
-		return review_date;
+	public String getREVIEW_DATE() {
+		return REVIEW_DATE;
 	}
-	public void setReview_date(String review_date) {
-		this.review_date = review_date;
+	public void setREVIEW_DATE(String rEVIEW_DATE) {
+		REVIEW_DATE = rEVIEW_DATE;
 	}
-	public String getReview_movieid() {
-		return review_movieid;
+	public String getREVIEW_MOVIEID() {
+		return REVIEW_MOVIEID;
 	}
-	public void setReview_movieid(String review_movieid) {
-		this.review_movieid = review_movieid;
+	public void setREVIEW_MOVIEID(String rEVIEW_MOVIEID) {
+		REVIEW_MOVIEID = rEVIEW_MOVIEID;
 	}
 }

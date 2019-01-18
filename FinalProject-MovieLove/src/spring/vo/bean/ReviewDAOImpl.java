@@ -16,10 +16,10 @@ public class ReviewDAOImpl implements ReviewDAO{
 	public void insertArticle(ReviewVO vo) throws Exception {
 		sqlSession.insert("review.insertReview", vo);
 		
-		System.out.println("영화 제목: "+vo.getReview_title());
-		System.out.println("리뷰 내용: "+vo.getReview_contents());
-		System.out.println("평점: "+vo.getReview_rating());
-		System.out.println("작성자: "+vo.getReview_writer());
-		System.out.println("작성날짜: "+vo.getReview_date());
+		System.out.println("영화 제목: "+vo.getREVIEW_TITLE());
+		System.out.println("리뷰 내용: "+vo.getREVIEW_CONTENTS());
+		System.out.println("평점: "+vo.getREVIEW_RATING());
+		System.out.println("작성자: "+vo.getREVIEW_WRITER());
+		System.out.println("작성날짜: "+vo.getREVIEW_DATE());
 	}
 }

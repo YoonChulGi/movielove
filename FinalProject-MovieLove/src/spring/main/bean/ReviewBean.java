@@ -23,14 +23,16 @@ import spring.vo.bean.ReviewVO;
 @Controller
 public class ReviewBean {
 	@Autowired
-	private ReviewVO Reviewvo = null;
-	
-	@Autowired
 	private SqlSessionTemplate sqlSession = null;
+	@Autowired
+	private ReviewVO Reviewvo = null;
 	
 	@RequestMapping("movie_review_page.do")
 	public String movie_review_page(Model model) {
 		System.out.println("MainBean-movie_review_page()");
+		
+		List<MovieVO> movieList = sqlSession.selectList("movie.movieInfo");
+		model.addAttribute("movieList",movieList);
 		
 		List<String> rateList = sqlSession.selectList("movie.movieRateRanking");
 		System.out.println("<예매율 순으로 정리>");
@@ -38,16 +40,22 @@ public class ReviewBean {
 			System.out.println("영화ID: "+rateList.get(i));
 		}
 		
-		List<ReviewVO> list = new ArrayList<ReviewVO>();
+		List<List<ReviewVO>> list = new ArrayList<List<ReviewVO>>();
 		for(int i=0;i<rateList.size();i++) {
-			ReviewVO vo = new ReviewVO();
-			vo = sqlSession.selectOne("review.getReviewInfo", rateList.get(i));
+			List<ReviewVO> vo = new ArrayList<ReviewVO>();
+			vo = sqlSession.selectList("review.getReviewInfo", rateList.get(i));
 			list.add(vo);
 		}
+		
 		for(int i=0;i<list.size();i++) {
-			System.out.println(list.get(i).getReview_title());
-			System.out.println(list.get(i).getReview_writer());
-			System.out.println(list.get(i).getReview_contents());
+			for(int j=0;j<list.get(i).size();j++) {
+				System.out.println("i: "+i+", j: "+j);
+				System.out.println("list size: "+list.size()+", list.get(i) size: "+list.get(i).size());
+				System.out.println("제목: "+list.get(i).get(j).getREVIEW_TITLE());
+				System.out.println("작성자: "+list.get(i).get(j).getREVIEW_WRITER());
+				System.out.println("내용: "+list.get(i).get(j).getREVIEW_CONTENTS());
+				System.out.println();
+			}
 		}
 		model.addAttribute("reviewList",list);
 		
@@ -77,28 +85,28 @@ public class ReviewBean {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		Reviewvo.setReview_title(request.getParameter("review_title"));
-		Reviewvo.setReview_contents(request.getParameter("review_contents"));
-		Reviewvo.setReview_rating(request.getParameter("review_rating"));
-		Reviewvo.setReview_writer(request.getParameter("review_writer"));
+		Reviewvo.setREVIEW_TITLE(request.getParameter("review_title"));
+		Reviewvo.setREVIEW_CONTENTS(request.getParameter("review_contents"));
+		Reviewvo.setREVIEW_RATING(request.getParameter("review_rating"));
+		Reviewvo.setREVIEW_WRITER(request.getParameter("review_writer"));
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd HH:mm");
-		Reviewvo.setReview_date(sdf.format(date));
-		String movieid = sqlSession.selectOne("review.getMovieId", Reviewvo.getReview_title());
-		Reviewvo.setReview_movieid(movieid);
+		Reviewvo.setREVIEW_DATE(sdf.format(date));
+		String movieid = sqlSession.selectOne("review.getMovieId", Reviewvo.getREVIEW_TITLE());
+		Reviewvo.setREVIEW_MOVIEID(movieid);
 		
-		System.out.println("영화 제목: "+Reviewvo.getReview_title());
-		System.out.println("리뷰 내용: "+Reviewvo.getReview_contents());
-		System.out.println("평점: "+Reviewvo.getReview_rating());
-		System.out.println("작성자: "+Reviewvo.getReview_writer());
-		System.out.println("작성날짜: "+Reviewvo.getReview_date());
-		System.out.println("영화 ID: "+Reviewvo.getReview_movieid());
+		System.out.println("영화 제목: "+Reviewvo.getREVIEW_TITLE());
+		System.out.println("리뷰 내용: "+Reviewvo.getREVIEW_CONTENTS());
+		System.out.println("평점: "+Reviewvo.getREVIEW_RATING());
+		System.out.println("작성자: "+Reviewvo.getREVIEW_WRITER());
+		System.out.println("작성날짜: "+Reviewvo.getREVIEW_DATE());
+		System.out.println("영화 ID: "+Reviewvo.getREVIEW_MOVIEID());
 
 		sqlSession.insert("review.insertReview", Reviewvo);
 		try {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('작성이 완료되었습니다.');history.go(-1);window.close();</script>");
+			out.println("<script>alert('작성이 완료되었습니다.');history.go(-1);window.close();location.href='movie_review_page.do';</script>");
 			out.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
