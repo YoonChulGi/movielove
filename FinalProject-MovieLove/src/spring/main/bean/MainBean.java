@@ -3,6 +3,7 @@ package spring.main.bean;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -235,10 +236,11 @@ public class MainBean {
 			System.out.println("영화ID: "+rateList.get(i));
 		}
 		
-		List<ReviewVO> list = new List<ReviewVO>();
+		List<ReviewVO> list = new ArrayList<ReviewVO>();
 		for(int i=0;i<rateList.size();i++) {
 			ReviewVO vo = new ReviewVO();
 			vo = sqlSession.selectOne("review.getReviewInfo", rateList.get(i));
+			list.add(vo);
 		}
 		for(int i=0;i<list.size();i++) {
 			System.out.println(list.get(i).getReview_title());
