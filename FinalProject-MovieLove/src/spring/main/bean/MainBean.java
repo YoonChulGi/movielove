@@ -186,16 +186,23 @@ public class MainBean {
 	}
 
 	@RequestMapping("movie_info_page.do")
-	public String movie_info_page(Model model) {
+	public String movie_info_page(Model model,HttpServletRequest request) {
 		System.out.println("MainBean-movie_info_page()");
 		List<MovieVO> list = sqlSession.selectList("movie.movieInfo");
 		for(int i=0;i<list.size();i++) {
 			System.out.println(list.get(i).getMOVIE_TITLE());
 			System.out.println(list.get(i).getMOVIE_YEAR());
-			//SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			//Date date = new Date(list.get(i).getMOVIE_YEAR()+" 00:00:00.0");
-			//System.out.println(sdf.format(date));
 		}
+		
+		if(request.getParameter("sel") != null) {
+			if(request.getParameter("sel").equals("1")) { // 상영중
+				
+			} else if(request.getParameter("sel").equals("2")) { // 개봉 예정 
+				
+			}
+		}
+		
+		
 		model.addAttribute("list",list);
 		return "movie_info_page";
 	}
