@@ -33,7 +33,10 @@ public class ReviewBean {
 	public String movie_review_page(Model model) {
 		System.out.println("MainBean-movie_review_page()");
 		
-		List<MovieVO> movieList = sqlSession.selectList("movie.movieInfo_showing");
+		List<MovieVO> movieShowingList = sqlSession.selectList("movie.movieInfo_showing");
+		model.addAttribute("movieShowingList", movieShowingList);
+		
+		List<MovieVO> movieList = sqlSession.selectList("movie.movieInfoAll");
 		model.addAttribute("movieList", movieList);
 		
 		List<String> rateList = sqlSession.selectList("movie.movieRateRanking");
