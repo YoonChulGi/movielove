@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.rosuda.REngine.REXPMismatchException;
-import org.rosuda.REngine.RList;
 import org.rosuda.REngine.Rserve.RConnection;
 import org.rosuda.REngine.Rserve.RserveException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +19,9 @@ public class InfoBean {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession = null;
+	
+	@Autowired
+	private RConnection conn = null;
 	
 	@RequestMapping("movie_info_page.do")
 	public String movie_info_page(Model model,HttpServletRequest request) {
@@ -37,7 +39,6 @@ public class InfoBean {
 		} else if(request.getParameter("sel").equals("2")) { // 개봉 예정 
 			System.out.println("개봉 예정");
 			try {
-				RConnection conn = new RConnection();
 				System.out.println("초기 변수 세팅 시작");
 				conn.eval("library(Rserve)");
 				conn.eval("library(rvest)");

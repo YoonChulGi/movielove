@@ -1,31 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<% 
-/* 	String movie_title="영화 제목";
-	String movie_rate="10.3%";
-	String movie_date="2018.12.31 개봉";
-	String movie_img="images/poster.jpg";
-	//String movie_img="http://placehold.it/236x340";
-	String sel1="", sel2="", sel3="";
-	String sel = request.getParameter("sel");
-	
-	if(sel != null){
-		if(sel.equals("1")){
-			sel1 = "on";
-		} else if(sel.equals("2")){
-			sel2 = "on";
-		} else if(sel.equals("3")){
-			sel3 = "on";
-		}
-	} else{
-		sel1 = "on";
-	}
- */	
-
-
-%>
-
 <!DOCTYPE html>
 <html lang="kr">
 
@@ -52,17 +27,16 @@
     			<li style="width:33.33%"><a id="show3" href="movie_info_page.do?sel=3">지난 영화<span class="ico"></span></a></li>
     		</ul>
     		<script>
-    			var sel = ${sel};
-    			console.log(sel);
-    			if('${sel}'==null || '${sel}'=='' || '${sel}'=='1'){
+    			var sel = <%=request.getParameter("sel")%>
+    			if(sel=='1'){
     				document.getElementById("show1").classList.add('on');
     				document.getElementById("show2").classList.remove('on');
     				document.getElementById("show3").classList.remove('on');
-    			} else if('${sel}'=='2') {
+    			} else if(sel=='2') {
     				document.getElementById("show2").classList.add('on');
     				document.getElementById("show1").classList.remove('on');
     				document.getElementById("show3").classList.remove('on');
-    			} else if('${sel}' == '3'){
+    			} else if(sel=='3'){
     				document.getElementById("show3").classList.add('on');
     				document.getElementById("show1").classList.remove('on');
     				document.getElementById("show2").classList.remove('on');
@@ -73,6 +47,7 @@
       	<div class="row mt_20">
       	
       	<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
+      		<c:if test="${sel == '1' }">
 	      	<div class="row">
 		      	<c:forEach var="i" begin="1" end="4" step="1">
 			      	<div class="col-lg-3 col-sm-6 col-xs-6 col-md-6">
@@ -81,8 +56,8 @@
 			      				<div class="img-body" align="center">
 			      					<a href="movie_detail_page.do"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG()}" alt="" style="width:100%"></a>
 			     				</div>
-			     				<div class="card-body" id="card-body" align="center">
-			     					<h4 class="card-title">
+			     				<div class="card-body" id="card-body" align="center" style="max-height:78px">
+			     					<h4 class="card-title" style="max-height:28px;overflow:hidden;">
 			      						<a href="#">${list.get(i-1).getMOVIE_TITLE() }</a> 
 			      					</h4>
 			      					<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
@@ -94,6 +69,7 @@
 		      	</c:forEach>
 	      	</div>
 	      	
+	      	
 	      	<div class="row">
 		      	<c:forEach var="i" begin="5" end="8" step="1">
 			      	<div class="col-lg-3 col-sm-6 col-xs-6 col-md-6">
@@ -102,8 +78,8 @@
 			      				<div class="img-body" align="center">
 			      					<a href="movie_detail_page.do"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG()}" alt="" style="width:100%"></a>
 			     				</div>
-			     				<div class="card-body" id="card-body" align="center">
-			     					<h4 class="card-title">
+			     				<div class="card-body" id="card-body" align="center" style="max-height:78px">
+			     					<h4 class="card-title" style="max-height:28px;overflow:hidden;">
 			      						<a href="#">${list.get(i-1).getMOVIE_TITLE() }</a> 
 			      					</h4>
 			      					<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
@@ -123,8 +99,8 @@
 			      				<div class="img-body" align="center">
 			      					<a href="movie_detail_page.do"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG()}" alt="" style="width:100%"></a>
 			     				</div>
-			     				<div class="card-body" id="card-body" align="center">
-			     					<h4 class="card-title">
+			     				<div class="card-body" id="card-body" align="center" style="max-height:78px">
+			     					<h4 class="card-title" style="max-height:28px;overflow:hidden;">
 			      						<a href="#">${list.get(i-1).getMOVIE_TITLE() }</a> 
 			      					</h4>
 			      					<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
@@ -135,6 +111,68 @@
 			      	</div>
 		      	</c:forEach>
 	      	</div>
+	      	
+	      	</c:if>
+	      	
+	      	<c:if test="${sel == '2' }">
+		    	<c:forEach var="i" begin="0" end="3" step="1">
+		    		<div class="col-lg-3 col-sm-6 col-xs-6 col-md-6">
+		    			<div class="portfolio-item" align="center">
+		    				<div class="card h-100">
+		    					<div class="img-body" align="center">
+		    						<a href="movie_detail_page.do"><img class="card-img-top" src="${posters[i] }" alt="" style="width:100%;"></a>
+		    					</div>
+		    					<div class="card-body" id="card-body" align="center" style="max-height:54px">
+		    						<h4 class="card-title" style="max-height:28px;overflow:hidden;">
+			      						<a href="#" class="movietitle">${ titles[i]}</a> 
+			      					</h4>
+			      					<p class="card-text">${years[i]}</p> <!-- ${ids[i]} -->
+		    					</div>
+		    				</div>
+		    			</div>
+		    		</div>
+		    	</c:forEach>
+		    	
+		    	<c:forEach var="i" begin="4" end="7" step="1">
+		    		<div class="col-lg-3 col-sm-6 col-xs-6 col-md-6">
+		    			<div class="portfolio-item" align="center">
+		    				<div class="card h-100">
+		    					<div class="img-body" align="center">
+		    						<a href="movie_detail_page.do"><img class="card-img-top" src="${posters[i] }" alt="" style="width:100%;"></a>
+		    					</div>
+		    					<div class="card-body" id="card-body" align="center" style="max-height:54px">
+		    						<h4 class="card-title" style="max-height:28px;overflow:hidden;">
+			      						<a href="#" class="movietitle">${ titles[i]}</a> 
+			      					</h4>
+			      					<p class="card-text">${years[i]}</p> <!-- ${ids[i]} -->
+		    					</div>
+		    				</div>
+		    			</div>
+		    		</div>
+		    	</c:forEach>
+		    	
+		    	<c:forEach var="i" begin="8" end="11" step="1">
+		    		<div class="col-lg-3 col-sm-6 col-xs-6 col-md-6">
+		    			<div class="portfolio-item" align="center">
+		    				<div class="card h-100">
+		    					<div class="img-body" align="center">
+		    						<a href="movie_detail_page.do"><img class="card-img-top" src="${posters[i] }" alt="" style="width:100%;"></a>
+		    					</div>
+		    					<div class="card-body" id="card-body" align="center" style="max-height:54px">
+		    						<h4 class="card-title" style="max-height:28px;overflow:hidden;">
+			      						<a href="#" class="movietitle">${ titles[i]}</a> 
+			      					</h4>
+			      					<p class="card-text">${years[i]}</p> <!-- ${ids[i]} -->
+		    					</div>
+		    				</div>
+		    			</div>
+		    		</div>
+		    	</c:forEach>
+		    
+		    </c:if>
+	      	
+	      	
+	      	
       	</div>
       	
        </div>
