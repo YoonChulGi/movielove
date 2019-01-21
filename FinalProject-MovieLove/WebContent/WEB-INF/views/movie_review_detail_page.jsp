@@ -185,7 +185,7 @@
 	        		<c:if test="${reviewList.size() == 0}">
 	        		<li>
 		        		<div class="review_none_div">
-			        		<span class="review_none" style="float:none">등록된 40자평이 없습니다.</span>
+			        		<span class="review_none">등록된 40자평이 없습니다.</span>
 		        		</div>
 					</li>
 					</c:if>
@@ -204,7 +204,7 @@
 											<span>${review.REVIEW_WRITER}</span>
 										</a>
 									</em>
-									<em>${review.REVIEW_DATE}</em>
+									<em style="background:none">${review.REVIEW_DATE}</em>
 								</dt>
 							</dl>
 						</div>

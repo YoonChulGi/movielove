@@ -3578,7 +3578,7 @@ body.movie_review_detail {
 }
 .score_result .score_reple dt em {
     display: inline-block;
-    padding-right: 6px;
+    padding-right: 12px;
     margin-right: 5px;
     background: url(https://ssl.pstatic.net/static/movie/2012/06/bg_tx_line2.gif) no-repeat 100% 3px;
     color: #999;
@@ -3627,6 +3627,10 @@ body.movie_review_detail {
 	text-align: center;
 	height: 80px;
 	padding-top: 20px;
+}
+.score_result .review_none {
+	float: none;
+	color: #6A6A6A;
 }
 /*--- 영화 감상평 상세 페이지 End ---*/
 
