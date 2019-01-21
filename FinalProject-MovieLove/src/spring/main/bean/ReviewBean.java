@@ -129,6 +129,17 @@ public class ReviewBean {
 		list = sqlSession.selectList("review.reviewInfoById", Movievo.getMOVIE_ID());
 		model.addAttribute("reviewList", list);
 		
+		int sumRating = 0;
+		for(int i=0;i<list.size();i++) {
+			sumRating += Integer.parseInt(list.get(i).getREVIEW_RATING());
+		}
+		float avgRating = (float) sumRating / (float) list.size();
+		int avgRatingPer = (int)(avgRating * 10);  //소수점 버리고 10 곱하기 ->평점 별 퍼센트 조정하기 위해서
+		model.addAttribute("avgRating", String.format("%.2f", avgRating));  //둘째자리까지 반올림
+		model.addAttribute("avgRatingPer", avgRatingPer);
+		System.out.println("avgRating: "+String.format("%.2f", avgRating));
+		System.out.println("avgRatingPer: "+avgRatingPer);
+		
 		return "movie_review_detail_page";
 	}
 	

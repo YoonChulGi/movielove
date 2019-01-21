@@ -3623,6 +3623,11 @@ body.movie_review_detail {
 .score_result .btn_area .count.v2 {
     color: #3a5382;
 }
+.score_result .review_none_div {
+	text-align: center;
+	height: 80px;
+	padding-top: 20px;
+}
 /*--- 영화 감상평 상세 페이지 End ---*/
 
 

@@ -2,84 +2,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <% 
-	String movie_title="보헤미안 랩소디";
 	String movie_img="images/poster.jpg";
 	//String movie_img="http://placehold.it/180x240";
-	String sel1="", sel2="", sel3="";
-	String sel = request.getParameter("sel");
-	
-	if(sel != null){
-		if(sel.equals("1")){
-			sel1 = "on";
-		} else if(sel.equals("2")){
-			sel2 = "on";
-		} else if(sel.equals("3")){
-			sel3 = "on";
-		}
-	} else{
-		sel1 = "on";
-	}
+	String sessionId = (String)session.getAttribute("memId");
+	System.out.println("sessionId: "+sessionId);
 %>
 
-<script type="text/javascript" src="//t1.daumcdn.net/movie/cssjs/1543973809/common/new_utils.js"></script>
-<script src="//t1.daumcdn.net/movie/cssjs/1543973809/iscroll5/iscroll.js"></script>
-<script src="//t1.daumcdn.net/movie/cssjs/1543973809/cookie/jquery.cookie.js"></script>
-<script>
-//더보기 버튼 핸들링
-function setDescMoreButton() {
-	if(isClickMoreButton) {
-		return false;
-	}
-	var maxHeight = $("em.desc_movie").css("max-height");
-	$("em.desc_movie").addClass("desc_more");
-	var curHeight = $("em.desc_movie").css("height");
-	$("em.desc_movie").removeClass("desc_more");
-	
-	maxHeight = parseInt(maxHeight.replace("px", ""));
-	curHeight = parseInt(curHeight.replace("px", ""));
-	
-	if(maxHeight >= curHeight) {
-		$("a.link_more").hide();
-	} else {
-		$("a.link_more").show();
-	}
-}
-//접기 버튼 핸들링
-function setDescHideButton() {
-	if(isClickHideButton) {
-		return false;
-	}
-	var maxHeight = $("em.desc_movie").css("max-height");
-	$("em.desc_movie").addClass("desc_hi");
-	var curHeight = $("em.desc_movie").css("height");
-	$("em.desc_movie").removeClass("desc_more");
-	
-	maxHeight = parseInt(maxHeight.replace("px", ""));
-	curHeight = parseInt(curHeight.replace("px", ""));
-	
-	if(maxHeight >= curHeight) {
-		$("a.link_more").hide();
-	} else {
-		$("a.link_more").show();
-	}
-}
-// 줄거리 더보기 버튼
-function plotMoreView() {
-	$("em.desc_movie").addClass("desc_more");
-	$("a.link_more").hide();
-	$("a.link_hide").show();
-	isClickMoreButton = true;
-	movietools.tiara.send("moviedb", "info summary");
-}
-// 줄거리 접기 버튼
-function plotHideView() {
-	$("em.desc_movie").removeClass("desc_more");
-	$("a.link_hide").hide();
-	$("a.link_more").show();
-	isClickMoreButton = true;
-	movietools.tiara.send("moviedb", "info summary");
-}
-</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -89,6 +17,79 @@ function plotHideView() {
     <link href="css/small-business.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     
+	<script type="text/javascript" src="//t1.daumcdn.net/movie/cssjs/1543973809/common/new_utils.js"></script>
+	<script src="//t1.daumcdn.net/movie/cssjs/1543973809/iscroll5/iscroll.js"></script>
+	<script src="//t1.daumcdn.net/movie/cssjs/1543973809/cookie/jquery.cookie.js"></script>
+	<script>
+	//더보기 버튼 핸들링
+	function setDescMoreButton() {
+		if(isClickMoreButton) {
+			return false;
+		}
+		var maxHeight = $("em.desc_movie").css("max-height");
+		$("em.desc_movie").addClass("desc_more");
+		var curHeight = $("em.desc_movie").css("height");
+		$("em.desc_movie").removeClass("desc_more");
+		
+		maxHeight = parseInt(maxHeight.replace("px", ""));
+		curHeight = parseInt(curHeight.replace("px", ""));
+		
+		if(maxHeight >= curHeight) {
+			$("a.link_more").hide();
+		} else {
+			$("a.link_more").show();
+		}
+	}
+	//접기 버튼 핸들링
+	function setDescHideButton() {
+		if(isClickHideButton) {
+			return false;
+		}
+		var maxHeight = $("em.desc_movie").css("max-height");
+		$("em.desc_movie").addClass("desc_hi");
+		var curHeight = $("em.desc_movie").css("height");
+		$("em.desc_movie").removeClass("desc_more");
+		
+		maxHeight = parseInt(maxHeight.replace("px", ""));
+		curHeight = parseInt(curHeight.replace("px", ""));
+		
+		if(maxHeight >= curHeight) {
+			$("a.link_more").hide();
+		} else {
+			$("a.link_more").show();
+		}
+	}
+	// 줄거리 더보기 버튼
+	function plotMoreView() {
+		$("em.desc_movie").addClass("desc_more");
+		$("a.link_more").hide();
+		$("a.link_hide").show();
+		isClickMoreButton = true;
+		movietools.tiara.send("moviedb", "info summary");
+	}
+	// 줄거리 접기 버튼
+	function plotHideView() {
+		$("em.desc_movie").removeClass("desc_more");
+		$("a.link_hide").hide();
+		$("a.link_more").show();
+		isClickMoreButton = true;
+		movietools.tiara.send("moviedb", "info summary");
+	}
+	</script>
+	<script> var session_id = '<%=sessionId%>'; </script>
+	<script type="text/javascript">
+		var popupX = (window.screen.width/2) - (750/2);
+		var popupY = (window.screen.height/2) - (450/2);
+	
+		function openReviewWrite(){
+	    	if(session_id == "null") {
+    			alert("로그인 후 작성하실 수 있습니다.");
+    			window.location.href='login.do';
+    		} else {
+	    		window.open('review_write_popup.do?movieName='${movieInfo.getMOVIE_TITLE()}']', '감상평 작성', 'toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=750,height=450,left='+popupX+',top='+popupY);
+    		}
+    	}
+	</script>
   </head>
   
   <body class="movie_review_detail">
@@ -110,10 +111,12 @@ function plotHideView() {
 					<div class="subject_movie">
 						<strong class="tit_movie">${movieInfo.getMOVIE_TITLE()}</strong>
 						<span class="txt_origin"></span><!-- 2016-04-12 추가 -->
-						<span class="review_grade" style="width:180px">
-							<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:71.7%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
-							<em class="emph_grade">7.1</em>
-							<span class="txt_grade">/10</span>
+						<span class="review_grade" style="width:200px">
+							<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:${avgRatingPer}%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
+							<em class="emph_grade" style="font-size:18px;font-style:normal">
+							<c:if test="${avgRatingPer == 0}">0.00</c:if>
+							<c:if test="${avgRatingPer != 0}">${avgRating}</c:if>
+							</em>
 						</span>
 					</div>
 					<dl class="list_movie list_main">
@@ -167,7 +170,7 @@ function plotHideView() {
         
 		<ul class="movie_review_list">
 			<h2 style="float:left">40자 평</h2>
-			<button class="btn btn-lg btn-primary" style="float:right; background-color:#337ab7; font-size:16px">감상평 남기기</button>
+			<button class="btn btn-lg btn-primary" onclick="openReviewWrite()" style="float:right; background-color:#337ab7; font-size:16px">감상평 남기기</button>
 			
 			<div id="orderCheckbox" class="top_behavior" style="margin-top:48px">
 				<ul class="sorting_list">
@@ -179,6 +182,13 @@ function plotHideView() {
 				
 			<div class="score_result">
 				<ul>
+	        		<c:if test="${reviewList.size() == 0}">
+	        		<li>
+		        		<div class="review_none_div">
+			        		<span class="review_none" style="float:none">등록된 40자평이 없습니다.</span>
+		        		</div>
+					</li>
+					</c:if>
 					<c:forEach items="${reviewList}" var="review" varStatus="status">
 					<li>
 						<span class="review_grade" style="width:150px">
