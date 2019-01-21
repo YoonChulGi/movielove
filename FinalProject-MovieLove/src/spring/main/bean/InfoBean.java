@@ -26,15 +26,19 @@ public class InfoBean {
 		System.out.println("MainBean-movie_info_page()");
 		
 		if(request.getParameter("sel") == null || request.getParameter("sel").equals("1")) { // 상영중
+			System.out.println("상영중");
 			List<MovieVO> list = sqlSession.selectList("movie.movieInfo_showing");
 			for(int i=0;i<list.size();i++) {
 				System.out.println(list.get(i).getMOVIE_TITLE());
 				System.out.println(list.get(i).getMOVIE_YEAR());
 			}
 			model.addAttribute("list",list);
+			model.addAttribute("sel","1");
 		} else if(request.getParameter("sel").equals("2")) { // 개봉 예정 
+			System.out.println("개봉 예정");
 			try {
 				RConnection conn = new RConnection();
+				System.out.println("초기 변수 세팅 시작");
 				conn.eval("library(Rserve)");
 				conn.eval("library(rvest)");
 				conn.eval("url <- 'https://movie.naver.com/movie/running/premovie.nhn?viewType=image&festival=N&order=open'");
@@ -45,8 +49,8 @@ public class InfoBean {
 				conn.eval("years<-c()");
 				conn.eval("ids<-c()");
 				
-				
-				
+				System.out.println("초기 변수 세팅 완료");
+				System.out.println("반복 시작");
 				conn.eval("for(i in 1:12) { "
 						+ "css<-paste('#content > div.article > div:nth-child(1) > div.lst_wrap > ul > li:nth-child(',i,') > a > strong',sep = ''); "
 						+ "title<-html_node(html,css)%>%html_text(); "
@@ -62,6 +66,7 @@ public class InfoBean {
 						+ "poster <- html_node(html2,css)%>%html_attr('src'); "
 						+ "posters<-c(posters,poster); "
 						+ "} ");
+				System.out.println("반복 끝");
 				conn.eval("ids<-gsub('[a-zA-Z]','',nexturl)");
 				conn.eval("ids<-gsub('[/.?=]','',ids)");
 				
@@ -77,7 +82,7 @@ public class InfoBean {
 				model.addAttribute("posters",posters);
 				model.addAttribute("years",years);
 				model.addAttribute("ids",ids);
-				model.addAttribute("sel",request.getParameter("sel"));
+				model.addAttribute("sel","2");
 				
 			} catch (RserveException e) {
 				// TODO Auto-generated catch block
@@ -88,7 +93,8 @@ public class InfoBean {
 			}
 			
 		} else if(request.getParameter("sel").equals("3")) { // 지난 영화
-			
+			System.out.println("지난 영화");
+			model.addAttribute("sel","3");
 		}
 		
 		return "movie_info_page";
