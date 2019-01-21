@@ -10,6 +10,10 @@
 		ORDER BY MOVIE_RATE DESC
 	</select>
 	
+	<select id="movieInfoById" parameterType="String" resultType="MovieVO">
+		select * from MOVIE where MOVIE_ID=#{value}
+	</select>
+	
 	<select id="movieRateRanking" resultType="String">
 		select MOVIE_ID from MOVIE order by MOVIE_RATE DESC
 	</select>

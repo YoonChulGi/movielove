@@ -61,7 +61,7 @@
 					<div style="height:20px"></div>
 					<div class="review-summary-menu">
         				<span class="review_writer" style="font-weight:bold">작성자</span>
-        				<span class="review_comment" style="font-weight:bold"><a href="#">감상평</a></span>
+        				<span class="review_comment" style="font-weight:bold">감상평</span>
         				<span class="review_date" style="font-weight:bold">작성 날짜</span>
         				<span class="review_grade" style="font-weight:bold">평점</span>
         				<span class="review_sympathy" style="font-weight:bold">공감수</span>
