@@ -7,6 +7,7 @@ public class ReviewVO {
 	private String REVIEW_WRITER;
 	private String REVIEW_DATE;
 	private String REVIEW_MOVIEID;
+	private String REVIEW_SYMPATHY;
 	
 	public String getREVIEW_TITLE() {
 		return REVIEW_TITLE;
@@ -43,5 +44,11 @@ public class ReviewVO {
 	}
 	public void setREVIEW_MOVIEID(String rEVIEW_MOVIEID) {
 		REVIEW_MOVIEID = rEVIEW_MOVIEID;
+	}
+	public String getREVIEW_SYMPATHY() {
+		return REVIEW_SYMPATHY;
+	}
+	public void setREVIEW_SYMPATHY(String rEVIEW_SYMPATHY) {
+		REVIEW_SYMPATHY = rEVIEW_SYMPATHY;
 	}
 }

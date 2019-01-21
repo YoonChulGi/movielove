@@ -26,13 +26,15 @@ public class ReviewBean {
 	private SqlSessionTemplate sqlSession = null;
 	@Autowired
 	private ReviewVO Reviewvo = null;
+	@Autowired
+	private MovieVO Movievo = null;
 	
 	@RequestMapping("movie_review_page.do")
 	public String movie_review_page(Model model) {
 		System.out.println("MainBean-movie_review_page()");
 		
-		List<MovieVO> movieList = sqlSession.selectList("movie.movieInfo");
-		model.addAttribute("movieList",movieList);
+		List<MovieVO> movieList = sqlSession.selectList("movie.movieInfo_showing");
+		model.addAttribute("movieList", movieList);
 		
 		List<String> rateList = sqlSession.selectList("movie.movieRateRanking");
 		System.out.println("<예매율 순으로 정리>");
@@ -43,7 +45,7 @@ public class ReviewBean {
 		List<List<ReviewVO>> list = new ArrayList<List<ReviewVO>>();
 		for(int i=0;i<rateList.size();i++) {
 			List<ReviewVO> vo = new ArrayList<ReviewVO>();
-			vo = sqlSession.selectList("review.getReviewInfo", rateList.get(i));
+			vo = sqlSession.selectList("review.reviewInfoById", rateList.get(i));
 			list.add(vo);
 		}
 		
@@ -66,7 +68,7 @@ public class ReviewBean {
 	public String review_write_popup(Model model) {
 		System.out.println("review_write_popup.do");
 		
-		List<MovieVO> list = sqlSession.selectList("movie.movieInfo");
+		List<MovieVO> list = sqlSession.selectList("movie.movieInfoAll");
 		for(int i=0;i<list.size();i++) {
 			System.out.println(list.get(i).getMOVIE_TITLE());
 			System.out.println(list.get(i).getMOVIE_YEAR());
@@ -117,8 +119,16 @@ public class ReviewBean {
 	}
 	
 	@RequestMapping("movie_review_detail_page.do")
-	public String movie_review_detail_page() {
+	public String movie_review_detail_page(Model model, HttpServletRequest request) {
 		System.out.println("MainBean-movie_review_detail_page()");
+		
+		Movievo = sqlSession.selectOne("movie.movieInfoById", request.getParameter("movieId"));
+		model.addAttribute("movieInfo", Movievo);
+		
+		List<ReviewVO> list = new ArrayList<ReviewVO>();
+		list = sqlSession.selectList("review.reviewInfoById", Movievo.getMOVIE_ID());
+		model.addAttribute("reviewList", list);
+		
 		return "movie_review_detail_page";
 	}
 	

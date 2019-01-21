@@ -3136,6 +3136,8 @@ a.btn_red_s {
 .review_writer {
 	float: left;
 	width: 90px;
+    overflow: hidden;
+    max-height: 28px;
     line-height: 2;
     font-size: 14px;
 	margin-right: 20px;
@@ -3143,6 +3145,8 @@ a.btn_red_s {
 .review_comment {
 	float: left;
 	width: 460px;
+    overflow: hidden;
+    max-height: 28px;
     line-height: 2;
     font-size: 14px;
 	margin-right: 20px;
@@ -3585,6 +3589,10 @@ body.movie_review_detail {
 .score_result .btn_area {
     text-align: right;
     clear: both;
+}
+.score_result .btn_area a._notSympathyButton {
+    width: 58px;
+    background-position: -55px -44px;
 }
 .score_result .btn_area a {
     display: inline-block;

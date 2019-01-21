@@ -5,6 +5,20 @@
 	String movie_title="보헤미안 랩소디";
 	String movie_img="images/poster.jpg";
 	//String movie_img="http://placehold.it/180x240";
+	String sel1="", sel2="", sel3="";
+	String sel = request.getParameter("sel");
+	
+	if(sel != null){
+		if(sel.equals("1")){
+			sel1 = "on";
+		} else if(sel.equals("2")){
+			sel2 = "on";
+		} else if(sel.equals("3")){
+			sel3 = "on";
+		}
+	} else{
+		sel1 = "on";
+	}
 %>
 
 <script type="text/javascript" src="//t1.daumcdn.net/movie/cssjs/1543973809/common/new_utils.js"></script>
@@ -88,13 +102,13 @@ function plotHideView() {
     	<div class="main_detail">
 			<div class="detail_summarize">
 				<span class="thumb_summary  #info #poster">
-					<a href="/moviedb/photoviewer?id=118907#1283565" class="area_poster" target="_blank">
-						<img src="<%=movie_img%>" class="img_summary" alt="말모이 포스터" onload="noImageOnLoad($(this));$(this).parent().find('.link_scale').show();">
+					<a href="#" class="area_poster" target="_blank">
+						<img src="${movieInfo.getMOVIE_IMG()}" class="img_summary" alt="말모이 포스터" onload="noImageOnLoad($(this));$(this).parent().find('.link_scale').show();">
 					</a>
 				</span>
 				<div class="movie_summary">
 					<div class="subject_movie">
-						<strong class="tit_movie">보헤미안 랩소디</strong>
+						<strong class="tit_movie">${movieInfo.getMOVIE_TITLE()}</strong>
 						<span class="txt_origin"></span><!-- 2016-04-12 추가 -->
 						<span class="review_grade" style="width:180px">
 							<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:71.7%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
@@ -128,7 +142,7 @@ function plotHideView() {
 						</dd>
 						<dt class="screen_out">줄거리</dt>
 						<dd class="type_ellipsis">(줄거리)
-							<em class="desc_movie" style="margin:0">
+							<em class="desc_movie" style="margin:0;width:636px">
 								<p>
 								“나는 스타가 되지 않을 것이다, 전설이 될 것이다”<br>
 								<br>
@@ -165,31 +179,31 @@ function plotHideView() {
 				
 			<div class="score_result">
 				<ul>
-        			<% for(int j=1;j<=10;j++) {%>
+					<c:forEach items="${reviewList}" var="review" varStatus="status">
 					<li>
 						<span class="review_grade" style="width:150px">
-							<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:71.7%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
-							<em class="emph_grade" style="font-size:15.5px">7.1</em>
+							<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:${review.REVIEW_RATING}0%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
+							<em class="emph_grade" style="font-size:15.5px">${review.REVIEW_RATING}</em>
 						</span>
 						<div class="score_reple">
-							<p>Imf때 망한 아빠 생각나서 너무 많이 울었네요.  </p>
+							<p>${review.REVIEW_CONTENTS} </p>
 							<dl>
 								<dt>
 									<em>
 										<a href="#" onclick="javascript:showPointListByNid(14910863, 'after');parent.clickcr(this, 'ara.uid', '', '', event); return false;" target="_top">
-											<span>las139</span>
+											<span>${review.REVIEW_WRITER}</span>
 										</a>
 									</em>
-									<em>2018.11.28 11:16</em>
+									<em>${review.REVIEW_DATE}</em>
 								</dt>
 							</dl>
 						</div>
 						<div class="btn_area">
-							<a class="_sympathyButton" href="#" onclick="parent.clickcr(this, 'ara.sym', '', '', event);"></a><strong><span class="sympathy_14910863 count">3208</span></strong>
+							<a class="_sympathyButton" href="#" onclick="parent.clickcr(this, 'ara.sym', '', '', event);"></a><strong><span class="sympathy_14910863 count">${review.REVIEW_SYMPATHY}</span></strong>
 							<a class="_notSympathyButton" href="#" onclick="parent.clickcr(this, 'ara.opp', '', '', event);"></a><strong><span class="notSympathy_14910863 count v2">401</span></strong>
 						</div>
 					</li>
-	        		<%} %>
+					</c:forEach>
 				</ul>
 			</div>
 		</ul>

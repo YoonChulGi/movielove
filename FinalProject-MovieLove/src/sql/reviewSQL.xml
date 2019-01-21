@@ -12,11 +12,11 @@
 		select MOVIE_ID from MOVIE where MOVIE_TITLE=#{REVIEW_TITLE}
 	</select>
 	
-	<select id="reviewInfo" resultType="ReviewVO">
+	<select id="reviewInfoAll" resultType="ReviewVO">
 		select * from REVIEW
 	</select>
 	
-	<select id="getReviewInfo" parameterType="String" resultType="ReviewVO">
+	<select id="reviewInfoById" parameterType="String" resultType="ReviewVO">
 		select * from REVIEW where REVIEW_MOVIEID=#{value}
 	</select>
 </mapper>

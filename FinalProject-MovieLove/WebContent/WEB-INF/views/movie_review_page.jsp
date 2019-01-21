@@ -57,7 +57,7 @@
 				<div class="review-summary">
 					<span class="comment_span">[40자평]</span>
 					<span class="movie_title">${movieList.get(statusMovie.index).getMOVIE_TITLE()}</span>
-					<a href="movie_review_detail_page.do"><button class="btn btn-lg btn_review_more">더 보기</button></a>
+					<a href="movie_review_detail_page.do?movieId=${movieList.get(statusMovie.index).getMOVIE_ID()}"><button class="btn btn-lg btn_review_more">더 보기</button></a>
 					<div style="height:20px"></div>
 					<div class="review-summary-menu">
         				<span class="review_writer" style="font-weight:bold">작성자</span>
@@ -76,7 +76,7 @@
 		        		<div>
         					<!-- 감상평 -->
 	        				<span class="review_writer">${review.REVIEW_WRITER}</span>
-        					<span class="review_comment"><a href="#">${review.REVIEW_CONTENTS}</a></span> 
+        					<span class="review_comment">${review.REVIEW_CONTENTS}</span> 
         					<span class="review_date">${review.REVIEW_DATE}</span>
         					<!-- 별점 -->
         					<span class="review_grade">
