@@ -25,7 +25,7 @@
 	String movie_title="보헤미안 랩소디";  //영화 제목
 	String movie_num="1,230,928";  //관객수
 	String movie_img="images/poster.jpg";
-	//STring movie_img="http://placehold.it/240x342";
+	//String movie_img="http://placehold.it/240x342";
 	
 	String sel1="", sel2="", sel3="";
 	String sel = request.getParameter("sel");
