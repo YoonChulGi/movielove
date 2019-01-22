@@ -4,8 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="review">
 	<insert id="insertReview" parameterType="ReviewVO">
-		insert into review(review_title, review_contents, review_rating, review_writer, review_date, review_movieid) 
-		values(#{REVIEW_TITLE}, #{REVIEW_CONTENTS}, #{REVIEW_RATING}, #{REVIEW_WRITER}, #{REVIEW_DATE}, ${REVIEW_MOVIEID})
+		insert into review(review_title, review_contents, review_rating, review_writer, review_date, review_movieid,
+		 					review_sympathy, review_notsympathy)
+		values(#{REVIEW_TITLE}, #{REVIEW_CONTENTS}, #{REVIEW_RATING}, #{REVIEW_WRITER}, #{REVIEW_DATE}, ${REVIEW_MOVIEID},
+		 		#{REVIEW_SYMPATHY}, #{REVIEW_NOTSYMPATHY})
 	</insert>
 	
 	<select id="getMovieId" parameterType="String" resultType="String">

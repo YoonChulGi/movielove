@@ -21,4 +21,8 @@
 	<select id="movieRateRanking" resultType="String">
 		select MOVIE_ID from MOVIE order by MOVIE_RATE DESC
 	</select>
+	
+	<select id="movieRateRanking_showing" resultType="String">
+		select MOVIE_ID from MOVIE where MOVIE_SHOWING='1' order by MOVIE_RATE DESC
+	</select>
 </mapper>
