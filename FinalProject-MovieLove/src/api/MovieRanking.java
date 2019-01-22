@@ -1,4 +1,4 @@
-package test;
+package api;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService;
