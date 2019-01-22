@@ -54,11 +54,11 @@
 			      		<div class="portfolio-item" align="center">
 			      			<div class="card h-100">
 			      				<div class="img-body" align="center">
-			      					<a href="movie_detail_page.do"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG()}" alt="" style="width:100%"></a>
+			      					<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG()}" alt="" style="width:100%"></a>
 			     				</div>
 			     				<div class="card-body" id="card-body" align="center" style="max-height:78px">
 			     					<h4 class="card-title" style="max-height:28px;overflow:hidden;">
-			      						<a href="#">${list.get(i-1).getMOVIE_TITLE() }</a> 
+			      						<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }">${list.get(i-1).getMOVIE_TITLE() }</a> 
 			      					</h4>
 			      					<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
 			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()}</p>
@@ -76,11 +76,11 @@
 			      		<div class="portfolio-item" align="center">
 			      			<div class="card h-100">
 			      				<div class="img-body" align="center">
-			      					<a href="movie_detail_page.do"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG()}" alt="" style="width:100%"></a>
+			      					<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG()}" alt="" style="width:100%"></a>
 			     				</div>
 			     				<div class="card-body" id="card-body" align="center" style="max-height:78px">
 			     					<h4 class="card-title" style="max-height:28px;overflow:hidden;">
-			      						<a href="#">${list.get(i-1).getMOVIE_TITLE() }</a> 
+			      						<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }">${list.get(i-1).getMOVIE_TITLE() }</a> 
 			      					</h4>
 			      					<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
 			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()}</p>
@@ -97,11 +97,11 @@
 			      		<div class="portfolio-item" align="center">
 			      			<div class="card h-100">
 			      				<div class="img-body" align="center">
-			      					<a href="movie_detail_page.do"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG()}" alt="" style="width:100%"></a>
+			      					<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG()}" alt="" style="width:100%"></a>
 			     				</div>
 			     				<div class="card-body" id="card-body" align="center" style="max-height:78px">
 			     					<h4 class="card-title" style="max-height:28px;overflow:hidden;">
-			      						<a href="#">${list.get(i-1).getMOVIE_TITLE() }</a> 
+			      						<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }">${list.get(i-1).getMOVIE_TITLE() }</a> 
 			      					</h4>
 			      					<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
 			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()}</p>
@@ -120,11 +120,11 @@
 		    			<div class="portfolio-item" align="center">
 		    				<div class="card h-100">
 		    					<div class="img-body" align="center">
-		    						<a href="movie_detail_page.do"><img class="card-img-top" src="${posters[i] }" alt="" style="width:100%;"></a>
+		    						<a href="movie_detail_page.do?${ids[i] }"><img class="card-img-top" src="${posters[i] }" alt="" style="width:100%;"></a>
 		    					</div>
 		    					<div class="card-body" id="card-body" align="center" style="max-height:54px">
 		    						<h4 class="card-title" style="max-height:28px;overflow:hidden;">
-			      						<a href="#" class="movietitle">${ titles[i]}</a> 
+			      						<a href="movie_detail_page.do?${ids[i] }" class="movietitle">${ titles[i]}</a> 
 			      					</h4>
 			      					<p class="card-text">${years[i]}</p> <!-- ${ids[i]} -->
 		    					</div>
@@ -138,11 +138,11 @@
 		    			<div class="portfolio-item" align="center">
 		    				<div class="card h-100">
 		    					<div class="img-body" align="center">
-		    						<a href="movie_detail_page.do"><img class="card-img-top" src="${posters[i] }" alt="" style="width:100%;"></a>
+		    						<a href="movie_detail_page.do?${ids[i] }"><img class="card-img-top" src="${posters[i] }" alt="" style="width:100%;"></a>
 		    					</div>
 		    					<div class="card-body" id="card-body" align="center" style="max-height:54px">
 		    						<h4 class="card-title" style="max-height:28px;overflow:hidden;">
-			      						<a href="#" class="movietitle">${ titles[i]}</a> 
+			      						<a href="movie_detail_page.do?${ids[i] }" class="movietitle">${ titles[i]}</a> 
 			      					</h4>
 			      					<p class="card-text">${years[i]}</p> <!-- ${ids[i]} -->
 		    					</div>
@@ -156,11 +156,11 @@
 		    			<div class="portfolio-item" align="center">
 		    				<div class="card h-100">
 		    					<div class="img-body" align="center">
-		    						<a href="movie_detail_page.do"><img class="card-img-top" src="${posters[i] }" alt="" style="width:100%;"></a>
+		    						<a href="movie_detail_page.do?${ids[i] }"><img class="card-img-top" src="${posters[i] }" alt="" style="width:100%;"></a>
 		    					</div>
 		    					<div class="card-body" id="card-body" align="center" style="max-height:54px">
 		    						<h4 class="card-title" style="max-height:28px;overflow:hidden;">
-			      						<a href="#" class="movietitle">${ titles[i]}</a> 
+			      						<a href="movie_detail_page.do?${ids[i] }" class="movietitle">${ titles[i]}</a> 
 			      					</h4>
 			      					<p class="card-text">${years[i]}</p> <!-- ${ids[i]} -->
 		    					</div>
@@ -179,11 +179,11 @@
 		    			<div class="portfolio-item" align="center">
 		    				<div class="card h-100">
 		    					<div class="img-body" align="center">
-		    						<a href="movie_detail_page.do"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG() }" alt="" style="width:100%;"></a>
+		    						<a href="movie_detail_page.do?${list.get(i-1).getMOVIE_ID() }"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG() }" alt="" style="width:100%;"></a>
 		    					</div>
 		    					<div class="card-body" id="card-body" align="center" style="max-height:54px">
 		    						<h4 class="card-title" style="max-height:28px;overflow:hidden;">
-			      						<a href="#" class="movietitle">${ list.get(i-1).getMOVIE_TITLE()}</a> 
+			      						<a href="movie_detail_page.do?${list.get(i-1).getMOVIE_ID() }" class="movietitle">${ list.get(i-1).getMOVIE_TITLE()}</a> 
 			      					</h4>
 			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()}</p> <!-- ${ids[i]} -->
 		    					</div>
