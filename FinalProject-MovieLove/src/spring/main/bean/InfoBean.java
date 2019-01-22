@@ -27,8 +27,9 @@ public class InfoBean {
 	public String movie_info_page(Model model,HttpServletRequest request) {
 		System.out.println("MainBean-movie_info_page()");
 		
-		if(request.getParameter("sel") == null || request.getParameter("sel").equals("1")) { // 상영중
+		if(request.getParameter("sel") == null || request.getParameter("sel").equals("1") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("null")) { // 상영중
 			System.out.println("상영중");
+			System.out.println(request.getParameter("sel"));
 			List<MovieVO> list = sqlSession.selectList("movie.movieInfo_showing");
 			for(int i=0;i<list.size();i++) {
 				System.out.println(list.get(i).getMOVIE_TITLE());
@@ -96,6 +97,13 @@ public class InfoBean {
 		} else if(request.getParameter("sel").equals("3")) { // 지난 영화
 			System.out.println("지난 영화");
 			model.addAttribute("sel","3");
+			List<MovieVO> list = sqlSession.selectList("movie.movieInfo_past");
+			
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getMOVIE_TITLE());
+				System.out.println(list.get(i).getMOVIE_YEAR());
+			}
+			model.addAttribute("list",list);
 		}
 		
 		return "movie_info_page";

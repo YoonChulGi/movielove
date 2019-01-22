@@ -27,7 +27,7 @@
     			<li style="width:33.33%"><a id="show3" href="movie_info_page.do?sel=3">지난 영화<span class="ico"></span></a></li>
     		</ul>
     		<script>
-    			var sel = <%=request.getParameter("sel")%>
+    			var sel = ${sel};
     			if(sel=='1'){
     				document.getElementById("show1").classList.add('on');
     				document.getElementById("show2").classList.remove('on');
@@ -170,6 +170,29 @@
 		    	</c:forEach>
 		    
 		    </c:if>
+		    
+		    
+		    <c:if test="${sel == '3' }">
+		      	<div class="row">
+			      	<c:forEach var="i" begin="1" end="3" step="1">
+		    		<div class="col-lg-3 col-sm-6 col-xs-6 col-md-6">
+		    			<div class="portfolio-item" align="center">
+		    				<div class="card h-100">
+		    					<div class="img-body" align="center">
+		    						<a href="movie_detail_page.do"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG() }" alt="" style="width:100%;"></a>
+		    					</div>
+		    					<div class="card-body" id="card-body" align="center" style="max-height:54px">
+		    						<h4 class="card-title" style="max-height:28px;overflow:hidden;">
+			      						<a href="#" class="movietitle">${ list.get(i-1).getMOVIE_TITLE()}</a> 
+			      					</h4>
+			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()}</p> <!-- ${ids[i]} -->
+		    					</div>
+		    				</div>
+		    			</div>
+		    		</div>
+		    	</c:forEach>
+		      	</div>
+	      	</c:if>
 	      	
 	      	
 	      	

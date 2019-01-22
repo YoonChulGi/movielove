@@ -10,6 +10,13 @@
 		ORDER BY MOVIE_RATE DESC
 	</select>
 	
+	<select id="movieInfo_past" resultType="MovieVO">
+		SELECT MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_ID
+		FROM MOVIE
+		WHERE MOVIE_SHOWING = '0'
+		ORDER BY MOVIE_YEAR DESC
+</select>
+	
 	<select id="movieInfoAll" resultType="MovieVO">
 		select * from MOVIE
 	</select>
