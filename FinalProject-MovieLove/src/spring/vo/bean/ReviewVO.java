@@ -7,7 +7,8 @@ public class ReviewVO {
 	private String REVIEW_WRITER;
 	private String REVIEW_DATE;
 	private String REVIEW_MOVIEID;
-	private String REVIEW_SYMPATHY;
+	private int REVIEW_SYMPATHY;
+	private int REVIEW_NOTSYMPATHY;
 	
 	public String getREVIEW_TITLE() {
 		return REVIEW_TITLE;
@@ -45,10 +46,16 @@ public class ReviewVO {
 	public void setREVIEW_MOVIEID(String rEVIEW_MOVIEID) {
 		REVIEW_MOVIEID = rEVIEW_MOVIEID;
 	}
-	public String getREVIEW_SYMPATHY() {
+	public int getREVIEW_SYMPATHY() {
 		return REVIEW_SYMPATHY;
 	}
-	public void setREVIEW_SYMPATHY(String rEVIEW_SYMPATHY) {
+	public void setREVIEW_SYMPATHY(int rEVIEW_SYMPATHY) {
 		REVIEW_SYMPATHY = rEVIEW_SYMPATHY;
+	}
+	public int getREVIEW_NOTSYMPATHY() {
+		return REVIEW_NOTSYMPATHY;
+	}
+	public void setREVIEW_NOTSYMPATHY(int rEVIEW_NOTSYMPATHY) {
+		REVIEW_NOTSYMPATHY = rEVIEW_NOTSYMPATHY;
 	}
 }

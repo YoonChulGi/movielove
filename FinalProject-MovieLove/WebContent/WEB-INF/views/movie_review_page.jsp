@@ -11,16 +11,92 @@
 %>
     	
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
   <head>
     <!-- Custom styles for this template -->
+    <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/small-business.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<style>
+	#ui-id-1 {
+	    z-index: 99999;
+	    position: absolute;
+	    max-height: 175px;
+	    overflow-x: hidden;
+	    overflow-y: scroll;
+	    left: 476px;
+	    top: 325px;
+	    border-top: 0px;
+	    border-left: 1px solid #565656;
+	    border-right: 1px solid #565656;
+	    border-bottom: 1px solid #565656;
+	    background-color: #fff;
+	    -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,.07);
+	    box-shadow: 0px 1px 2px rgba(0,0,0,.07);
+	}	
+	#ui-id-1 li {
+	    display: block;
+    	height: 58px;
+    	line-height: 38px;
+    	font-size: 13px;
+    	color: #333;
+    	border-top: 1px solid #e8e8e8;
+    	text-align: center;
+	}
+	#ui-id-1 li .link_item {
+	    display: block;
+	    overflow: hidden;
+	    padding: 7px 11px;
+	}
+	#ui-id-1 li .thumb_g {
+	    float: left;
+	    width: 30px;
+	    height: 40px;
+	    background-color: #f4f4f4;
+	}
+	#ui-id-1 li .cont_item {
+	    overflow: hidden;
+	    padding-left: 10px;
+	    line-height: 21px;
+	    vertical-align: middle;
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	}
+	#ui-id-1 li .tit_item {
+	    display: block;
+	    text-align: left;
+	    overflow: hidden;
+	    max-height: 23px;
+	    margin-top: -1px;
+	    font-weight: normal;
+	    font-size: 13px;
+	    color: #333;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
+	}
+	#ui-id-1 li .emph_sgt {
+	    color: #4889ff;
+	}
+	#ui-id-1 li .txt_year {
+	    display: block;
+	    text-align: left;
+	    overflow: hidden;
+	    width: 100%;
+	    height: 19px;
+	    margin-top: -4px;
+	    font-size: 13px;
+	    color: #9f9f9f;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
+	}
+	</style>
     
 	<script> var session_id = '<%=sessionId%>'; </script>
 	<script type="text/javascript">
@@ -100,9 +176,9 @@
   </head>
   
 <%
-	List<MovieVO> movieList = (List<MovieVO>)request.getAttribute("movieList");
-	for(int i=0;i<movieList.size();i++){
-		System.out.println("["+(i+1)+"] movie_review_page.jsp 영화제목: "+movieList.get(i).getMOVIE_TITLE());	
+	List<MovieVO> movieShowingList = (List<MovieVO>)request.getAttribute("movieShowingList");
+	for(int i=0;i<movieShowingList.size();i++){
+		System.out.println("["+(i+1)+"] movie_review_page.jsp *상영*영화제목: "+movieShowingList.get(i).getMOVIE_TITLE());	
 	}
 %>
   
@@ -117,7 +193,8 @@
     	<div class="review-search">
     		<ul>
     			<li>
-					<input id="search-movie" name="review_title" placeholder="영화 검색" class="form-control input-lg" type="text">
+					<input id="search-movie
+					" name="review_title" placeholder="영화 검색" class="form-control input-lg" type="text">
     			</li>
            		<li>
            			<button class="btn btn-lg btn-search">검색</button>
@@ -125,7 +202,46 @@
             </ul>
         </div>
         
-        <!-- 요기 붙여넣기 -->
+        <ul class="movie_list">
+			<c:forEach items="${movieShowingList}" var="movie" varStatus="statusMovie">
+			<li class="movie_li cols-xs-12">
+				<a href="#"><img src="${movie.getMOVIE_IMG()}" alt="" class="movie_thumb" target="_blank"></a>
+				<div class="review-summary">
+					<span class="comment_span">[40자평]</span>
+					<span class="movie_title">${movie.getMOVIE_TITLE()}</span>
+					<a href="movie_review_detail_page.do?movieId=${movie.getMOVIE_ID()}"><button class="btn btn-lg btn_review_more">더 보기</button></a>
+					<div style="height:20px"></div>
+					<div class="review-summary-menu">
+        				<span class="review_writer" style="font-weight:bold">작성자</span>
+        				<span class="review_comment" style="font-weight:bold">감상평</span>
+        				<span class="review_date" style="font-weight:bold">작성 날짜</span>
+        				<span class="review_grade" style="font-weight:bold">평점</span>
+        				<span class="review_sympathy" style="font-weight:bold">공감수</span>
+	        		</div>
+	        		
+	        		<c:if test="${empty reviewList.get(statusMovie.index)}">
+		        		<div>
+			        		<span class="review_none">등록된 40자평이 없습니다.</span>
+		        		</div>
+	        		</c:if>
+		      		<c:forEach items="${reviewList.get(statusMovie.index)}" var="review" varStatus="statusReview">
+		        		<div>
+        					<!-- 감상평 -->
+	        				<span class="review_writer">${review.REVIEW_WRITER}</span>
+        					<span class="review_comment">${review.REVIEW_CONTENTS}</span> 
+        					<span class="review_date">${review.REVIEW_DATE}</span>
+        					<!-- 별점 -->
+        					<span class="review_grade">
+								<span class="bg_star star_grade"><span class="bg_star inner_star" style="width: ${review.REVIEW_RATING}0%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
+								<em class="emph_grade" style="font-size:15.5px;">${review.REVIEW_RATING}</em>
+							</span>
+        					<span class="review_sympathy" style="padding-left:10px">201</span>
+	        			</div>
+		      		</c:forEach>
+	        	</div>
+	        </li>
+			</c:forEach>
+		</ul>
 		
     	<a class="btn btn-primary btn-lg" onclick="openReviewWrite()" style="position:fixed;right:200px;bottom:20px;">감상평 작성</a>
     </div>
@@ -139,6 +255,10 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  	<script src="js/jQuery_v3.1.1.min.js"></script>
+  	<script src="js/jquery-ui.js"></script>
+  	<script src="js/jquery.magnific-popup.js"></script>
+  	<script src="js/jquery.firstVisitPopup.js"></script>
 
   </body>
 
