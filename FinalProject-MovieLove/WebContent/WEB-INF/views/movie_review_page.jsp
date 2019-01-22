@@ -30,7 +30,7 @@
 	    max-height: 175px;
 	    overflow-x: hidden;
 	    overflow-y: scroll;
-	    left: 476px;
+	    left: 665px;
 	    top: 325px;
 	    border-top: 0px;
 	    border-left: 1px solid #565656;
@@ -113,6 +113,19 @@
     	}
 	</script>
 	
+	<!-- 검색 버튼 이벤트 스크립트 -->
+	<script>
+		function searchMovie(){
+			var inputTitle = document.getElementById("search-movie").value;
+
+	    	if(inputTitle == "") {
+    			alert("영화 제목을 입력해주세요.");
+    		} else {
+    			location.href='movie_review_page.do?movieTitle='+inputTitle;
+    		}
+    	}
+	</script>
+	
 	<!--  영화 검색 자동완성 스크립트 -->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -175,13 +188,6 @@
 	</script>
   </head>
   
-<%
-	List<MovieVO> movieShowingList = (List<MovieVO>)request.getAttribute("movieShowingList");
-	for(int i=0;i<movieShowingList.size();i++){
-		System.out.println("["+(i+1)+"] movie_review_page.jsp *상영*영화제목: "+movieShowingList.get(i).getMOVIE_TITLE());	
-	}
-%>
-  
   <body class="moview_review">
   
     <!-- =====  HEADER START  ===== -->
@@ -193,18 +199,23 @@
     	<div class="review-search">
     		<ul>
     			<li>
-					<input id="search-movie
-					" name="review_title" placeholder="영화 검색" class="form-control input-lg" type="text">
+					<input id="search-movie" name="review_title" placeholder="영화 검색" class="form-control input-lg" type="text">
     			</li>
            		<li>
-           			<button class="btn btn-lg btn-search">검색</button>
+           			<input type="button" class="btn btn-lg btn-search" onclick="searchMovie()" value="검색" style="width:80px; background-color:#d9534f; font-size:px"/>
            		</li>
             </ul>
         </div>
         
         <ul class="movie_list">
 			<c:forEach items="${movieShowingList}" var="movie" varStatus="statusMovie">
-			<li class="movie_li cols-xs-12">
+			<c:if test="${movieShowingList.size() == 1}">
+				<h2 class="search-result">검색 결과</h2>
+				<li class="movie_li cols-xs-12" style="width:100%; margin-left:0.75%">
+			</c:if>
+			<c:if test="${movieShowingList.size() > 1}">
+				<li class="movie_li cols-xs-12">
+			</c:if>
 				<a href="#"><img src="${movie.getMOVIE_IMG()}" alt="" class="movie_thumb" target="_blank"></a>
 				<div class="review-summary">
 					<span class="comment_span">[40자평]</span>
@@ -224,7 +235,7 @@
 			        		<span class="review_none">등록된 40자평이 없습니다.</span>
 		        		</div>
 	        		</c:if>
-		      		<c:forEach items="${reviewList.get(statusMovie.index)}" var="review" varStatus="statusReview">
+		      		<c:forEach items="${reviewList.get(statusMovie.index)}" var="review" end="4" varStatus="statusReview">
 		        		<div>
         					<!-- 감상평 -->
 	        				<span class="review_writer">${review.REVIEW_WRITER}</span>
@@ -243,7 +254,7 @@
 			</c:forEach>
 		</ul>
 		
-    	<a class="btn btn-primary btn-lg" onclick="openReviewWrite()" style="position:fixed;right:200px;bottom:20px;">감상평 작성</a>
+    	<a class="btn btn-primary btn-lg" onclick="openReviewWrite()" style="position:fixed;right:120px;bottom:20px;">감상평 작성</a>
     </div>
     <!-- /.container -->
         

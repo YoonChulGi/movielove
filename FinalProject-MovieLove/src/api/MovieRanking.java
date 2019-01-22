@@ -46,7 +46,7 @@ public class MovieRanking {
 	}
 	
 	public HashMap<String, Object> getWeeklyBoxoffice(String weekGb) throws OpenAPIFault, Exception{
-		//저번 주 일요일 날짜 구하기
+		//지난 주 일요일 날짜 구하기
 		Date today = new Date();
 		Calendar calendar = new GregorianCalendar(Locale.KOREA);
 		calendar.setTime(today);
