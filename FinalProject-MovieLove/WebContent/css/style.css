@@ -2853,13 +2853,15 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     border-bottom: 1px solid #D8D8D8;
 }
 .card-title{
+	padding-top: 3px;
+	padding-bottom: 5px;
+}
+.card-title a{
 	overflow: hidden;
 	max-height: 28px;
 	color: #333333;
 	font-size: 16px;
 	font-weight: bold;
-	padding-top: 3px;
-	padding-bottom: 5px;
 }
 /* --- 영화 정보 페이지 End --- */
 
@@ -2897,6 +2899,10 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 	margin-right: 15px;
 	width:72.7px;
 	margin-right: 10px;
+}
+#movie_info_row div div div.img-body a img {
+	width: 100%;
+	height: 320px;
 }
 #movie_ranking-menu{
 	padding-left:40px;
