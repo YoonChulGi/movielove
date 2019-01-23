@@ -49,9 +49,7 @@
 			<li data-target="#myCarousel" data-slide-to="1" class=""></li>
 		</ol>
 
-		<!-- Wrapper for slides -->
-
-
+	
 		<div class="row justify-content-end">
 
 			<div class="carousel-inner" align="center">
@@ -61,6 +59,8 @@
 						<tbody>
 							<tr>
 								<h2 class="card-title">"id" 님의 취향저격 베스트 영화"</h2>
+								
+								
 								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
 										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/358ea40235e240fea2f0b6ec7ef93c431543201035934"
 										alt="마약왕"></a></td>
@@ -120,9 +120,6 @@
 
 
 
-
-
-
 	<div class="container">
 		<div class="row">
 
@@ -161,7 +158,7 @@
 						<li><a class="thirtie" href="#">30대</a></li>
 						<li><a class="fourtie" href="#">40대</a></li>
 						<li><a class="fiftie" href="#">50대</a></li>
-						<li><a class="sixty"href="#">60대이상</a></li>
+						<li><a class="sixty" href="#">60대이상</a></li>
 					</ul>
 				</div>
 				<div class="dropdown ">
@@ -171,11 +168,11 @@
 						연도별 <b class="caret"></b>
 					</button>
 					<ul class="dropdown-menu col-lg-3 col-sm-6 col-md-4">
-						<li><a class="1970"href="#">1970년대</a></li>
-						<li><a class="1980"href="#">1980년대</a></li>
-						<li><a class="1990"href="#">1990년대</a></li>
-						<li><a class="2000"href="#">2000년대</a></li>
-						<li><a class="2010"href="#">2010년대</a></li>
+						<li><a class="1970" href="#">1970년대</a></li>
+						<li><a class="1980" href="#">1980년대</a></li>
+						<li><a class="1990" href="#">1990년대</a></li>
+						<li><a class="2000" href="#">2000년대</a></li>
+						<li><a class="2010" href="#">2010년대</a></li>
 
 					</ul>
 				</div>
