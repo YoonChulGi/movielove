@@ -23,6 +23,9 @@ public class InfoBean {
 	@Autowired
 	private RConnection conn = null;
 	
+	@Autowired 
+	private MovieVO vo = null;
+	
 	@RequestMapping("movie_info_page.do")
 	public String movie_info_page(Model model,HttpServletRequest request) {
 		System.out.println("MainBean-movie_info_page()");
@@ -110,8 +113,12 @@ public class InfoBean {
 	}
 	
 	@RequestMapping("movie_detail_page.do")
-	public String movie_detail_page() {
+	public String movie_detail_page(String id, Model model) {
 		System.out.println("MainBean-movie_detail_page()");
+		System.out.println("id: "+id);
+		
+		vo = sqlSession.selectOne("movie.movieInfoById", id);
+		model.addAttribute("vo",vo);
 		return "movie_detail_page";
 	}
 }
