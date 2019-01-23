@@ -12,6 +12,7 @@
 	<bean id="MemVO" class="spring.vo.bean.MemVO" />
 	<bean id="ReviewVO" class="spring.vo.bean.ReviewVO" />
 	<bean id="MovieVO" class="spring.vo.bean.MovieVO" />
+	<bean id="RankingVO" class="spring.vo.bean.RankingVO" />
 	<bean id="RConnection" class="org.rosuda.REngine.Rserve.RConnection" />
 	<context:component-scan base-package="spring.main.bean">
 		<context:include-filter type="annotation" expression="org.springframework.context.annotation.Configuration"/>
