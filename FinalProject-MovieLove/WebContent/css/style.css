@@ -2812,9 +2812,6 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 /* --- 메인 페이지 End--- */
 
 /* --- 영화 정보 페이지 Start--- */
-=======
-/* --- �쁺�솕 �젙蹂� �럹�씠吏� Start--- */
->>>>>>> c820898aadc5655dba969beb943703ff9a6be99c
 #movie_info_menu {
 	padding-left:40px;
 	padding-right:40px;
@@ -2860,12 +2857,14 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 	padding-bottom: 5px;
 }
 .card-title a{
+	overflow: hidden;
+	max-height: 28px;
 	color: #333333;
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: bold;
 }
-/* --- �쁺�솕 �젙蹂� �럹�씠吏� End --- */
+/* --- 영화 정보 페이지 End --- */
 
 /* --- 영화 랭킹 페이지 Start --- */
 .ranking {
@@ -2882,6 +2881,11 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 	float: left;
 	width:27px;
 	margin-left: 10px;
+}
+.ranking div {
+	border-top: 1px solid #DDDDDD;
+	max-height: 24.63px;
+	overflow: hidden;
 }
 .ranking div .ranking-no{
 	float: left;
