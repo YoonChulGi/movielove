@@ -143,10 +143,10 @@
 						장르 <b class="caret"></b>
 					</button>
 					<ul class="dropdown-menu col-lg-3 col-sm-6 col-md-4">
-						<li><a href="#">액션/SF</a></li>
-						<li><a href="#">멜로/드라마</a></li>
-						<li><a href="#">코미디</a></li>
-						<li><a href="#">공포/스릴러</a></li>
+						<li><a class="action" href="#">액션/SF</a></li>
+						<li><a class="drama" href="#">멜로/드라마</a></li>
+						<li><a class="comidy" href="#">코미디</a></li>
+						<li><a class="scare" href="#">공포/스릴러</a></li>
 					</ul>
 				</div>
 				<div class="dropdown">
@@ -156,12 +156,12 @@
 						연령별 <b class="caret"></b>
 					</button>
 					<ul class="dropdown-menu col-lg-3 col-sm-6 col-md-4">
-						<li><a href="#">10대</a></li>
-						<li><a href="#">20대</a></li>
-						<li><a href="#">30대</a></li>
-						<li><a href="#">40대</a></li>
-						<li><a href="#">50대</a></li>
-						<li><a href="#">60대이상</a></li>
+						<li><a class="teen" href="#">10대</a></li>
+						<li><a class="twentie" href="#">20대</a></li>
+						<li><a class="thirtie" href="#">30대</a></li>
+						<li><a class="fourtie" href="#">40대</a></li>
+						<li><a class="fiftie" href="#">50대</a></li>
+						<li><a class="sixty"href="#">60대이상</a></li>
 					</ul>
 				</div>
 				<div class="dropdown ">
@@ -171,11 +171,11 @@
 						연도별 <b class="caret"></b>
 					</button>
 					<ul class="dropdown-menu col-lg-3 col-sm-6 col-md-4">
-						<li><a href="#">1970년대</a></li>
-						<li><a href="#">1980년대</a></li>
-						<li><a href="#">1990년대</a></li>
-						<li><a href="#">2000년대</a></li>
-						<li><a href="#">2010년대</a></li>
+						<li><a class="1970"href="#">1970년대</a></li>
+						<li><a class="1980"href="#">1980년대</a></li>
+						<li><a class="1990"href="#">1990년대</a></li>
+						<li><a class="2000"href="#">2000년대</a></li>
+						<li><a class="2010"href="#">2010년대</a></li>
 
 					</ul>
 				</div>
