@@ -1,4 +1,4 @@
-package test;
+package api;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService;
@@ -30,13 +30,9 @@ public class MovieRanking {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 		targetDt = sdf.format(cal.getTime());
 		System.out.println("Date: "+targetDt);
-		
-		//Calendar calendar = Calendar.getInstance();
-		//calendar.setTime(today);
-		//int dayNum = calendar.get(Calendar.DAY_OF_WEEK) ; //1.월 2.화 3.수 4.목 5.금 6.토 7.일
 	
 		KobisOpenAPIRestService service = new KobisOpenAPIRestService(key);
-	
+		
 		String dailyResponse = service.getDailyBoxOffice(true, targetDt, itemPerPage, multiMovieYn, repNationCd, wideAreaCd);
 	
 		ObjectMapper mapper = new ObjectMapper();
@@ -46,7 +42,7 @@ public class MovieRanking {
 	}
 	
 	public HashMap<String, Object> getWeeklyBoxoffice(String weekGb) throws OpenAPIFault, Exception{
-		//저번 주 일요일 날짜 구하기
+		//지난 주 일요일 날짜 구하기
 		Date today = new Date();
 		Calendar calendar = new GregorianCalendar(Locale.KOREA);
 		calendar.setTime(today);

@@ -26,8 +26,8 @@
 	    max-height: 175px;
 	    overflow-x: hidden;
 	    overflow-y: scroll;
-	    left: 221px;
-	    top: 142px;
+	    left: 228px;
+	    top: 144px;
 	    border-top: 0px;
 	    border-left: 1px solid #565656;
 	    border-right: 1px solid #565656;
@@ -93,13 +93,6 @@
 	    text-overflow: ellipsis;
 	}
 </style>
-
-<%
-	List<MovieVO> movieList = (List<MovieVO>)request.getAttribute("movieList");
-	for(int i=0;i<movieList.size();i++){
-		System.out.println("["+(i+1)+"] jsp 영화제목: "+movieList.get(i).getMOVIE_TITLE());	
-	}
-%>
 
 <!--  영화 검색 자동완성 스크립트 -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

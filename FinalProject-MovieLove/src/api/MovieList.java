@@ -1,4 +1,4 @@
-package test;
+package api;
 
 public class MovieList {
 	private String key = "b1ba74ecebf8f7882eb010ca94d015b8";

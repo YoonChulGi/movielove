@@ -2849,7 +2849,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 	font-size: 14px;
 }
 .card{
-	width: 236px;
+	width: 224px;
     border-top: 1px solid #D8D8D8;
     border-left: 1px solid #D8D8D8;
     border-right: 1px solid #D8D8D8;
@@ -3136,6 +3136,8 @@ a.btn_red_s {
 .review_writer {
 	float: left;
 	width: 90px;
+    overflow: hidden;
+    max-height: 28px;
     line-height: 2;
     font-size: 14px;
 	margin-right: 20px;
@@ -3143,6 +3145,8 @@ a.btn_red_s {
 .review_comment {
 	float: left;
 	width: 460px;
+    overflow: hidden;
+    max-height: 28px;
     line-height: 2;
     font-size: 14px;
 	margin-right: 20px;
@@ -3574,7 +3578,7 @@ body.movie_review_detail {
 }
 .score_result .score_reple dt em {
     display: inline-block;
-    padding-right: 6px;
+    padding-right: 12px;
     margin-right: 5px;
     background: url(https://ssl.pstatic.net/static/movie/2012/06/bg_tx_line2.gif) no-repeat 100% 3px;
     color: #999;
@@ -3585,6 +3589,10 @@ body.movie_review_detail {
 .score_result .btn_area {
     text-align: right;
     clear: both;
+}
+.score_result .btn_area a._notSympathyButton {
+    width: 58px;
+    background-position: -55px -44px;
 }
 .score_result .btn_area a {
     display: inline-block;
@@ -3614,6 +3622,20 @@ body.movie_review_detail {
 }
 .score_result .btn_area .count.v2 {
     color: #3a5382;
+}
+.score_result .review_none_div {
+	text-align: center;
+	height: 80px;
+	padding-top: 20px;
+}
+.score_result .review_none {
+	float: none;
+	color: #6A6A6A;
+}
+.search-result {
+	font-size: 20px;
+	color: #333;
+	margin: 0 0 10px 10px;
 }
 /*--- 영화 감상평 상세 페이지 End ---*/
 

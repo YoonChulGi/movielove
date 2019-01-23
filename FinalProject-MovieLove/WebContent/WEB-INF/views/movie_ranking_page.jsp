@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService"%>
 <%@ page import="java.util.HashMap" %>
-<%@ page import="test.MovieRanking" %>
+<%@ page import="api.MovieRanking" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
@@ -25,7 +25,7 @@
 	String movie_title="보헤미안 랩소디";  //영화 제목
 	String movie_num="1,230,928";  //관객수
 	String movie_img="images/poster.jpg";
-	//STring movie_img="http://placehold.it/240x342";
+	//String movie_img="http://placehold.it/240x342";
 	
 	String sel1="", sel2="", sel3="";
 	String sel = request.getParameter("sel");
