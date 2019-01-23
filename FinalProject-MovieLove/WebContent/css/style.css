@@ -2853,16 +2853,13 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     border-bottom: 1px solid #D8D8D8;
 }
 .card-title{
-	padding-top: 3px;
-	padding-bottom: 5px;
-}
-.card-title a{
 	overflow: hidden;
 	max-height: 28px;
 	color: #333333;
-	font-weight: bold;
 	font-size: 16px;
 	font-weight: bold;
+	padding-top: 3px;
+	padding-bottom: 5px;
 }
 /* --- 영화 정보 페이지 End --- */
 
