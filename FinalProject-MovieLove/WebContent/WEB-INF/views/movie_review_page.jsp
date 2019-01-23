@@ -208,9 +208,14 @@
         </div>
         
         <ul class="movie_list">
-			<c:forEach items="${movieShowingList}" var="movie" varStatus="statusMovie">
 			<c:if test="${movieShowingList.size() == 1}">
 				<h2 class="search-result">검색 결과</h2>
+			</c:if>
+			<c:if test="${movieShowingList.size() > 1}">
+				<h2 style="font-size:18px; color:#333; margin: 0 0 10px 10px;">[인기 영화 TOP10]</h2>
+			</c:if>
+			<c:forEach items="${movieShowingList}" var="movie" varStatus="statusMovie">
+			<c:if test="${movieShowingList.size() == 1}">
 				<li class="movie_li cols-xs-12" style="width:100%; margin-left:0.75%">
 			</c:if>
 			<c:if test="${movieShowingList.size() > 1}">

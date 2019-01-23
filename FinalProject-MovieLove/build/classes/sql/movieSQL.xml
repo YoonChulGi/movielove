@@ -15,7 +15,7 @@
 		FROM MOVIE
 		WHERE MOVIE_SHOWING = '0'
 		ORDER BY MOVIE_YEAR DESC
-</select>
+	</select>
 	
 	<select id="movieInfoAll" resultType="MovieVO">
 		select * from MOVIE
@@ -35,5 +35,9 @@
 	
 	<select id="movieIdByTitle" parameterType="String" resultType="String">
 		select MOVIE_ID from MOVIE where MOVIE_TITLE=#{value}
+	</select>
+	
+	<select id="movieImgByTitle" parameterType="String" resultType="String">
+		select MOVIE_IMG from MOVIE where MOVIE_TITLE=#{value}
 	</select>
 </mapper>

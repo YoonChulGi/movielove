@@ -36,4 +36,8 @@
 	<select id="movieIdByTitle" parameterType="String" resultType="String">
 		select MOVIE_ID from MOVIE where MOVIE_TITLE=#{value}
 	</select>
+	
+	<select id="movieImgByTitle" parameterType="String" resultType="String">
+		select MOVIE_IMG from MOVIE where MOVIE_TITLE=#{value}
+	</select>
 </mapper>

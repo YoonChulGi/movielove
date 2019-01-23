@@ -88,25 +88,25 @@
 					<div class="mov_top">
 						<div class="mov_poster">
 							<img
-								src="http://image.cine21.com/resize/cine21/poster/2018/1206/51955_5c08765455234[X230,330].jpg" />
+								src="${vo.getMOVIE_IMG() }" />
 						</div>
 						<div class="mov_info">
-							<p class="tit">내안의 그놈</p>
+							<p class="tit">${vo.getMOVIE_TITLE()}</p>
 							<p class="tit_eng">
-								<span>Inside me</span>
+								<span>${vo.getMOVIE_TITLE_ENGLISH() }</span>
 							</p>
 							<p class="sub_info">
-								<span>2017</span> <span>한국</span> <span>15세 관람가</span>
+								<span>${vo.getMOVIE_YEAR().charAt(0) }${vo.getMOVIE_YEAR().charAt(1) }${vo.getMOVIE_YEAR().charAt(2) }${vo.getMOVIE_YEAR().charAt(3) }</span> <span>${vo.getMOVIE_COUNTRY() }</span> <span>${vo.getMOVIE_AGE() }</span>
 							</p>
 							<p class="sub_info">
-								<span>코미디</span> <span>상영시간 : 122분</span>
+								<span>${vo.getMOVIE_GENRE() }</span> <span>${vo.getMOVIE_RUNTIME()}</span>
 							</p>
 							<p class="sub_info">
-								<span>개봉일 : 2019-01-09</span> <span>누적관객 : 111,975명</span>
+								<span>개봉일 : ${vo.getMOVIE_YEAR() }</span> <span>누적관객 : ${vo.getMOVIE_AUDIENCE() }</span>
 
 							</p>
-							<p class="sub_info">감독 :강효진</P>
-							<p class="sub_info">출연 :진영(동현)박성웅(판수)라미란(미선)이수민(현정)이준혁(만철)
+							<p class="sub_info">감독 :${vo.getMOVIE_DIRECTOR() }</P>
+							<p class="sub_info">출연 :진영(동현)박성웅(판수)라미란(미선)이수민(현정)이준혁(만철) (TODO)
 								...</p>
 
 
@@ -152,11 +152,8 @@
 			style="float: right; padding-right: 50px;">
 			<div class="story">
 
-				<strong class="text" style="font-size: 25px;">나 너니? 너 나니??
-					제대로 바뀐 아재와 고딩, 웃음 대환장 파티!</strong>
-				<p>엘리트 아재 판수(박성웅)를 우연히 옥상에서 떨어진 고등학생 동현(진영)이 덮치면서 제대로 바뀐다. 게다가
-					판수는 동현의 몸으로 첫사랑 미선(라미란)과 존재도 몰랐던 딸 현정(이수민)을 만나게 되는데… 대유잼의 향연, 넌 이미
-					웃고 있다!</p>
+				<strong class="text" style="font-size: 25px;">${vo.getMOVIE_CTITLE() }</strong>
+				<p>${vo.getMOVIE_CONTENTS() }</p>
 			</div>
 
 		</div>

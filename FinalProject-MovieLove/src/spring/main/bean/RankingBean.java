@@ -1,5 +1,12 @@
 package spring.main.bean;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,9 +17,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import org.json.simple.*;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import api.MovieRanking;
+import api.MovieRanking2;
 import kr.or.kobis.kobisopenapi.consumer.rest.exception.OpenAPIFault;
 import spring.vo.bean.MovieVO;
+import spring.vo.bean.RankingVO;
 import spring.vo.bean.ReviewVO;
 
 @Controller
@@ -29,21 +46,42 @@ public class RankingBean {
 		System.out.println("MainBean-movie_ranking_page()");
 
 		MovieRanking rankingInfo = new MovieRanking();
-
-		HashMap<String, Object> dailyResult = rankingInfo.getDailyBoxoffice();
+		
+		List<RankingVO> dailyResult = rankingInfo.getDailyBoxoffice();
 		request.setAttribute("dailyResult", dailyResult);
-		HashMap<String, Object> weeklyResult = rankingInfo.getWeeklyBoxoffice("0");
+		List<RankingVO> weeklyResult = rankingInfo.getWeeklyBoxoffice("0");
 		request.setAttribute("weeklyResult", weeklyResult);
-		HashMap<String, Object> weekendResult = rankingInfo.getWeeklyBoxoffice("1");
+		List<RankingVO> weekendResult = rankingInfo.getWeeklyBoxoffice("1");
 		request.setAttribute("weekendResult", weekendResult);
-		for(String key : dailyResult.keySet() ) {
-			System.out.println("방법1) key : " + key +" / value : " + dailyResult.get(key));
-			System.out.println("class: "+dailyResult.get(key).getClass());
+
+		//일간, 주간, 주말 선택에 따라서 영화정보 가져오기
+		List<RankingVO> selResult = new ArrayList<RankingVO>();
+		List<String> img_selResult = new ArrayList<String>();
+		String img = "";
+		String sel = request.getParameter("sel");
+		System.out.println("Sel: "+sel);
+		if(sel == null) {
+			selResult = rankingInfo.getDailyBoxoffice();
+			for(int i=0;i<selResult.size();i++) {
+				img = sqlSession.selectOne("movie.movieImgByTitle", dailyResult.get(i).getTITLE());
+				img_selResult.add(img);  //영화의 이미지 주소 리스트에 저장
+			}
+		} else if(sel.equals("2")) {
+			selResult = rankingInfo.getWeeklyBoxoffice("0");
+			for(int i=0;i<selResult.size();i++) {
+				img = sqlSession.selectOne("movie.movieImgByTitle", weeklyResult.get(i).getTITLE());
+				img_selResult.add(img);  //영화의 이미지 주소 리스트에 저장
+			}
+		} else if(sel.equals("3")) {
+			selResult = rankingInfo.getWeeklyBoxoffice("1");
+			for(int i=0;i<selResult.size();i++) {
+				img = sqlSession.selectOne("movie.movieImgByTitle", weekendResult.get(i).getTITLE());
+				img_selResult.add(img);  //영화의 이미지 주소 리스트에 저장
+			}
 		}
-		
-		//String movieId = sqlSession.selectOne("movie.movieIdByTitle", "");
-		//List<MovieVO> movieSearchList = sqlSession.selectList("movie.movieInfoById", movieId);  //검색한 해당 영화 모든정보 가져옴
-		
+		request.setAttribute("selResult", selResult);
+		request.setAttribute("img_selResult", img_selResult);
+
 		return "movie_ranking_page";
 	}
 }
