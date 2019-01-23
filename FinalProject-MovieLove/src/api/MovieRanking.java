@@ -25,6 +25,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -73,7 +74,7 @@ public class MovieRanking {
 			RankingVO vo = new RankingVO();
 			vo.setRANK((object.get("rank").toString()).replaceAll("\"",""));
 			vo.setTITLE((object.get("movieNm").toString()).replaceAll("\"",""));
-			vo.setAUDICNT((object.get("audiCnt").toString()).replaceAll("\"",""));
+			vo.setAUDICNT(comma((object.get("audiCnt").toString()).replaceAll("\"","")));
 			vo.setRATE((object.get("salesShare").toString()).replaceAll("\"",""));
 			
 			dailyList.add(vo);
@@ -146,12 +147,19 @@ public class MovieRanking {
 			RankingVO vo = new RankingVO();
 			vo.setRANK((object.get("rank").toString()).replaceAll("\"",""));
 			vo.setTITLE((object.get("movieNm").toString()).replaceAll("\"",""));
-			vo.setAUDICNT((object.get("audiCnt").toString()).replaceAll("\"",""));
+			vo.setAUDICNT(comma((object.get("audiCnt").toString()).replaceAll("\"","")));
 			vo.setRATE((object.get("salesShare").toString()).replaceAll("\"",""));
 			
 			weeklyList.add(vo);
 		}
 		
 		return weeklyList;
+	}
+	
+	public static String comma(String str) {
+		  int inValues = Integer.parseInt(str);
+		  DecimalFormat Commas = new DecimalFormat("#,###");
+		  String result_int = (String)Commas.format(inValues);
+		  return result_int;
 	}
 }
