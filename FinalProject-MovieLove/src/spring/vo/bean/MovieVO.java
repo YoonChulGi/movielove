@@ -17,6 +17,14 @@ public class MovieVO {
 	private String MOVIE_TITLE_ENGLISH;
 	private String MOVIE_GENRE;
 	private String MOVIE_DIRECTOR;
+	private String MOVIE_ACTORS;
+	
+	public String getMOVIE_ACTORS() {
+		return MOVIE_ACTORS;
+	}
+	public void setMOVIE_ACTORS(String mOVIE_ACTORS) {
+		MOVIE_ACTORS = mOVIE_ACTORS;
+	}
 	public String getMOVIE_DIRECTOR() {
 		return MOVIE_DIRECTOR;
 	}

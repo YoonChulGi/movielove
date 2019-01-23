@@ -106,8 +106,7 @@
 
 							</p>
 							<p class="sub_info">감독 :${vo.getMOVIE_DIRECTOR() }</P>
-							<p class="sub_info">출연 :진영(동현)박성웅(판수)라미란(미선)이수민(현정)이준혁(만철) (TODO)
-								...</p>
+							<p class="sub_info">출연 :${vo.getMOVIE_ACTORS() }</p>
 
 
 

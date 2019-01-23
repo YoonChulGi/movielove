@@ -118,6 +118,10 @@ public class InfoBean {
 		System.out.println("id: "+id);
 		
 		vo = sqlSession.selectOne("movie.movieInfoById", id);
+		if(vo.getMOVIE_ACTORS().length() > 80) {
+			String actors = vo.getMOVIE_ACTORS().substring(0, 80);
+			vo.setMOVIE_ACTORS(actors+"...");
+		}
 		model.addAttribute("vo",vo);
 		return "movie_detail_page";
 	}
