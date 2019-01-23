@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService"%>
 <%@ page import="java.util.HashMap" %>
-<%@ page import="api.MovieRanking2" %>
+<%@ page import="java.util.List" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
@@ -12,12 +12,8 @@
     }
 </script>
 
-<%
-	
-	String movie_title="보헤미안 랩소디";  //영화 제목
-	String movie_num="1,230,928";  //관객수
-	String movie_img="images/poster.jpg";
-	//String movie_img="http://placehold.it/240x342";
+<%	
+	String movie_img="http://placehold.it/222x320";  //영화 기본 이미지 (이미지가 DB에 없을 경우)
 	
 	String sel1="", sel2="", sel3="";
 	String sel = request.getParameter("sel");
@@ -54,17 +50,17 @@
 	    		<div class="col-lg-4" style="padding:0">
 		          	<div class="ranking">
 		          		<h4 class="card-title pt_10 pb_10 mb_5" style="background-color:#E16868">일간 박스오피스 순위</h4>
-	              		<div class="ranking-line" text-align="center" style="color:#E16868;">
-	              			<span class="ranking-no" style="float:left;">순위</span>
+	              		<div class="ranking-line" text-align="center" style="color:#E16868">
+	              			<span class="ranking-no" style="float:left">순위</span>
 	              			<span class="ranking-title">영화 제목</span>
-	              			<span class="ranking-num" style="float:right;">관객수</span>
+	              			<span class="ranking-num" style="float:right">관객수</span>
 	              		</div>
     					<c:if test="${not empty dailyResult}">
     						<c:forEach items="${dailyResult}" var="boxoffice">
 		              		<div class="ranking-line" text-align="center">
 	              				<span class="ranking-no">${boxoffice.RANK}</span>
 	              				<span class="ranking-title">${boxoffice.TITLE}</span>
-	              				<span class="ranking-num">${boxoffice.AUDICNT}명</span>
+	              				<span class="ranking-num" align="right">${boxoffice.AUDICNT}명</span>
 	              			</div>
     						</c:forEach>
     					</c:if>
@@ -73,17 +69,17 @@
 	    		<div class="col-lg-4" style="padding:0">
 		          	<div class="ranking">
 		          		<h4 class="card-title pt_10 pb_10 mb_5" style="background-color:#47a8ac;">주간 박스오피스 순위</h4>
-	              		<div class="ranking-line" text-align="center" style="color:#47a8ac;">
-	              			<span class="ranking-no" style="float:left;">순위</span>
+	              		<div class="ranking-line" text-align="center" style="color:#47a8ac">
+	              			<span class="ranking-no" style="float:left">순위</span>
 	              			<span class="ranking-title">영화 제목</span>
-	              			<span class="ranking-num" style="float:right;">관객수</span>
+	              			<span class="ranking-num" style="float:right">관객수</span>
 	              		</div>
     					<c:if test="${not empty weeklyResult}">
     						<c:forEach items="${weeklyResult}" var="boxoffice">
 		              		<div class="ranking-line" text-align="center">
 	              				<span class="ranking-no">${boxoffice.RANK}</span>
 	              				<span class="ranking-title">${boxoffice.TITLE}</span>
-	              				<span class="ranking-num">${boxoffice.AUDICNT}명</span>
+	              				<span class="ranking-num" align="right">${boxoffice.AUDICNT}명</span>
 	              			</div>
     						</c:forEach>
     					</c:if>
@@ -92,17 +88,17 @@
 	    		<div class="col-lg-4" style="padding:0">
 		          	<div class="ranking">
 		          		<h4 class="card-title pt_10 pb_10 mb_5" style="background-color:#5f61ab;">주말 박스오피스 순위</h4>
-	              		<div class="ranking-line" text-align="center" style="color:#5f61ab;">
-	              			<span class="ranking-no" style="float:left;">순위</span>
-	              			<span class="ranking-title" style="overflow:hidden">영화 제목</span>
-	              			<span class="ranking-num" style="float:right;">관객수</span>
+	              		<div class="ranking-line" text-align="center" style="color:#5f61ab">
+	              			<span class="ranking-no" style="float:left">순위</span>
+	              			<span class="ranking-title">영화 제목</span>
+	              			<span class="ranking-num" style="float:right">관객수</span>
 	              		</div>
     					<c:if test="${not empty weekendResult}">
     						<c:forEach items="${weekendResult}" var="boxoffice">
 		              		<div class="ranking-line" text-align="center">
 	              				<span class="ranking-no">${boxoffice.RANK}</span>
 	              				<span class="ranking-title">${boxoffice.TITLE}</span>
-	              				<span class="ranking-num">${boxoffice.AUDICNT}명</span>
+	              				<span class="ranking-num" align="right">${boxoffice.AUDICNT}명</span>
 	              			</div>
     						</c:forEach>
     					</c:if>
@@ -112,59 +108,83 @@
       	
     	<div class="row mt_30" id="movie_ranking_menu">
     		<ul> 
-    			<li style="width:33.33%"><a href="movie_ranking_page.jsp?sel=1" class="<%=sel1%>" id="ranking_menu1">일간<span class="ico"></span></a></li>
-    			<li style="width:33.33%"><a href="movie_ranking_page.jsp?sel=2" class="<%=sel2%>" id="ranking_menu2">주간<span class="ico"></span></a></li>
-    			<li style="width:33.33%"><a href="movie_ranking_page.jsp?sel=3" class="<%=sel3%>" id="ranking_menu3">연간<span class="ico"></span></a></li>
+    			<li style="width:33.33%"><a href="movie_ranking_page.do?sel=1" class="<%=sel1%>" id="ranking_menu1">일간<span class="ico"></span></a></li>
+    			<li style="width:33.33%"><a href="movie_ranking_page.do?sel=2" class="<%=sel2%>" id="ranking_menu2">주간<span class="ico"></span></a></li>
+    			<li style="width:33.33%"><a href="movie_ranking_page.do?sel=3" class="<%=sel3%>" id="ranking_menu3">연간<span class="ico"></span></a></li>
     		</ul>
     	</div>
     	
       	<div class="row mt_20">
-    		<c:forEach items="${dailyResult}" begin="0" end="3" var="boxoffice">
+    		<c:forEach items="${selResult}" begin="0" end="3" var="boxoffice" varStatus="status">
       		<div id="movie_info_row">
-	    		<div class="col-lg-3 col-sm-6 portfolio-item">
+	    		<div class="col-lg-3 col-sm-6 portfolio-item" align="center">
 		          	<div class="card h-100">
 		          		<div class="img-body" align="center">
-	            			<a href="#"><img class="card-img-top" src="<%=movie_img%>" alt=""></a>
+		          			<!-- 해당 영화 정보가 DB에 있는 경우 -->
+		          			<c:if test="${img_selResult.get(status.index) != null}">
+	            				<a href="#"><img class="card-img-top" src="${img_selResult.get(status.index)}" alt="" style="width:100%"></a>
+	            			</c:if>
+		          			<!-- 해당 영화 정보가 DB에 없는 경우 -->
+		          			<c:if test="${img_selResult.get(status.index) == null}">
+	            				<a href="#"><img class="card-img-top" src="<%=movie_img %>" alt="" style="width:100%"></a>
+	            			</c:if>
 	            		</div>
             			<div class="card-body mt_5" id="card-body" align="center">
 	              			<h4 class="card-title">
 			                	<a href="#">${boxoffice.TITLE}</a>
               				</h4>
-              				<p class="card-text">관객수 ${boxoffice.AUDICNT}</p>
+              				<span class="card-text">관객수 ${boxoffice.AUDICNT}</span>
+              				<span class="card-text">예매율 ${boxoffice.RATE}%</span>
             			</div>
           			</div>
         		</div>
         	</div>
     		</c:forEach>
-    		<c:forEach items="${dailyResult}" begin="4" end="7" var="boxoffice">
+    		<c:forEach items="${selResult}" begin="4" end="7" var="boxoffice" varStatus="status">
       		<div id="movie_info_row">
-	    		<div class="col-lg-3 col-sm-6 portfolio-item">
+	    		<div class="col-lg-3 col-sm-6 portfolio-item" align="center">
 		          	<div class="card h-100">
 		          		<div class="img-body" align="center">
-	            			<a href="#"><img class="card-img-top" src="<%=movie_img%>" alt=""></a>
+		          			<!-- 해당 영화 정보가 DB에 있는 경우 -->
+		          			<c:if test="${img_selResult.get(status.index) != null}">
+	            				<a href="#"><img class="card-img-top" src="${img_selResult.get(status.index)}" alt="" style="width:100%"></a>
+	            			</c:if>
+		          			<!-- 해당 영화 정보가 DB에 없는 경우 -->
+		          			<c:if test="${img_selResult.get(status.index) == null}">
+	            				<a href="#"><img class="card-img-top" src="<%=movie_img %>" alt="" style="width:100%"></a>
+	            			</c:if>
 	            		</div>
             			<div class="card-body mt_5" id="card-body" align="center">
 	              			<h4 class="card-title">
 			                	<a href="#">${boxoffice.TITLE}</a>
               				</h4>
-              				<p class="card-text">관객수 ${boxoffice.AUDICNT}</p>
+              				<span class="card-text">관객수 ${boxoffice.AUDICNT}</span>
+              				<span class="card-text">예매율 ${boxoffice.RATE}%</span>
             			</div>
           			</div>
         		</div>
         	</div>
     		</c:forEach>
-    		<c:forEach items="${dailyResult}" begin="8" end="9" var="boxoffice">
+    		<c:forEach items="${selResult}" begin="8" end="9" var="boxoffice" varStatus="status">
       		<div id="movie_info_row">
-	    		<div class="col-lg-3 col-sm-6 portfolio-item">
+	    		<div class="col-lg-3 col-sm-6 portfolio-item" align="center">
 		          	<div class="card h-100">
 		          		<div class="img-body" align="center">
-	            			<a href="#"><img class="card-img-top" src="<%=movie_img%>" alt=""></a>
+		          			<!-- 해당 영화 정보가 DB에 있는 경우 -->
+		          			<c:if test="${img_selResult.get(status.index) != null}">
+	            				<a href="#"><img class="card-img-top" src="${img_selResult.get(status.index)}" alt="" style="width:100%"></a>
+	            			</c:if>
+		          			<!-- 해당 영화 정보가 DB에 없는 경우 -->
+		          			<c:if test="${img_selResult.get(status.index) == null}">
+	            				<a href="#"><img class="card-img-top" src="<%=movie_img %>" alt="" style="width:100%"></a>
+	            			</c:if>
 	            		</div>
             			<div class="card-body mt_5" id="card-body" align="center">
 	              			<h4 class="card-title">
 			                	<a href="#">${boxoffice.TITLE}</a>
               				</h4>
-              				<p class="card-text">관객수 ${boxoffice.AUDICNT}</p>
+              				<span class="card-text">관객수 ${boxoffice.AUDICNT}</span>
+              				<span class="card-text">예매율 ${boxoffice.RATE}%</span>
             			</div>
           			</div>
         		</div>

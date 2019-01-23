@@ -33,6 +33,10 @@
 		select MOVIE_ID from MOVIE where MOVIE_SHOWING='1' order by MOVIE_RATE DESC
 	</select>
 	
+	<select id="movieIdByTitle" parameterType="String" resultType="String">
+		select MOVIE_ID from MOVIE where MOVIE_TITLE=#{value}
+	</select>
+	
 	<select id="movieImgByTitle" parameterType="String" resultType="String">
 		select MOVIE_IMG from MOVIE where MOVIE_TITLE=#{value}
 	</select>

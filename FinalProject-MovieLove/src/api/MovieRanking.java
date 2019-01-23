@@ -74,6 +74,7 @@ public class MovieRanking {
 			vo.setRANK((object.get("rank").toString()).replaceAll("\"",""));
 			vo.setTITLE((object.get("movieNm").toString()).replaceAll("\"",""));
 			vo.setAUDICNT((object.get("audiCnt").toString()).replaceAll("\"",""));
+			vo.setRATE((object.get("salesShare").toString()).replaceAll("\"",""));
 			
 			dailyList.add(vo);
 		}
@@ -146,6 +147,7 @@ public class MovieRanking {
 			vo.setRANK((object.get("rank").toString()).replaceAll("\"",""));
 			vo.setTITLE((object.get("movieNm").toString()).replaceAll("\"",""));
 			vo.setAUDICNT((object.get("audiCnt").toString()).replaceAll("\"",""));
+			vo.setRATE((object.get("salesShare").toString()).replaceAll("\"",""));
 			
 			weeklyList.add(vo);
 		}

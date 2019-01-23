@@ -2863,6 +2863,9 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 	font-size: 16px;
 	font-weight: bold;
 }
+#card-body p, #card-body span {
+	display: block;
+}
 /* --- 영화 정보 페이지 End --- */
 
 /* --- 영화 랭킹 페이지 Start --- */
