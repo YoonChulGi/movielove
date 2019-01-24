@@ -63,7 +63,7 @@
 			      						<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }">${list.get(i-1).getMOVIE_TITLE() }</a> 
 			      					</h4>
 			      					<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
-			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()}</p>
+			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()} 개봉</p>
 			      				</div>
 			      			</div>
 			      		</div>
@@ -83,7 +83,7 @@
 			      						<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }">${list.get(i-1).getMOVIE_TITLE() }</a> 
 			      					</h4>
 			      					<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
-			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()}</p>
+			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()} 개봉</p>
 			      				</div>
 			      			</div>
 			      		</div>
@@ -106,7 +106,7 @@
 		    						<h4 class="card-title" style="max-height:28px;overflow:hidden;">
 			      						<a href="movie_detail_page.do?${ids[i] }" class="movietitle">${ titles[i]}</a> 
 			      					</h4>
-			      					<p class="card-text">${years[i]}</p> <!-- ${ids[i]} -->
+			      					<p class="card-text">${years[i]} 개봉예정</p> <!-- ${ids[i]} -->
 		    					</div>
 		    				</div>
 		    			</div>
@@ -165,7 +165,7 @@
 		    						<h4 class="card-title" style="max-height:28px;overflow:hidden;">
 			      						<a href="movie_detail_page.do?${list.get(i-1).getMOVIE_ID() }" class="movietitle">${ list.get(i-1).getMOVIE_TITLE()}</a> 
 			      					</h4>
-			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()}</p> <!-- ${ids[i]} -->
+			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()} 개봉</p> <!-- ${ids[i]} -->
 		    					</div>
 		    				</div>
 		    			</div>
