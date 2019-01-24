@@ -3029,6 +3029,9 @@ a.btn_red_s {
 /* --- 로그인 페이지 End --- */
 
 /* --- 회원가입 페이지 Start --- */
+body.register{
+	font-size: 15px;
+}
 #register-submit{
 	height: 50px;
 	font-size: 16px;
@@ -3044,7 +3047,7 @@ a.btn_red_s {
 }
 .register_checkbox{
 	color: #858585;
-	font-size: 15px;
+	font-size: 14px;
 }
 .register_checkbox input{
 	margin-left: 10px;
