@@ -109,11 +109,12 @@
 				</span>
 				<div class="movie_summary">
 					<div class="subject_movie">
-						<strong class="tit_movie">${movieInfo.getMOVIE_TITLE()}</strong>
+						<strong class="movie_title">${movieInfo.getMOVIE_TITLE()}</strong>
+						<span class="movie_title_en" style="font-size:16px">${movieInfo.getMOVIE_TITLE_ENGLISH()}</span>
 						<span class="txt_origin"></span><!-- 2016-04-12 추가 -->
 						<span class="review_grade" style="width:200px">
 							<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:${avgRatingPer}%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
-							<em class="emph_grade" style="font-size:18px;font-style:normal">
+							<em class="emph_grade" style="font-size:18px; font-style:normal">
 							<c:if test="${avgRatingPer == 0}">0.00</c:if>
 							<c:if test="${avgRatingPer != 0}">${avgRating}</c:if>
 							</em>
@@ -121,45 +122,30 @@
 					</div>
 					<dl class="list_movie list_main">
 						<dt class="screen_out">장르|나라</dt>
-						<dd class="type_ellipsis">드라마
-							<span class="split_line" style="margin:2px 5px 0 5px;"></span>
-							<span>미국</span>,
-							<span>영국</span>
+						<dd class="type_ellipsis">
+							<span>${movieInfo.getMOVIE_GENRE()}</span>
+							<span class="split_line" style="margin:2px 5px 0 5px"></span>
+							<span>${movieInfo.getMOVIE_COUNTRY()}</span>
 						</dd>
-						<dt class="screen_out">개봉 | 영화시간/타입/나라</dt>																								</dd>
-						<dd class="type_ellipsis">2018.10.31 개봉
-							<span class="split_line" style="margin:2px 5px 0 5px;"></span>
-							<span>134분, 12세이상관람가 </span>
+						<dt class="screen_out">상영시간ㅣ개봉 | 관람이용가</dt>																								</dd>
+						<dd class="type_ellipsis">
+							<span>${movieInfo.getMOVIE_YEAR()}</span>
+							<span class="split_line" style="margin:2px 5px 0 5px"></span>
+							<span>${movieInfo.getMOVIE_RUNTIME()}</span>
+							<span class="split_line" style="margin:2px 5px 0 5px"></span>
+							<span>${movieInfo.getMOVIE_AGE()}</span>
 						</dd>
 						<dt class="screen_out">감독</dt>
 						<dd class="type_ellipsis">(감독) 
-							<span>브라이언 싱어</span>
+							<span>${movieInfo.getMOVIE_DIRECTOR()}</span>
 						</dd>
 						<dt class="screen_out">주연</dt>
-						<dd class="type_ellipsis">(주연)
-							<span>라미 말렉</span>,
-							<span>윤루시 보인턴</span>
-							<span>귈림 리</span>,
-							<span>벤 하디</span>,
-							<span>조셉 마젤로</span>
+						<dd class="type_ellipsis">(출연)
+							<span>${movieInfo.getMOVIE_ACTORS()}</span>
 						</dd>
 						<dt class="screen_out">줄거리</dt>
 						<dd class="type_ellipsis">(줄거리)
-							<em class="desc_movie" style="margin:0;width:636px">
-								<p>
-								“나는 스타가 되지 않을 것이다, 전설이 될 것이다”<br>
-								<br>
-								공항에서 수하물 노동자로 일하며 음악의 꿈을 키우던 이민자 출신의 아웃사이더 ‘파록버사라’<br>
-								보컬을 구하던 로컬 밴드에 들어가게 되면서 ‘프레디 머큐리’라는 이름으로 밴드 ‘퀸’을 이끌게 된다.<br>
-								<br>
-								시대를 앞서가는 독창적인 음악과 화려한 퍼포먼스로 관중들을 사로잡으며 성장하던 ‘퀸’은 라디오와 방송에서 외면을 받을 것이라는 음반사의 반대에도 불구하고 무려 6분 동안 이어지는 실험적인 곡 ‘보헤미안 랩소디’로 대성공을 거두며 월드스타 반열에 오른다.<br>
-								<br>
-								그러나 독보적인 존재감을 뿜어내던 ‘프레디 머큐리’는 솔로 데뷔라는 유혹에 흔들리게 되고 결국 오랜 시간 함께 해왔던 멤버들과 결별을 선언하게 되는데…<br>
-								<br>
-								세상에서 소외된 아웃사이더에서 전설의 록밴드 ‘퀸’ 되기까지,<br>
-								우리가 몰랐던 그들의 진짜 이야기가 시작된다!
-								</p>
-							</em>
+							<em class="desc_movie" style="margin:0;width:636px">${movieInfo.getMOVIE_CONTENTS()}</em>
 							<a href="javascript:;" class="link_more" onclick="plotMoreView(); return false;" id="descMoreButton">더 보기</a>
 							<a href="javascript:;" class="link_hide" onclick="plotHideView(); return false;" id="descHideButton">접기</a>
 						</dd>
