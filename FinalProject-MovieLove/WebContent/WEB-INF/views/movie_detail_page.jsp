@@ -118,23 +118,17 @@
 	<div class="container">
 		<div class="give_star col-lg-2" style="float: right; align: center;">
 			<strong class="star" style="font-size:18px; padding-left:30px; display:inline-block;">평점</strong>
-			<p class="num text-center" style="font-size:24px; color:red; margin-left:10px; display:inline-block;">${avgRating}</p>
+			<p class="num text-center" style="font-size:24px; color:red; margin-left:10px; display:inline-block;">
+				<c:if test="${avgRatingPer == 0}">0.00</c:if>
+				<c:if test="${avgRatingPer != 0}">${avgRating}</c:if>
+			</p>
 
-			<div class="star_area" style="padding-left: 20px; padding-top: 6px;">
-				<div id="star_container" data-score="0" style="cursor: pointer;">
-					<img alt="1"
-						src="http://image.cine21.com/www1/common/star_a_off.png"
-						title="bad">&nbsp;<img alt="2"
-						src="http://image.cine21.com/www1/common/star_a_off.png"
-						title="poor">&nbsp;<img alt="3"
-						src="http://image.cine21.com/www1/common/star_a_off.png"
-						title="regular">&nbsp;<img alt="4"
-						src="http://image.cine21.com/www1/common/star_a_off.png"
-						title="good">&nbsp;<img alt="5"
-						src="http://image.cine21.com/www1/common/star_a_off.png"
-						title="gorgeous"><input name="score" type="hidden">
-				</div>
-			</div>
+			<span class="review_grade" style="width:200px; padding-left:20px; padding-top:6px;">
+							<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:${avgRatingPer}%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
+							<em class="emph_grade" style="font-size:18px; font-style:normal">
+							</em>
+			</span>
+			
 			<div class="button" style="padding-left: 30px; padding-top: 7px;">
 
 				<a href="/movie/nzreview/comment_form/?movie_id=51955&amp;star_container=star_container"
