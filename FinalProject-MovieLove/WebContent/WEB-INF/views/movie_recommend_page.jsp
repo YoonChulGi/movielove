@@ -58,8 +58,13 @@
 					<table>
 						<tbody>
 							<tr>
-								<h2 class="card-title">"id" 님의 취향저격 베스트 영화"</h2>
 								
+								
+								<% if(session.getAttribute("memId")!=null){%>
+			                	<h2 class="card-title">"<%=session.getAttribute("memId")%> " 님의 취향저격 베스트 영화</h2>
+			               		 <%} else {%>
+			                	<h2 class="card-title">"이달의 추천영화"</h2>
+			                	<%} %>
 								
 								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
 										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/358ea40235e240fea2f0b6ec7ef93c431543201035934"
@@ -85,7 +90,11 @@
 					<table>
 						<tbody>
 							<tr>
-								<h2 class="card-title">"id" 님의 취향저격 베스트 영화</h2>
+								<% if(session.getAttribute("memId")!=null){%>
+			                	<h2 class="card-title">"<%=session.getAttribute("memId")%> " 님의 취향저격 베스트 영화</h2>
+			               		 <%} else {%>
+			                	<h2 class="card-title">"이달의 추천영화"</h2>
+			                	<%} %>
 								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
 										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/7f80906597164fe6b6504b3602946f631542963091970"
 										alt=""></a></td>
