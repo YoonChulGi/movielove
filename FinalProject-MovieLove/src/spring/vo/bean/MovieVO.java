@@ -16,50 +16,13 @@ public class MovieVO {
 	private String MOVIE_CTITLE;
 	private String MOVIE_TITLE_ENGLISH;
 	private String MOVIE_GENRE;
-	private String MOVIE_DIRECTOR;
-	private String MOVIE_ACTORS;
-	
-	public String getMOVIE_ACTORS() {
-		return MOVIE_ACTORS;
-	}
-	public void setMOVIE_ACTORS(String mOVIE_ACTORS) {
-		MOVIE_ACTORS = mOVIE_ACTORS;
-	}
-	public String getMOVIE_DIRECTOR() {
-		return MOVIE_DIRECTOR;
-	}
-	public void setMOVIE_DIRECTOR(String mOVIE_DIRECTOR) {
-		MOVIE_DIRECTOR = mOVIE_DIRECTOR;
-	}
-	public String getMOVIE_AUDIENCE() {
-		return MOVIE_AUDIENCE;
-	}
-	public void setMOVIE_AUDIENCE(String mOVIE_AUDIENCE) {
-		MOVIE_AUDIENCE = mOVIE_AUDIENCE;
-	}
 	private String MOVIE_COUNTRY;
 	private String MOVIE_AGE;
 	private String MOVIE_RUNTIME;
 	private String MOVIE_AUDIENCE;
+	private String MOVIE_DIRECTOR;
+	private String MOVIE_ACTORS;
 	
-	public String getMOVIE_RUNTIME() {
-		return MOVIE_RUNTIME;
-	}
-	public void setMOVIE_RUNTIME(String mOVIE_RUNTIME) {
-		MOVIE_RUNTIME = mOVIE_RUNTIME;
-	}
-	public String getMOVIE_AGE() {
-		return MOVIE_AGE;
-	}
-	public void setMOVIE_AGE(String mOVIE_AGE) {
-		MOVIE_AGE = mOVIE_AGE;
-	}
-	public String getMOVIE_COUNTRY() {
-		return MOVIE_COUNTRY;
-	}
-	public void setMOVIE_COUNTRY(String mOVIE_COUNTRY) {
-		MOVIE_COUNTRY = mOVIE_COUNTRY;
-	}
 	public String getMOVIE_TITLE() {
 		return MOVIE_TITLE;
 	}
@@ -150,7 +113,42 @@ public class MovieVO {
 	public void setMOVIE_GENRE(String mOVIE_GENRE) {
 		MOVIE_GENRE = mOVIE_GENRE;
 	}
-	
+	public String getMOVIE_COUNTRY() {
+		return MOVIE_COUNTRY;
+	}
+	public void setMOVIE_COUNTRY(String mOVIE_COUNTRY) {
+		MOVIE_COUNTRY = mOVIE_COUNTRY;
+	}
+	public String getMOVIE_AGE() {
+		return MOVIE_AGE;
+	}
+	public void setMOVIE_AGE(String mOVIE_AGE) {
+		MOVIE_AGE = mOVIE_AGE;
+	}
+	public String getMOVIE_RUNTIME() {
+		return MOVIE_RUNTIME;
+	}
+	public void setMOVIE_RUNTIME(String mOVIE_RUNTIME) {
+		MOVIE_RUNTIME = mOVIE_RUNTIME;
+	}
+	public String getMOVIE_AUDIENCE() {
+		return MOVIE_AUDIENCE;
+	}
+	public void setMOVIE_AUDIENCE(String mOVIE_AUDIENCE) {
+		MOVIE_AUDIENCE = mOVIE_AUDIENCE;
+	}
+	public String getMOVIE_DIRECTOR() {
+		return MOVIE_DIRECTOR;
+	}
+	public void setMOVIE_DIRECTOR(String mOVIE_DIRECTOR) {
+		MOVIE_DIRECTOR = mOVIE_DIRECTOR;
+	}
+	public String getMOVIE_ACTORS() {
+		return MOVIE_ACTORS;
+	}
+	public void setMOVIE_ACTORS(String mOVIE_ACTORS) {
+		MOVIE_ACTORS = mOVIE_ACTORS;
+	}
 	
 }
 
