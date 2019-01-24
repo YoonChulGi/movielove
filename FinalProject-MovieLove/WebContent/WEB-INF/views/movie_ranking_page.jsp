@@ -53,7 +53,7 @@
 	              		<div class="ranking-line" text-align="center" style="color:#E16868">
 	              			<span class="ranking-no" style="float:left">순위</span>
 	              			<span class="ranking-title">영화 제목</span>
-	              			<span class="ranking-num" style="float:right">관객수</span>
+	              			<span class="ranking-num" style="float:right; padding-left:20px">관객수</span>
 	              		</div>
     					<c:if test="${not empty dailyResult}">
     						<c:forEach items="${dailyResult}" var="boxoffice">
@@ -72,7 +72,7 @@
 	              		<div class="ranking-line" text-align="center" style="color:#47a8ac">
 	              			<span class="ranking-no" style="float:left">순위</span>
 	              			<span class="ranking-title">영화 제목</span>
-	              			<span class="ranking-num" style="float:right">관객수</span>
+	              			<span class="ranking-num" style="float:right; padding-left:20px">관객수</span>
 	              		</div>
     					<c:if test="${not empty weeklyResult}">
     						<c:forEach items="${weeklyResult}" var="boxoffice">
@@ -91,7 +91,7 @@
 	              		<div class="ranking-line" text-align="center" style="color:#5f61ab">
 	              			<span class="ranking-no" style="float:left">순위</span>
 	              			<span class="ranking-title">영화 제목</span>
-	              			<span class="ranking-num" style="float:right">관객수</span>
+	              			<span class="ranking-num" style="float:right; padding-left:20px">관객수</span>
 	              		</div>
     					<c:if test="${not empty weekendResult}">
     						<c:forEach items="${weekendResult}" var="boxoffice">
@@ -110,7 +110,7 @@
     		<ul> 
     			<li style="width:33.33%"><a href="movie_ranking_page.do?sel=1" class="<%=sel1%>" id="ranking_menu1">일간<span class="ico"></span></a></li>
     			<li style="width:33.33%"><a href="movie_ranking_page.do?sel=2" class="<%=sel2%>" id="ranking_menu2">주간<span class="ico"></span></a></li>
-    			<li style="width:33.33%"><a href="movie_ranking_page.do?sel=3" class="<%=sel3%>" id="ranking_menu3">연간<span class="ico"></span></a></li>
+    			<li style="width:33.33%"><a href="movie_ranking_page.do?sel=3" class="<%=sel3%>" id="ranking_menu3">주말<span class="ico"></span></a></li>
     		</ul>
     	</div>
     	

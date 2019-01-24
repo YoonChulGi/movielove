@@ -15,7 +15,7 @@
 		FROM MOVIE
 		WHERE MOVIE_SHOWING = '0'
 		ORDER BY MOVIE_YEAR DESC
-</select>
+	</select>
 	
 	<select id="movieInfoAll" resultType="MovieVO">
 		select * from MOVIE

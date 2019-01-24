@@ -2853,12 +2853,14 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     border-bottom: 1px solid #D8D8D8;
 }
 .card-title{
+	overflow: hidden;
+	height: 30px;
 	padding-top: 3px;
 	padding-bottom: 5px;
 }
 .card-title a{
 	overflow: hidden;
-	max-height: 28px;
+	height: 28px;
 	color: #333333;
 	font-size: 16px;
 	font-weight: bold;
@@ -2992,7 +2994,7 @@ a.btn_red_s {
 }
 /* --- �쁺�솕 異붿쿇 �럹�씠吏� End --- */
 
-/* --- 濡쒓렇�씤 �럹�씠吏� Start --- */
+/* --- 로그인 페이지 Start --- */
 #login-submit{
 	height: 50px;
 	font-size: 16px;
@@ -3000,7 +3002,7 @@ a.btn_red_s {
 .login-menu{
 	padding-left: 8px;
 	padding-right: 8px;
-	font-size: 15px;
+	font-size: 14px;
 }
 .register{
 	padding-right: 8px;
@@ -3024,9 +3026,12 @@ a.btn_red_s {
 #password, #password-confirm{
 	height: 50px;
 }
-/* --- 濡쒓렇�씤 �럹�씠吏� End --- */
+/* --- 로그인 페이지 End --- */
 
-/* --- �쉶�썝媛��엯 �럹�씠吏� Start --- */
+/* --- 회원가입 페이지 Start --- */
+body.register{
+	font-size: 15px;
+}
 #register-submit{
 	height: 50px;
 	font-size: 16px;
@@ -3042,12 +3047,12 @@ a.btn_red_s {
 }
 .register_checkbox{
 	color: #858585;
-	font-size: 15px;
+	font-size: 14px;
 }
 .register_checkbox input{
 	margin-left: 10px;
 }
-/* --- �쉶�썝媛��엯 �럹�씠吏� End --- */
+/* --- 회원가입 페이지 End --- */
 
 /* --- 영화 감상평 페이지  Start --- */
 .review-search {

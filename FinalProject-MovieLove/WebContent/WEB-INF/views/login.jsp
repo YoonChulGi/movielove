@@ -43,7 +43,7 @@
                         </div>
                         <div class="form-group text-left">
                           <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                          <label for="remember">자동 로그인</label>
+                          <label for="remember" style="font-size:14px">자동 로그인</label>
                         </div>
                         <div class="form-group">
                           <div class="row">
@@ -74,7 +74,7 @@
                         <div class="form-group">
                           <div class="row">
                             <div class="col-lg-12">
-                              <div class="login-menu text-center">
+                              <div class="login-menu text-center" style="font-size:14px">
                                 <a href="register.do" tabindex="5" class="register">회원가입</a>  |  
                                 <a href="#" tabindex="5" class="forgot-id">아이디 찾기</a>  |  
                                 <a href="#" tabindex="5" class="forgot-password">비밀번호 찾기</a>
@@ -82,7 +82,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="mb_10 text-center">소셜 로그인</div>
+                        <div class="mb_10 text-center" style="font-size:15px">소셜 로그인</div>
                         <div class="form-group" align="center">
                         	<a href="#"><img src="images/logo/logo_naver.png" style="margin-right:10px;"></a>
                         	<a href="#"><img src="images/logo/logo_facebook.png" style="margin-left:10px; margin-right:10px;"></a>

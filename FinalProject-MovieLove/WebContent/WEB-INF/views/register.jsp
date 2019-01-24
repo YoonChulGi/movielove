@@ -44,7 +44,7 @@
     
   </head>
   
-  <body>
+  <body class="register">
   
     <!-- =====  HEADER START  ===== -->
     <jsp:include page="menu.jsp" flush="false"/>
