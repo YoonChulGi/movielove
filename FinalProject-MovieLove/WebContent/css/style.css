@@ -2994,7 +2994,7 @@ a.btn_red_s {
 }
 /* --- �쁺�솕 異붿쿇 �럹�씠吏� End --- */
 
-/* --- 濡쒓렇�씤 �럹�씠吏� Start --- */
+/* --- 로그인 페이지 Start --- */
 #login-submit{
 	height: 50px;
 	font-size: 16px;
@@ -3002,7 +3002,7 @@ a.btn_red_s {
 .login-menu{
 	padding-left: 8px;
 	padding-right: 8px;
-	font-size: 15px;
+	font-size: 14px;
 }
 .register{
 	padding-right: 8px;
@@ -3026,9 +3026,9 @@ a.btn_red_s {
 #password, #password-confirm{
 	height: 50px;
 }
-/* --- 濡쒓렇�씤 �럹�씠吏� End --- */
+/* --- 로그인 페이지 End --- */
 
-/* --- �쉶�썝媛��엯 �럹�씠吏� Start --- */
+/* --- 회원가입 페이지 Start --- */
 #register-submit{
 	height: 50px;
 	font-size: 16px;
@@ -3049,7 +3049,7 @@ a.btn_red_s {
 .register_checkbox input{
 	margin-left: 10px;
 }
-/* --- �쉶�썝媛��엯 �럹�씠吏� End --- */
+/* --- 회원가입 페이지 End --- */
 
 /* --- 영화 감상평 페이지  Start --- */
 .review-search {
