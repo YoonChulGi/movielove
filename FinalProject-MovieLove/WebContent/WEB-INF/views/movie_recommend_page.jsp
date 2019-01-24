@@ -63,7 +63,7 @@
 								<% if(session.getAttribute("memId")!=null){%>
 			                	<h2 class="card-title">"<%=session.getAttribute("memId")%> " 님의 취향저격 베스트 영화</h2>
 			               		 <%} else {%>
-			                	<h2 class="card-title">"이달의 추천영화"</h2>
+			                	<h2 class="card-title">"이번달 추천영화"</h2>
 			                	<%} %>
 								
 								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
@@ -89,27 +89,21 @@
 				<div class="item">
 					<table>
 						<tbody>
+						
 							<tr>
+							
 								<% if(session.getAttribute("memId")!=null){%>
 			                	<h2 class="card-title">"<%=session.getAttribute("memId")%> " 님의 취향저격 베스트 영화</h2>
 			               		 <%} else {%>
-			                	<h2 class="card-title">"이달의 추천영화"</h2>
+			                	<h2 class="card-title">"이번달 추천영화"</h2>
 			                	<%} %>
-								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
-										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/7f80906597164fe6b6504b3602946f631542963091970"
+			                	<c:forEach var="gen" items="${genre}">
+			                	<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
+										src="${gen}"
 										alt=""></a></td>
-								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
-										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/f4d3fea1a1004a44873cca0dac2d8ccf1542956549688"
-										alt=""></a></td>
-								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
-										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/25c7261d1e424fe59b68b7ef115b35d11542780702098"
-										alt=""></a></td>
-								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
-										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/fa5991f792db40bdb93de11542c0502c1543986203103"
-										alt=""></a></td>
-								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
-										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/eb9834885f7747d78e132b66c0cf46a21541478705054"
-										alt=""></a></td>
+			                	</c:forEach>
+								
+								
 							</tr>
 						</tbody>
 					</table>

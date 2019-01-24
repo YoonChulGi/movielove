@@ -28,7 +28,25 @@
 	
 	<select id="recommend" parameterType="String" resultType="String">
 		select MEM_GENRE from MEM where MEM_ID=#{VALUE}
-		
-		
 	</select>
+	
+	<select id="choo" parameterType="list" resultType="String">
+		select genre from genre where num in 
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+        	#{item}
+  		</foreach>
+	</select>
+	
+	<select id="choo3" parameterType="list" resultType="String">
+		select movie_img from movie where
+		<foreach item="item" index="index" collection="list" separator="or">
+			  movie_genre like '%'||#{item}||'%'
+		</foreach>
+	</select>
+	
+	
 </mapper>
+
+
+
+
