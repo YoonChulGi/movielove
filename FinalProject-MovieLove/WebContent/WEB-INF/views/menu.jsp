@@ -94,7 +94,7 @@
                   <ul class="dropdown-menu">
                     <li> <a href="movie_ranking_page.do?sel=1">일간 박스오피스 순위</a></li>
                     <li> <a href="movie_ranking_page.do?sel=2">주간 박스오피스 순위</a></li>
-                    <li> <a href="movie_ranking_page.do?sel=3">올해의 박스오피스 순위</a></li>
+                    <li> <a href="movie_ranking_page.do?sel=3">주말 박스오피스 순위</a></li>
                   </ul>
                 </li>
                 <li class="dropdown"> <a href="movie_recommend_page.do" class="dropdown-toggle">추천 영화</a>
