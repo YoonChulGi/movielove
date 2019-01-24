@@ -61,7 +61,7 @@ public class RankingBean {
 		String id="", img = "";
 		String sel = request.getParameter("sel");
 		System.out.println("Sel: "+sel);
-		if(sel == null) {
+		if(sel == null || sel.equals("1")) {
 			selResult = rankingInfo.getDailyBoxoffice();
 			for(int i=0;i<selResult.size();i++) {
 				id = sqlSession.selectOne("movie.movieIdByTitle", dailyResult.get(i).getTITLE());
