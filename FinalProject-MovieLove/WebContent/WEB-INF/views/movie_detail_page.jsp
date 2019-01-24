@@ -134,13 +134,11 @@
 						src="http://image.cine21.com/www1/common/star_a_off.png"
 						title="gorgeous"><input name="score" type="hidden">
 				</div>
-
 			</div>
 			<div class="button" style="padding-left: 30px; padding-top: 7px;">
 
-				<a
-					href="/movie/nzreview/comment_form/?movie_id=51955&amp;star_container=star_container"
-					class="btn btn_review" id="btn_review_write">리뷰 남기기</a>
+				<a href="/movie/nzreview/comment_form/?movie_id=51955&amp;star_container=star_container"
+					class="btn btn_review" id="btn_review_write">40자평 남기기</a>
 			</div>
 		</div>
 		<div class="story_area" style="float:right; width:51%;">
