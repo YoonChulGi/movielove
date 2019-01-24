@@ -2852,6 +2852,9 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     border-right: 1px solid #D8D8D8;
     border-bottom: 1px solid #D8D8D8;
 }
+.card a img {
+	height: 320px;
+}
 .card-title{
 	overflow: hidden;
 	height: 28px;
