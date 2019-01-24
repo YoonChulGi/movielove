@@ -61,9 +61,10 @@
 }
 
 .sub_info {
-	font-size: 14px;
+	font-size: 13px;
 	color: #f4f4f4;
 	margin-bottom: 5px;
+	line-height: 20px;
 }
 
 
@@ -92,7 +93,7 @@
 						</div>
 						<div class="mov_info">
 							<p class="tit">${vo.getMOVIE_TITLE()}</p>
-							<p class="tit_eng">
+							<p class="tit_eng" style="margin-bottom:10px">
 								<span>${vo.getMOVIE_TITLE_ENGLISH() }</span>
 							</p>
 							<p class="sub_info">
@@ -108,9 +109,6 @@
 							<p class="sub_info">감독 :${vo.getMOVIE_DIRECTOR() }</P>
 							<p class="sub_info">출연 :${vo.getMOVIE_ACTORS() }</p>
 
-
-
-
 						</div>
 					</div>
 				</div>
@@ -119,10 +117,8 @@
 	</div>
 	<div class="container">
 		<div class="give_star col-lg-2" style="float: right; align: center;">
-			<strong class="star"
-				style="font-size: 18px; padding-left: 55px; padding-top: 10px;">별점주기</strong>
-			<p class="num text-center"
-				style="font-size: 35px; color: red; padding-top: 10px;">0</p>
+			<strong class="star" style="font-size:18px; padding-left:30px; display:inline-block;">평점</strong>
+			<p class="num text-center" style="font-size:24px; color:red; margin-left:10px; display:inline-block;">${avgRating}</p>
 
 			<div class="star_area" style="padding-left: 20px; padding-top: 6px;">
 				<div id="star_container" data-score="0" style="cursor: pointer;">
@@ -147,14 +143,11 @@
 					class="btn btn_review" id="btn_review_write">리뷰 남기기</a>
 			</div>
 		</div>
-		<div class="story_area col-lg-6 col-md-4 col-sm-2"
-			style="float: right; padding-right: 50px;">
+		<div class="story_area" style="float:right; width:51%;">
 			<div class="story">
-
-				<strong class="text" style="font-size: 25px;">${vo.getMOVIE_CTITLE() }</strong>
-				<p>${vo.getMOVIE_CONTENTS() }</p>
+				<strong class="text" style="font-size:16px; padding-bottom:10px;">${vo.getMOVIE_CTITLE()}</strong>
+				<p style="font-size:13px; margin-top:5px;">${vo.getMOVIE_CONTENTS()}</p>
 			</div>
-
 		</div>
 
 	</div>

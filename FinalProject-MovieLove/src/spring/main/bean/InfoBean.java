@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.vo.bean.MovieVO;
+import spring.vo.bean.ReviewVO;
 @Controller
 public class InfoBean {
 	
@@ -127,6 +128,17 @@ public class InfoBean {
 		
 		model.addAttribute("vo",vo);
 		model.addAttribute("steelcuts",steelcuts);
+		
+		//해당 영화 평점 가져오기
+		List<ReviewVO> reviewList = new ArrayList<ReviewVO>();
+		reviewList = sqlSession.selectList("review.reviewInfoById", id);
+		
+		int sumRating = 0;
+		for(int i=0;i<reviewList.size();i++) {
+			sumRating += Integer.parseInt(reviewList.get(i).getREVIEW_RATING());
+		}
+		float avgRating = (float) sumRating / (float) reviewList.size();
+		model.addAttribute("avgRating", String.format("%.2f", avgRating));  //둘째자리까지 반올림
 		
 		return "movie_detail_page";
 	}
