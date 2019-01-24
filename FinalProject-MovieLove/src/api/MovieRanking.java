@@ -76,6 +76,7 @@ public class MovieRanking {
 			vo.setTITLE((object.get("movieNm").toString()).replaceAll("\"",""));
 			vo.setAUDICNT(comma((object.get("audiCnt").toString()).replaceAll("\"","")));
 			vo.setRATE((object.get("salesShare").toString()).replaceAll("\"",""));
+			vo.setDATE(getDate(targetDt,weekGb));
 			
 			dailyList.add(vo);
 		}
@@ -149,6 +150,7 @@ public class MovieRanking {
 			vo.setTITLE((object.get("movieNm").toString()).replaceAll("\"",""));
 			vo.setAUDICNT(comma((object.get("audiCnt").toString()).replaceAll("\"","")));
 			vo.setRATE((object.get("salesShare").toString()).replaceAll("\"",""));
+			vo.setDATE(getDate(targetDt,weekGb));
 			
 			weeklyList.add(vo);
 		}
@@ -161,5 +163,18 @@ public class MovieRanking {
 		  DecimalFormat Commas = new DecimalFormat("#,###");
 		  String result_int = (String)Commas.format(inValues);
 		  return result_int;
+	}
+	
+	public static String getDate(String date, String weekGb) {
+		String last_date = "";
+		if(weekGb.equals("0")) {
+			last_date = String.valueOf(Integer.parseInt(date) - 6);
+			date = last_date + " ~ " + date;
+		} else if(weekGb.equals("1")) {
+			last_date = String.valueOf(Integer.parseInt(date) - 2);
+			date = last_date + " ~ " + date;
+		}
+		
+		return date;
 	}
 }

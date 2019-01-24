@@ -64,6 +64,7 @@
 	              			</div>
     						</c:forEach>
     					</c:if>
+        				<span class="ranking-line ranking-date" align="right">기준: ${dailyResult.get(0).getDATE()}</span>
           			</div>
         		</div>
 	    		<div class="col-lg-4" style="padding:0">
@@ -83,6 +84,7 @@
 	              			</div>
     						</c:forEach>
     					</c:if>
+        				<span class="ranking-line ranking-date" align="right">기준: ${weeklyResult.get(0).getDATE()}</span>
           			</div>
         		</div>
 	    		<div class="col-lg-4" style="padding:0">
@@ -102,6 +104,7 @@
 	              			</div>
     						</c:forEach>
     					</c:if>
+        				<span class="ranking-line ranking-date" align="right">기준: ${weekendResult.get(0).getDATE()}</span>
           			</div>
         		</div>
       	</div>

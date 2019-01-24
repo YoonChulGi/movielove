@@ -2889,8 +2889,13 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 	width:27px;
 	margin-left: 10px;
 }
+.ranking .ranking-date {
+	font-size:13px;
+	display:block;
+	margin: 5px 10px 0 0;
+}
 .ranking div {
-	border-top: 1px solid #DDDDDD;
+	border-bottom: 1px solid #DDDDDD;
 	max-height: 24.63px;
 	overflow: hidden;
 }

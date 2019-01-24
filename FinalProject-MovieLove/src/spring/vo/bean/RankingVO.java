@@ -5,6 +5,7 @@ public class RankingVO {
 	private String TITLE;    //영화 제목
 	private String AUDICNT;  //관객수
 	private String RATE;     //예매율
+	private String DATE;     //기준 날짜
 	
 	public String getRANK() {
 		return RANK;
@@ -30,4 +31,11 @@ public class RankingVO {
 	public void setRATE(String rATE) {
 		RATE = rATE;
 	}
+	public String getDATE() {
+		return DATE;
+	}
+	public void setDATE(String dATE) {
+		DATE = dATE;
+	}
+	
 }
