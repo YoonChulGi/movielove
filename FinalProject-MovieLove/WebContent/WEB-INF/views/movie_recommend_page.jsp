@@ -55,8 +55,8 @@
 			<div class="carousel-inner" align="center">
 
 				<div class="item active">
-					<div class="choo col-lg-12 col-md-6 col-sm-6" >
-						
+					<table>
+						<tbody>
 						
 						
 							<tr>
@@ -70,7 +70,7 @@
 			                	
 			                	<% if(session.getAttribute("memId")!=null){%>
 			                	<c:forEach var="gen" items="${genre}">
-			                	<td class="officetd"><h2 class="rank"></h2> <a href="#"><img style="float:left;""display:inline-block;"
+			                	<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
 										src="${gen}"
 										alt=""></a></td>
 			                	</c:forEach>
@@ -95,27 +95,26 @@
 								<%} %>
 							</tr>
 							
-						\
-					</div>
+						</tbody>
+					</table>
 				</div>
 
 				<div class="item">
-						<div class="choo col-lg-12 col-md-6 col-sm-6" >
+					<table>
+						<tbody>
 						
 						
-						
-							<tr>
-							
-								<% if(session.getAttribute("memId")!=null){%>
+						<tr>
+								
+						<% if(session.getAttribute("memId")!=null){%>
 			                	<h2 class="card-title" style="padding-bottom:50px;">"<%=session.getAttribute("memId")%> " 님의 취향저격 베스트 영화</h2>
 			               		 <%} 
 								else {%>
 			                	<h2 class="card-title"  style="padding-bottom:50px;">"이번달 추천영화"</h2>
 			                	<%} %>
-			                	
 			                	<% if(session.getAttribute("memId")!=null){%>
 			                	<c:forEach var="gen" items="${genre}">
-			                	<td class="officetd"><h2 class="rank"></h2> <a href="#"><img style="float:left;""display:inline-block;"
+			                	<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
 										src="${gen}"
 										alt=""></a></td>
 			                	</c:forEach>
@@ -140,7 +139,8 @@
 										alt=""></a></td>
 											<%} %>
 							</tr>
-					</div>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
