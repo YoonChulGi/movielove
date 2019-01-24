@@ -56,30 +56,38 @@ public class RankingBean {
 
 		//일간, 주간, 주말 선택에 따라서 영화정보 가져오기
 		List<RankingVO> selResult = new ArrayList<RankingVO>();
+		List<String> id_selResult = new ArrayList<String>();
 		List<String> img_selResult = new ArrayList<String>();
-		String img = "";
+		String id="", img = "";
 		String sel = request.getParameter("sel");
 		System.out.println("Sel: "+sel);
 		if(sel == null) {
 			selResult = rankingInfo.getDailyBoxoffice();
 			for(int i=0;i<selResult.size();i++) {
+				id = sqlSession.selectOne("movie.movieIdByTitle", dailyResult.get(i).getTITLE());
 				img = sqlSession.selectOne("movie.movieImgByTitle", dailyResult.get(i).getTITLE());
+				id_selResult.add(id);    //영화의 id 리스트에 저장
 				img_selResult.add(img);  //영화의 이미지 주소 리스트에 저장
 			}
 		} else if(sel.equals("2")) {
 			selResult = rankingInfo.getWeeklyBoxoffice("0");
 			for(int i=0;i<selResult.size();i++) {
+				id = sqlSession.selectOne("movie.movieIdByTitle", weeklyResult.get(i).getTITLE());
 				img = sqlSession.selectOne("movie.movieImgByTitle", weeklyResult.get(i).getTITLE());
+				id_selResult.add(id);    //영화의 id 리스트에 저장
 				img_selResult.add(img);  //영화의 이미지 주소 리스트에 저장
 			}
 		} else if(sel.equals("3")) {
 			selResult = rankingInfo.getWeeklyBoxoffice("1");
 			for(int i=0;i<selResult.size();i++) {
+				id = sqlSession.selectOne("movie.movieIdByTitle", weekendResult.get(i).getTITLE());
 				img = sqlSession.selectOne("movie.movieImgByTitle", weekendResult.get(i).getTITLE());
+				id_selResult.add(id);    //영화의 id 리스트에 저장
 				img_selResult.add(img);  //영화의 이미지 주소 리스트에 저장
 			}
 		}
 		request.setAttribute("selResult", selResult);
+		request.setAttribute("id_selResult", id_selResult);
 		request.setAttribute("img_selResult", img_selResult);
 
 		return "movie_ranking_page";

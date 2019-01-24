@@ -122,16 +122,20 @@
 		          		<div class="img-body" align="center">
 		          			<!-- 해당 영화 정보가 DB에 있는 경우 -->
 		          			<c:if test="${img_selResult.get(status.index) != null}">
-	            				<a href="#"><img class="card-img-top" src="${img_selResult.get(status.index)}" alt="" style="width:100%"></a>
+	            				<a href="movie_detail_page.do?id=${id_selResult.get(status.index)}">
+	            					<img class="card-img-top" src="${img_selResult.get(status.index)}" alt="" style="width:100%">
+	            				</a>
 	            			</c:if>
 		          			<!-- 해당 영화 정보가 DB에 없는 경우 -->
 		          			<c:if test="${img_selResult.get(status.index) == null}">
-	            				<a href="#"><img class="card-img-top" src="<%=movie_img %>" alt="" style="width:100%"></a>
+	            				<a href="movie_detail_page.do?id=${id_selResult.get(status.index)}">
+	            					<img class="card-img-top" src="images/non_image.png" alt="" style="width:100%">
+	            				</a>
 	            			</c:if>
 	            		</div>
             			<div class="card-body mt_5" id="card-body" align="center">
 	              			<h4 class="card-title">
-			                	<a href="#">${boxoffice.TITLE}</a>
+			                	<a href="movie_detail_page.do?id=${id_selResult.get(status.index)}">${boxoffice.TITLE}</a>
               				</h4>
               				<span class="card-text">관객수 ${boxoffice.AUDICNT}</span>
               				<span class="card-text">예매율 ${boxoffice.RATE}%</span>
@@ -147,16 +151,20 @@
 		          		<div class="img-body" align="center">
 		          			<!-- 해당 영화 정보가 DB에 있는 경우 -->
 		          			<c:if test="${img_selResult.get(status.index) != null}">
-	            				<a href="#"><img class="card-img-top" src="${img_selResult.get(status.index)}" alt="" style="width:100%"></a>
+	            				<a href="movie_detail_page.do?id=${id_selResult.get(status.index)}">
+	            					<img class="card-img-top" src="${img_selResult.get(status.index)}" alt="" style="width:100%">
+	            				</a>
 	            			</c:if>
 		          			<!-- 해당 영화 정보가 DB에 없는 경우 -->
 		          			<c:if test="${img_selResult.get(status.index) == null}">
-	            				<a href="#"><img class="card-img-top" src="<%=movie_img %>" alt="" style="width:100%"></a>
+	            				<a href="movie_detail_page.do?id=${id_selResult.get(status.index)}">
+	            					<img class="card-img-top" src="images/non_image.png" alt="" style="width:100%">
+	            				</a>
 	            			</c:if>
 	            		</div>
             			<div class="card-body mt_5" id="card-body" align="center">
 	              			<h4 class="card-title">
-			                	<a href="#">${boxoffice.TITLE}</a>
+			                	<a href="movie_detail_page.do?id=${id_selResult.get(status.index)}">${boxoffice.TITLE}</a>
               				</h4>
               				<span class="card-text">관객수 ${boxoffice.AUDICNT}</span>
               				<span class="card-text">예매율 ${boxoffice.RATE}%</span>
@@ -172,16 +180,20 @@
 		          		<div class="img-body" align="center">
 		          			<!-- 해당 영화 정보가 DB에 있는 경우 -->
 		          			<c:if test="${img_selResult.get(status.index) != null}">
-	            				<a href="#"><img class="card-img-top" src="${img_selResult.get(status.index)}" alt="" style="width:100%"></a>
+	            				<a href="movie_detail_page.do?id=${id_selResult.get(status.index)}">
+	            					<img class="card-img-top" src="${img_selResult.get(status.index)}" alt="" style="width:100%">
+	            				</a>
 	            			</c:if>
 		          			<!-- 해당 영화 정보가 DB에 없는 경우 -->
 		          			<c:if test="${img_selResult.get(status.index) == null}">
-	            				<a href="#"><img class="card-img-top" src="<%=movie_img %>" alt="" style="width:100%"></a>
+	            				<a href="movie_detail_page.do?id=${id_selResult.get(status.index)}">
+	            					<img class="card-img-top" src="images/non_image.png" alt="" style="width:100%">
+	            				</a>
 	            			</c:if>
 	            		</div>
             			<div class="card-body mt_5" id="card-body" align="center">
 	              			<h4 class="card-title">
-			                	<a href="#">${boxoffice.TITLE}</a>
+			                	<a href="movie_detail_page.do?id=${id_selResult.get(status.index)}">${boxoffice.TITLE}</a>
               				</h4>
               				<span class="card-text">관객수 ${boxoffice.AUDICNT}</span>
               				<span class="card-text">예매율 ${boxoffice.RATE}%</span>

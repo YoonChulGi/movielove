@@ -2854,9 +2854,9 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 .card-title{
 	overflow: hidden;
-	height: 30px;
+	height: 28px;
 	padding-top: 3px;
-	padding-bottom: 5px;
+	margin-bottom: 3px;
 }
 .card-title a{
 	overflow: hidden;
