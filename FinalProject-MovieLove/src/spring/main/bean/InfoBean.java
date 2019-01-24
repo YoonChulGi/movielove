@@ -1,5 +1,6 @@
 package spring.main.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -122,7 +123,11 @@ public class InfoBean {
 			String actors = vo.getMOVIE_ACTORS().substring(0, 80);
 			vo.setMOVIE_ACTORS(actors+"...");
 		}
+		String [] steelcuts = vo.getMOVIE_STEELCUT().split("#");
+		
 		model.addAttribute("vo",vo);
+		model.addAttribute("steelcuts",steelcuts);
+		
 		return "movie_detail_page";
 	}
 }

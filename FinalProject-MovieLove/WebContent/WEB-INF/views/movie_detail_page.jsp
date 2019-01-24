@@ -83,7 +83,7 @@
 		<div class="row">
 			<div
 				class="col-lg-12 col-xs-12 col-md-12 col-sm-12 movie_detail_top_area"
-				style="background: url('http://image.cine21.com/cine21/still/2018/1217/51955_5c174480e492c.jpg');">
+				style="background: url('${steelcuts[0]}');">
 				<div class="top_area_cover">
 					<div class="mov_top">
 						<div class="mov_poster">
@@ -177,11 +177,6 @@
 			<li data-target="#myCarousel" data-slide-to="2"></li>
 			<li data-target="#myCarousel" data-slide-to="3"></li>
 			<li data-target="#myCarousel" data-slide-to="4"></li>
-			<li data-target="#myCarousel" data-slide-to="5"></li>
-			<li data-target="#myCarousel" data-slide-to="6"></li>
-			<li data-target="#myCarousel" data-slide-to="7"></li>
-			<li data-target="#myCarousel" data-slide-to="8"></li>
-			<li data-target="#myCarousel" data-slide-to="9"></li>
 
 		</ol>
 		<!--페이지-->
@@ -190,7 +185,7 @@
 			<!--슬라이드1-->
 			<div class="item active">
 				<img
-					src="http://image.cine21.com/resize/cine21/still/2018/1217/51955_5c174480e492c[S750,750].jpg"
+					src="${steelcuts[1] }"
 					style="width: 1070px; height: 540px; margin: auto;"
 					alt="First slide">
 				<div class="container">
@@ -202,7 +197,7 @@
 			<!--슬라이드2-->
 			<div class="item">
 				<img
-					src="http://image.cine21.com/resize/cine21/still/2018/1217/51955_5c17448117aeb[S750,750].jpg"
+					src="${steelcuts[2] }"
 					style="width: 1070px; height: 540px; margin: auto;" data-src=""
 					alt="Second slide">
 				<div class="container">
@@ -214,7 +209,7 @@
 			<!--슬라이드3-->
 			<div class="item">
 				<img
-					src="http://image.cine21.com/resize/cine21/still/2018/1217/51955_5c174481390d4[S750,750].jpg"
+					src="${steelcuts[3] }"
 					style="width: 1070px; height: 540px; margin: auto;" data-src=""
 					alt="Third slide">
 				<div class="container">
@@ -226,7 +221,7 @@
 			<!--슬라이드4-->
 			<div class="item">
 				<img
-					src="http://image.cine21.com/resize/cine21/still/2018/1217/51955_5c17448153417[S750,750].jpg"
+					src="${steelcuts[4] }"
 					style="width: 1070px; height: 540px; margin: auto;" data-src=""
 					alt="Third slide">
 				<div class="container">
@@ -238,74 +233,14 @@
 			<!--슬라이드5-->
 			<div class="item">
 				<img
-					src="http://image.cine21.com/resize/cine21/still/2018/1217/51955_5c1744817af54[S750,750].jpg"
-					style="width: 400px; height: 540px; margin: auto;" data-src=""
+					src="${steelcuts[5] }"
+					style="width: 1070px; height: 540px; margin: auto;" data-src=""
 					alt="Third slide">
 				<div class="container">
 					<div class="carousel-caption"></div>
 				</div>
 			</div>
 			<!--슬라이드5-->
-
-			<!--슬라이드6-->
-			<div class="item">
-				<img
-					src="http://image.cine21.com/resize/cine21/still/2018/1226/51955_5c230c651305c[S750,750].jpg"
-					style="width: 1070px; height: 540px; margin: auto;" data-src=""
-					alt="Third slide">
-				<div class="container">
-					<div class="carousel-caption"></div>
-				</div>
-			</div>
-			<!--슬라이드6-->
-
-			<!--슬라이드7-->
-			<div class="item">
-				<img
-					src="http://image.cine21.com/resize/cine21/still/2018/1217/51955_5c17448195928[S750,750].jpg"
-					style="width: 1070px; height: 540px; margin: auto;" data-src=""
-					alt="Third slide">
-				<div class="container">
-					<div class="carousel-caption"></div>
-				</div>
-			</div>
-			<!--슬라이드7-->
-
-			<!--슬라이드8-->
-			<div class="item">
-				<img
-					src="http://image.cine21.com/resize/cine21/still/2018/1226/51955_5c230c6498fea[S750,750].jpg"
-					style="width: 1070px; height: 540px; margin: auto;" data-src=""
-					alt="Third slide">
-				<div class="container">
-					<div class="carousel-caption"></div>
-				</div>
-			</div>
-			<!--슬라이드8-->
-
-			<!--슬라이드9-->
-			<div class="item">
-				<img
-					src="http://image.cine21.com/resize/cine21/still/2018/1226/51955_5c230c64c701d[S750,750].jpg"
-					style="width: 1070px; height: 540px; margin: auto;" data-src=""
-					alt="Third slide">
-				<div class="container">
-					<div class="carousel-caption"></div>
-				</div>
-			</div>
-			<!--슬라이드9-->
-
-			<!--슬라이드10-->
-			<div class="item">
-				<img
-					src="http://image.cine21.com/resize/cine21/still/2018/1226/51955_5c230c653e52c[S750,750].jpg"
-					style="width: 1070px; height: 540px; margin: auto;" data-src=""
-					alt="Third slide">
-				<div class="container">
-					<div class="carousel-caption"></div>
-				</div>
-			</div>
-			<!--슬라이드10-->
 		</div>
 
 		<!--이전, 다음 버튼-->
@@ -314,16 +249,7 @@
 			class="right carousel-control" href="#myCarousel" data-slide="next"><span
 			class="glyphicon glyphicon-chevron-right"></span></a>
 	</div>
-
-
-
-
-
-
-
-
-
-
+	
 	<div class="video container"
 		style="width: 1170px; height: 650px; margin: auto;">
 
