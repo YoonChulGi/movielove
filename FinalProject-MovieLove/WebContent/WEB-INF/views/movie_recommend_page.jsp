@@ -42,7 +42,7 @@
 
 	<!-- Page Content -->
 
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	<div id="myCarousel" class="carousel slide col-lg-12 col-md-6 col-sm-6" data-ride="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -55,20 +55,31 @@
 			<div class="carousel-inner" align="center">
 
 				<div class="item active">
-					<table>
-						<tbody>
+					<div class="choo col-lg-12 col-md-6 col-sm-6" >
+						
+						
+						
 							<tr>
-								
-								
+							
 								<% if(session.getAttribute("memId")!=null){%>
-			                	<h2 class="card-title">"<%=session.getAttribute("memId")%> " 님의 취향저격 베스트 영화</h2>
-			               		 <%} else {%>
-			                	<h2 class="card-title">"이번달 추천영화"</h2>
+			                	<h2 class="card-title" style="padding-bottom:50px;">"<%=session.getAttribute("memId")%> " 님의 취향저격 베스트 영화</h2>
+			               		 <%} 
+								else {%>
+			                	<h2 class="card-title"  style="padding-bottom:50px;">"이번달 추천영화"</h2>
 			                	<%} %>
-								
+			                	
+			                	<% if(session.getAttribute("memId")!=null){%>
+			                	<c:forEach var="gen" items="${genre}">
+			                	<td class="officetd"><h2 class="rank"></h2> <a href="#"><img style="float:left;""display:inline-block;"
+										src="${gen}"
+										alt=""></a></td>
+			                	</c:forEach>
+			                	<%} 
+			                	else {%>
+									
 								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
 										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/358ea40235e240fea2f0b6ec7ef93c431543201035934"
-										alt="마약왕"></a></td>
+										alt=""></a></td>
 								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
 										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/4eeebce90dc441cdb208d11e27e356421544513634869"
 										alt=""></a></td>
@@ -81,32 +92,55 @@
 								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
 										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/10073f4c7fab4a07a23589f8fbd4254d1541739643225"
 										alt=""></a></td>
+								<%} %>
 							</tr>
-						</tbody>
-					</table>
+							
+						\
+					</div>
 				</div>
 
 				<div class="item">
-					<table>
-						<tbody>
+						<div class="choo col-lg-12 col-md-6 col-sm-6" >
+						
+						
 						
 							<tr>
 							
 								<% if(session.getAttribute("memId")!=null){%>
-			                	<h2 class="card-title">"<%=session.getAttribute("memId")%> " 님의 취향저격 베스트 영화</h2>
-			               		 <%} else {%>
-			                	<h2 class="card-title">"이번달 추천영화"</h2>
+			                	<h2 class="card-title" style="padding-bottom:50px;">"<%=session.getAttribute("memId")%> " 님의 취향저격 베스트 영화</h2>
+			               		 <%} 
+								else {%>
+			                	<h2 class="card-title"  style="padding-bottom:50px;">"이번달 추천영화"</h2>
 			                	<%} %>
+			                	
+			                	<% if(session.getAttribute("memId")!=null){%>
 			                	<c:forEach var="gen" items="${genre}">
-			                	<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
+			                	<td class="officetd"><h2 class="rank"></h2> <a href="#"><img style="float:left;""display:inline-block;"
 										src="${gen}"
 										alt=""></a></td>
 			                	</c:forEach>
-								
-								
+			                	<%} 
+			                	else {%>
+									
+
+										<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
+										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/7f80906597164fe6b6504b3602946f631542963091970"
+										alt=""></a></td>
+								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
+										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/f4d3fea1a1004a44873cca0dac2d8ccf1542956549688"
+										alt=""></a></td>
+								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
+										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/25c7261d1e424fe59b68b7ef115b35d11542780702098"
+										alt=""></a></td>
+								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
+										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/fa5991f792db40bdb93de11542c0502c1543986203103"
+										alt=""></a></td>
+								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
+										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/eb9834885f7747d78e132b66c0cf46a21541478705054"
+										alt=""></a></td>
+											<%} %>
 							</tr>
-						</tbody>
-					</table>
+					</div>
 				</div>
 			</div>
 		</div>
