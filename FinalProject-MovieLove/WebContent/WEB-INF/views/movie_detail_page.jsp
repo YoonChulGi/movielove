@@ -117,13 +117,13 @@
 	</div>
 	<div class="container">
 		<div class="give_star col-lg-2" style="float: right; align: center;">
-			<strong class="star" style="font-size:18px; padding-left:30px; display:inline-block;">평점</strong>
+			<strong class="star" style="font-size:18px; margin-left:45px; display:inline-block;">평점</strong>
 			<p class="num text-center" style="font-size:24px; color:red; margin-left:10px; display:inline-block;">
 				<c:if test="${avgRatingPer == 0}">0.00</c:if>
 				<c:if test="${avgRatingPer != 0}">${avgRating}</c:if>
 			</p>
 
-			<span class="review_grade" style="width:200px; padding-left:20px; padding-top:6px;">
+			<span class="review_grade" style="margin:6px 0 5px 43px">
 							<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:${avgRatingPer}%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
 							<em class="emph_grade" style="font-size:18px; font-style:normal">
 							</em>
