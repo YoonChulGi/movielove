@@ -2963,6 +2963,46 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 	width: 100%;
 	height: 320px;
 }
+#movie_info_row div div div.img-body span.boxoffice {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    width: 44px;
+    height: 39px;
+    top: 0;
+    left: 32px;
+    padding: 0;
+    margin: 0;
+    text-indent: -9999px;
+    background: url(http://image2.megabox.co.kr/mop/home/movie/rank.png) 0 0 no-repeat;
+}
+#movie_info_row div div div.img-body span.boxoffice.n2 {
+	background-position: 0 -100px;
+}
+#movie_info_row div div div.img-body span.boxoffice.n3 {
+	background-position: 0 -200px;
+}
+#movie_info_row div div div.img-body span.boxoffice.n4 {
+	background-position: 0 -300px;
+}
+#movie_info_row div div div.img-body span.boxoffice.n5 {
+	background-position: 0 -400px;
+}
+#movie_info_row div div div.img-body span.boxoffice.n6 {
+	background-position: 0 -500px;
+}
+#movie_info_row div div div.img-body span.boxoffice.n7 {
+	background-position: 0 -600px;
+}
+#movie_info_row div div div.img-body span.boxoffice.n8 {
+	background-position: 0 -700px;
+}
+#movie_info_row div div div.img-body span.boxoffice.n9 {
+	background-position: 0 -800px;
+}
+#movie_info_row div div div.img-body span.boxoffice.n10 {
+	background-position: 0 -900px;
+}
 #movie_ranking-menu{
 	padding-left:40px;
 	padding-right:40px;
@@ -3348,6 +3388,7 @@ body.register{
 	display: block;
 	color: #333;
 	margin-left: 3px;
+	font-weight: bold;
 }
 .row-review{
 	position:relative;

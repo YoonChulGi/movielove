@@ -118,33 +118,36 @@
     	</div>
     	
       	<div class="row mt_20">
-    		<c:forEach items="${selResult}" begin="0" end="3" var="boxoffice" varStatus="status">
+		   	<c:forEach items="${selResult}" var="boxoffice" begin="0" end="${selResult.size()}" step="4" varStatus="status">
       		<div id="movie_info_row">
+		      	<c:forEach items="${selResult}" var="boxoffice" begin="${status.index}" end="${status.index+3}" step="1" varStatus="i">
+		      	<c:if test="${selResult.get(i.index) != null}">
 	    		<div class="col-lg-3 col-sm-6 portfolio-item" align="center">
 		          	<div class="card h-100">
 		          		<div class="img-body" align="center">
 		          			<!-- 해당 영화 정보가 DB에 있는 경우 -->
-		          			<c:if test="${img_selResult.get(status.index) != null}">
-	            				<a href="movie_detail_page.do?id=${id_selResult.get(status.index)}">
-	            					<img class="card-img-top" src="${img_selResult.get(status.index)}" alt="" style="width:100%">
-	            				</a>
+		          			<c:if test="${img_selResult.get(i.index) != null}">
+	            				<a href="movie_detail_page.do?id=${id_selResult.get(i.index)}">
+	            					<img class="card-img-top" src="${img_selResult.get(i.index)}" alt="" style="width:100%">
+								</a>
 	            			</c:if>
 		          			<!-- 해당 영화 정보가 DB에 없는 경우 -->
-		          			<c:if test="${img_selResult.get(status.index) == null}">
+		          			<c:if test="${img_selResult.get(i.index) == null}">
 								<img class="card-img-top" src="images/non_image.png" alt="" style="width:100%">
 	            			</c:if>
+	            			<span class="boxoffice n${i.index+1}">${i.index+1}</span>
 	            		</div>
             			<div class="card-body mt_5" id="card-body" align="center">
 		          			<!-- 해당 영화 정보가 DB에 있는 경우 -->
-		          			<c:if test="${img_selResult.get(status.index) != null}">
+		          			<c:if test="${img_selResult.get(i.index) != null}">
 	              				<h4 class="card-title">
-				                	<a href="movie_detail_page.do?id=${id_selResult.get(status.index)}">${boxoffice.TITLE}</a>
+				                	<a href="movie_detail_page.do?id=${id_selResult.get(i.index)}">${boxoffice.TITLE}</a>
               					</h4>
               					<span class="card-text">관객수 ${boxoffice.AUDICNT}</span>
               					<span class="card-text">예매율 ${boxoffice.RATE}%</span>
 	            			</c:if>
 		          			<!-- 해당 영화 정보가 DB에 없는 경우 -->
-		          			<c:if test="${img_selResult.get(status.index) == null}">
+		          			<c:if test="${img_selResult.get(i.index) == null}">
 	              				<h4 class="card-title">${boxoffice.TITLE}</h4>
               					<span class="card-text">관객수 ${boxoffice.AUDICNT}</span>
               					<span class="card-text">예매율 ${boxoffice.RATE}%</span>
@@ -152,78 +155,8 @@
             			</div>
           			</div>
         		</div>
-        	</div>
-    		</c:forEach>
-    		<c:forEach items="${selResult}" begin="4" end="7" var="boxoffice" varStatus="status">
-      		<div id="movie_info_row">
-	    		<div class="col-lg-3 col-sm-6 portfolio-item" align="center">
-		          	<div class="card h-100">
-		          		<div class="img-body" align="center">
-		          			<!-- 해당 영화 정보가 DB에 있는 경우 -->
-		          			<c:if test="${img_selResult.get(status.index) != null}">
-	            				<a href="movie_detail_page.do?id=${id_selResult.get(status.index)}">
-	            					<img class="card-img-top" src="${img_selResult.get(status.index)}" alt="" style="width:100%">
-	            				</a>
-	            			</c:if>
-		          			<!-- 해당 영화 정보가 DB에 없는 경우 -->
-		          			<c:if test="${img_selResult.get(status.index) == null}">
-	            				<img class="card-img-top" src="images/non_image.png" alt="" style="width:100%">
-	            			</c:if>
-	            		</div>
-            			<div class="card-body mt_5" id="card-body" align="center">
-		          			<!-- 해당 영화 정보가 DB에 있는 경우 -->
-		          			<c:if test="${img_selResult.get(status.index) != null}">
-	              				<h4 class="card-title">
-				                	<a href="movie_detail_page.do?id=${id_selResult.get(status.index)}">${boxoffice.TITLE}</a>
-              					</h4>
-              					<span class="card-text">관객수 ${boxoffice.AUDICNT}</span>
-              					<span class="card-text">예매율 ${boxoffice.RATE}%</span>
-	            			</c:if>
-		          			<!-- 해당 영화 정보가 DB에 없는 경우 -->
-		          			<c:if test="${img_selResult.get(status.index) == null}">
-	              				<h4 class="card-title">${boxoffice.TITLE}</h4>
-              					<span class="card-text">관객수 ${boxoffice.AUDICNT}</span>
-              					<span class="card-text">예매율 ${boxoffice.RATE}%</span>
-	            			</c:if>
-            			</div>
-          			</div>
-        		</div>
-        	</div>
-    		</c:forEach>
-    		<c:forEach items="${selResult}" begin="8" end="9" var="boxoffice" varStatus="status">
-      		<div id="movie_info_row">
-	    		<div class="col-lg-3 col-sm-6 portfolio-item" align="center">
-		          	<div class="card h-100">
-		          		<div class="img-body" align="center">
-		          			<!-- 해당 영화 정보가 DB에 있는 경우 -->
-		          			<c:if test="${img_selResult.get(status.index) != null}">
-	            				<a href="movie_detail_page.do?id=${id_selResult.get(status.index)}">
-	            					<img class="card-img-top" src="${img_selResult.get(status.index)}" alt="" style="width:100%">
-	            				</a>
-	            			</c:if>
-		          			<!-- 해당 영화 정보가 DB에 없는 경우 -->
-		          			<c:if test="${img_selResult.get(status.index) == null}">
-	            				<img class="card-img-top" src="images/non_image.png" alt="" style="width:100%">
-	            			</c:if>
-	            		</div>
-            			<div class="card-body mt_5" id="card-body" align="center">
-		          			<!-- 해당 영화 정보가 DB에 있는 경우 -->
-		          			<c:if test="${img_selResult.get(status.index) != null}">
-	              				<h4 class="card-title">
-				                	<a href="movie_detail_page.do?id=${id_selResult.get(status.index)}">${boxoffice.TITLE}</a>
-              					</h4>
-              					<span class="card-text">관객수 ${boxoffice.AUDICNT}</span>
-              					<span class="card-text">예매율 ${boxoffice.RATE}%</span>
-	            			</c:if>
-		          			<!-- 해당 영화 정보가 DB에 없는 경우 -->
-		          			<c:if test="${img_selResult.get(status.index) == null}">
-	              				<h4 class="card-title">${boxoffice.TITLE}</h4>
-              					<span class="card-text">관객수 ${boxoffice.AUDICNT}</span>
-              					<span class="card-text">예매율 ${boxoffice.RATE}%</span>
-	            			</c:if>
-            			</div>
-          			</div>
-        		</div>
+        		</c:if>
+        		</c:forEach>
         	</div>
     		</c:forEach>
         </div>
