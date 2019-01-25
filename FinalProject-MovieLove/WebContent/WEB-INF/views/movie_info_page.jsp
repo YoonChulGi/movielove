@@ -138,7 +138,7 @@
 		    						<h4 class="card-title" style="max-height:28px;overflow:hidden;">
 			      						<a href="movie_detail_page.do?${ids[i] }" class="movietitle">${ titles[i]}</a> 
 			      					</h4>
-			      					<p class="card-text">${years[i]}</p> <!-- ${ids[i]} -->
+			      					<p class="card-text">${years[i]} 개봉예정</p> <!-- ${ids[i]} -->
 		    					</div>
 		    				</div>
 		    			</div>
@@ -156,7 +156,7 @@
 		    						<h4 class="card-title" style="max-height:28px;overflow:hidden;">
 			      						<a href="movie_detail_page.do?${ids[i] }" class="movietitle">${ titles[i]}</a> 
 			      					</h4>
-			      					<p class="card-text">${years[i]}</p> <!-- ${ids[i]} -->
+			      					<p class="card-text">${years[i]} 개봉예정</p> <!-- ${ids[i]} -->
 		    					</div>
 		    				</div>
 		    			</div>
