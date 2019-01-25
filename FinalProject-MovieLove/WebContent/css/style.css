@@ -3563,6 +3563,7 @@ body.movie_review_detail {
 .link_more, .link_more:hover, .link_more:active, .link_more:visited {
     line-height: 27px;
     font-weight: bold;
+    font-size: 14px;
     color: #444;
 }
 .link_hide {
@@ -3571,6 +3572,7 @@ body.movie_review_detail {
 .link_hide, .link_hide:hover, .link_hide:active, .link_hide:visited {
     line-height: 27px;
     font-weight: bold;
+    font-size: 14px;
     color: #444;
 }
 

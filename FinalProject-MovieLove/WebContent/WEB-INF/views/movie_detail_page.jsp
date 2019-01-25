@@ -6,14 +6,71 @@
 <!-- Custom styles for this template -->
 <link href="css/small-business.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
-<link
-	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
-	rel="stylesheet" />
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script
-	src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript" src="//t1.daumcdn.net/movie/cssjs/1543973809/common/new_utils.js"></script>
+	<script src="//t1.daumcdn.net/movie/cssjs/1543973809/iscroll5/iscroll.js"></script>
+	<script src="//t1.daumcdn.net/movie/cssjs/1543973809/cookie/jquery.cookie.js"></script>
+	<script>
+	//더보기 버튼 핸들링
+	function setDescMoreButton() {
+		if(isClickMoreButton) {
+			return false;
+		}
+		var maxHeight = $("em.desc_movie").css("max-height");
+		$("em.desc_movie").addClass("desc_more");
+		var curHeight = $("em.desc_movie").css("height");
+		$("em.desc_movie").removeClass("desc_more");
+		
+		maxHeight = parseInt(maxHeight.replace("px", ""));
+		curHeight = parseInt(curHeight.replace("px", ""));
+		
+		if(maxHeight >= curHeight) {
+			$("a.link_more").hide();
+		} else {
+			$("a.link_more").show();
+		}
+	}
+	//접기 버튼 핸들링
+	function setDescHideButton() {
+		if(isClickHideButton) {
+			return false;
+		}
+		var maxHeight = $("em.desc_movie").css("max-height");
+		$("em.desc_movie").addClass("desc_hi");
+		var curHeight = $("em.desc_movie").css("height");
+		$("em.desc_movie").removeClass("desc_more");
+		
+		maxHeight = parseInt(maxHeight.replace("px", ""));
+		curHeight = parseInt(curHeight.replace("px", ""));
+		
+		if(maxHeight >= curHeight) {
+			$("a.link_more").hide();
+		} else {
+			$("a.link_more").show();
+		}
+	}
+	// 줄거리 더보기 버튼
+	function plotMoreView() {
+		$("em.desc_movie").addClass("desc_more");
+		$("a.link_more").hide();
+		$("a.link_hide").show();
+		isClickMoreButton = true;
+		movietools.tiara.send("moviedb", "info summary");
+	}
+	// 줄거리 접기 버튼
+	function plotHideView() {
+		$("em.desc_movie").removeClass("desc_more");
+		$("a.link_hide").hide();
+		$("a.link_more").show();
+		isClickMoreButton = true;
+		movietools.tiara.send("moviedb", "info summary");
+	}
+	</script>
 </head>
+
 <style>
 .movie_detail_top_area {
 	background-repeat: no-repeat !important;
@@ -66,12 +123,8 @@
 	margin-bottom: 5px;
 	line-height: 20px;
 }
-
-
-
-
-
 </style>
+
 <body>
 
 	<!-- =====  HEADER START  ===== -->
@@ -132,13 +185,15 @@
 			<div class="button" style="padding-left: 30px; padding-top: 7px;">
 
 				<a href="/movie/nzreview/comment_form/?movie_id=51955&amp;star_container=star_container"
-					class="btn btn_review" id="btn_review_write">40자평 남기기</a>
+					class="btn btn_review" id="btn_review_write" style="background-color:#337ab7">40자평 남기기</a>
 			</div>
 		</div>
 		<div class="story_area" style="float:right; width:51%;">
 			<div class="story">
 				<strong class="text" style="font-size:16px; padding-bottom:10px;">${vo.getMOVIE_CTITLE()}</strong>
-				<p style="font-size:13px; margin-top:5px;">${vo.getMOVIE_CONTENTS()}</p>
+				<em class="desc_movie" style="width:600px; font-size:13px;">${vo.getMOVIE_CONTENTS()}</em>
+				<a href="javascript:;" class="link_more" onclick="plotMoreView(); return false;" id="descMoreButton">더 보기</a>
+				<a href="javascript:;" class="link_hide" onclick="plotHideView(); return false;" id="descHideButton">접기</a>
 			</div>
 		</div>
 
@@ -150,9 +205,9 @@
 	
 
 	<div id="myCarousel" class="carousel slide" data-ride="carousel"
-		style="padding-top: 10px; padding-bottom: 10px; width: 1170px; margin: auto;">
+		style="padding-top: 10px; padding-bottom: 10px; width: 70%; margin: auto;">
 
-	<h2 class="photo" style="padding-top:5px; padding-bottom:5px;">포토</h2>
+	<h2 class="photo" style="padding-top:5px; padding-bottom:5px; font-size:20px;">스틸컷</h2>
 	
 
 		<!--페이지-->
