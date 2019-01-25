@@ -223,13 +223,17 @@
 					<li class="movie_li cols-xs-12">
 				</c:if>
 				<div class="review-thumb">
-					<a href="#"><img src="${movie.getMOVIE_IMG()}" alt="" class="movie_thumb" target="_blank"></a>
+					<a href="movie_review_detail_page.do?movieId=${movie.getMOVIE_ID()}"><img src="${movie.getMOVIE_IMG()}" alt="" class="movie_thumb" target="_blank"></a>
 					<span class="boxoffice n${statusMovie.count}">${statusMovie.count}</span>
 				</div>
 				<div class="review-summary">
 					<span class="comment_span">[40자평]</span>
-					<span class="movie_title">${movie.getMOVIE_TITLE()}</span>
-					<a href="movie_review_detail_page.do?movieId=${movie.getMOVIE_ID()}"><button class="btn btn-lg btn_review_more">더 보기</button></a>
+					<a href="movie_review_detail_page.do?movieId=${movie.getMOVIE_ID()}">
+						<span class="movie_title">${movie.getMOVIE_TITLE()}</span>
+					</a>
+					<a href="movie_review_detail_page.do?movieId=${movie.getMOVIE_ID()}">
+						<button class="btn btn-lg btn_review_more">더 보기</button>
+					</a>
 					<div style="height:20px"></div>
 					<div class="review-summary-menu">
         				<span class="review_writer" style="font-weight:bold">작성자</span>
