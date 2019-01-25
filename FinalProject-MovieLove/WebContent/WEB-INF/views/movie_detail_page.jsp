@@ -317,7 +317,7 @@
 		<video controls="" autoplay="" name="media"
 			style="width: 1170px; height: 560px; margin: auto;">
 			<source
-				src="http://mp4.cine21.com/cine21.com/movie/trailer/2018/11/nom_ttr1.mp4"
+				src="${vo.getMOVIE_TRAILER() }"
 				type="video/mp4">
 		</video>
 	</div>

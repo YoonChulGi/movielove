@@ -22,7 +22,14 @@ public class MovieVO {
 	private String MOVIE_AUDIENCE;
 	private String MOVIE_DIRECTOR;
 	private String MOVIE_ACTORS;
+	private String MOVIE_TRAILER;
 	
+	public String getMOVIE_TRAILER() {
+		return MOVIE_TRAILER;
+	}
+	public void setMOVIE_TRAILER(String mOVIE_TRAILER) {
+		MOVIE_TRAILER = mOVIE_TRAILER;
+	}
 	public String getMOVIE_TITLE() {
 		return MOVIE_TITLE;
 	}
