@@ -314,7 +314,7 @@
 
 	<h2 class="movie_" style="padding-top:5px; padding-bottom:5px;">예고편</h2>
 
-		<video controls="" autoplay="" name="media"
+		<video controls="" name="media"
 			style="width: 1170px; height: 560px; margin: auto;">
 			<source
 				src="${vo.getMOVIE_TRAILER() }"
