@@ -214,14 +214,18 @@
 			<c:if test="${movieShowingList.size() > 1}">
 				<h2 style="font-size:18px; color:#333; margin: 0 0 10px 10px;">[인기 영화 TOP10]</h2>
 			</c:if>
+			
 			<c:forEach items="${movieShowingList}" var="movie" varStatus="statusMovie">
-			<c:if test="${movieShowingList.size() == 1}">
-				<li class="movie_li cols-xs-12" style="width:100%; margin-left:0.75%">
-			</c:if>
-			<c:if test="${movieShowingList.size() > 1}">
-				<li class="movie_li cols-xs-12">
-			</c:if>
-				<a href="#"><img src="${movie.getMOVIE_IMG()}" alt="" class="movie_thumb" target="_blank"></a>
+				<c:if test="${movieShowingList.size() == 1}">
+					<li class="movie_li cols-xs-12" style="width:100%; margin-left:0.75%">
+				</c:if>
+				<c:if test="${movieShowingList.size() > 1}">
+					<li class="movie_li cols-xs-12">
+				</c:if>
+				<div class="review-thumb">
+					<a href="#"><img src="${movie.getMOVIE_IMG()}" alt="" class="movie_thumb" target="_blank"></a>
+					<span class="boxoffice n${statusMovie.count}">${statusMovie.count}</span>
+				</div>
 				<div class="review-summary">
 					<span class="comment_span">[40자평]</span>
 					<span class="movie_title">${movie.getMOVIE_TITLE()}</span>
@@ -255,7 +259,6 @@
 	        			</div>
 		      		</c:forEach>
 	        	</div>
-	        </li>
 			</c:forEach>
 		</ul>
 		

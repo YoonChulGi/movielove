@@ -3112,6 +3112,53 @@ body.register{
     margin-right: 0.5%;
     margin-bottom: 40px;
 }
+.movie_list li.movie_li div.review-thumb .movie_thumb {
+    position: absolute;
+    left: 0;
+    border: 1px solid #e0e0e0;
+    width: 180px;
+    height: 270px;
+}
+.movie_list li.movie_li div.review-thumb .boxoffice {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    width: 44px;
+    height: 39px;
+    top: 0;
+    left: -1px;
+    padding: 0;
+    margin: 0;
+    text-indent: -9999px;
+    background: url(http://image2.megabox.co.kr/mop/home/movie/rank.png) 0 0 no-repeat;
+}
+.movie_list li.movie_li div.review-thumb .boxoffice.n2 {
+	background-position: 0 -100px;
+}
+.movie_list li.movie_li div.review-thumb .boxoffice.n3 {
+	background-position: 0 -200px;
+}
+.movie_list li.movie_li div.review-thumb .boxoffice.n4 {
+	background-position: 0 -300px;
+}
+.movie_list li.movie_li div.review-thumb .boxoffice.n5 {
+	background-position: 0 -400px;
+}
+.movie_list li.movie_li div.review-thumb .boxoffice.n6 {
+	background-position: 0 -500px;
+}
+.movie_list li.movie_li div.review-thumb .boxoffice.n7 {
+	background-position: 0 -600px;
+}
+.movie_list li.movie_li div.review-thumb .boxoffice.n8 {
+	background-position: 0 -700px;
+}
+.movie_list li.movie_li div.review-thumb .boxoffice.n9 {
+	background-position: 0 -800px;
+}
+.movie_list li.movie_li div.review-thumb .boxoffice.n10 {
+	background-position: 0 -900px;
+}
 .review-summary {
 	position: relative;
 	display: inline-block;
@@ -3146,13 +3193,6 @@ body.register{
 	font-size: 14px;
 	height: 30px;
 	padding-right:10px;
-}
-.movie_list li.movie_li .movie_thumb {
-    position: absolute;
-    left: 0;
-    border: 1px solid #e0e0e0;
-    width: 180px;
-    height: 270px;
 }
 .review_none {
 	float: left;

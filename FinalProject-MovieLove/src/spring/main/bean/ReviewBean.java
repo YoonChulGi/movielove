@@ -44,11 +44,20 @@ public class ReviewBean {
 				System.out.println("["+(i+1)+"] ReviewBean.java &검색한&영화제목: "+movieSearchList.get(i).getMOVIE_TITLE());
 			}
 		} else {
-		List<MovieVO> movieShowingList = sqlSession.selectList("movie.movieInfo_showing");  //상영중 영화정보 예매순 정렬후 모든정보 가져옴
-			model.addAttribute("movieShowingList", movieShowingList);
-			for(int i=0;i<movieShowingList.size();i++) {
+			List<MovieVO> movieShowingList = sqlSession.selectList("movie.movieInfo_showing");  //상영중 영화정보 예매순 정렬후 모든정보 가져옴
+
+			List<MovieVO> movieShowingList_Top10 = new ArrayList<MovieVO>();
+			int size = 10;
+			if(movieShowingList.size() < 10) {
+				size = movieShowingList.size();
+			}
+			
+			for(int i=0;i<size;i++) {
+				movieShowingList_Top10.add(movieShowingList.get(i));
 				System.out.println("["+(i+1)+"] ReviewBean.java #상영#영화제목: "+movieShowingList.get(i).getMOVIE_TITLE());
 			}
+			
+			model.addAttribute("movieShowingList", movieShowingList_Top10);
 		}
 		
 		
