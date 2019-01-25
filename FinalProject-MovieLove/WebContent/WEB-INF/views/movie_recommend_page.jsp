@@ -42,14 +42,15 @@
 
 	<!-- Page Content -->
 
-	<div id="myCarousel" class="carousel slide col-lg-12 col-md-6 col-sm-6" data-ride="carousel">
+	<div id="myCarousel" class="carousel slide col-lg-12 col-md-6 col-sm-6"
+		data-ride="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 			<li data-target="#myCarousel" data-slide-to="1" class=""></li>
 		</ol>
 
-	
+
 		<div class="row justify-content-end">
 
 			<div class="carousel-inner" align="center">
@@ -57,26 +58,38 @@
 				<div class="item active">
 					<table>
 						<tbody>
-						
-						
+
+
 							<tr>
-							
-								<% if(session.getAttribute("memId")!=null){%>
-			                	<h2 class="card-title" style="padding-bottom:50px;">"<%=session.getAttribute("memId")%> " 님의 취향저격 베스트 영화</h2>
-			               		 <%} 
-								else {%>
-			                	<h2 class="card-title"  style="padding-bottom:50px;">"이번달 추천영화"</h2>
-			                	<%} %>
-			                	
-			                	<% if(session.getAttribute("memId")!=null){%>
-			                	<c:forEach var="gen" items="${genre}" varStatus="status" begin="1" end="5">
-			                	<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
-										src="${gen}"
-										alt=""></a></td>
-			                	</c:forEach>
-			                	<%} 
-			                	else {%>
-									
+
+								<%
+									if (session.getAttribute("memId") != null) {
+								%>
+								<h2 class="card-title" style="padding-bottom: 50px;">
+									"<%=session.getAttribute("memId")%>
+									" 님의 취향저격 베스트 영화
+								</h2>
+								<%
+									} else {
+								%>
+								<h2 class="card-title" style="padding-bottom: 50px;">"이번달
+									추천영화"</h2>
+								<%
+									}
+								%>
+
+								<%
+									if (session.getAttribute("memId") != null) {
+								%>
+								<c:forEach var="gen" items="${genre}" varStatus="status"
+									begin="1" end="5">
+									<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
+											src="${gen}" alt=""></a></td>
+								</c:forEach>
+								<%
+									} else {
+								%>
+
 								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
 										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/358ea40235e240fea2f0b6ec7ef93c431543201035934"
 										alt=""></a></td>
@@ -92,9 +105,11 @@
 								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
 										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/10073f4c7fab4a07a23589f8fbd4254d1541739643225"
 										alt=""></a></td>
-								<%} %>
+								<%
+									}
+								%>
 							</tr>
-							
+
 						</tbody>
 					</table>
 				</div>
@@ -102,27 +117,39 @@
 				<div class="item">
 					<table>
 						<tbody>
-						
-						
-						<tr>
-								
-						<% if(session.getAttribute("memId")!=null){%>
-			                	<h2 class="card-title" style="padding-bottom:50px;">"<%=session.getAttribute("memId")%> " 님의 취향저격 베스트 영화</h2>
-			               		 <%} 
-								else {%>
-			                	<h2 class="card-title"  style="padding-bottom:50px;">"이번달 추천영화"</h2>
-			                	<%} %>
-			                	<% if(session.getAttribute("memId")!=null){%>
-			                	<c:forEach var="gen" items="${genre}" varStatus="status" begin="6" end="10">
-			                	<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
-										src="${gen}"
-										alt=""></a></td>
-			                	</c:forEach>
-			                	<%} 
-			                	else {%>
-									
 
-										<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
+
+							<tr>
+
+								<%
+									if (session.getAttribute("memId") != null) {
+								%>
+								<h2 class="card-title" style="padding-bottom: 50px;">
+									"<%=session.getAttribute("memId")%>
+									" 님의 취향저격 베스트 영화
+								</h2>
+								<%
+									} else {
+								%>
+								<h2 class="card-title" style="padding-bottom: 50px;">"이번달
+									추천영화"</h2>
+								<%
+									}
+								%>
+								<%
+									if (session.getAttribute("memId") != null) {
+								%>
+								<c:forEach var="gen" items="${genre}" varStatus="status"
+									begin="6" end="10">
+									<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
+											src="${gen}" alt=""></a></td>
+								</c:forEach>
+								<%
+									} else {
+								%>
+
+
+								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
 										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/7f80906597164fe6b6504b3602946f631542963091970"
 										alt=""></a></td>
 								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
@@ -137,7 +164,9 @@
 								<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
 										src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/eb9834885f7747d78e132b66c0cf46a21541478705054"
 										alt=""></a></td>
-											<%} %>
+								<%
+									}
+								%>
 							</tr>
 						</tbody>
 					</table>
@@ -159,15 +188,18 @@
 
 	<div class="container">
 		<div class="row">
-
-
 			<nav class="navbar-collapse collapse">
 				<div class="dropdown">
-					<button class="btn pull-left col-lg-1 col-sm-6 col-md-4">전체</button>
-					<button class="btn pull-left col-lg-1 col-sm-6 col-md-4">국내</button>
-					<button class="btn pull-left col-lg-1 col-sm-6 col-md-4">해외</button>
+					<button id="show1" class="btn pull-left col-lg-1 col-sm-6 col-md-4"
+						onclick="location.href ='movie_recommend_page.do?sel1'"">전체</button>
+					<button id="show2" class="btn pull-left col-lg-1 col-sm-6 col-md-4"
+						onclick="location.href ='movie_recommend_page.do?sel2'">국내</button>
+					<button id="show3" class="btn pull-left col-lg-1 col-sm-6 col-md-4"
+						onclick="location.href ='movie_recommend_page.do?sel3'">해외</button>
 
 				</div>
+
+
 
 
 				<div class="dropdown">
@@ -177,10 +209,10 @@
 						장르 <b class="caret"></b>
 					</button>
 					<ul class="dropdown-menu col-lg-3 col-sm-6 col-md-4">
-						<li><a class="action" href="#">액션/SF</a></li>
-						<li><a class="drama" href="#">멜로/드라마</a></li>
-						<li><a class="comidy" href="#">코미디</a></li>
-						<li><a class="scare" href="#">공포/스릴러</a></li>
+						<li><a class="action" href="movie_recommend_page.do?sel4">액션/SF</a></li>
+						<li><a class="drama" href="movie_recommend_page.do?sel5">멜로/드라마</a></li>
+						<li><a class="comidy" href="movie_recommend_page.do?sel6">코미디</a></li>
+						<li><a class="scare" href="movie_recommend_page.do?sel7">공포/스릴러</a></li>
 					</ul>
 				</div>
 				<div class="dropdown">
@@ -190,12 +222,12 @@
 						연령별 <b class="caret"></b>
 					</button>
 					<ul class="dropdown-menu col-lg-3 col-sm-6 col-md-4">
-						<li><a class="teen" href="#">10대</a></li>
-						<li><a class="twentie" href="#">20대</a></li>
-						<li><a class="thirtie" href="#">30대</a></li>
-						<li><a class="fourtie" href="#">40대</a></li>
-						<li><a class="fiftie" href="#">50대</a></li>
-						<li><a class="sixty" href="#">60대이상</a></li>
+						<li><a class="teen" href="movie_recommend_page.do?sel8">10대</a></li>
+						<li><a class="twentie" href="movie_recommend_page.do?sel9">20대</a></li>
+						<li><a class="thirtie" href="movie_recommend_page.do?sel10">30대</a></li>
+						<li><a class="fourtie" href="movie_recommend_page.do?sel11">40대</a></li>
+						<li><a class="fiftie" href="movie_recommend_page.do?sel12">50대</a></li>
+						<li><a class="sixty" href="movie_recommend_page.do?sel13">60대이상</a></li>
 					</ul>
 				</div>
 				<div class="dropdown ">
@@ -205,11 +237,11 @@
 						연도별 <b class="caret"></b>
 					</button>
 					<ul class="dropdown-menu col-lg-3 col-sm-6 col-md-4">
-						<li><a class="1970" href="#">1970년대</a></li>
-						<li><a class="1980" href="#">1980년대</a></li>
-						<li><a class="1990" href="#">1990년대</a></li>
-						<li><a class="2000" href="#">2000년대</a></li>
-						<li><a class="2010" href="#">2010년대</a></li>
+						<li><a class="1970" href="movie_recommend_page.do?sel14">1970년대</a></li>
+						<li><a class="1980" href="movie_recommend_page.do?sel15">1980년대</a></li>
+						<li><a class="1990" href="movie_recommend_page.do?sel16">1990년대</a></li>
+						<li><a class="2000" href="movie_recommend_page.do?sel17">2000년대</a></li>
+						<li><a class="2010" href="movie_recommend_page.do?sel18">2010년대</a></li>
 
 					</ul>
 				</div>
@@ -217,6 +249,358 @@
 		</div>
 
 	</div>
+
+	<script>
+		var sel = $
+		{
+			sel
+		};
+		if (sel == '1') {
+			document.getElementById("show1").classList.add('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+
+		} else if (sel == '2') {
+			document.getElementById("show2").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+		} else if (sel == '3') {
+			document.getElementById("show3").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+		} else if (sel == '4') {
+			document.getElementById("show4").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+		} else if (sel == '5') {
+			document.getElementById("show5").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+		} else if (sel == '6') {
+			document.getElementById("show6").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+		} else if (sel == '7') {
+			document.getElementById("show7").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+		} else if (sel == '8') {
+			document.getElementById("show8").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+		} else if (sel == '9') {
+			document.getElementById("show9").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+		} else if (sel == '10') {
+			document.getElementById("show10").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+		} else if (sel == '11') {
+			document.getElementById("show11").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+		} else if (sel == '12') {
+			document.getElementById("show12").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+		} else if (sel == '13') {
+			document.getElementById("show13").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+		} else if (sel == '14') {
+			document.getElementById("show14").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+		} else if (sel == '15') {
+			document.getElementById("show15").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+		} else if (sel == '16') {
+			document.getElementById("show16").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+		} else if (sel == '17') {
+			document.getElementById("show17").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show18").classList.remove('on');
+		} else if (sel == '18') {
+			document.getElementById("show18").classList.add('on');
+			document.getElementById("show1").classList.remove('on');
+			document.getElementById("show2").classList.remove('on');
+			document.getElementById("show3").classList.remove('on');
+			document.getElementById("show4").classList.remove('on');
+			document.getElementById("show5").classList.remove('on');
+			document.getElementById("show6").classList.remove('on');
+			document.getElementById("show7").classList.remove('on');
+			document.getElementById("show8").classList.remove('on');
+			document.getElementById("show9").classList.remove('on');
+			document.getElementById("show10").classList.remove('on');
+			document.getElementById("show11").classList.remove('on');
+			document.getElementById("show12").classList.remove('on');
+			document.getElementById("show13").classList.remove('on');
+			document.getElementById("show14").classList.remove('on');
+			document.getElementById("show15").classList.remove('on');
+			document.getElementById("show16").classList.remove('on');
+			document.getElementById("show17").classList.remove('on');
+		}
+	</script>
+
 
 	<div class="container">
 		<div class="search_option_area col-lg-9 col-md-6 col-sm-3 col-xs-2">
@@ -227,20 +611,23 @@
 				style="width: 880px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
 
 				<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
-					<strong style="padding-right: 15px;">NO.1</strong> <span
-						style="padding-right: 30px; display: inline-block; width: 220px; height: 20px;">주먹왕
-						랄프 2-인터넷 속으로</span> <img
+					<div
+						style="padding-top: 27px; padding-left: 10px;; float: left; font-weight: bold; width: 5%;">NO.1</div>
+					<div
+						style="padding-top: 27px; padding-left: 30px; float: left; width: 27%;">주먹왕
+						랄프 2-인터넷 속으로</div>
+					<img
 						src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81061/81061_185.jpg"
-						alt="주먹왕 랄프 2-인터넷 속으로 포스터" onerror="errorImage(this)"
-						style="hegith: 7%; width: 7%; objectfit: conta; align: center;"><span
-						style="padding-left: 15px;"> 예매율</span><strong
-						style="color: red; padding-left: 15px; display: inline-block; width: 59px; height: 20px;">48.3%</strong>
-					<strong
-						style="padding-left: 15px; padding-right: 15px; display: inline-block; width: 136px; height: 20px;">2019.01.03
-						개봉</strong> <strong style="padding-left: 5px;">평점7.7</strong>
+						alt="" onerror="errorImage(this)"
+						style="hegith: 15%; width: 15%; objectfit: conta; align: center; float: left; padding-left: 50px;">
+					<div
+						style="padding-top: 27px; padding-left: 65px; float: left; font-weight: bold;">2019.01.03
+						개봉</div>
+					<div
+						style="padding-top: 27px; padding-left: 60px; 5 px; float: left; font-weight: bold;">평점7.7</div>
 					<div class="review_grade"
 						style="float: right; padding-top: 27px; padding-left: 10px;">
-						<div class="bg_star star_grade">
+						<div class="bg_star star_grade" style="float: left;">
 							<div class="bg_star inner_star" style="width: 80.5%;"></div>
 							<!-- 116px이 100%, % 계산에서 width값에 적용-->
 
@@ -252,26 +639,27 @@
 				</div>
 			</div>
 
-			<div class="post col-lg-12 col-md-6 col-sm-2 col-xs-2"
+
+			<div class="post col-lg-9 col-md-6 col-sm-3 col-xs-2"
 				style="width: 880px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
 
 				<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
-					<strong style="padding-right: 15px;">NO.2</strong> <span
-						style="padding-right: 30px; display: inline-block; width: 220px; height: 20px;">아쿠아맨</span>
-
-
+					<div
+						style="padding-top: 27px; padding-left: 10px;; float: left; font-weight: bold; width: 5%;'">NO.2</div>
+					<div
+						style="padding-top: 27px; padding-left: 30px; float: left; width: 27%;">아쿠아맨</div>
 					<img
 						src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81319/81319_185.jpg"
-						alt="아쿠아맨 포스터" onerror="errorImage(this)"
-						style="hegith: 7%; width: 7%; objectfit: conta; align: center;"><span
-						style="padding-left: 15px;"> 예매율</span><strong
-						style="color: red; padding-left: 15px; display: inline-block; width: 59px; height: 20px;">17.9%</strong>
-					<strong
-						style="padding-left: 15px; padding-right: 15px; display: inline-block; width: 136px; height: 20px;">2018.12.19
-						개봉</strong> <strong style="padding-left: 5px;">평점7.5</strong>
+						alt="" onerror="errorImage(this)"
+						style="hegith: 15%; width: 15%; objectfit: conta; align: center; float: left; padding-left: 50px;">
+					<div
+						style="padding-top: 27px; padding-left: 65px; float: left; font-weight: bold;">2018.12.19
+						개봉</div>
+					<div
+						style="padding-top: 27px; padding-left: 60px; 5 px; float: left; font-weight: bold;">평점7.5</div>
 					<div class="review_grade"
 						style="float: right; padding-top: 27px; padding-left: 10px;">
-						<div class="bg_star star_grade">
+						<div class="bg_star star_grade" style="float: left;">
 							<div class="bg_star inner_star" style="width: 77.5%;"></div>
 							<!-- 116px이 100%, % 계산에서 width값에 적용-->
 
@@ -279,28 +667,32 @@
 						</div>
 
 					</div>
+
 				</div>
 			</div>
-			<div class="post col-lg-12 col-md-6 col-sm-2 col-xs-2"
+
+
+			<div class="post col-lg-9 col-md-6 col-sm-3 col-xs-2"
 				style="width: 880px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
 
 				<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
-
-					<strong style="padding-right: 15px;">NO.3</strong><span
-						style="padding-right: 30px; display: inline-block; width: 220px; height: 20px;">보헤미안
-						랩소디</span> <img
+					<div
+						style="padding-top: 27px; padding-left: 10px;; float: left; font-weight: bold; width: 5%;'">NO.3</div>
+					<div
+						style="padding-top: 27px; padding-left: 30px; float: left; width: 27%;">보헤미안
+						랩소디</div>
+					<img
 						src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81127/81127_185.jpg"
-						alt="보헤미안 랩소디 포스터" onerror="errorImage(this)"
-						style="hegith: 7%; width: 7%; objectfit: conta; align: center;">
-
-					<span style="padding-left: 15px;"> 예매율</span><strong
-						style="color: red; padding-left: 15px; display: inline-block; width: 59px; height: 20px;">7.1%</strong>
-					<strong
-						style="padding-left: 15px; padding-right: 15px; display: inline-block; width: 136px; height: 20px;">2018.10.31
-						개봉</strong> <strong style="padding-left: 5px;">평점9.0</strong>
+						alt="" onerror="errorImage(this)"
+						style="hegith: 15%; width: 15%; objectfit: conta; align: center; float: left; padding-left: 50px;">
+					<div
+						style="padding-top: 27px; padding-left: 65px; float: left; font-weight: bold;">2018.10.31
+						개봉</div>
+					<div
+						style="padding-top: 27px; padding-left: 60px; 5 px; float: left; font-weight: bold;">평점9.0</div>
 					<div class="review_grade"
 						style="float: right; padding-top: 27px; padding-left: 10px;">
-						<div class="bg_star star_grade">
+						<div class="bg_star star_grade" style="float: left;">
 							<div class="bg_star inner_star" style="width: 90.5%;"></div>
 							<!-- 116px이 100%, % 계산에서 width값에 적용-->
 
@@ -308,53 +700,64 @@
 						</div>
 
 					</div>
+
 				</div>
 			</div>
 
-			<div class="post col-lg-12 col-md-6 col-sm-2 col-xs-2"
+
+			<div class="post col-lg-9 col-md-6 col-sm-3 col-xs-2"
 				style="width: 880px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
+
 				<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
-
-					<strong style="padding-right: 15px;">NO.4 </strong><span
-						style="padding-right: 30px; display: inline-block; width: 220px; height: 20px;">말모이</span>
-
+					<div
+						style="padding-top: 27px; padding-left: 10px;; float: left; font-weight: bold; width: 5%;'">NO.4</div>
+					<div
+						style="padding-top: 27px; padding-left: 30px; float: left; width: 27%;">말모이</div>
 					<img
 						src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81517/81517_185.jpg"
-						alt="말모이 포스터" onerror="errorImage(this)"
-						style="hegith: 7%; width: 7%; objectfit: conta; align: center;"><span
-						style="padding-left: 15px;"> 예매율</span><strong
-						style="color: red; padding-left: 15px; display: inline-block; width: 59px; height: 20px;">5.0%</strong>
-					<strong
-						style="padding-left: 15px; padding-right: 15px; display: inline-block; width: 136px; height: 20px;">2019.01.09
-						개봉</strong> <strong style="padding-left: 5px;">평점8.8</strong>
+						alt="" onerror="errorImage(this)"
+						style="hegith: 15%; width: 15%; objectfit: conta; align: center; float: left; padding-left: 50px;">
+					<div
+						style="padding-top: 27px; padding-left: 65px; float: left; font-weight: bold;">2019.01.93
+						개봉</div>
+					<div
+						style="padding-top: 27px; padding-left: 60px; 5 px; float: left; font-weight: bold;">평점8.8</div>
 					<div class="review_grade"
 						style="float: right; padding-top: 27px; padding-left: 10px;">
-						<div class="bg_star star_grade">
+						<div class="bg_star star_grade" style="float: left;">
 							<div class="bg_star inner_star" style="width: 88.7%;"></div>
 							<!-- 116px이 100%, % 계산에서 width값에 적용-->
 
 
 						</div>
+
 					</div>
+
 				</div>
 			</div>
-			<div class="post col-lg-12 col-md-6 col-sm-2 col-xs-2"
+
+		
+			<div class="post col-lg-9 col-md-6 col-sm-3 col-xs-2"
 				style="width: 880px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
+
 				<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
-					<strong style="padding-right: 15px;">NO.5 </strong><span
-						style="padding-right: 30px; display: inline-block; width: 220px; height: 20px;">PMC-더
-						벙커</span> <img
+					<div
+						style="padding-top: 27px; padding-left: 10px;; float: left; font-weight: bold; width: 5%;'">NO.5</div>
+					<div
+						style="padding-top: 27px; padding-left: 30px; float: left; width: 27%;">PMC-더
+						벙커</div>
+					<img
 						src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81381/81381_185.jpg"
-						alt="PMC-더 벙커 포스터" onerror="errorImage(this)"
-						style="hegith: 7%; width: 7%; objectfit: conta; align: center;"><span
-						style="padding-left: 15px;"> 예매율</span><strong
-						style="color: red; padding-left: 15px; display: inline-block; width: 59px; height: 20px;">4.7%</strong>
-					<strong
-						style="padding-left: 15px; padding-right: 15px; display: inline-block; width: 136px; height: 20px;">2019.12.26
-						개봉</strong> <strong style="padding-left: 5px;">평점5.5</strong>
+						alt="" onerror="errorImage(this)"
+						style="hegith: 15%; width: 15%; objectfit: conta; align: center; float: left; padding-left: 50px;">
+					<div
+						style="padding-top: 27px; padding-left: 65px; float: left; font-weight: bold;">2018.12.26
+						개봉</div>
+					<div
+						style="padding-top: 27px; padding-left: 60px; 5 px; float: left; font-weight: bold;">평점5.5</div>
 					<div class="review_grade"
 						style="float: right; padding-top: 27px; padding-left: 10px;">
-						<div class="bg_star star_grade">
+						<div class="bg_star star_grade" style="float: left;">
 							<div class="bg_star inner_star" style="width: 57.5%;"></div>
 							<!-- 116px이 100%, % 계산에서 width값에 적용-->
 
@@ -362,9 +765,12 @@
 						</div>
 
 					</div>
-				</div>
 
+				</div>
 			</div>
+
+
+			
 
 		</div>
 	</div>
