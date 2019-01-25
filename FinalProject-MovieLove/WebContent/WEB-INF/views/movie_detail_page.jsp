@@ -14,6 +14,21 @@
 	<script src="//t1.daumcdn.net/movie/cssjs/1543973809/iscroll5/iscroll.js"></script>
 	<script src="//t1.daumcdn.net/movie/cssjs/1543973809/cookie/jquery.cookie.js"></script>
 	<script>
+	window.onload = function () {
+		var maxHeight = $("em.desc_movie").css("max-height");
+		$("em.desc_movie").addClass("desc_more");
+		var curHeight = $("em.desc_movie").css("height");
+		$("em.desc_movie").removeClass("desc_more");
+		
+		maxHeight = parseInt(maxHeight.replace("px", ""));
+		curHeight = parseInt(curHeight.replace("px", ""));
+		
+		if(maxHeight >= curHeight) {
+			$("a.link_more").hide();
+		} else {
+			$("a.link_more").show();
+		}
+	}
 	//더보기 버튼 핸들링
 	function setDescMoreButton() {
 		if(isClickMoreButton) {
@@ -39,9 +54,11 @@
 			return false;
 		}
 		var maxHeight = $("em.desc_movie").css("max-height");
-		$("em.desc_movie").addClass("desc_hi");
+		$("em.desc_movie").addClass("desc_more");
 		var curHeight = $("em.desc_movie").css("height");
 		$("em.desc_movie").removeClass("desc_more");
+		console.log("maxHeight: "+maxHeight);
+		console.log("curHeight: "+curHeight);
 		
 		maxHeight = parseInt(maxHeight.replace("px", ""));
 		curHeight = parseInt(curHeight.replace("px", ""));
@@ -53,7 +70,7 @@
 		}
 	}
 	// 줄거리 더보기 버튼
-	function plotMoreView() {
+	function plotMoreView() {		
 		$("em.desc_movie").addClass("desc_more");
 		$("a.link_more").hide();
 		$("a.link_hide").show();
@@ -192,8 +209,10 @@
 			<div class="story">
 				<strong class="text" style="font-size:16px; padding-bottom:10px;">${vo.getMOVIE_CTITLE()}</strong>
 				<em class="desc_movie" style="width:600px; font-size:13px;">${vo.getMOVIE_CONTENTS()}</em>
-				<a href="javascript:;" class="link_more" onclick="plotMoreView(); return false;" id="descMoreButton">더 보기</a>
-				<a href="javascript:;" class="link_hide" onclick="plotHideView(); return false;" id="descHideButton">접기</a>
+				<a href="javascript:;" class="link_more" onclick="plotMoreView(); return false;"
+					id="descMoreButton" style="display:none">더 보기</a>
+				<a href="javascript:;" class="link_hide" onclick="plotHideView(); return false;" 
+					id="descHideButton" style="display:none">접기</a>
 			</div>
 		</div>
 
@@ -365,16 +384,11 @@
 								</div>
 						</div>
 						
-						
-			
 
 			<a href="javascript:related_movie_list(2)" class="btn_next"><span class="hidden">다음</span><span class="ico"></span></a>
 
 			<div class="related_mov col-lg-6 col-md-6 col-sm-6">
 				<h2 class="card-title" style=" padding-bottom:5px;">관련영화</h2>
-			
-				
-
 						<div class="movie" style="float:left; text-align:center;" >
 						<a href="#"><img src="http://image.cine21.com/resize/cine21/still/2018/0828/11_49_07__5b84b8238ee05[X135,195].jpg" alt="" style="display:block; "><strong class="">양아치 느와르</strong></a>
 					</div>
@@ -392,16 +406,6 @@
 	
 					
 
-					
-
-
-
-
-
-
-
-
-
 	<!-- =====  FOOTER START  ===== -->
 	<jsp:include page="footer.jsp" flush="false" />
 	<!-- =====  FOOTER END  ===== -->
@@ -409,6 +413,6 @@
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+	
 </body>
 </html>

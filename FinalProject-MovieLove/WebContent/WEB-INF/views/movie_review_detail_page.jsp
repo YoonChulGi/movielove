@@ -26,6 +26,21 @@
 	<script src="//t1.daumcdn.net/movie/cssjs/1543973809/iscroll5/iscroll.js"></script>
 	<script src="//t1.daumcdn.net/movie/cssjs/1543973809/cookie/jquery.cookie.js"></script>
 	<script>
+	window.onload = function () {
+		var maxHeight = $("em.desc_movie").css("max-height");
+		$("em.desc_movie").addClass("desc_more");
+		var curHeight = $("em.desc_movie").css("height");
+		$("em.desc_movie").removeClass("desc_more");
+		
+		maxHeight = parseInt(maxHeight.replace("px", ""));
+		curHeight = parseInt(curHeight.replace("px", ""));
+		
+		if(maxHeight >= curHeight) {
+			$("a.link_more").hide();
+		} else {
+			$("a.link_more").show();
+		}
+	}
 	//더보기 버튼 핸들링
 	function setDescMoreButton() {
 		if(isClickMoreButton) {
@@ -51,7 +66,7 @@
 			return false;
 		}
 		var maxHeight = $("em.desc_movie").css("max-height");
-		$("em.desc_movie").addClass("desc_hi");
+		$("em.desc_movie").addClass("desc_more");
 		var curHeight = $("em.desc_movie").css("height");
 		$("em.desc_movie").removeClass("desc_more");
 		
@@ -152,8 +167,10 @@
 						<dt class="screen_out">줄거리</dt>
 						<dd class="type_ellipsis">(줄거리)
 							<em class="desc_movie" style="margin:0;width:636px">${movieInfo.getMOVIE_CONTENTS()}</em>
-							<a href="javascript:;" class="link_more" onclick="plotMoreView(); return false;" id="descMoreButton">더 보기</a>
-							<a href="javascript:;" class="link_hide" onclick="plotHideView(); return false;" id="descHideButton">접기</a>
+							<a href="javascript:;" class="link_more" onclick="plotMoreView(); return false;" 
+								id="descMoreButton" style="display:none">더 보기</a>
+							<a href="javascript:;" class="link_hide" onclick="plotHideView(); return false;"
+								id="descHideButton" style="display:none">접기</a>
 						</dd>
 					</dl>
 				</div>
