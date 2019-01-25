@@ -3262,6 +3262,13 @@ body.register{
 	width: 75%;
 	float: left;
 }
+.popup-content span.popup_mvtitle{
+	width: 100%;
+	height: 30px;
+	display: block;
+	color: #333;
+	margin-left: 3px;
+}
 .row-review{
 	position:relative;
 	width:100%;
@@ -3599,7 +3606,7 @@ body.movie_review_detail {
 .score_result .score_reple {
     display: inline-block;
     float: left;
-    width: 535px;
+    width: 550px;
     margin-left: 8px;
 }
 .score_result .score_reple p {

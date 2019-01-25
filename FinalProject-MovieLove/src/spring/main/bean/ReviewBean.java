@@ -105,8 +105,11 @@ public class ReviewBean {
 	}
 
 	@RequestMapping("review_write_popup.do")
-	public String review_write_popup(Model model) {
+	public String review_write_popup(Model model, HttpServletRequest request) {
 		System.out.println("review_write_popup.do");
+		
+		String movieTitle = request.getParameter("movieTitle");
+		request.setAttribute("movieTitle",  movieTitle);
 		
 		List<MovieVO> list = sqlSession.selectList("movie.movieInfoAll");
 		for(int i=0;i<list.size();i++) {

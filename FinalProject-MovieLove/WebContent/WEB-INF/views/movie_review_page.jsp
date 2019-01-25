@@ -108,7 +108,7 @@
     			alert("로그인 후 작성하실 수 있습니다.");
     			window.location.href='login.do';
     		} else {
-	    		window.open('review_write_popup.do', '감상평 작성', 'toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=850,height=500,left='+popupX+',top='+popupY);
+	    		window.open('review_write_popup.do', '40자평 작성', 'toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=850,height=500,left='+popupX+',top='+popupY);
     		}
     	}
 	</script>

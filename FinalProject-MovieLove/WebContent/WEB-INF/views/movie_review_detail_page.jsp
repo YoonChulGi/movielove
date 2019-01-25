@@ -17,6 +17,11 @@
     <link href="css/small-business.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
 	<script type="text/javascript" src="//t1.daumcdn.net/movie/cssjs/1543973809/common/new_utils.js"></script>
 	<script src="//t1.daumcdn.net/movie/cssjs/1543973809/iscroll5/iscroll.js"></script>
 	<script src="//t1.daumcdn.net/movie/cssjs/1543973809/cookie/jquery.cookie.js"></script>
@@ -76,19 +81,20 @@
 		movietools.tiara.send("moviedb", "info summary");
 	}
 	</script>
+	
 	<script> var session_id = '<%=sessionId%>'; </script>
 	<script type="text/javascript">
-		var popupX = (window.screen.width/2) - (750/2);
-		var popupY = (window.screen.height/2) - (450/2);
+	var popupX = (window.screen.width/2) - (750/2);
+	var popupY = (window.screen.height/2) - (450/2);
 	
-		function openReviewWrite(){
-	    	if(session_id == "null") {
-    			alert("로그인 후 작성하실 수 있습니다.");
-    			window.location.href='login.do';
-    		} else {
-	    		window.open('review_write_popup.do?movieName='${movieInfo.getMOVIE_TITLE()}']', '감상평 작성', 'toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=750,height=450,left='+popupX+',top='+popupY);
-    		}
-    	}
+	function openReviewWrite(){
+    	if(session_id == "null") {
+			alert("로그인 후 작성하실 수 있습니다.");
+			window.location.href='login.do';
+		} else {
+    		window.open('review_write_popup.do?movieTitle='+'${movieInfo.getMOVIE_TITLE()}', '40자평 작성', 'toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=750,height=450,left='+popupX+',top='+popupY);
+		}
+	}
 	</script>
   </head>
   
@@ -156,7 +162,7 @@
         
 		<ul class="movie_review_list">
 			<h2 style="float:left">40자 평</h2>
-			<button class="btn btn-lg btn-primary" onclick="openReviewWrite()" style="float:right; background-color:#337ab7; font-size:16px">감상평 남기기</button>
+			<button class="btn btn-lg btn-primary" onclick="openReviewWrite()" style="float:right; background-color:#337ab7; font-size:16px">40자평 남기기</button>
 			
 			<div id="orderCheckbox" class="top_behavior" style="margin-top:48px">
 				<ul class="sorting_list">
@@ -237,6 +243,10 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  	<script src="js/jQuery_v3.1.1.min.js"></script>
+  	<script src="js/jquery-ui.js"></script>
+  	<script src="js/jquery.magnific-popup.js"></script>
+  	<script src="js/jquery.firstVisitPopup.js"></script>
 
   </body>
 
