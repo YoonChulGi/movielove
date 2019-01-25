@@ -63,7 +63,6 @@
 			      						<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }">${list.get(i-1).getMOVIE_TITLE() }</a> 
 			      					</h4>
 			      					<h1></h1>
-			      					<h1>zzzzzzzzz${Long.parseLong(list.get(i-1).getMOVIE_RATE())}</h1>
 			      					<c:if test="${Long.parseLong(list.get(i-1).getMOVIE_RATE())<1 }">
 			      					
 			      						<p class="card-text">예매율 0${list.get(i-1).getMOVIE_RATE()}%</p>

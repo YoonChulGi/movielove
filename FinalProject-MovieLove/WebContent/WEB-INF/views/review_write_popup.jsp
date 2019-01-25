@@ -167,7 +167,11 @@
 				document.getElementById('review_wirte_form').submit();
 			}
 		} else{
-			alert("먼저 영화를 검색한 후 눌러주세요.");
+			if('${movieTitle}' == null){
+				alert("먼저 영화를 검색한 후 눌러주세요.");
+			} else{
+				document.getElementById('review_wirte_form').submit();
+			}
 			return;
 		}
 	}
@@ -211,10 +215,16 @@ $(function() {
        			<div class="row-menu">
 					<span class="popup-menu">제목</span>
         			<div class="popup-content">
+        				<c:if test="${movieTitle == null}">
 						<fieldset>
 							<input id="search-movie" name="review_title" placeholder="영화 검색" class="form-control input-lg popup-content" type="text" style="width:100%">
 							<i class="fa fa-search" style="position:absolute;right:0;margin-top:12px;margin-right:10px;"></i>
 						</fieldset>
+						</c:if>
+						<c:if test="${movieTitle != null}">
+							<span class="popup_mvtitle" align="left">${movieTitle}</span>
+							<input id="search-movie" name="review_title" type="hidden" value="${movieTitle}">
+						</c:if>
 						<div class="pcsgt_layer">
 							<div class="cate_pcsgt" id="movie_suggest_pc">
 								<ul id="movie_suggest_list_pc" class="list_pcsgt">	
