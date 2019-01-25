@@ -21,7 +21,6 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	
 	<script type="text/javascript" src="//t1.daumcdn.net/movie/cssjs/1543973809/common/new_utils.js"></script>
 	<script src="//t1.daumcdn.net/movie/cssjs/1543973809/iscroll5/iscroll.js"></script>
 	<script src="//t1.daumcdn.net/movie/cssjs/1543973809/cookie/jquery.cookie.js"></script>
@@ -111,6 +110,18 @@
 		}
 	}
 	</script>
+	
+	<!-- 감상평 메뉴 스크립트 -->
+	<script>
+	$(document).ready(function(){
+	$('.sorting_list li').click(function(){
+	  	$(this).parent().children('li').removeClass('on');
+	  	$(this).addClass('on');
+	  	return false;
+		});
+	});
+	</script>
+	
   </head>
   
   <body class="movie_review_detail">
