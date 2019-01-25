@@ -118,7 +118,7 @@
 	<div class="container">
 		<div class="give_star col-lg-2" style="float: right; align: center;">
 			<strong class="star" style="font-size:18px; margin-left:45px; display:inline-block;">평점</strong>
-			<p class="num text-center" style="font-size:24px; color:red; margin-left:10px; display:inline-block;">
+			<p class="num text-center" style="font-size:24px; color:#d43f3a; margin-left:10px; display:inline-block;">
 				<c:if test="${avgRatingPer == 0}">0.00</c:if>
 				<c:if test="${avgRatingPer != 0}">${avgRating}</c:if>
 			</p>
