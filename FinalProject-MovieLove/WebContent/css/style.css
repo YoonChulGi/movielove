@@ -2855,6 +2855,46 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 .card a img {
 	height: 320px;
 }
+.card span.boxoffice {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    width: 44px;
+    height: 39px;
+    top: 10px;
+    left: 30px;
+    padding: 0;
+    margin: 0;
+    text-indent: -9999px;
+    background: url(http://image2.megabox.co.kr/mop/home/movie/rank.png) 0 0 no-repeat;
+}
+.card span.boxoffice.n2 {
+	background-position: 0 -100px;
+}
+.card span.boxoffice.n3 {
+	background-position: 0 -200px;
+}
+.card span.boxoffice.n4 {
+	background-position: 0 -300px;
+}
+.card span.boxoffice.n5 {
+	background-position: 0 -400px;
+}
+.card span.boxoffice.n6 {
+	background-position: 0 -500px;
+}
+.card span.boxoffice.n7 {
+	background-position: 0 -600px;
+}
+.card span.boxoffice.n8 {
+	background-position: 0 -700px;
+}
+.card span.boxoffice.n9 {
+	background-position: 0 -800px;
+}
+.card span.boxoffice.n10 {
+	background-position: 0 -900px;
+}
 .card-title{
 	overflow: hidden;
 	height: 28px;

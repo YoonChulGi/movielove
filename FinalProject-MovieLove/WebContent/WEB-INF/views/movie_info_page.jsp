@@ -55,9 +55,14 @@
 		      		<div class="col-lg-3 col-sm-6 col-xs-6 col-md-6">
 			      		<div class="portfolio-item" align="center">
 				    		<div class="card h-100">
-			      				<div class="img-body" align="center">
-				    				<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG()}" alt="" style="width:100%"></a>
-			     				</div>
+								<div class="review-thumb" >
+									<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }">
+									<img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG()}" alt="" style="width:100%">
+									</a>
+									<c:if test="${i <= 10}">
+										<span class="boxoffice n${i}">${statusMovie.count}</span>
+									</c:if>
+								</div>
 			     				<div class="card-body" id="card-body" align="center" style="max-height:78px">
 				     				<h4 class="card-title" style="max-height:28px;overflow:hidden;">
 			      						<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }">${list.get(i-1).getMOVIE_TITLE() }</a> 
@@ -83,9 +88,14 @@
 			      	<div class="col-lg-3 col-sm-6 col-xs-6 col-md-6">
 			      		<div class="portfolio-item" align="center">
 			      			<div class="card h-100">
-			      				<div class="img-body" align="center">
-			      					<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG()}" alt="" style="width:100%"></a>
-			     				</div>
+								<div class="review-thumb" >
+									<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }">
+									<img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG()}" alt="" style="width:100%">
+									</a>
+									<c:if test="${i <= 10}">
+										<span class="boxoffice n${i}">${statusMovie.count}</span>
+									</c:if>
+								</div>
 			     				<div class="card-body" id="card-body" align="center" style="max-height:78px">
 			     					<h4 class="card-title" style="max-height:28px;overflow:hidden;">
 			      						<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }">${list.get(i-1).getMOVIE_TITLE() }</a> 
