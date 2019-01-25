@@ -3348,6 +3348,7 @@ body.register{
 	display: block;
 	color: #333;
 	margin-left: 3px;
+	font-weight: bold;
 }
 .row-review{
 	position:relative;

@@ -230,7 +230,7 @@
 	
 
 		<!--페이지-->
-		<ol class="carousel-indicators">
+		<ol class="carousel-indicators" style="bottom:35px">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 			<li data-target="#myCarousel" data-slide-to="1"></li>
 			<li data-target="#myCarousel" data-slide-to="2"></li>
@@ -303,9 +303,9 @@
 		</div>
 
 		<!--이전, 다음 버튼-->
-		<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev" style="background-image:none"><span
 			class="glyphicon glyphicon-chevron-left"></span></a> <a
-			class="right carousel-control" href="#myCarousel" data-slide="next"><span
+			class="right carousel-control" href="#myCarousel" data-slide="next" style="background-image:none"><span
 			class="glyphicon glyphicon-chevron-right"></span></a>
 	</div>
 	
