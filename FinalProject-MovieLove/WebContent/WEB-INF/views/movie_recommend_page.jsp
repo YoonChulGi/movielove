@@ -69,7 +69,7 @@
 			                	<%} %>
 			                	
 			                	<% if(session.getAttribute("memId")!=null){%>
-			                	<c:forEach var="gen" items="${genre}">
+			                	<c:forEach var="gen" items="${genre}" varStatus="status" begin="1" end="5">
 			                	<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
 										src="${gen}"
 										alt=""></a></td>
@@ -113,7 +113,7 @@
 			                	<h2 class="card-title"  style="padding-bottom:50px;">"이번달 추천영화"</h2>
 			                	<%} %>
 			                	<% if(session.getAttribute("memId")!=null){%>
-			                	<c:forEach var="gen" items="${genre}">
+			                	<c:forEach var="gen" items="${genre}" varStatus="status" begin="5" end="10">
 			                	<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
 										src="${gen}"
 										alt=""></a></td>
