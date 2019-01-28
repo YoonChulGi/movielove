@@ -208,7 +208,7 @@
 		<div class="story_area" style="float:right; width:51%;">
 			<div class="story">
 				<strong class="text" style="font-size:16px; padding-bottom:10px;">${vo.getMOVIE_CTITLE()}</strong>
-				<em class="desc_movie" style="width:600px; font-size:13px;">${vo.getMOVIE_CONTENTS()}</em>
+				<em class="desc_movie" style="width:600px; font-size:13px; font-style:normal;">${vo.getMOVIE_CONTENTS()}</em>
 				<a href="javascript:;" class="link_more" onclick="plotMoreView(); return false;"
 					id="descMoreButton" style="display:none">더 보기</a>
 				<a href="javascript:;" class="link_hide" onclick="plotHideView(); return false;" 
@@ -245,7 +245,7 @@
 			<div class="item active">
 				<img
 					src="${steelcuts[1] }"
-					style="width: 1070px; height: 540px; margin: auto;"
+					style="width: 885px; height: 590px; margin: auto;"
 					alt="First slide">
 				<div class="container">
 					<div class="carousel-caption"></div>
@@ -257,7 +257,7 @@
 			<div class="item">
 				<img
 					src="${steelcuts[2] }"
-					style="width: 1070px; height: 540px; margin: auto;" data-src=""
+					style="width: 885px; height: 590px; margin: auto;" data-src=""
 					alt="Second slide">
 				<div class="container">
 					<div class="carousel-caption"></div>
@@ -269,7 +269,7 @@
 			<div class="item">
 				<img
 					src="${steelcuts[3] }"
-					style="width: 1070px; height: 540px; margin: auto;" data-src=""
+					style="width: 885px; height: 590px; margin: auto;" data-src=""
 					alt="Third slide">
 				<div class="container">
 					<div class="carousel-caption"></div>
@@ -281,7 +281,7 @@
 			<div class="item">
 				<img
 					src="${steelcuts[4] }"
-					style="width: 1070px; height: 540px; margin: auto;" data-src=""
+					style="width: 885px; height: 590px; margin: auto;" data-src=""
 					alt="Third slide">
 				<div class="container">
 					<div class="carousel-caption"></div>
@@ -293,7 +293,7 @@
 			<div class="item">
 				<img
 					src="${steelcuts[5] }"
-					style="width: 1070px; height: 540px; margin: auto;" data-src=""
+					style="width: 885px; height: 590px; margin: auto;" data-src=""
 					alt="Third slide">
 				<div class="container">
 					<div class="carousel-caption"></div>
