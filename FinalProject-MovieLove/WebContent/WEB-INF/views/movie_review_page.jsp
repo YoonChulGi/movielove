@@ -30,7 +30,7 @@
 	    max-height: 175px;
 	    overflow-x: hidden;
 	    overflow-y: scroll;
-	    left: 665px;
+	    left: 664.5px;
 	    top: 325px;
 	    border-top: 0px;
 	    border-left: 1px solid #565656;
@@ -224,8 +224,10 @@
 					<li class="movie_li cols-xs-12">
 				</c:if>
 				<div class="review-thumb">
-					<a href="movie_review_detail_page.do?movieId=${movie.getMOVIE_ID()}"><img src="${movie.getMOVIE_IMG()}" alt="" class="movie_thumb" target="_blank"></a>
-					<span class="boxoffice n${statusMovie.count}">${statusMovie.count}</span>
+					<a href="movie_review_detail_page.do?movieId=${movie.getMOVIE_ID()}"><img src="${movie.getMOVIE_IMG()}" alt="" class="movie_thumb" target="_blank"></a>				
+					<c:if test="${movieShowingList.size() != 1}">
+						<span class="boxoffice n${statusMovie.count}">${statusMovie.count}</span>
+					</c:if>
 				</div>
 				<div class="review-summary">
 					<span class="comment_span">[40자평]</span>
@@ -253,7 +255,7 @@
 		        		<div>
         					<!-- 감상평 -->
 	        				<span class="review_writer">${review.REVIEW_WRITER}</span>
-        					<span class="review_comment">${review.REVIEW_CONTENTS}</span> 
+        					<span class="review_comment">${review.REVIEW_CONTENTS}</span>
         					<span class="review_date">${review.REVIEW_DATE}</span>
         					<!-- 별점 -->
         					<span class="review_grade">
@@ -267,7 +269,7 @@
 			</c:forEach>
 		</ul>
 		
-    	<a class="btn btn-primary btn-lg" onclick="openReviewWrite()" style="position:fixed;right:120px;bottom:20px;">감상평 작성</a>
+    	<a class="btn btn-primary btn-lg" onclick="openReviewWrite()" style="position:fixed;right:120px;bottom:20px;">40자평 작성</a>
     </div>
     <!-- /.container -->
         

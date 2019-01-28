@@ -36,14 +36,29 @@ public class ReviewBean {
 		String movieTitle = request.getParameter("movieTitle");
 		System.out.println("검색한 영화 제목: "+movieTitle);
 		
+		List<MovieVO> movieList = sqlSession.selectList("movie.movieInfoAll");  //전체 영화 정보 가져옴
+		model.addAttribute("movieList", movieList);
+		
+		List<List<ReviewVO>> list = new ArrayList<List<ReviewVO>>();
+		
+		//검색했을 경우
 		if(movieTitle != null) {
 			String movieId = sqlSession.selectOne("movie.movieIdByTitle", movieTitle);
 			List<MovieVO> movieSearchList = sqlSession.selectList("movie.movieInfoById", movieId);  //검색한 해당 영화 모든정보 가져옴
 			model.addAttribute("movieShowingList", movieSearchList);
 			for(int i=0;i<movieSearchList.size();i++) {
-				System.out.println("["+(i+1)+"] ReviewBean.java &검색한&영화제목: "+movieSearchList.get(i).getMOVIE_TITLE());
+				List<ReviewVO> vo = new ArrayList<ReviewVO>();
+				vo = sqlSession.selectList("review.reviewInfoById", movieSearchList.get(i).getMOVIE_ID());  //영화 id로 해당 영화 찾아서 review 정보 가져옴
+				for(int j=0;j<vo.size();j++) {
+					String date = vo.get(j).getREVIEW_DATE();
+					date = date.substring(0, 16);  //작성 시간에서 뒤에 초 삭제
+					vo.get(j).setREVIEW_DATE(date);
+				}
+				list.add(vo);
 			}
-		} else {
+		}
+		//검색 안 했을 경우 (기본)
+		else {
 			List<MovieVO> movieShowingList = sqlSession.selectList("movie.movieInfo_showing");  //상영중 영화정보 예매순 정렬후 모든정보 가져옴
 
 			List<MovieVO> movieShowingList_Top10 = new ArrayList<MovieVO>();
@@ -54,35 +69,19 @@ public class ReviewBean {
 			
 			for(int i=0;i<size;i++) {
 				movieShowingList_Top10.add(movieShowingList.get(i));
-				System.out.println("["+(i+1)+"] ReviewBean.java #상영#영화제목: "+movieShowingList.get(i).getMOVIE_TITLE());
+				List<ReviewVO> vo = new ArrayList<ReviewVO>();
+				vo = sqlSession.selectList("review.reviewInfoById", movieShowingList_Top10.get(i).getMOVIE_ID());  //영화 id로 해당 영화 찾아서 review 정보 가져옴
+				for(int j=0;j<vo.size();j++) {
+					String date = vo.get(j).getREVIEW_DATE();
+					date = date.substring(0, 16);  //작성 시간에서 뒤에 초 삭제
+					vo.get(j).setREVIEW_DATE(date);
+				}
+				list.add(vo);
 			}
 			
 			model.addAttribute("movieShowingList", movieShowingList_Top10);
 		}
 		
-		
-		List<MovieVO> movieList = sqlSession.selectList("movie.movieInfoAll");  //전체 영화 정보 가져옴
-		model.addAttribute("movieList", movieList);
-
-		List<String> rateList = sqlSession.selectList("movie.movieRateRanking_showing");  //상영중 영화 평점순 정렬후  MOVIE_ID 가져옴
-		
-		List<List<ReviewVO>> list = new ArrayList<List<ReviewVO>>();
-		for(int i=0;i<rateList.size();i++) {
-			List<ReviewVO> vo = new ArrayList<ReviewVO>();
-			vo = sqlSession.selectList("review.reviewInfoById", rateList.get(i));  //영화 id로 해당 영화 찾아서 review 정보 가져옴
-			list.add(vo);
-		}
-		
-		for(int i=0;i<list.size();i++) {
-			for(int j=0;j<list.get(i).size();j++) {
-				System.out.println("i: "+i+", j: "+j);
-				System.out.println("list size: "+list.size()+", list.get(i) size: "+list.get(i).size());
-				System.out.println("제목: "+list.get(i).get(j).getREVIEW_TITLE());
-				System.out.println("작성자: "+list.get(i).get(j).getREVIEW_WRITER());
-				System.out.println("내용: "+list.get(i).get(j).getREVIEW_CONTENTS());
-				System.out.println();
-			}
-		}
 		model.addAttribute("reviewList",list);
 		
 		return "movie_review_page";
@@ -144,13 +143,12 @@ public class ReviewBean {
 		Reviewvo.setREVIEW_RATING(request.getParameter("review_rating"));
 		Reviewvo.setREVIEW_WRITER(request.getParameter("review_writer"));
 		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd HH:mm");
+		SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
 		Reviewvo.setREVIEW_DATE(sdf.format(date));
 		String movieid = sqlSession.selectOne("movie.movieIdByTitle", Reviewvo.getREVIEW_TITLE());
 		Reviewvo.setREVIEW_MOVIEID(movieid);
 		Reviewvo.setREVIEW_SYMPATHY(0);
 		Reviewvo.setREVIEW_NOTSYMPATHY(0);
-		
 		
 		System.out.println("영화 제목: "+Reviewvo.getREVIEW_TITLE());
 		System.out.println("리뷰 내용: "+Reviewvo.getREVIEW_CONTENTS());
@@ -163,7 +161,7 @@ public class ReviewBean {
 		try {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('작성이 완료되었습니다.');history.go(-1);window.close();location.href='movie_review_page.do';</script>");
+			out.println("<script>alert('작성이 완료되었습니다.');opener.parent.location.reload();window.close();</script>");
 			out.flush();
 		} catch (IOException e) {
 			e.printStackTrace();

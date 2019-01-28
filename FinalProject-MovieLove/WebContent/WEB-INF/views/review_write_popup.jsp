@@ -149,7 +149,7 @@
       return $( "<li id='movie_list_li'>" )
         .append("<div class='link_item'> <span class='thumb_g'> <img src='"+item.img_src+"' width='30' height='40' class='thumb_img'></span> <div class='cont_item'> <strong class='tit_item'> <span class='emph_sgt'>"+item.label+"</span></strong> <span class='txt_year'>"+item.year+"</span></div></div>")
       	.append("</li>")
-        .appendTo( ul );
+        .appendTo(ul);
     };
   } );
 </script>
@@ -228,7 +228,7 @@ $(function() {
 						</c:if>
 						<div class="pcsgt_layer">
 							<div class="cate_pcsgt" id="movie_suggest_pc">
-								<ul id="movie_suggest_list_pc" class="list_pcsgt">	
+								<ul id="movie_suggest_list_pc" class="list_pcsgt">
 								</ul>
 							</div>
 							<a href="/search/main?searchText=%EC%95%84%EC%BF%A0%EC%95%84%EB%A7%A8&amp;returnUrl=https%3A%2F%2Fmovie.daum.net%2Fmoviedb%2Fmain%3FmovieId%3D94484" class="link_pcsgt #gnb #search #result">검색결과 전체보기<span class="ico_popcorn ico_arr"></span></a>
