@@ -132,7 +132,7 @@ public class InfoBean {
 		//해당 영화 평점 가져오기
 		List<ReviewVO> reviewList = new ArrayList<ReviewVO>();
 		reviewList = sqlSession.selectList("review.reviewInfoById", id);
-		
+		model.addAttribute("review",reviewList);
 		int sumRating = 0;
 		for(int i=0;i<reviewList.size();i++) {
 			sumRating += Integer.parseInt(reviewList.get(i).getREVIEW_RATING());
@@ -143,6 +143,9 @@ public class InfoBean {
 		model.addAttribute("avgRatingPer", avgRatingPer);
 		System.out.println("avgRating: "+String.format("%.2f", avgRating));
 		System.out.println("avgRatingPer: "+avgRatingPer);
+		
+		
+		
 		
 		return "movie_detail_page";
 	}

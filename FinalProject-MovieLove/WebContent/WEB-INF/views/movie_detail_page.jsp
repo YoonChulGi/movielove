@@ -327,62 +327,63 @@
 
 		
 			<div class="card-body col-lg-6 col-md-6 col-sm-6">
+			<c:if test="${review.size() >3 }">
+			<c:forEach var="i" begin="0" end="2">
 				<h2 class="card-title" style=" padding-bottom:5px;">평점</h2>
-
-
-
-						<div class="star">
-							<div class="item col-lg-12 col-md-6 col-sm-6">
-								<div class="thumb" style="float:left;"><a href="#"><img
-										src="http://image.cine21.com/resize/www1/writer/noimg[X60,60].jpg"
-										alt="" style="display:block;">이용철</a></div>
-									
-										
-								<p class="card-text col-lg-10 col-md-6 col-sm-6" style="float:left;">밑도
-									끝도 없는 보디체인지 영화는 왜 자꾸 나오는 걸까?</p>
-								<!-- 별점 -->
-								<div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4"style="float:left;">
-									<span class="fa fa-star" data-raing="1" style="color:red;"></span> <span
-										class="fa fa-star-o" data-raing="1" style="color:red;"></span> <span
-										class="fa fa-star-o" data-raing="0" style="color:red;"></span> <span
-										class="fa fa-star-o" data-raing="0" style="color:red;"></span> <span
-										class="fa fa-star-o" data-raing="0" style="color:red;"></span>
-								</div>
-								</div>
-								</div>
-								<div class="star">
-							<div class="item col-lg-12 col-md-6 col-sm-6">
-								<div class="thumb" style="float:left;"><a href="#"><img src="http://image.cine21.com/resize/www1/writer/E20041646[X60,60].jpg" alt="" style="display:block;">이주현</a></div>
-									
-										
-								<p class="card-text col-lg-10 col-md-6 col-sm-6" style="float:left;">
-									팔짱 끼고 보다 그놈에게 허를 찔렸다</p>
-								<!-- 별점 -->
-								<div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4" style="float:left;">
-									<span class="fa fa-star" data-raing="1" style="color:red;"></span> <span class="fa fa-star" data-raing="1" style="color:red;"></span> <span class="fa fa-star-o" data-raing="0" style="color:red;"></span> <span class="fa fa-star-o" data-raing="0" style="color:red;"></span> <span class="fa fa-star-o" data-raing="0" style="color:red;"></span>
-								</div>
-								</div>
-								</div>
-								
-									<div class="star">
-							<div class="item col-lg-12 col-md-6 col-sm-6">
-								<div class="thumb" style="float:left;"><a href="#"><img
-										src="http://image.cine21.com/resize/www1/writer/noimg[X60,60].jpg"
-										alt="" style="display:block;">안영진</a></div>
-									
-										
-								<p class="card-text col-lg-10 col-md-6 col-sm-6" style="float:left;">노잼;; 이수민생각해서 별 한개 더드림</p>
-								<!-- 별점 -->
-								<div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4"style="float:left;">
-									<span class="fa fa-star" data-raing="1" style="color:red;"></span> <span
-										class="fa fa-star" data-raing="1" style="color:red;"></span> <span
-										class="fa fa-star-o" data-raing="0" style="color:red;"></span> <span
-										class="fa fa-star-o" data-raing="0" style="color:red;"></span> <span
-										class="fa fa-star-o" data-raing="0" style="color:red;"></span>
-								</div>
-								</div>
-								</div>
+					${review.get(i).getREVIEW_WRITER() }
+					<div class="star">
+						<div class="item col-lg-12 col-md-6 col-sm-6">
+							<div class="thumb col-lg-2" style="float:left;">
+								<a href="#">zzzzzzzzzzz</a>
+							</div>									
+							<p class="card-text col-lg-10 col-md-6 col-sm-6" style="float:left;">${review.get(i).getREVIEW_CONTENTS() }</p>
+							
+							<div class="col-lg-2 col-xs-2 col-md-2 col-sm-2"></div>
+							<div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4"style="float:left;">
+								<span class="fa fa-star" data-raing="1" style="color:red;"></span> 
+								<span class="fa fa-star-o" data-raing="1" style="color:red;"></span>
+								<span class="fa fa-star-o" data-raing="0" style="color:red;"></span> 
+								<span class="fa fa-star-o" data-raing="0" style="color:red;"></span> 
+								<span class="fa fa-star-o" data-raing="0" style="color:red;"></span>
+							</div>
 						</div>
+					</div>
+					</c:forEach>
+			</c:if>
+			
+			<c:if test="${review.size() <=3 }">
+				<c:forEach var="i" begin="0" end="${review.size()-1 }">
+				<h2 class="card-title" style=" padding-bottom:5px;">평점</h2>
+					${review.get(i).getREVIEW_WRITER() }
+					<div class="star">
+						<div class="item col-lg-12 col-md-6 col-sm-6">
+							<div class="thumb col-lg-2" style="float:left;">
+								<a href="#"><!-- writer --></a>
+							</div>									
+							<p class="card-text col-lg-10 col-md-6 col-sm-6" style="float:left;">${review.get(i).getREVIEW_CONTENTS() }</p>
+							
+							<div class="col-lg-2 col-xs-2 col-md-2 col-sm-2"></div>
+							<div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4"style="float:left;">
+								<span class="fa fa-star" data-raing="1" style="color:red;"></span> 
+								<span class="fa fa-star-o" data-raing="1" style="color:red;"></span>
+								<span class="fa fa-star-o" data-raing="0" style="color:red;"></span> 
+								<span class="fa fa-star-o" data-raing="0" style="color:red;"></span> 
+								<span class="fa fa-star-o" data-raing="0" style="color:red;"></span>
+							</div>
+						</div>
+					</div>
+					</c:forEach>
+			</c:if>
+				
+					
+					
+					
+					
+					
+					
+					
+								
+			</div>
 						
 
 			<a href="javascript:related_movie_list(2)" class="btn_next"><span class="hidden">다음</span><span class="ico"></span></a>
