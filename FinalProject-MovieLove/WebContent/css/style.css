@@ -3039,7 +3039,19 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 /* --- 영화 랭킹 페이지 End --- */
 
-/* --- �쁺�솕 異붿쿇 �럹�씠吏� Start --- */
+/* --- 영화 분석 페이지 Start --- */
+.analysis-search {
+	margin-top:12px;
+    margin-bottom: 30px;
+    height: 40px;
+    position: relative;
+    text-align: center;
+}
+.analysis-search input {
+	display:inline-block;
+	width: 300px;
+	height: 40px;
+}
 .search_option_area {
     border: 7px solid #eee;
     padding: 10px 0;
@@ -3086,7 +3098,7 @@ a.btn_red_s {
 .search_option_area .search_option li:last-child {
     border: none;
 }
-/* --- �쁺�솕 異붿쿇 �럹�씠吏� End --- */
+/* --- 영화 분석 페이지 End --- */
 
 /* --- 로그인 페이지 Start --- */
 #login-submit{

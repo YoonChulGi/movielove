@@ -159,19 +159,14 @@
   function review_write_click() {
 	    //영화 자동완성 검색을 클릭했는지 여부
 		if(isClicked){
-			var username = $("#review_contents").val();
-			if(username==''){
+			if($("#review_contents").val() ==''){
 				alert('내용을 입력해주세요.');
 				return;
 			} else{
 				document.getElementById('review_wirte_form').submit();
 			}
 		} else{
-			if('${movieTitle}' == null){
-				alert("먼저 영화를 검색한 후 눌러주세요.");
-			} else{
-				document.getElementById('review_wirte_form').submit();
-			}
+			alert("먼저 영화를 검색한 후 눌러주세요.");
 			return;
 		}
 	}

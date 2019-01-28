@@ -118,11 +118,18 @@
 		function searchMovie(){
 			var inputTitle = document.getElementById("search-movie").value;
 
-	    	if(inputTitle == "") {
-    			alert("영화 제목을 입력해주세요.");
-    		} else {
-    			location.href='movie_review_page.do?movieTitle='+inputTitle;
-    		}
+		    //영화 자동완성 검색을 클릭했는지 여부
+			if(isClicked){
+				if(inputTitle ==''){
+	    			alert("영화 제목을 입력해주세요.");
+					return;
+				} else{
+	    			location.href='movie_review_page.do?movieTitle='+inputTitle;
+				}
+			} else{
+				alert("먼저 영화를 검색한 후 눌러주세요.");
+				return;
+			}
     	}
 	</script>
 	
@@ -203,7 +210,7 @@
 					<input id="search-movie" name="review_title" placeholder="영화 검색" class="form-control input-lg" type="text">
     			</li>
            		<li>
-           			<input type="button" class="btn btn-lg btn-search" onclick="searchMovie()" value="검색" style="width:80px; background-color:#d9534f; font-size:px"/>
+           			<input type="button" class="btn btn-lg btn-search" onclick="searchMovie()" value="검색" style="width:80px; background-color:#d9534f; font-size:15px"/>
            		</li>
             </ul>
         </div>
