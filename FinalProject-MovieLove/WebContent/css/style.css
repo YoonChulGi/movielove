@@ -2916,6 +2916,89 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 /* --- 영화 정보 페이지 End --- */
 
+/* --- 영화 상세 정보 페이지 Start --- */
+body.movie_detail {
+	font-size: 16px;
+    line-height: 1.5;
+    font-family: AppleSDGothicNeo-Regular, "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
+    color: rgb(42, 42, 42);
+}
+.btn_more {
+    width: 61px;
+    height: 30px;
+    background: url(https://ssl.pstatic.net/static/movie/2015/05/sp_btn.png) no-repeat -207px -876px;
+}
+.list_review {
+    margin: 0 20px 7px 0;
+}
+.list_review li {
+    overflow: hidden;
+    width: 100%;
+    padding: 16px 0 18px;
+    border-top: 2px solid #f5f5f5;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.list_review .review_info {
+    overflow: hidden;
+    position: relative;
+}
+.list_review .review_info .tit_profile {
+    float: left;
+    font-weight: normal;
+}
+.list_review .review_info .desc_review {
+    padding-top: 8px;
+}
+.list_review .review_info .append_review {
+    padding-top: 10px;
+    font-size: 15px;
+    color: #989898;
+}
+.list_review .review_info .append_review .info_append {
+    display: inline-block;
+}
+.list_review .review_info .review_grade {
+	float: left;
+	width: 200px;
+    line-height: 2;
+	margin-right: 20px;
+	padding-left: 15px;
+}
+.list_review .review_info .review_grade .bg_star {
+    display: block;
+    float: left;
+    width: 106px;
+    height: 17px;
+    margin-top: 5.5px;
+    margin-bottom: 5.5px;
+    background: url(//i1.daumcdn.net/img-contents/movie/2016/pc/bg_star_170614_v2.png) no-repeat 0 0;
+}
+.list_review .review_info .review_grade .bg_star .inner_star {
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    margin-top: 0.9px;
+    background-position: 0 -20px;
+    text-indent: -9999px;
+}
+.list_review .review_info .review_grade .emph_grade {
+    float: left;
+    color: #2a2a2a;
+    margin-left: 10px;
+    line-height: 1.6;
+    font-style: normal;
+    font-size: 17px;
+    font-weight: bold;
+}
+.list_review .review_info .review_grade .txt_grade {
+    float: left;
+    font-size: 18px;
+    color: #989898;
+    line-height: 1.4;
+}
+/* --- 영화 상세 정보 페이지 End --- */
+
 /* --- 영화 랭킹 페이지 Start --- */
 .ranking {
     margin-left: 20px;

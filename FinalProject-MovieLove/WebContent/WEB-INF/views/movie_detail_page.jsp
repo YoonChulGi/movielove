@@ -142,7 +142,7 @@
 }
 </style>
 
-<body>
+<body class="movie_detail">
 
 	<!-- =====  HEADER START  ===== -->
 	<jsp:include page="menu.jsp" flush="false" />
@@ -323,67 +323,57 @@
 	</div>
 
 
-<div class="container">
-
-		
-			<div class="card-body col-lg-6 col-md-6 col-sm-6">
-			<c:if test="${review.size() >3 }">
-			<c:forEach var="i" begin="0" end="2">
-				<h2 class="card-title" style=" padding-bottom:5px;">평점</h2>
-					${review.get(i).getREVIEW_WRITER() }
-					<div class="star">
-						<div class="item col-lg-12 col-md-6 col-sm-6">
-							<div class="thumb col-lg-2" style="float:left;">
-								<a href="#">zzzzzzzzzzz</a>
-							</div>									
-							<p class="card-text col-lg-10 col-md-6 col-sm-6" style="float:left;">${review.get(i).getREVIEW_CONTENTS() }</p>
-							
-							<div class="col-lg-2 col-xs-2 col-md-2 col-sm-2"></div>
-							<div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4"style="float:left;">
-								<span class="fa fa-star" data-raing="1" style="color:red;"></span> 
-								<span class="fa fa-star-o" data-raing="1" style="color:red;"></span>
-								<span class="fa fa-star-o" data-raing="0" style="color:red;"></span> 
-								<span class="fa fa-star-o" data-raing="0" style="color:red;"></span> 
-								<span class="fa fa-star-o" data-raing="0" style="color:red;"></span>
+	<div class="container">
+	
+		<!-- 40자평 -->
+		<div class="col-lg-6" style="display:inline-block;">
+			<h3 style="font-weight:bold; font-size:20px; margin: 10px 0 10px 0; display:inline-block;">40자평</h3>
+			<button class="btn_more" align="right"></button>
+			<c:if test="${review.size() > 0}">
+				<ul class="list_review">
+				<c:if test="${review.size() <=3}">
+					<c:forEach items="${review}" begin="0" end="${review.size()-1}" var="review">
+						<li>
+							<div class="review_info">
+								<strong class="tit_profile">
+									<em style="color:#333; font-style:normal;">${review.REVIEW_WRITER}</em>
+								</strong>
+								<div class="review_grade">
+									<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:70.75%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
+									<em class="emph_grade">${review.REVIEW_RATING}</em><span class="txt_grade">/10</span>
+								</div>
+								<p class="desc_review" style="padding-top:30px">${review.REVIEW_CONTENTS}</p>
+								<div class="append_review">
+									<span class="info_append">${review.REVIEW_DATE}</span>
+								</div>
 							</div>
-						</div>
-					</div>
+						</li>
 					</c:forEach>
-			</c:if>
-			
-			<c:if test="${review.size() <=3 }">
-				<c:forEach var="i" begin="0" end="${review.size()-1 }">
-				<h2 class="card-title" style=" padding-bottom:5px;">평점</h2>
-					${review.get(i).getREVIEW_WRITER() }
-					<div class="star">
-						<div class="item col-lg-12 col-md-6 col-sm-6">
-							<div class="thumb col-lg-2" style="float:left;">
-								<a href="#"><!-- writer --></a>
-							</div>									
-							<p class="card-text col-lg-10 col-md-6 col-sm-6" style="float:left;">${review.get(i).getREVIEW_CONTENTS() }</p>
-							
-							<div class="col-lg-2 col-xs-2 col-md-2 col-sm-2"></div>
-							<div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4"style="float:left;">
-								<span class="fa fa-star" data-raing="1" style="color:red;"></span> 
-								<span class="fa fa-star-o" data-raing="1" style="color:red;"></span>
-								<span class="fa fa-star-o" data-raing="0" style="color:red;"></span> 
-								<span class="fa fa-star-o" data-raing="0" style="color:red;"></span> 
-								<span class="fa fa-star-o" data-raing="0" style="color:red;"></span>
-							</div>
-						</div>
-					</div>
-					</c:forEach>
-			</c:if>
+				</c:if>
 				
-					
-					
-					
-					
-					
-					
-					
-								
-			</div>
+				<c:if test="${review.size() > 3}">
+					<c:forEach items="${review}" begin="0" end="2" var="review">
+						<li>
+							<div class="review_info">
+								<strong class="tit_profile">
+									<em style="color:#333; font-style:normal;">${review.REVIEW_WRITER}</em>
+								</strong>
+								<div class="review_grade">
+									<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:70.75%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
+									<em class="emph_grade">${review.REVIEW_RATING}</em><span class="txt_grade">/10</span>
+								</div>
+								<p class="desc_review" style="padding-top:30px">${review.REVIEW_CONTENTS}</p>
+								<div class="append_review">
+									<span class="info_append">${review.REVIEW_DATE}</span>
+								</div>
+							</div>
+						</li>
+					</c:forEach>
+				</c:if>
+				</ul>
+			</c:if>
+		</div>
+		<!-- 40자평 -->
 						
 
 			<a href="javascript:related_movie_list(2)" class="btn_next"><span class="hidden">다음</span><span class="ico"></span></a>
