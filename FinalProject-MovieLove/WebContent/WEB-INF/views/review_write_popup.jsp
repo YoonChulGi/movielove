@@ -172,7 +172,6 @@
 			} else{
 				document.getElementById('review_wirte_form').submit();
 			}
-			alert("먼저 영화를 검색한 후 눌러주세요.");
 			return;
 		}
 	}
