@@ -21,10 +21,13 @@
     		
     		<div class="col-sm-4 col-xs-4 col-lg-4 col-md-4">
 		    	<div class="main-search">
-		        	<input id="search-input" name="search" value="" placeholder="영화 검색" class="form-control input-lg mb_10 center-block" autocomplete="off" type="text">
-		            <span class="input-group-btn">
-		            	<button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
-		            </span>
+		    		<form method="get" action="movie_analysis_page.do" id="frm">
+			        	<input id="search-input" name="search" placeholder="영화 검색" class="form-control input-lg mb_10 center-block" autocomplete="off" type="text" />
+			            <span class="input-group-btn">
+			            	<button type="button" class="btn btn-default btn-lg" id="searchBtn"><i class="fa fa-search"></i></button>
+			            </span>
+		            </form>
+		            
 				</div>    		
     		</div>
 			
