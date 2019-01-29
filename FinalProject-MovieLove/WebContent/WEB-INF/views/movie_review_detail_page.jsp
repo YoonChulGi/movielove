@@ -168,15 +168,15 @@
 							<span>${movieInfo.getMOVIE_AGE()}</span>
 						</dd>
 						<dt class="screen_out">감독</dt>
-						<dd class="type_ellipsis">(감독) 
+						<dd class="type_ellipsis">감독 
 							<span>${movieInfo.getMOVIE_DIRECTOR()}</span>
 						</dd>
 						<dt class="screen_out">주연</dt>
-						<dd class="type_ellipsis">(출연)
+						<dd class="type_ellipsis">출연
 							<span>${movieInfo.getMOVIE_ACTORS()}</span>
 						</dd>
 						<dt class="screen_out">줄거리</dt>
-						<dd class="type_ellipsis">(줄거리)
+						<dd class="type_ellipsis">줄거리
 							<em class="desc_movie" style="margin:0;width:636px;font-style:normal;">${movieInfo.getMOVIE_CONTENTS()}</em>
 							<a href="javascript:;" class="link_more" onclick="plotMoreView(); return false;" 
 								id="descMoreButton" style="display:none">더 보기</a>
@@ -230,7 +230,7 @@
 						</div>
 						<div class="btn_area">
 							<a class="_sympathyButton" href="#" onclick="parent.clickcr(this, 'ara.sym', '', '', event);"></a><strong><span class="sympathy_14910863 count">${review.REVIEW_SYMPATHY}</span></strong>
-							<a class="_notSympathyButton" href="#" onclick="parent.clickcr(this, 'ara.opp', '', '', event);"></a><strong><span class="notSympathy_14910863 count v2">401</span></strong>
+							<a class="_notSympathyButton" href="#" onclick="parent.clickcr(this, 'ara.opp', '', '', event);"></a><strong><span class="notSympathy_14910863 count v2">${review.REVIEW_NOTSYMPATHY}</span></strong>
 						</div>
 					</li>
 					</c:forEach>

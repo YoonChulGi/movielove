@@ -269,7 +269,7 @@
 								<span class="bg_star star_grade"><span class="bg_star inner_star" style="width: ${review.REVIEW_RATING}0%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
 								<em class="emph_grade" style="font-size:15.5px;">${review.REVIEW_RATING}</em>
 							</span>
-        					<span class="review_sympathy" style="padding-left:10px">201</span>
+        					<span class="review_sympathy" style="padding-left:10px">${review.REVIEW_SYMPATHY}</span>
 	        			</div>
 		      		</c:forEach>
 	        	</div>
