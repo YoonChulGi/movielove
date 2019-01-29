@@ -158,8 +158,7 @@
 				<div class="top_area_cover">
 					<div class="mov_top">
 						<div class="mov_poster">
-							<img
-								src="${vo.getMOVIE_IMG() }" />
+							<img src="${vo.getMOVIE_IMG() }" />
 						</div>
 						<div class="mov_info">
 							<p class="tit">${vo.getMOVIE_TITLE()}</p>
@@ -320,7 +319,7 @@
 		<!-- 40자평 -->
 		<div class="col-lg-6" style="width:41%; display:inline-block; padding:0; margin:20px 0 0 100px;">
 			<h3 style="font-weight:bold; font-size:20px; margin: 10px 0 10px 0; display:inline-block;">40자평</h3>
-			<button class="btn_more" align="right"></button>
+			<a href="movie_review_detail_page.do?movieId=${vo.getMOVIE_ID()}"><button class="btn_more" align="right"></button></a> <!-- 더보기 버튼 -->
 			<ul class="list_review">
 			<c:if test="${review.size() > 0}">
 				<c:if test="${review.size() <=5}">
