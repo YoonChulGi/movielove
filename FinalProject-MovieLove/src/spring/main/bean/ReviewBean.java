@@ -31,7 +31,7 @@ public class ReviewBean {
 	
 	@RequestMapping("movie_review_page.do")
 	public String movie_review_page(Model model, HttpServletRequest request) {
-		System.out.println("MainBean-movie_review_page()");
+		System.out.println("ReviewBean-movie_review_page()");
 		
 		String movieTitle = request.getParameter("movieTitle");
 		System.out.println("검색한 영화 제목: "+movieTitle);
@@ -48,7 +48,7 @@ public class ReviewBean {
 			model.addAttribute("movieShowingList", movieSearchList);
 			for(int i=0;i<movieSearchList.size();i++) {
 				List<ReviewVO> vo = new ArrayList<ReviewVO>();
-				vo = sqlSession.selectList("review.reviewInfoById", movieSearchList.get(i).getMOVIE_ID());  //영화 id로 해당 영화 찾아서 review 정보 가져옴
+				vo = sqlSession.selectList("review.reviewInfoById_OrderBySYMPATHY", movieSearchList.get(i).getMOVIE_ID());  //영화 id로 해당 영화 찾아서 review 정보 가져옴
 				for(int j=0;j<vo.size();j++) {
 					String date = vo.get(j).getREVIEW_DATE();
 					date = date.substring(0, 16);  //작성 시간에서 뒤에 초 삭제
@@ -70,7 +70,7 @@ public class ReviewBean {
 			for(int i=0;i<size;i++) {
 				movieShowingList_Top10.add(movieShowingList.get(i));
 				List<ReviewVO> vo = new ArrayList<ReviewVO>();
-				vo = sqlSession.selectList("review.reviewInfoById", movieShowingList_Top10.get(i).getMOVIE_ID());  //영화 id로 해당 영화 찾아서 review 정보 가져옴
+				vo = sqlSession.selectList("review.reviewInfoById_OrderBySYMPATHY", movieShowingList_Top10.get(i).getMOVIE_ID());  //영화 id로 해당 영화 찾아서 review 정보 가져옴
 				for(int j=0;j<vo.size();j++) {
 					String date = vo.get(j).getREVIEW_DATE();
 					date = date.substring(0, 16);  //작성 시간에서 뒤에 초 삭제
@@ -89,7 +89,7 @@ public class ReviewBean {
 	
 	@RequestMapping("movie_review_detail_page.do")
 	public String movie_review_detail_page(Model model, HttpServletRequest request) {
-		System.out.println("MainBean-movie_review_detail_page()");
+		System.out.println("ReviewBean-movie_review_detail_page()");
 		
 		Movievo = sqlSession.selectOne("movie.movieInfoById", request.getParameter("movieId"));
 		model.addAttribute("movieInfo", Movievo);
@@ -114,7 +114,7 @@ public class ReviewBean {
 
 	@RequestMapping("review_write_popup.do")
 	public String review_write_popup(Model model, HttpServletRequest request) {
-		System.out.println("review_write_popup.do");
+		System.out.println("ReviewBean-review_write_popup()");
 		
 		String movieTitle = request.getParameter("movieTitle");
 		request.setAttribute("movieTitle",  movieTitle);
@@ -131,7 +131,7 @@ public class ReviewBean {
 
 	@RequestMapping("review_writePro.do")
 	public String review_writePro(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("MainBean-review_writePro()");
+		System.out.println("ReviewBean-review_writePro()");
 		
 		try {
 			request.setCharacterEncoding("UTF-8");
@@ -169,6 +169,29 @@ public class ReviewBean {
 		//ReviewDAO.insertArticle(Reviewvo);
 		
 		return "movie_review_page";
+	}
+
+	@RequestMapping("frame_review_list.do")
+	public String frame_review_list(HttpServletRequest request, Model model) throws Exception {
+		System.out.println("ReviewBean-frame_review_list()");
+
+		Movievo = sqlSession.selectOne("movie.movieInfoById", request.getParameter("movieId"));
+		model.addAttribute("movieInfo", Movievo);
+
+		List<ReviewVO> list = new ArrayList<ReviewVO>();
+		
+		String menu = (String) request.getParameter("menu");
+		if(menu == null || menu.equals("1")) {  //공감순
+			list = sqlSession.selectList("review.reviewInfoById_OrderBySYMPATHY", Movievo.getMOVIE_ID());
+		} else if(menu.equals("2")) {           //최신순
+			list = sqlSession.selectList("review.reviewInfoById_OrderByDATE", Movievo.getMOVIE_ID());
+		} else if(menu.equals("3")) {           //평점 높은 순
+			list = sqlSession.selectList("review.reviewInfoById_OrderByRATING", Movievo.getMOVIE_ID());
+		}
+
+		model.addAttribute("reviewList", list);
+		
+		return "frame_review_list";
 	}
 	
 }

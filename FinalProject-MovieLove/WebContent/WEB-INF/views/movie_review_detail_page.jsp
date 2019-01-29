@@ -117,6 +117,13 @@
 	$('.sorting_list li').click(function(){
 	  	$(this).parent().children('li').removeClass('on');
 	  	$(this).addClass('on');
+	  	if($(this).children('a').html() == '공감순'){
+	  		$('#frame_review').attr('src', 'frame_review_list.do?movieId='+'${movieInfo.getMOVIE_ID()}'+'&menu=1');
+	  	} else if($(this).children('a').html() == '최신순'){
+	  		$('#frame_review').attr('src', 'frame_review_list.do?movieId='+'${movieInfo.getMOVIE_ID()}'+'&menu=2');
+	  	} else if($(this).children('a').html() == '평점 높은 순'){
+	  		$('#frame_review').attr('src', 'frame_review_list.do?movieId='+'${movieInfo.getMOVIE_ID()}'+'&menu=3');
+	  	}
 	  	return false;
 		});
 	});
@@ -187,59 +194,27 @@
 				</div>
 			</div>
 		</div>
+		
         
+
 		<ul class="movie_review_list">
 			<h2 style="float:left">40자 평</h2>
 			<button class="btn btn-lg btn-primary" onclick="openReviewWrite()" style="float:right; background-color:#337ab7; font-size:16px">40자평 남기기</button>
 			
-			<div id="orderCheckbox" class="top_behavior" style="margin-top:48px">
+			<div id="orderCheckbox" class="top_behavior" style="margin-top:50px">
 				<ul class="sorting_list">
-					<li class="on"><a href="#" onclick="parent.clickcr(this, 'ara.bysym', '', '', event); dislplayOrder('sympathyScore');">호감순</a></li>
-					<li><a href="#" onclick="parent.clickcr(this, 'ara.byrct', '', '', event); dislplayOrder('newest');">최신순</a></li>
-					<li><a href="#" onclick="parent.clickcr(this, 'ara.high', '', '', event); dislplayOrder('highest');">평점 높은 순</a></li>
+					<li class="on"><a class="review_menu1" href="#" onclick="parent.clickcr(this, 'ara.bysym', '', '', event); dislplayOrder('sympathyScore');">공감순</a></li>
+					<li><a class="review_menu2" href="#" onclick="parent.clickcr(this, 'ara.byrct', '', '', event); dislplayOrder('newest');">최신순</a></li>
+					<li><a class="review_menu3" href="#" onclick="parent.clickcr(this, 'ara.high', '', '', event); dislplayOrder('highest');">평점 높은 순</a></li>
 				</ul>
 			</div>
 				
-			<div class="score_result">
-				<ul>
-	        		<c:if test="${reviewList.size() == 0}">
-	        		<li>
-		        		<div class="review_none_div">
-			        		<span class="review_none">등록된 40자평이 없습니다.</span>
-		        		</div>
-					</li>
-					</c:if>
-					<c:forEach items="${reviewList}" var="review" varStatus="status">
-					<li>
-						<span class="review_grade" style="width:150px">
-							<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:${review.REVIEW_RATING}0%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
-							<em class="emph_grade" style="font-size:15.5px">${review.REVIEW_RATING}</em>
-						</span>
-						<div class="score_reple">
-							<p>${review.REVIEW_CONTENTS} </p>
-							<dl>
-								<dt>
-									<em>
-										<a href="#" onclick="javascript:showPointListByNid(14910863, 'after');parent.clickcr(this, 'ara.uid', '', '', event); return false;" target="_top">
-											<span>${review.REVIEW_WRITER}</span>
-										</a>
-									</em>
-									<em style="background:none">${review.REVIEW_DATE}</em>
-								</dt>
-							</dl>
-						</div>
-						<div class="btn_area">
-							<a class="_sympathyButton" href="#" onclick="parent.clickcr(this, 'ara.sym', '', '', event);"></a><strong><span class="sympathy_14910863 count">${review.REVIEW_SYMPATHY}</span></strong>
-							<a class="_notSympathyButton" href="#" onclick="parent.clickcr(this, 'ara.opp', '', '', event);"></a><strong><span class="notSympathy_14910863 count v2">${review.REVIEW_NOTSYMPATHY}</span></strong>
-						</div>
-					</li>
-					</c:forEach>
-				</ul>
-			</div>
+			<!-- 리뷰 리스트 -->
+			<iframe width="935" height="1210" src="frame_review_list.do?movieId=${movieInfo.getMOVIE_ID()}" name="test" id="frame_review" frameborder="0" scrolling="no" align="center">이 브라우저는 iframe을 지원하지 않습니다</iframe>
 		</ul>
 		
       	<!-- Pagination -->
-      	<div class="bottom-number mt_20" align="center">
+      	<div class="bottom-number" align="center">
       		<ul class="pagination justify-content-center">
 	        	<li class="page-item">
           		<a class="page-link" href="#" aria-label="Previous">

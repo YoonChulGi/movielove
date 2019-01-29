@@ -227,9 +227,11 @@
 				<c:if test="${movieShowingList.size() == 1}">
 					<li class="movie_li cols-xs-12" style="width:100%; margin-left:0.75%">
 				</c:if>
+				
 				<c:if test="${movieShowingList.size() > 1}">
 					<li class="movie_li cols-xs-12">
 				</c:if>
+				
 				<div class="review-thumb">
 					<a href="movie_review_detail_page.do?movieId=${movie.getMOVIE_ID()}"><img src="${movie.getMOVIE_IMG()}" alt="" class="movie_thumb" target="_blank"></a>				
 					<c:if test="${movieShowingList.size() != 1}">
@@ -269,7 +271,7 @@
 								<span class="bg_star star_grade"><span class="bg_star inner_star" style="width: ${review.REVIEW_RATING}0%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
 								<em class="emph_grade" style="font-size:15.5px;">${review.REVIEW_RATING}</em>
 							</span>
-        					<span class="review_sympathy" style="padding-left:10px">${review.REVIEW_SYMPATHY}</span>
+        					<span class="review_sympathy" style="padding-right:5px" align="center">${review.REVIEW_SYMPATHY}</span>
 	        			</div>
 		      		</c:forEach>
 	        	</div>

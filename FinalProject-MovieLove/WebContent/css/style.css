@@ -3792,6 +3792,9 @@ body.movie_review_detail {
 .sorting_list li.on a {
     background: url(https://ssl.pstatic.net/static/movie/2012/06/ico_chck_on.gif) no-repeat 0 50%;
 }
+.score_result {
+	height: 100%;
+}
 .score_result li {
     position: relative;
     float: none;
