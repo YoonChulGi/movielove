@@ -2924,18 +2924,23 @@ body.movie_detail {
     color: rgb(42, 42, 42);
 }
 .btn_more {
+    position: absolute;
+    top: 8px;
+    left: 85px;
     width: 61px;
     height: 30px;
+    border: none;
     background: url(https://ssl.pstatic.net/static/movie/2015/05/sp_btn.png) no-repeat -207px -876px;
 }
 .list_review {
     margin: 0 20px 7px 0;
+    border-top: 2px solid #f5f5f5;
 }
 .list_review li {
     overflow: hidden;
     width: 100%;
-    padding: 16px 0 18px;
-    border-top: 2px solid #f5f5f5;
+    padding: 10px 0 10px 3px;
+    border-bottom: 2px solid #f5f5f5;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
@@ -2949,10 +2954,11 @@ body.movie_detail {
 }
 .list_review .review_info .desc_review {
     padding-top: 8px;
+    font-size: 14px;
 }
 .list_review .review_info .append_review {
     padding-top: 10px;
-    font-size: 15px;
+    font-size: 14px;
     color: #989898;
 }
 .list_review .review_info .append_review .info_append {

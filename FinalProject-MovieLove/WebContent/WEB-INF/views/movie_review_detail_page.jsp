@@ -177,7 +177,7 @@
 						</dd>
 						<dt class="screen_out">줄거리</dt>
 						<dd class="type_ellipsis">(줄거리)
-							<em class="desc_movie" style="margin:0;width:636px">${movieInfo.getMOVIE_CONTENTS()}</em>
+							<em class="desc_movie" style="margin:0;width:636px;font-style:normal;">${movieInfo.getMOVIE_CONTENTS()}</em>
 							<a href="javascript:;" class="link_more" onclick="plotMoreView(); return false;" 
 								id="descMoreButton" style="display:none">더 보기</a>
 							<a href="javascript:;" class="link_hide" onclick="plotHideView(); return false;"
