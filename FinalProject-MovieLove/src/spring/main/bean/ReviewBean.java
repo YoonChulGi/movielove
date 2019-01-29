@@ -174,13 +174,24 @@ public class ReviewBean {
 	@RequestMapping("frame_review_list.do")
 	public String frame_review_list(HttpServletRequest request, Model model) throws Exception {
 		System.out.println("ReviewBean-frame_review_list()");
+		
 
-		Movievo = sqlSession.selectOne("movie.movieInfoById", request.getParameter("movieId"));
+		String movieId = (String) request.getParameter("movieId");
+		String menu = (String) request.getParameter("menu");
+		String page = (String) request.getParameter("page");
+		model.addAttribute("page", page);
+		
+		int pageNum = 1;  //기본 페이지 1로 설정
+		if(page != null) {
+			pageNum = Integer.parseInt(page);
+		}
+
+		Movievo = sqlSession.selectOne("movie.movieInfoById", movieId);
 		model.addAttribute("movieInfo", Movievo);
 
 		List<ReviewVO> list = new ArrayList<ReviewVO>();
+		List<ReviewVO> pageList = new ArrayList<ReviewVO>();
 		
-		String menu = (String) request.getParameter("menu");
 		if(menu == null || menu.equals("1")) {  //공감순
 			list = sqlSession.selectList("review.reviewInfoById_OrderBySYMPATHY", Movievo.getMOVIE_ID());
 		} else if(menu.equals("2")) {           //최신순
@@ -188,8 +199,14 @@ public class ReviewBean {
 		} else if(menu.equals("3")) {           //평점 높은 순
 			list = sqlSession.selectList("review.reviewInfoById_OrderByRATING", Movievo.getMOVIE_ID());
 		}
+		
+		for(int i=(pageNum*10)-10;i<(pageNum*10);i++) {
+			if(list.get(i) != null) {
+				pageList.add(list.get(i));
+			}
+		}
 
-		model.addAttribute("reviewList", list);
+		model.addAttribute("reviewList", pageList);
 		
 		return "frame_review_list";
 	}

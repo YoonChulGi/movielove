@@ -118,11 +118,11 @@
 	  	$(this).parent().children('li').removeClass('on');
 	  	$(this).addClass('on');
 	  	if($(this).children('a').html() == '공감순'){
-	  		$('#frame_review').attr('src', 'frame_review_list.do?movieId='+'${movieInfo.getMOVIE_ID()}'+'&menu=1');
+	  		$('#frame_review').attr('src', 'frame_review_list.do?movieId='+'${movieInfo.getMOVIE_ID()}'+'&menu=1'+'&page='+'${page}');
 	  	} else if($(this).children('a').html() == '최신순'){
-	  		$('#frame_review').attr('src', 'frame_review_list.do?movieId='+'${movieInfo.getMOVIE_ID()}'+'&menu=2');
+	  		$('#frame_review').attr('src', 'frame_review_list.do?movieId='+'${movieInfo.getMOVIE_ID()}'+'&menu=2'+'&page='+'${page}');
 	  	} else if($(this).children('a').html() == '평점 높은 순'){
-	  		$('#frame_review').attr('src', 'frame_review_list.do?movieId='+'${movieInfo.getMOVIE_ID()}'+'&menu=3');
+	  		$('#frame_review').attr('src', 'frame_review_list.do?movieId='+'${movieInfo.getMOVIE_ID()}'+'&menu=3'+'&page='+'${page}');
 	  	}
 	  	return false;
 		});
@@ -224,7 +224,7 @@
         		</li>
         		<%for(int i=1; i<=5; i++){ %>
         		<li class="page-item">
-          			<a class="page-link" href="#"><%=i %></a>
+          			<a class="page-link" href="movie_review_detail_page"><%=i %></a>
         		</li>
         		<%} %>
         		<li class="page-item">
