@@ -220,11 +220,11 @@
 	
 
 	<div id="myCarousel" class="carousel slide" data-ride="carousel"
-		style="padding-top: 10px; padding-bottom: 10px; width:965px; margin:auto; padding:0">
+		style="width:965px; margin-left:auto; margin-right:auto; margin-bottom: 30px; padding:0;"">
 
 	<h2 class="photo" style="padding:5px 0 15px 0; font-weight:bold; font-size:20px;">스틸컷</h2>
 		<!--페이지-->
-		<ol class="carousel-indicators" style="bottom:35px">
+		<ol class="carousel-indicators" style="bottom:10px">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 			<li data-target="#myCarousel" data-slide-to="1"></li>
 			<li data-target="#myCarousel" data-slide-to="2"></li>
@@ -236,10 +236,10 @@
 
 		<div class="carousel-inner">
 			<!--슬라이드1-->
-			<div class="item active">
+			<div class="item active" style="background-color:#222; height:590px;">
 				<img
 					src="${steelcuts[1] }"
-					style="width: 965px; height: 640px; margin: auto;"
+					style="height: 640px; margin: auto;"
 					alt="First slide">
 				<div class="container">
 					<div class="carousel-caption"></div>
@@ -248,10 +248,10 @@
 			<!--슬라이드1-->
 
 			<!--슬라이드2-->
-			<div class="item">
+			<div class="item" style="background-color:#222; height:590px;">
 				<img
 					src="${steelcuts[2] }"
-					style="width: 965px; height: 640px; margin: auto;" data-src=""
+					style="height: 640px; margin: auto;" data-src=""
 					alt="Second slide">
 				<div class="container">
 					<div class="carousel-caption"></div>
@@ -260,10 +260,10 @@
 			<!--슬라이드2-->
 
 			<!--슬라이드3-->
-			<div class="item">
+			<div class="item" style="background-color:#222; height:590px;">
 				<img
 					src="${steelcuts[3] }"
-					style="width: 965px; height: 640px; margin: auto;" data-src=""
+					style="height: 640px; margin: auto;" data-src=""
 					alt="Third slide">
 				<div class="container">
 					<div class="carousel-caption"></div>
@@ -272,10 +272,10 @@
 			<!--슬라이드3-->
 
 			<!--슬라이드4-->
-			<div class="item">
+			<div class="item" style="background-color:#222; height:590px;">
 				<img
 					src="${steelcuts[4] }"
-					style="width: 965px; height: 640px; margin: auto;" data-src=""
+					style="height: 640px; margin: auto;" data-src=""
 					alt="Third slide">
 				<div class="container">
 					<div class="carousel-caption"></div>
@@ -284,10 +284,10 @@
 			<!--슬라이드4-->
 
 			<!--슬라이드5-->
-			<div class="item">
+			<div class="item" style="background-color:#222; height:590px;">
 				<img
 					src="${steelcuts[5] }"
-					style="width: 965px; height: 640px; margin: auto;" data-src=""
+					style="height: 640px; margin: auto;" data-src=""
 					alt="Third slide">
 				<div class="container">
 					<div class="carousel-caption"></div>
@@ -306,7 +306,7 @@
 	</div>
 	
 	<div class="video container"
-		style="width:965px; margin:auto; padding:0">
+		style="width:965px; margin-left:auto; margin-right:auto; margin-bottom:30px; padding:0">
 
 		<h2 class="movie_" style="padding:5px 0 15px 0; font-weight:bold; font-size:20px;">예고편</h2>
 		<video controls="" name="media" style="width:965px; height:540px;">
@@ -317,7 +317,7 @@
 
 	<div class="container">
 		<!-- 40자평 -->
-		<div class="col-lg-6" style="width:41%; display:inline-block; padding:0; margin:20px 0 0 100px;">
+		<div class="col-lg-6" style="width:41%; display:inline-block; padding:0; margin-left: 100px;">
 			<h3 style="font-weight:bold; font-size:20px; margin: 10px 0 10px 0; display:inline-block;">40자평</h3>
 			<a href="movie_review_detail_page.do?movieId=${vo.getMOVIE_ID()}"><button class="btn_more" align="right"></button></a> <!-- 더보기 버튼 -->
 			<ul class="list_review">
@@ -376,8 +376,8 @@
 
 			<a href="javascript:related_movie_list(2)" class="btn_next"><span class="hidden">다음</span><span class="ico"></span></a>
 
-			<div class="related_mov col-lg-6 col-md-6 col-sm-6" style="display:inline-block; margin:20px 0 0 5px;">
-				<h2 style="display:block; font-weight:bold; font-size:20px; margin: 5px 0 5px 0;">관련영화</h2>
+			<div class="related_mov col-lg-6 col-md-6 col-sm-6" style="display:inline-block; margin-left:5px;">
+				<h2 style="display:block;font-weight:bold;font-size:20px;margin: 0 0 5px 0;">관련영화</h2>
 					<div class="movie" style="float:left; text-align:center; margin:0 35px 15px 0;" >
 						<a href="#">
 							<img src="http://image.cine21.com/resize/cine21/still/2018/0828/11_49_07__5b84b8238ee05[X135,195].jpg" alt="" style="display:block; display:block; margin-bottom:5px;">
