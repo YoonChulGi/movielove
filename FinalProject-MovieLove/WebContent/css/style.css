@@ -3761,8 +3761,7 @@ body.movie_review_detail {
     width: 80%;
     display: inline-block;
     position: relative;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 20px 10% 0 10%;
 }
 .movie_review_list h2 {
 	font-size: 17px;
