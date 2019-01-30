@@ -40,9 +40,9 @@
         <div class="container">
           <div class="row">
             <div class="col-xs-12 col-sm-4">
-              <div class="header-top-left">
-                <span class="header-top-right text-left" style="height:auto; text-size:18px; margin-top:auto; margin-bottom:auto;">
-                	Days a week from 9:00 am to 7:00 pm
+              <div style="margin-top:auto; margin-bottom:auto;">
+                <span class="header-top-right text-left" style="height:auto; text-size:18px; color:#555;">
+                	무비愛에 오신 것을 환영합니다!
                 </span>
               </div>
             </div>
