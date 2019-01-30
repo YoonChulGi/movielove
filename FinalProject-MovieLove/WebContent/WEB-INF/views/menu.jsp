@@ -42,7 +42,7 @@
             <div class="col-xs-12 col-sm-4">
               <div style="margin-top:auto; margin-bottom:auto;">
                 <span class="header-top-right text-left" style="height:auto; text-size:18px; color:#555;">
-                	무비愛에 오신 것을 환영합니다!
+                	무비愛에 오신 것을 환영합니다.
                 </span>
               </div>
             </div>
