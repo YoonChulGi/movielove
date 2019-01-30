@@ -66,14 +66,7 @@
 				     				<h4 class="card-title" style="max-height:28px;overflow:hidden;">
 			      						<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }">${list.get(i-1).getMOVIE_TITLE() }</a> 
 			      					</h4>
-			      					<h1></h1>
-			      					<c:if test="${Long.parseLong(list.get(i-1).getMOVIE_RATE())<1 }">
-			      					
-			      						<p class="card-text">예매율 0${list.get(i-1).getMOVIE_RATE()}%</p>
-			      					</c:if>
-			      					<c:if test="${Long.parseLong(list.get(i-1).getMOVIE_RATE())>=1 }">
-			      						<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
-			      					</c:if>
+			      					<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
 			      					
 			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()} 개봉</p>
 			      				</div>
@@ -99,12 +92,7 @@
 			     					<h4 class="card-title" style="max-height:28px;overflow:hidden;">
 			      						<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }">${list.get(i-1).getMOVIE_TITLE() }</a> 
 			      					</h4>
-			      					<c:if test="${Long.parseLong(list.get(i-1).getMOVIE_RATE()) <1 }">
-			      						<p class="card-text">예매율 0${list.get(i-1).getMOVIE_RATE()}%</p>
-			      					</c:if>
-			      					<c:if test="${Long.parseLong(list.get(i-1).getMOVIE_RATE()) >=1 }">
-			      						<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
-			      					</c:if>
+			      					<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
 			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()} 개봉</p>
 			      				</div>
 			      			</div>

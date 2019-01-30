@@ -9,7 +9,7 @@ public class MovieVO {
 	private String MOVIE_ACTOR;
 	private String MOVIE_WDCL;
 	private String MOVIE_GRAPH;
-	private String MOVIE_RATE;
+	private Double MOVIE_RATE;
 	private String MOVIE_SHOWING;
 	private String MOVIE_ID;
 	private String MOVIE_STEELCUT;
@@ -78,10 +78,10 @@ public class MovieVO {
 	public void setMOVIE_GRAPH(String mOVIE_GRAPH) {
 		MOVIE_GRAPH = mOVIE_GRAPH;
 	}
-	public String getMOVIE_RATE() {
+	public Double getMOVIE_RATE() {
 		return MOVIE_RATE;
 	}
-	public void setMOVIE_RATE(String mOVIE_RATE) {
+	public void setMOVIE_RATE(Double mOVIE_RATE) {
 		MOVIE_RATE = mOVIE_RATE;
 	}
 	public String getMOVIE_SHOWING() {
