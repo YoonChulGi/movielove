@@ -17,4 +17,19 @@
 	<select id="reviewInfoById" parameterType="String" resultType="ReviewVO">
 		select * from REVIEW where REVIEW_MOVIEID=#{value}
 	</select>
+	
+	
+	<select id="reviewInfoById_OrderBySYMPATHY" parameterType="String" resultType="ReviewVO">
+		select * from REVIEW where REVIEW_MOVIEID=#{value} order by REVIEW_SYMPATHY DESC
+	</select>
+	
+	
+	<select id="reviewInfoById_OrderByDATE" parameterType="String" resultType="ReviewVO">
+		select * from REVIEW where REVIEW_MOVIEID=#{value} order by REVIEW_DATE DESC
+	</select>
+	
+	
+	<select id="reviewInfoById_OrderByRATING" parameterType="String" resultType="ReviewVO">
+		select * from REVIEW where REVIEW_MOVIEID=#{value} order by REVIEW_RATING DESC
+	</select>
 </mapper>

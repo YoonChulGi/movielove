@@ -47,7 +47,6 @@
       	
       	<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
       		<c:if test="${sel == '1' }">
-      		<h2>사이즈: ${list.size()}</h2>
 		   	<c:forEach var="i" begin="1" end="${list.size()}" step="4" varStatus="status">
 	      	<div class="row">
 	      		<c:if test="${list.size() <= status.index + 3}">

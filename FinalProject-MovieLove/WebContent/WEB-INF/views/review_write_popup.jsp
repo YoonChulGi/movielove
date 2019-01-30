@@ -146,10 +146,10 @@
       }
     })
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
-      return $( "<li id='movie_list_li'>" )
+      return $( "<li id='movie_list_li' class='ui-menu-item' tabindex='-1'>" )
         .append("<div class='link_item'> <span class='thumb_g'> <img src='"+item.img_src+"' width='30' height='40' class='thumb_img'></span> <div class='cont_item'> <strong class='tit_item'> <span class='emph_sgt'>"+item.label+"</span></strong> <span class='txt_year'>"+item.year+"</span></div></div>")
       	.append("</li>")
-        .appendTo( ul );
+        .appendTo(ul);
     };
   } );
 </script>
@@ -159,14 +159,14 @@
   function review_write_click() {
 	    //영화 자동완성 검색을 클릭했는지 여부
 		if(isClicked){
-			var username = $("#review_contents").val();
-			if(username==''){
+			if($("#review_contents").val() ==''){
 				alert('내용을 입력해주세요.');
 				return;
 			} else{
 				document.getElementById('review_wirte_form').submit();
 			}
 		} else{
+			//40자평 상세페이지에서 작성 버튼 누를 경우 (영화검색 안함)
 			if('${movieTitle}' == null){
 				alert("먼저 영화를 검색한 후 눌러주세요.");
 			} else{
@@ -203,6 +203,7 @@ $(function() {
     $('#review_contents').keyup();
 });
 </script>
+
 </head>
 
 
@@ -227,8 +228,7 @@ $(function() {
 						</c:if>
 						<div class="pcsgt_layer">
 							<div class="cate_pcsgt" id="movie_suggest_pc">
-								<ul id="movie_suggest_list_pc" class="list_pcsgt">	
-								</ul>
+								<ul id="ul-id-1" class="list_pcsgt ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" tabindex="0" style="display:none"></ul>
 							</div>
 							<a href="/search/main?searchText=%EC%95%84%EC%BF%A0%EC%95%84%EB%A7%A8&amp;returnUrl=https%3A%2F%2Fmovie.daum.net%2Fmoviedb%2Fmain%3FmovieId%3D94484" class="link_pcsgt #gnb #search #result">검색결과 전체보기<span class="ico_popcorn ico_arr"></span></a>
 						</div>

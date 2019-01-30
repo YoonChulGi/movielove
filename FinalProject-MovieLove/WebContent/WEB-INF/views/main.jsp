@@ -40,7 +40,6 @@
     <!-- =====  HEADER END  ===== -->
     
     
-    
     <!-- =====  CONTAINER START  ===== -->
     <div class="container">
     	<jsp:include page="main_content.jsp" flush="false"/>

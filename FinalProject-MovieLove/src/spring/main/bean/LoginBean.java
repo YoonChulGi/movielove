@@ -11,6 +11,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.vo.bean.MemVO;
@@ -19,18 +20,28 @@ import spring.vo.bean.MemVO;
 public class LoginBean {
 	@Autowired
 	private SqlSessionTemplate sqlSession = null;
+	private String prevURL = null;
 	
 	@Autowired 
 	BCryptPasswordEncoder passwordEncoder;
 			
 	@RequestMapping("login.do")
-	public String login() {
+	public String login(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		System.out.println("MainBean-login()");
+		
+		prevURL = (String)request.getHeader("REFERER");  //이전 페이지 URL 가져오기
+		String[] prevURLS = prevURL.split("/");
+		for(String i: prevURLS) {
+			prevURL = i;
+		}
+		request.setAttribute("prevURL", prevURL);
+		System.out.println("이전 페이지 URL: "+prevURL);
+		
 		return "login";
 	}
 
 	@RequestMapping("loginPro.do")
-	public String loginPro(HttpServletRequest request, HttpServletResponse response) {
+	public String loginPro(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		System.out.println("MainBean-loginPro()");
 		
 		String id = request.getParameter("username");
@@ -45,7 +56,9 @@ public class LoginBean {
 			if(passwordEncoder.matches(password, vo.getMEM_PW())){
 				HttpSession session = request.getSession();
 				session.setAttribute("memId", id);
-				return "main";
+				
+				response.sendRedirect(prevURL);  //이전 페이지로 이동
+				return null;
 			}
 			//비밀번호 불일치
 			else {
@@ -74,12 +87,15 @@ public class LoginBean {
 	}
 
 	@RequestMapping("logout.do")
-	public String logout(HttpServletRequest request) {
+	public String logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		System.out.println("MainBean-logout()");
 
+		//세션 삭제
 		HttpSession session = request.getSession();
 		session.invalidate();
-		return "main";
+		
+		response.sendRedirect(request.getHeader("referer"));  //이전 페이지로 이동
+		return null;
 	}
 	
 	

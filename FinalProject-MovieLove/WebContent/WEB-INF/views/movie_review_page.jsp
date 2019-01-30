@@ -30,7 +30,7 @@
 	    max-height: 175px;
 	    overflow-x: hidden;
 	    overflow-y: scroll;
-	    left: 665px;
+	    left: 664.5px;
 	    top: 325px;
 	    border-top: 0px;
 	    border-left: 1px solid #565656;
@@ -118,11 +118,18 @@
 		function searchMovie(){
 			var inputTitle = document.getElementById("search-movie").value;
 
-	    	if(inputTitle == "") {
-    			alert("영화 제목을 입력해주세요.");
-    		} else {
-    			location.href='movie_review_page.do?movieTitle='+inputTitle;
-    		}
+		    //영화 자동완성 검색을 클릭했는지 여부
+			if(isClicked){
+				if(inputTitle ==''){
+	    			alert("영화 제목을 입력해주세요.");
+					return;
+				} else{
+	    			location.href='movie_review_page.do?movieTitle='+inputTitle;
+				}
+			} else{
+				alert("먼저 영화를 검색한 후 눌러주세요.");
+				return;
+			}
     	}
 	</script>
 	
@@ -186,6 +193,7 @@
     	};
   	} );
 	</script>
+	
   </head>
   
   <body class="moview_review">
@@ -202,7 +210,7 @@
 					<input id="search-movie" name="review_title" placeholder="영화 검색" class="form-control input-lg" type="text">
     			</li>
            		<li>
-           			<input type="button" class="btn btn-lg btn-search" onclick="searchMovie()" value="검색" style="width:80px; background-color:#d9534f; font-size:px"/>
+           			<input type="button" class="btn btn-lg btn-search" onclick="searchMovie()" value="검색" style="width:80px; background-color:#d9534f; font-size:15px"/>
            		</li>
             </ul>
         </div>
@@ -219,12 +227,16 @@
 				<c:if test="${movieShowingList.size() == 1}">
 					<li class="movie_li cols-xs-12" style="width:100%; margin-left:0.75%">
 				</c:if>
+				
 				<c:if test="${movieShowingList.size() > 1}">
 					<li class="movie_li cols-xs-12">
 				</c:if>
+				
 				<div class="review-thumb">
-					<a href="movie_review_detail_page.do?movieId=${movie.getMOVIE_ID()}"><img src="${movie.getMOVIE_IMG()}" alt="" class="movie_thumb" target="_blank"></a>
-					<span class="boxoffice n${statusMovie.count}">${statusMovie.count}</span>
+					<a href="movie_review_detail_page.do?movieId=${movie.getMOVIE_ID()}"><img src="${movie.getMOVIE_IMG()}" alt="" class="movie_thumb" target="_blank"></a>				
+					<c:if test="${movieShowingList.size() != 1}">
+						<span class="boxoffice n${statusMovie.count}">${statusMovie.count}</span>
+					</c:if>
 				</div>
 				<div class="review-summary">
 					<span class="comment_span">[40자평]</span>
@@ -252,21 +264,21 @@
 		        		<div>
         					<!-- 감상평 -->
 	        				<span class="review_writer">${review.REVIEW_WRITER}</span>
-        					<span class="review_comment">${review.REVIEW_CONTENTS}</span> 
+        					<span class="review_comment">${review.REVIEW_CONTENTS}</span>
         					<span class="review_date">${review.REVIEW_DATE}</span>
         					<!-- 별점 -->
         					<span class="review_grade">
 								<span class="bg_star star_grade"><span class="bg_star inner_star" style="width: ${review.REVIEW_RATING}0%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
 								<em class="emph_grade" style="font-size:15.5px;">${review.REVIEW_RATING}</em>
 							</span>
-        					<span class="review_sympathy" style="padding-left:10px">201</span>
+        					<span class="review_sympathy" style="padding-right:5px" align="center">${review.REVIEW_SYMPATHY}</span>
 	        			</div>
 		      		</c:forEach>
 	        	</div>
 			</c:forEach>
 		</ul>
 		
-    	<a class="btn btn-primary btn-lg" onclick="openReviewWrite()" style="position:fixed;right:120px;bottom:20px;">감상평 작성</a>
+    	<a class="btn btn-primary btn-lg" onclick="openReviewWrite()" style="position:fixed;right:120px;bottom:20px;">40자평 작성</a>
     </div>
     <!-- /.container -->
         
