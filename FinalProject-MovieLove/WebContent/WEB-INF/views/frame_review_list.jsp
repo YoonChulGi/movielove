@@ -106,6 +106,7 @@
 	<!-- Pagination -->
 	<div class="bottom-number" align="center" id="bottom-number">
 		<ul class="pagination justify-content-center">
+			<c:if test="${maxPage > 5}">
 	        <li class="page-item">
           		<a class="page-link" href="#" aria-label="Previous">
 		           	<span aria-hidden="true">&laquo;</span>
@@ -113,12 +114,16 @@
             		<input class="hidden-menu" type="hidden" value="${menu}">	
             	</a>
        		</li>
-       		<%for(int i=1; i<=5; i++){ %>
+       		</c:if>
+       		
+       		<c:forEach begin="1" end="${maxPage}" varStatus="status">
        		<li class="page-item">
-          		<a class="page-link" href="#"><%=i%></a>
+	          	<a class="page-link" href="#">${status.count}</a>
             		<input class="hidden-menu" type="hidden" value="${menu}">
         	</li>
-        	<%} %>
+			</c:forEach>
+			
+			<c:if test="${maxPage > 5}">
         	<li class="page-item">
           		<a class="page-link" href="#" aria-label="Next">
 	            	<span aria-hidden="true">&raquo;</span>
@@ -126,6 +131,7 @@
             		<input class="hidden-menu" type="hidden" value="${menu}">          		
             	</a>
         	</li>
+       		</c:if>
    		</ul>
    	</div>
 

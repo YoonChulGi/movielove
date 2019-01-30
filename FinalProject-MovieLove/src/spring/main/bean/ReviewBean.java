@@ -99,12 +99,22 @@ public class ReviewBean {
 		list = sqlSession.selectList("review.reviewInfoById", Movievo.getMOVIE_ID());
 		model.addAttribute("reviewList", list);
 		
+
+		//리뷰 리스트 초기 높이값 지정
+		float listHeight;
+		if(list.size() >= 10) { listHeight = 1300; }
+		else { listHeight = (float) (165.5 + 113.45 * list.size()); }
+		System.out.println("listHeight: "+listHeight);
+		model.addAttribute("listHeight", listHeight);
+		
+		//평균 평점 구하기
 		int sumRating = 0;
 		for(int i=0;i<list.size();i++) {
-			sumRating += Integer.parseInt(list.get(i).getREVIEW_RATING());
+			sumRating += list.get(i).getREVIEW_RATING();
 		}
 		float avgRating = (float) sumRating / (float) list.size();
 		int avgRatingPer = (int)(avgRating * 10);  //소수점 버리고 10 곱하기 ->평점 별 퍼센트 조정하기 위해서
+		
 		model.addAttribute("avgRating", String.format("%.2f", avgRating));  //둘째자리까지 반올림
 		model.addAttribute("avgRatingPer", avgRatingPer);
 		System.out.println("avgRating: "+String.format("%.2f", avgRating));
@@ -141,7 +151,7 @@ public class ReviewBean {
 		}
 		Reviewvo.setREVIEW_TITLE(request.getParameter("review_title"));
 		Reviewvo.setREVIEW_CONTENTS(request.getParameter("review_contents"));
-		Reviewvo.setREVIEW_RATING(request.getParameter("review_rating"));
+		Reviewvo.setREVIEW_RATING(Integer.parseInt(request.getParameter("review_rating")));
 		Reviewvo.setREVIEW_WRITER(request.getParameter("review_writer"));
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");

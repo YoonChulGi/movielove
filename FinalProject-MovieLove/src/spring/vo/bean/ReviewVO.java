@@ -3,7 +3,7 @@ package spring.vo.bean;
 public class ReviewVO {
 	private String REVIEW_TITLE;
 	private String REVIEW_CONTENTS;
-	private String REVIEW_RATING;
+	private int REVIEW_RATING;
 	private String REVIEW_WRITER;
 	private String REVIEW_DATE;
 	private String REVIEW_MOVIEID;
@@ -22,10 +22,10 @@ public class ReviewVO {
 	public void setREVIEW_CONTENTS(String rEVIEW_CONTENTS) {
 		REVIEW_CONTENTS = rEVIEW_CONTENTS;
 	}
-	public String getREVIEW_RATING() {
+	public int getREVIEW_RATING() {
 		return REVIEW_RATING;
 	}
-	public void setREVIEW_RATING(String rEVIEW_RATING) {
+	public void setREVIEW_RATING(int rEVIEW_RATING) {
 		REVIEW_RATING = rEVIEW_RATING;
 	}
 	public String getREVIEW_WRITER() {
@@ -58,4 +58,5 @@ public class ReviewVO {
 	public void setREVIEW_NOTSYMPATHY(int rEVIEW_NOTSYMPATHY) {
 		REVIEW_NOTSYMPATHY = rEVIEW_NOTSYMPATHY;
 	}
+	
 }

@@ -98,7 +98,7 @@
 	
 	<script> var session_id = '<%=sessionId%>'; </script>
 	<script type="text/javascript">
-	var popupX = (window.screen.width/2) - (750/2);
+	var popupX = (window.screen.width/2) - (750/2); 
 	var popupY = (window.screen.height/2) - (450/2);
 	
 	function openReviewWrite(){
@@ -211,7 +211,7 @@
 			</div>
 			
 			<!-- 리뷰 리스트 -->
-			<iframe width="935" height="1500" src="frame_review_list.do?movieId=${movieInfo.getMOVIE_ID()}" name="test" id="frame_review" frameborder="0" scrolling="no" align="center">이 브라우저는 iframe을 지원하지 않습니다</iframe>
+			<iframe width="935" height="${listHeight}" src="frame_review_list.do?movieId=${movieInfo.getMOVIE_ID()}" name="test" id="frame_review" frameborder="0" scrolling="no" align="center">이 브라우저는 iframe을 지원하지 않습니다</iframe>
 		</ul>
 		
     </div>
