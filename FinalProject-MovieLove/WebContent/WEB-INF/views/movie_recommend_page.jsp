@@ -81,10 +81,8 @@
 								<%
 									if (session.getAttribute("memId") != null) {
 								%>
-								<c:forEach var="gen" items="${genre}" varStatus="status"
-									begin="1" end="5">
-									<td class="officetd"><h2 class="rank"></h2> <a href="#"><img
-											src="${gen}" alt=""></a></td>
+								<c:forEach var="gen" items="${genre}" varStatus="status" begin="1" end="5">
+									<td class="officetd"><h2 class="rank"></h2> <a href="#"><img src="${gen}" alt=""></a></td>
 								</c:forEach>
 								<%
 									} else {
@@ -610,173 +608,154 @@
 			<div class="post col-lg-9 col-md-6 col-sm-3 col-xs-2"
 				style="width: 880px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
 
-				<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
+				
+						
+						<c:if test="${sel == '1' }">
+		   	<c:forEach var="i" begin="0" end="${list.size()}" step="1" varStatus="status">
+		  
+		   	
+	      	<div class="row">
+	      		<c:if test="${list.size( ) <= status.index}">
+		      		<c:forEach var="i" begin="${status.index}" end="${list.size()}" step="1">
+		      		<div class="col-lg-12 col-md-6 col-sm-6" style="width: 360%; text-align: center; padding-top: 13px; padding-bottom: 15px;">
+			      		
+			      			<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
+					
 					<div
-						style="padding-top: 27px; padding-left: 10px;; float: left; font-weight: bold; width: 5%;">NO.1</div>
+						style="padding-top: 10px; padding-left: 10px; float: left; width: 27%;">
+						
+								<div class="all movie" style="float:left;" >
+						<a	href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }"style="display:inline-block; width:40px;font-weight: bold; ">NO.1</a>			
+									
+			      						<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }" style="display:inline-block; width:220px;">${list.get(i-1).getMOVIE_TITLE() }</a> 
+			      				<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }">
+									
+									<img class="card" src="${list.get(i-1).getMOVIE_IMG()}" alt="" style="width:12%; height:12%; ">
+									</a>
+									<c:if test="${i <= 10}">
+										<span class="boxoffice n${i}">${statusMovie.count}</span>
+									</c:if><a class="card-text" style="display:inline-block; width:260px; font-weight: bold; padding-right:40px; padding-left:70px;">${list.get(i-1).getMOVIE_YEAR()} 개봉</a>
+									<a class="movie_rate" href="${list.get(i-1).getMOVIE_ID()}" style="font-weight:bold;"> 평점 ${list.get(i-1).getMOVIE_RATE() }
+									</a>
+										<div class="bg_star star_grade" style="float: left;">
+										<div class="bg_star inner_star" style="width: ${list.get(i-1).getMOVIE_RATE()};"></div>
+										
+						</div></div></div></div></div>
+						
+						
+						
+						
+						
+					<div class="col-lg-12 col-md-6 col-sm-6" style="width: 360%; text-align: center; padding-top: 13px; padding-bottom: 15px;">
+			      		
+			      			<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
+					
 					<div
-						style="padding-top: 27px; padding-left: 30px; float: left; width: 27%;">주먹왕
-						랄프 2-인터넷 속으로</div>
-					<img
-						src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81061/81061_185.jpg"
-						alt="" onerror="errorImage(this)"
-						style="hegith: 15%; width: 15%; objectfit: conta; align: center; float: left; padding-left: 50px;">
-					<div
-						style="padding-top: 27px; padding-left: 65px; float: left; font-weight: bold;">2019.01.03
-						개봉</div>
-					<div
-						style="padding-top: 27px; padding-left: 60px; 5 px; float: left; font-weight: bold;">평점7.7</div>
-					<div class="review_grade"
-						style="float: right; padding-top: 27px; padding-left: 10px;">
-						<div class="bg_star star_grade" style="float: left;">
-							<div class="bg_star inner_star" style="width: 80.5%;"></div>
-							<!-- 116px이 100%, % 계산에서 width값에 적용-->
-
-
-						</div>
-
-					</div>
-
-				</div>
-			</div>
-
-
-			<div class="post col-lg-9 col-md-6 col-sm-3 col-xs-2"
-				style="width: 880px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
-
-				<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
-					<div
-						style="padding-top: 27px; padding-left: 10px;; float: left; font-weight: bold; width: 5%;'">NO.2</div>
-					<div
-						style="padding-top: 27px; padding-left: 30px; float: left; width: 27%;">아쿠아맨</div>
-					<img
-						src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81319/81319_185.jpg"
-						alt="" onerror="errorImage(this)"
-						style="hegith: 15%; width: 15%; objectfit: conta; align: center; float: left; padding-left: 50px;">
-					<div
-						style="padding-top: 27px; padding-left: 65px; float: left; font-weight: bold;">2018.12.19
-						개봉</div>
-					<div
-						style="padding-top: 27px; padding-left: 60px; 5 px; float: left; font-weight: bold;">평점7.5</div>
-					<div class="review_grade"
-						style="float: right; padding-top: 27px; padding-left: 10px;">
-						<div class="bg_star star_grade" style="float: left;">
-							<div class="bg_star inner_star" style="width: 77.5%;"></div>
-							<!-- 116px이 100%, % 계산에서 width값에 적용-->
-
-
-						</div>
-
-					</div>
-
-				</div>
-			</div>
-
-
-			<div class="post col-lg-9 col-md-6 col-sm-3 col-xs-2"
-				style="width: 880px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
-
-				<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
-					<div
-						style="padding-top: 27px; padding-left: 10px;; float: left; font-weight: bold; width: 5%;'">NO.3</div>
-					<div
-						style="padding-top: 27px; padding-left: 30px; float: left; width: 27%;">보헤미안
-						랩소디</div>
-					<img
-						src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81127/81127_185.jpg"
-						alt="" onerror="errorImage(this)"
-						style="hegith: 15%; width: 15%; objectfit: conta; align: center; float: left; padding-left: 50px;">
-					<div
-						style="padding-top: 27px; padding-left: 65px; float: left; font-weight: bold;">2018.10.31
-						개봉</div>
-					<div
-						style="padding-top: 27px; padding-left: 60px; 5 px; float: left; font-weight: bold;">평점9.0</div>
-					<div class="review_grade"
-						style="float: right; padding-top: 27px; padding-left: 10px;">
-						<div class="bg_star star_grade" style="float: left;">
-							<div class="bg_star inner_star" style="width: 90.5%;"></div>
-							<!-- 116px이 100%, % 계산에서 width값에 적용-->
-
-
-						</div>
-
-					</div>
-
-				</div>
-			</div>
-
-
-			<div class="post col-lg-9 col-md-6 col-sm-3 col-xs-2"
-				style="width: 880px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
-
-				<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
-					<div
-						style="padding-top: 27px; padding-left: 10px;; float: left; font-weight: bold; width: 5%;'">NO.4</div>
-					<div
-						style="padding-top: 27px; padding-left: 30px; float: left; width: 27%;">말모이</div>
-					<img
-						src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81517/81517_185.jpg"
-						alt="" onerror="errorImage(this)"
-						style="hegith: 15%; width: 15%; objectfit: conta; align: center; float: left; padding-left: 50px;">
-					<div
-						style="padding-top: 27px; padding-left: 65px; float: left; font-weight: bold;">2019.01.93
-						개봉</div>
-					<div
-						style="padding-top: 27px; padding-left: 60px; 5 px; float: left; font-weight: bold;">평점8.8</div>
-					<div class="review_grade"
-						style="float: right; padding-top: 27px; padding-left: 10px;">
-						<div class="bg_star star_grade" style="float: left;">
-							<div class="bg_star inner_star" style="width: 88.7%;"></div>
-							<!-- 116px이 100%, % 계산에서 width값에 적용-->
-
-
-						</div>
-
-					</div>
-
-				</div>
-			</div>
-
+						style="padding-top: 10px; padding-left: 10px; float: left; width: 27%;">
+						
+								<div class="all movie" style="float:left;" >
+						<a	href="movie_detail_page.do?id=${list.get(i-2).getMOVIE_ID() }"style="display:inline-block; width:40px;font-weight: bold; ">NO.2</a>			
+									
+			      						<a href="movie_detail_page.do?id=${list.get(i-2).getMOVIE_ID() }" style="display:inline-block; width:220px;">${list.get(i-2).getMOVIE_TITLE() }</a> 
+			      				<a href="movie_detail_page.do?id=${list.get(i-2).getMOVIE_ID() }">
+									
+									<img class="card" src="${list.get(i-2).getMOVIE_IMG()}" alt="" style="width:12%; height:12%; ">
+									</a>
+									<c:if test="${i <= 10}">
+										<span class="boxoffice n${i}">${statusMovie.count}</span>
+									</c:if><a class="card-text" style="display:inline-block; width:260px; font-weight: bold; padding-right:40px; padding-left:70px;">${list.get(i-2).getMOVIE_YEAR()} 개봉</a>
+									<a class="movie_rate" href="${list.get(i-2).getMOVIE_ID()}" style="font-weight:bold;"> 평점 ${list.get(i-2).getMOVIE_RATE() }
+									</a>
+										<div class="bg_star star_grade" style="float: left;">
+										<div class="bg_star inner_star" style="width: ${list.get(i-2).getMOVIE_RATE()};"></div>
+										
+						</div></div></div></div></div>
+						
+						
+						
+						
+					
+							<div class="col-lg-12 col-md-6 col-sm-6" style="width: 360%; text-align: center; padding-top: 13px; padding-bottom: 15px;">
+			      		<div
+						style="padding-top: 10px; padding-left: 10px; float: left; width: 27%;">	
+			      			<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
+						
+								<div class="all movie" style="float:left;" >
+						<a	href="movie_detail_page.do?id=${list.get(i-3).getMOVIE_ID() }"style="display:inline-block; width:40px;font-weight: bold;  ">NO.3</a>			
+									
+			      						<a href="movie_detail_page.do?id=${list.get(i-3).getMOVIE_ID() }" style="display:inline-block; width:220px;">${list.get(i-3).getMOVIE_TITLE() }</a> 
+			      				<a href="movie_detail_page.do?id=${list.get(i-3).getMOVIE_ID() }">
+									
+									<img class="card" src="${list.get(i-3).getMOVIE_IMG()}" alt="" style="width:12%; height:12%; ">
+									</a>
+									<c:if test="${i <= 10}">
+										<span class="boxoffice n${i}">${statusMovie.count}</span>
+									</c:if><a class="card-text" style="display:inline-block; width:260px; font-weight: bold; padding-right:40px; padding-left:70px;">${list.get(i-3).getMOVIE_YEAR()} 개봉</a>
+									<a class="movie_rate" href="${list.get(i-3).getMOVIE_ID()}" style="font-weight:bold;"> 평점 ${list.get(i-3).getMOVIE_RATE() }
+									</a>
+										<div class="bg_star star_grade" style="float: left;">
+										<div class="bg_star inner_star" style="width: ${list.get(i-3).getMOVIE_RATE()};"></div>
+										
+						</div></div></div></div></div>		
+						
+						
+							<div class="col-lg-12 col-md-6 col-sm-6" style="width: 360%; text-align: center; padding-top: 13px; padding-bottom: 15px;">
+			      		<div
+						style="padding-top: 10px; padding-left: 10px; float: left; width: 27%;">	
+			      			<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
+						
+								<div class="all movie" style="float:left;" >
+						<a	href="movie_detail_page.do?id=${list.get(i-4).getMOVIE_ID() }"style="display:inline-block; width:40px;font-weight: bold;  ">NO.4</a>			
+									
+			      						<a href="movie_detail_page.do?id=${list.get(i-4).getMOVIE_ID() }" style="display:inline-block; width:220px;">${list.get(i-4).getMOVIE_TITLE() }</a> 
+			      				<a href="movie_detail_page.do?id=${list.get(i-4).getMOVIE_ID() }">
+									
+									<img class="card" src="${list.get(i-4).getMOVIE_IMG()}" alt="" style="width:12%; height:12%; ">
+									</a>
+									<c:if test="${i <= 10}">
+										<span class="boxoffice n${i}">${statusMovie.count}</span>
+									</c:if><a class="card-text" style="display:inline-block; width:260px; font-weight: bold; padding-right:40px; padding-left:70px;">${list.get(i-4).getMOVIE_YEAR()} 개봉</a>
+									<a class="movie_rate" href="${list.get(i-4).getMOVIE_ID()}" style="font-weight:bold;"> 평점 ${list.get(i-4).getMOVIE_RATE() }
+									</a>
+										<div class="bg_star star_grade" style="float: left;">
+										<div class="bg_star inner_star" style="width: ${list.get(i-4).getMOVIE_RATE()};"></div>
+										
+						</div></div></div></div></div>		
+						
+						
+						
+							<div class="col-lg-12 col-md-6 col-sm-6" style="width: 360%; text-align: center; padding-top: 13px; padding-bottom: 15px;">
+			      		<div
+						style="padding-top: 10px; padding-left: 10px; float: left; width: 27%;">	
+			      			<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
+						
+								<div class="all movie" style="float:left;" >
+						<a	href="movie_detail_page.do?id=${list.get(i-5).getMOVIE_ID() }"style="display:inline-block; width:40px;font-weight: bold; ">NO.5</a>			
+									
+			      						<a href="movie_detail_page.do?id=${list.get(i-5).getMOVIE_ID() }" style="display:inline-block; width:220px;">${list.get(i-5).getMOVIE_TITLE() }</a> 
+			      				<a href="movie_detail_page.do?id=${list.get(i-5).getMOVIE_ID() }">
+									
+									<img class="card" src="${list.get(i-5).getMOVIE_IMG()}" alt="" style="width:12%; height:12%; ">
+									</a>
+									<c:if test="${i <= 10}">
+										<span class="boxoffice n${i}">${statusMovie.count}</span>
+									</c:if><a class="card-text" style="display:inline-block; width:260px; font-weight: bold; padding-right:40px; padding-left:70px;">${list.get(i-5).getMOVIE_YEAR()} 개봉</a>
+									<a class="movie_rate" href="${list.get(i-5).getMOVIE_ID()}" style="font-weight:bold;"> 평점 ${list.get(i-5).getMOVIE_RATE() }
+									</a>
+										<div class="bg_star star_grade" style="float: left;">
+										<div class="bg_star inner_star" style="width: ${list.get(i-5).getMOVIE_RATE()};"></div>
+										
+						</div></div></div></div></div>	
+						
+						
+						
+						</c:forEach></c:if></div></c:forEach></c:if></div></div></div>
+						
+				
+					
+						
+						
 		
-			<div class="post col-lg-9 col-md-6 col-sm-3 col-xs-2"
-				style="width: 880px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
-
-				<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
-					<div
-						style="padding-top: 27px; padding-left: 10px;; float: left; font-weight: bold; width: 5%;'">NO.5</div>
-					<div
-						style="padding-top: 27px; padding-left: 30px; float: left; width: 27%;">PMC-더
-						벙커</div>
-					<img
-						src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81381/81381_185.jpg"
-						alt="" onerror="errorImage(this)"
-						style="hegith: 15%; width: 15%; objectfit: conta; align: center; float: left; padding-left: 50px;">
-					<div
-						style="padding-top: 27px; padding-left: 65px; float: left; font-weight: bold;">2018.12.26
-						개봉</div>
-					<div
-						style="padding-top: 27px; padding-left: 60px; 5 px; float: left; font-weight: bold;">평점5.5</div>
-					<div class="review_grade"
-						style="float: right; padding-top: 27px; padding-left: 10px;">
-						<div class="bg_star star_grade" style="float: left;">
-							<div class="bg_star inner_star" style="width: 57.5%;"></div>
-							<!-- 116px이 100%, % 계산에서 width값에 적용-->
-
-
-						</div>
-
-					</div>
-
-				</div>
-			</div>
-
-
-			
-
-		</div>
-	</div>
-
-
-
 
 
 

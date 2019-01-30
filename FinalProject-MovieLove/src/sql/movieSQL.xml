@@ -40,4 +40,11 @@
 	<select id="movieImgByTitle" parameterType="String" resultType="String">
 		select MOVIE_IMG from MOVIE where MOVIE_TITLE=#{value}
 	</select>
+	
+	<select id="all" parameterType="String" resultType="MovieVO">
+	SELECT MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID
+		FROM MOVIE
+		WHERE MOVIE_SHOWING = '1'
+		ORDER BY MOVIE_RATE DESC
+	</select>
 </mapper>
