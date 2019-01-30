@@ -8,8 +8,9 @@
     <!-- Custom styles for this template -->
     <link href="css/small-business.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    
+    <link href="css/bootstrap.css" rel="stylesheet">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -17,10 +18,55 @@
 	<script src="//t1.daumcdn.net/movie/cssjs/1543973809/iscroll5/iscroll.js"></script>
 	<script src="//t1.daumcdn.net/movie/cssjs/1543973809/cookie/jquery.cookie.js"></script>
     
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+	$(document).ready(function(){
+		$(function(){
+	  		$('WEB_INF/views/movie_review_datil_page.jsp #frame_review').attr('height', ${listHeight});			
+		});
+	});
+	</script>
+	
+	<script>
+	$(document).ready(function(){
+		<!-- 하단 페이지 번호 스크립트 -->
+		$('.page-item').click(function(){
+			var pageNum = $(this).children('a').html();
+			var btn = $(this).children('a').children('.sr-only').html();
+			
+			console.log("menu: "+${menu});
+			console.log("pageNum: "+pageNum);
+			console.log("btn: "+btn);
+			
+			/***
+			if(btn == 'Previous'){
+				for(int i=0;i<5;i++){
+					if(pageNum > '${maxPage}'){ pageNum--; }
+				}
+			} else if(btn == 'Next'){
+				for(int i=0;i<5;i++){
+					if(pageNum < '${maxPage}'){ pageNum++; }
+				}
+			}
+			***/
+			
+		  	$(this).parent().children('li').removeClass('on');
+	  		$(this).addClass('on');
+			
+			location.href = 'frame_review_list.do?movieId='+'${movieInfo.getMOVIE_ID()}'+'&menu='+'${menu}'+'&page='+pageNum;
+				       	
+	        //var offset = $("#review_list").offset();
+	        //$('html, body').animate({scrollTop : offset.top}, 300);
+			
+	  		return false;
+		});
+	});
+	</script>
+    
   </head>
   
   <body>
-  	<div class="score_result">
+  	<div class="score_result" id="review_list">
 		<ul>
 	        <c:if test="${reviewList.size() == 0}">
        		<li>
@@ -56,6 +102,32 @@
 			</c:forEach>
 		</ul>
 	</div>
+	
+	<!-- Pagination -->
+	<div class="bottom-number" align="center" id="bottom-number">
+		<ul class="pagination justify-content-center">
+	        <li class="page-item">
+          		<a class="page-link" href="#" aria-label="Previous">
+		           	<span aria-hidden="true">&laquo;</span>
+            		<span class="sr-only">Previous</span>
+            		<input class="hidden-menu" type="hidden" value="${menu}">	
+            	</a>
+       		</li>
+       		<%for(int i=1; i<=5; i++){ %>
+       		<li class="page-item">
+          		<a class="page-link" href="#"><%=i%></a>
+            		<input class="hidden-menu" type="hidden" value="${menu}">
+        	</li>
+        	<%} %>
+        	<li class="page-item">
+          		<a class="page-link" href="#" aria-label="Next">
+	            	<span aria-hidden="true">&raquo;</span>
+            		<span class="sr-only">Next</span>
+            		<input class="hidden-menu" type="hidden" value="${menu}">          		
+            	</a>
+        	</li>
+   		</ul>
+   	</div>
 
 
     <!-- Bootstrap core JavaScript -->

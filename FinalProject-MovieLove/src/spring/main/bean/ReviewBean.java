@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -178,13 +179,17 @@ public class ReviewBean {
 
 		String movieId = (String) request.getParameter("movieId");
 		String menu = (String) request.getParameter("menu");
-		String page = (String) request.getParameter("page");
-		model.addAttribute("page", page);
-		
-		int pageNum = 1;  //기본 페이지 1로 설정
-		if(page != null) {
-			pageNum = Integer.parseInt(page);
+		if(menu == null) {
+			menu = "1";  //기본 메뉴 1로 설정 (공감순)
 		}
+		String page = (String) request.getParameter("page");
+		if(page == null) {
+			page = "1";  //기본 페이지 1로 설정
+		}
+		System.out.println("movieId: "+movieId+", menu: "+menu+", page: "+page);
+		
+		model.addAttribute("page", page);
+		model.addAttribute("menu", menu);
 
 		Movievo = sqlSession.selectOne("movie.movieInfoById", movieId);
 		model.addAttribute("movieInfo", Movievo);
@@ -200,12 +205,27 @@ public class ReviewBean {
 			list = sqlSession.selectList("review.reviewInfoById_OrderByRATING", Movievo.getMOVIE_ID());
 		}
 		
-		for(int i=(pageNum*10)-10;i<(pageNum*10);i++) {
+		int maxPage;
+		maxPage = list.size() / 10 + 1;
+		if(list.size() % 10 == 0) {
+			maxPage-=1;
+		}
+		System.out.println("review list size: "+list.size()+", maxPage: "+maxPage);
+		model.addAttribute("maxPage", maxPage);
+
+		int pageNum = Integer.parseInt(page);
+		int endPage = (pageNum*10) > list.size() ? list.size() : (pageNum*10);
+		for(int i=(pageNum*10)-10; i<endPage; i++) {
 			if(list.get(i) != null) {
 				pageList.add(list.get(i));
 			}
 		}
+		
+		float listHeight = (float) (165.5 + 113.45 * pageList.size());
+		System.out.println("listHeight: "+listHeight);
+		model.addAttribute("listHeight", listHeight);
 
+		System.out.println("pagelist size: "+pageList.size());
 		model.addAttribute("reviewList", pageList);
 		
 		return "frame_review_list";

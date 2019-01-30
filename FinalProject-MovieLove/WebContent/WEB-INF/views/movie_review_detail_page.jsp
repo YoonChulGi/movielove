@@ -111,20 +111,22 @@
 	}
 	</script>
 	
-	<!-- 감상평 메뉴 스크립트 -->
 	<script>
-	$(document).ready(function(){
-	$('.sorting_list li').click(function(){
-	  	$(this).parent().children('li').removeClass('on');
-	  	$(this).addClass('on');
-	  	if($(this).children('a').html() == '공감순'){
-	  		$('#frame_review').attr('src', 'frame_review_list.do?movieId='+'${movieInfo.getMOVIE_ID()}'+'&menu=1'+'&page='+'${page}');
-	  	} else if($(this).children('a').html() == '최신순'){
-	  		$('#frame_review').attr('src', 'frame_review_list.do?movieId='+'${movieInfo.getMOVIE_ID()}'+'&menu=2'+'&page='+'${page}');
-	  	} else if($(this).children('a').html() == '평점 높은 순'){
-	  		$('#frame_review').attr('src', 'frame_review_list.do?movieId='+'${movieInfo.getMOVIE_ID()}'+'&menu=3'+'&page='+'${page}');
-	  	}
-	  	return false;
+	$(document).ready(function(){		
+		<!-- 감상평 메뉴 스크립트 -->
+		$('.sorting_list li').click(function(){
+		  	$(this).parent().children('li').removeClass('on');
+	  		$(this).addClass('on');
+	  		
+	  		if($(this).children('a').html() == '공감순'){
+		  		$('#frame_review').attr('src', 'frame_review_list.do?movieId='+'${movieInfo.getMOVIE_ID()}'+'&menu=1'+'&page=1');
+	  		} else if($(this).children('a').html() == '최신순'){
+		  		$('#frame_review').attr('src', 'frame_review_list.do?movieId='+'${movieInfo.getMOVIE_ID()}'+'&menu=2'+'&page=1');
+	  		} else if($(this).children('a').html() == '평점 높은 순'){
+		  		$('#frame_review').attr('src', 'frame_review_list.do?movieId='+'${movieInfo.getMOVIE_ID()}'+'&menu=3'+'&page=1');
+	  		}
+	       	
+	  		return false;
 		});
 	});
 	</script>
@@ -143,7 +145,7 @@
 			<div class="detail_summarize">
 				<span class="thumb_summary  #info #poster">
 					<a href="#" class="area_poster" target="_blank">
-						<img src="${movieInfo.getMOVIE_IMG()}" class="img_summary" alt="말모이 포스터" onload="noImageOnLoad($(this));$(this).parent().find('.link_scale').show();">
+						<img src="${movieInfo.getMOVIE_IMG()}" class="img_summary" alt="말모이 포스터">
 					</a>
 				</span>
 				<div class="movie_summary">
@@ -195,7 +197,6 @@
 			</div>
 		</div>
 		
-        
 
 		<ul class="movie_review_list">
 			<h2 style="float:left">40자 평</h2>
@@ -208,33 +209,11 @@
 					<li><a class="review_menu3" href="#" onclick="parent.clickcr(this, 'ara.high', '', '', event); dislplayOrder('highest');">평점 높은 순</a></li>
 				</ul>
 			</div>
-				
+			
 			<!-- 리뷰 리스트 -->
-			<iframe width="935" height="1210" src="frame_review_list.do?movieId=${movieInfo.getMOVIE_ID()}" name="test" id="frame_review" frameborder="0" scrolling="no" align="center">이 브라우저는 iframe을 지원하지 않습니다</iframe>
+			<iframe width="935" height="1500" src="frame_review_list.do?movieId=${movieInfo.getMOVIE_ID()}" name="test" id="frame_review" frameborder="0" scrolling="no" align="center">이 브라우저는 iframe을 지원하지 않습니다</iframe>
 		</ul>
 		
-      	<!-- Pagination -->
-      	<div class="bottom-number" align="center">
-      		<ul class="pagination justify-content-center">
-	        	<li class="page-item">
-          		<a class="page-link" href="#" aria-label="Previous">
-	           		<span aria-hidden="true">&laquo;</span>
-            		<span class="sr-only">Previous</span>
-          		</a>
-        		</li>
-        		<%for(int i=1; i<=5; i++){ %>
-        		<li class="page-item">
-          			<a class="page-link" href="movie_review_detail_page"><%=i %></a>
-        		</li>
-        		<%} %>
-        		<li class="page-item">
-          		<a class="page-link" href="#" aria-label="Next">
-	            	<span aria-hidden="true">&raquo;</span>
-            		<span class="sr-only">Next</span>
-          		</a>
-        		</li>
-      		</ul>
-      	</div>
     </div>
     <!-- /.container -->
         
