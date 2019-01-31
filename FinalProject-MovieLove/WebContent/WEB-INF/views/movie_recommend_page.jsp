@@ -188,12 +188,12 @@
 		<div class="row">
 			<nav class="navbar-collapse collapse">
 				<div class="dropdown">
-					<button id="show1" class="btn pull-left col-lg-1 col-sm-6 col-md-4"
-						onclick="location.href ='movie_recommend_page.do?sel1'"">전체</button>
-					<button id="show2" class="btn pull-left col-lg-1 col-sm-6 col-md-4"
-						onclick="location.href ='movie_recommend_page.do?sel2'">국내</button>
-					<button id="show3" class="btn pull-left col-lg-1 col-sm-6 col-md-4"
-						onclick="location.href ='movie_recommend_page.do?sel3'">해외</button>
+					<a id="show1" class="btn pull-left col-lg-1 col-sm-6 col-md-4"
+						href="movie_recommend_page.do?sel=1">전체</a>
+					<a id="show2" class="btn pull-left col-lg-1 col-sm-6 col-md-4"
+						href="movie_recommend_page.do?sel=2">국내</a>
+					<a id="show3" class="btn pull-left col-lg-1 col-sm-6 col-md-4"
+						href="movie_recommend_page.do?sel=3">해외</a>
 
 				</div>
 
@@ -249,10 +249,8 @@
 	</div>
 
 	<script>
-		var sel = $
-		{
-			sel
-		};
+		var sel = ${sel};
+		
 		if (sel == '1') {
 			document.getElementById("show1").classList.add('on');
 			document.getElementById("show2").classList.remove('on');
@@ -617,6 +615,154 @@
 	      	<div class="row">
 	      		<c:if test="${list.size( ) <= status.index}">
 		      		<c:forEach var="i" begin="${status.index}" end="${list.size()}" step="1">
+		      		<div class="col-lg-12 col-md-6 col-sm-6" style="text-align: center; padding-top: 13px; padding-bottom: 15px;">
+			      		
+			      			<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
+					
+					<div
+						style="padding-top: 10px; padding-left: 10px; float: left; width: 100%;">
+						
+								<div class="all movie" style="float:left;" >
+						<a	href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }"style="display:inline-block; width:40px;font-weight: bold; ">NO.1</a>			
+									
+			      						<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }" style="display:inline-block; width:220px;">${list.get(i-1).getMOVIE_TITLE() }</a> 
+			      				<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }">
+									
+									<img class="card" src="${list.get(i-1).getMOVIE_IMG()}" alt="" style="width:12%; height:12%; ">
+									</a>
+									<c:if test="${i <= 10}">
+										<span class="boxoffice n${i}">${statusMovie.count}</span>
+									</c:if><a class="card-text" style="display:inline-block; width:260px; font-weight: bold; padding-right:40px; padding-left:70px;">${list.get(i-1).getMOVIE_YEAR()} 개봉</a>
+									<a class="movie_rate" href="${list.get(i-1).getMOVIE_ID()}" style="font-weight:bold;"> 평점 ${list.get(i-1).getMOVIE_RATE() }
+									</a>
+										<div class="bg_star star_grade" style="float: left;">
+										<div class="bg_star inner_star" style="width: ${list.get(i-1).getMOVIE_RATE()};"></div>
+										
+						</div></div></div></div></div>
+						
+						
+						
+						
+						
+					<div class="col-lg-12 col-md-6 col-sm-6" style=" text-align: center; padding-top: 13px; padding-bottom: 15px;">
+			      		
+			      			<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
+					
+					<div
+						style="padding-top: 10px; padding-left: 10px; float: left; width: 100%;">
+						
+								<div class="all movie" style="float:left;" >
+						<a	href="movie_detail_page.do?id=${list.get(i-2).getMOVIE_ID() }"style="display:inline-block; width:40px;font-weight: bold; ">NO.2</a>			
+									
+			      						<a href="movie_detail_page.do?id=${list.get(i-2).getMOVIE_ID() }" style="display:inline-block; width:220px;">${list.get(i-2).getMOVIE_TITLE() }</a> 
+			      				<a href="movie_detail_page.do?id=${list.get(i-2).getMOVIE_ID() }">
+									
+									<img class="card" src="${list.get(i-2).getMOVIE_IMG()}" alt="" style="width:12%; height:12%; ">
+									</a>
+									<c:if test="${i <= 10}">
+										<span class="boxoffice n${i}">${statusMovie.count}</span>
+									</c:if><a class="card-text" style="display:inline-block; width:260px; font-weight: bold; padding-right:40px; padding-left:70px;">${list.get(i-2).getMOVIE_YEAR()} 개봉</a>
+									<a class="movie_rate" href="${list.get(i-2).getMOVIE_ID()}" style="font-weight:bold;"> 평점 ${list.get(i-2).getMOVIE_RATE() }
+									</a>
+										<div class="bg_star star_grade" style="float: left;">
+										<div class="bg_star inner_star" style="width: ${list.get(i-2).getMOVIE_RATE()};"></div>
+										
+						</div></div></div></div></div>
+						
+						
+						
+						
+					
+							<div class="col-lg-12 col-md-6 col-sm-6" style=" text-align: center; padding-top: 13px; padding-bottom: 15px;">
+			      		<div
+						style="padding-top: 10px; padding-left: 10px; float: left; width: 100%;">	
+			      			<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
+						
+								<div class="all movie" style="float:left;" >
+						<a	href="movie_detail_page.do?id=${list.get(i-3).getMOVIE_ID() }"style="display:inline-block; width:40px;font-weight: bold;  ">NO.3</a>			
+									
+			      						<a href="movie_detail_page.do?id=${list.get(i-3).getMOVIE_ID() }" style="display:inline-block; width:220px;">${list.get(i-3).getMOVIE_TITLE() }</a> 
+			      				<a href="movie_detail_page.do?id=${list.get(i-3).getMOVIE_ID() }">
+									
+									<img class="card" src="${list.get(i-3).getMOVIE_IMG()}" alt="" style="width:12%; height:12%; ">
+									</a>
+									<c:if test="${i <= 10}">
+										<span class="boxoffice n${i}">${statusMovie.count}</span>
+									</c:if><a class="card-text" style="display:inline-block; width:260px; font-weight: bold; padding-right:40px; padding-left:70px;">${list.get(i-3).getMOVIE_YEAR()} 개봉</a>
+									<a class="movie_rate" href="${list.get(i-3).getMOVIE_ID()}" style="font-weight:bold;"> 평점 ${list.get(i-3).getMOVIE_RATE() }
+									</a>
+										<div class="bg_star star_grade" style="float: left;">
+										<div class="bg_star inner_star" style="width: ${list.get(i-3).getMOVIE_RATE()};"></div>
+										
+						</div></div></div></div></div>		
+						
+						
+							<div class="col-lg-12 col-md-6 col-sm-6" style=" text-align: center; padding-top: 13px; padding-bottom: 15px;">
+			      		<div
+						style="padding-top: 10px; padding-left: 10px; float: left; width: 100%;">	
+			      			<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
+						
+								<div class="all movie" style="float:left;" >
+						<a	href="movie_detail_page.do?id=${list.get(i-4).getMOVIE_ID() }"style="display:inline-block; width:40px;font-weight: bold;  ">NO.4</a>			
+									
+			      						<a href="movie_detail_page.do?id=${list.get(i-4).getMOVIE_ID() }" style="display:inline-block; width:220px;">${list.get(i-4).getMOVIE_TITLE() }</a> 
+			      				<a href="movie_detail_page.do?id=${list.get(i-4).getMOVIE_ID() }">
+									
+									<img class="card" src="${list.get(i-4).getMOVIE_IMG()}" alt="" style="width:12%; height:12%; ">
+									</a>
+									<c:if test="${i <= 10}">
+										<span class="boxoffice n${i}">${statusMovie.count}</span>
+									</c:if><a class="card-text" style="display:inline-block; width:260px; font-weight: bold; padding-right:40px; padding-left:70px;">${list.get(i-4).getMOVIE_YEAR()} 개봉</a>
+									<a class="movie_rate" href="${list.get(i-4).getMOVIE_ID()}" style="font-weight:bold;"> 평점 ${list.get(i-4).getMOVIE_RATE() }
+									</a>
+										<div class="bg_star star_grade" style="float: left;">
+										<div class="bg_star inner_star" style="width: ${list.get(i-4).getMOVIE_RATE()};"></div>
+										
+						</div></div></div></div></div>		
+						
+						
+						
+							<div class="col-lg-12 col-md-6 col-sm-6" style=" text-align: center; padding-top: 13px; padding-bottom: 15px;">
+			      		<div
+						style="padding-top: 10px; padding-left: 10px; float: left; width: 100%;">
+			      			<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
+						
+								<div class="all movie" style="float:left;" >
+						<a	href="movie_detail_page.do?id=${list.get(i-5).getMOVIE_ID() }"style="display:inline-block; width:40px;font-weight: bold; ">NO.5</a>			
+									
+			      						<a href="movie_detail_page.do?id=${list.get(i-5).getMOVIE_ID() }" style="display:inline-block; width:220px;">${list.get(i-5).getMOVIE_TITLE() }</a> 
+			      				<a href="movie_detail_page.do?id=${list.get(i-5).getMOVIE_ID() }">
+									
+									<img class="card" src="${list.get(i-5).getMOVIE_IMG()}" alt="" style="width:12%; height:12%; ">
+									</a>
+									<c:if test="${i <= 10}">
+										<span class="boxoffice n${i}">${statusMovie.count}</span>
+									</c:if><a class="card-text" style="display:inline-block; width:260px; font-weight: bold; padding-right:40px; padding-left:70px;">${list.get(i-5).getMOVIE_YEAR()} 개봉</a>
+									<a class="movie_rate" href="${list.get(i-5).getMOVIE_ID()}" style="font-weight:bold;"> 평점 ${list.get(i-5).getMOVIE_RATE() }
+									</a>
+										<div class="bg_star star_grade" style="float: left;">
+										<div class="bg_star inner_star" style="width: ${list.get(i-5).getMOVIE_RATE()};"></div>
+										
+										
+						</div></div></div></div></div>	
+						
+						
+						
+						</c:forEach></c:if></div></c:forEach></c:if>
+						
+						
+						
+						
+						
+						
+						<c:if test="${sel == '2' }">
+						
+		   	<c:forEach var="i" begin="0" end="${list.size()}" step="1" varStatus="status">
+		  
+		   	
+	      	<div class="row">
+	      		<c:if test="${list.size( ) <= status.index}">
+		      		<c:forEach var="i" begin="${status.index}" end="${list.size()}" step="1">
 		      		<div class="col-lg-12 col-md-6 col-sm-6" style="width: 360%; text-align: center; padding-top: 13px; padding-bottom: 15px;">
 			      		
 			      			<div class="movie_name col-lg-12 col-md-6 col-sm-2 col-xs-2">
@@ -749,11 +895,39 @@
 						
 						
 						
-						</c:forEach></c:if></div></c:forEach></c:if></div></div></div>
+						</c:forEach></c:if></div></c:forEach></c:if>
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						</div></div></div>
 						
 				
 					
-						
+
+
+
+
+
+
+
+
+
+
+
+
+
 						
 		
 

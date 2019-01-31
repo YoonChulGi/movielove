@@ -58,7 +58,8 @@ public class RecomendBean {
 			System.out.println(result.size());
 			request.setAttribute("genre",result);
 		}
-		if(request.getParameter("sel") == null || request.getParameter("sel").equals("1") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("null")) { 
+		//if(request.getParameter("sel") == null || request.getParameter("sel").equals("1") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") ) {
+		if(request.getParameter("sel") == null || "".equals(request.getParameter("sel"))||"1".equals(request.getParameter("sel"))) { 
 			System.out.println("전체");
 			System.out.println(request.getParameter("sel"));
 			List<MovieVO> list = sqlSession.selectList("movie.all");
@@ -70,7 +71,23 @@ public class RecomendBean {
 			}
 			model.addAttribute("list",list);
 			model.addAttribute("sel","1");
+		} else if(request.getParameter("sel").equals("2")) { 
+			System.out.println("국내");
+			model.addAttribute("sel","2");
+			List<MovieVO> list = sqlSession.selectList("movie.all2");
+			
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getMOVIE_TITLE());
+				System.out.println(list.get(i).getMOVIE_YEAR());
+				System.out.println(list.get(i).getMOVIE_IMG());
+				System.out.println(list.get(i).getMOVIE_RATE());
+			}
+			model.addAttribute("list",list);
+			
 		}
+		
+			
+		
 		
 		
 		
@@ -79,6 +96,7 @@ public class RecomendBean {
 		return "movie_recommend_page";
 	}
 }
+
 
 
 
