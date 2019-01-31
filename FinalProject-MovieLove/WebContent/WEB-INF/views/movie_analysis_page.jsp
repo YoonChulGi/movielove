@@ -179,7 +179,7 @@
           var data = google.visualization.arrayToDataTable([
             ['남녀','성비'],
             ['남자',${M}],
-            ['여자',${F}],
+            ['여자',${F}]
           ]);
 
           var options = {
@@ -200,7 +200,7 @@
             ['30대',${ageArr[3]}],
             ['40대',${ageArr[4]}],
             ['50대',${ageArr[5]}],
-            ['60대 이상',${ageArr[5]}],
+            ['60대 이상',${ageArr[5]}]
           ]);
 
           var options = {
@@ -303,7 +303,7 @@
 	    	
 	    	<script type="text/javascript">
 	    		function openMovieSearch(){
-	    			open("movie_search_popup.do", "영화 검색", "toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=777, height=533");
+	    			open("movie_search_popup.do?id=${vo.getMOVIE_ID()}", "영화 검색", "toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=777, height=533");
 	    		}
 	    	</script>
     	</c:if>

@@ -29,7 +29,8 @@ body{
     	</div>
     	<script type="text/javascript">
     		function search(){
-    			opener.location.href="movie_analysis_page2.do";
+    			var id1 = "${id1}";
+    			opener.location.href="movie_analysis_page2.do?id1="+id1+"&id2="+document.getElementById("search-input").value;
     			self.close();
     		}
     	</script>
