@@ -1,6 +1,5 @@
 package spring.main.bean;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.vo.bean.MemVO;
+import spring.vo.bean.MovieDAO;
 import spring.vo.bean.MovieVO;
 import spring.vo.bean.ReviewVO;
 
@@ -23,7 +23,17 @@ public class AnalysisBean {
 	
 	@Autowired
 	private MemVO memvo = null;
+	
+	@Autowired
+	private MovieVO mvo1 = null;
+	
+	@Autowired 
+	private MovieVO mvo2 = null;
+	
+	@Autowired
+	private MovieDAO dao = null;
 
+	@SuppressWarnings("deprecation")
 	@RequestMapping("movie_analysis_page.do")
 	public String movie_analysis_page(HttpServletRequest request, Model model) {
 		System.out.println("movie_analysis_page");
@@ -49,9 +59,10 @@ public class AnalysisBean {
 					break;
 				}
 			}
+			int [] ageArr  = dao.analysis(movieId);
 			
 			// 남녀 성비 분석 (sex rate analysis) 
-			List<ReviewVO> li = sqlSession.selectList("review.reviewInfoById",movieId);
+			/*List<ReviewVO> li = sqlSession.selectList("review.reviewInfoById",movieId);
 			int M = 0; 
 			int F = 0;
 			Date today = new Date();
@@ -89,14 +100,14 @@ public class AnalysisBean {
 				} else if(x>=60) {
 					ageArr[6] ++;
 				}
-			}
-			model.addAttribute("M",M);
-			model.addAttribute("F",F);
-			for(int i=0;i<ageArr.length;i++) {
+			}*/ // for 
+			model.addAttribute("M",ageArr[7]);
+			model.addAttribute("F",ageArr[8]);
+			for(int i=0;i<ageArr.length-2;i++) {
 				System.out.println("ageArr["+i+"]= "+ ageArr[i]);
 			}
 			model.addAttribute("ageArr",ageArr);
-			// 연령대별 분석 
+			
 			
 			
 		}
@@ -109,14 +120,40 @@ public class AnalysisBean {
 	}
 
 	@RequestMapping("movie_analysis_page2.do")
-	public String movie_analysis_page2() {
+	public String movie_analysis_page2(String id1, String id2, Model model) {
 		System.out.println("movie_analysis_page2");
+		System.out.println(id1);
+		System.out.println(id2);
+		
+		mvo1 = sqlSession.selectOne("movie.movieInfoById",id1);
+		mvo2 = sqlSession.selectOne("movie.movieInfoByTitle",id2);
+		
+		model.addAttribute("mvo1",mvo1);
+		model.addAttribute("mvo2",mvo2);
+		
+		int [] arr1 = dao.analysis(mvo1.getMOVIE_ID());
+		int [] arr2 = dao.analysis(mvo2.getMOVIE_ID());
+		
+		
+		model.addAttribute("M1",arr1[7]);
+		model.addAttribute("F1",arr1[8]);
+		model.addAttribute("M2",arr2[7]);
+		model.addAttribute("F2",arr2[8]);
+		
+		
+		/*for(int i=0;i<ageArr.length;i++) {
+			System.out.println("ageArr["+i+"]= "+ ageArr[i]);
+		}*/
+		model.addAttribute("ageArr1",arr1);
+		model.addAttribute("ageArr2",arr2);
+		
 		return "movie_analysis_page2";
 	}
 
 	@RequestMapping("movie_search_popup.do")
-	public String movie_search_popup() {
+	public String movie_search_popup(String id, Model model) {
 		System.out.println("movie_search_popup.do");
+		model.addAttribute("id1",id);
 		return "movie_search_popup";
 	}
 	
