@@ -135,7 +135,7 @@ public class InfoBean {
 		model.addAttribute("review",reviewList);
 		int sumRating = 0;
 		for(int i=0;i<reviewList.size();i++) {
-			sumRating += Integer.parseInt(reviewList.get(i).getREVIEW_RATING());
+			sumRating += reviewList.get(i).getREVIEW_RATING();
 		}
 		float avgRating = (float) sumRating / (float) reviewList.size();
 		int avgRatingPer = (int)(avgRating * 10);  //소수점 버리고 10 곱하기 ->평점 별 퍼센트 조정하기 위해서
