@@ -4,65 +4,109 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="movie">
 	<select id="movieInfo_showing" resultType="MovieVO">
-		SELECT MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID
+		SELECT
+		MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID
 		FROM MOVIE
 		WHERE MOVIE_SHOWING = '1'
 		ORDER BY MOVIE_RATE DESC
 	</select>
-	
+
 	<select id="movieInfo_past" resultType="MovieVO">
-		SELECT MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_ID
+		SELECT
+		MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_ID
 		FROM MOVIE
-		WHERE MOVIE_SHOWING = '0'
+		WHERE MOVIE_SHOWING
+		= '0'
 		ORDER BY MOVIE_YEAR DESC
 	</select>
-	
+
 	<select id="movieInfoAll" resultType="MovieVO">
 		select * from MOVIE
 	</select>
-	
-	<select id="movieInfoById" parameterType="String" resultType="MovieVO">
+
+	<select id="movieInfoById" parameterType="String"
+		resultType="MovieVO">
 		select * from MOVIE where MOVIE_ID=#{value}
 	</select>
-	
-	<select id="movieInfoByTitle" parameterType="String" resultType="MovieVO">
+
+	<select id="movieInfoByTitle" parameterType="String"
+		resultType="MovieVO">
 		select * from MOVIE where MOVIE_TITLE=#{value}
 	</select>
-	
+
 	<select id="movieRateRanking" resultType="String">
-		select MOVIE_ID from MOVIE order by MOVIE_RATE DESC
+		select MOVIE_ID from
+		MOVIE order by MOVIE_RATE DESC
 	</select>
-	
+
 	<select id="movieRateRanking_showing" resultType="String">
-		select MOVIE_ID from MOVIE where MOVIE_SHOWING='1' order by MOVIE_RATE DESC
+		select MOVIE_ID
+		from MOVIE where MOVIE_SHOWING='1' order by MOVIE_RATE DESC
 	</select>
-	
-	<select id="movieIdByTitle" parameterType="String" resultType="String">
+
+	<select id="movieIdByTitle" parameterType="String"
+		resultType="String">
 		select MOVIE_ID from MOVIE where MOVIE_TITLE=#{value}
 	</select>
-	
-	<select id="movieImgByTitle" parameterType="String" resultType="String">
+
+	<select id="movieImgByTitle" parameterType="String"
+		resultType="String">
 		select MOVIE_IMG from MOVIE where MOVIE_TITLE=#{value}
 	</select>
-	
+
 	<select id="all" parameterType="String" resultType="MovieVO">
-	SELECT MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID
-		FROM MOVIE
-		WHERE MOVIE_SHOWING = '1'
-		ORDER BY MOVIE_TITLE DESC
+	<![CDATA[
+		SELECT
+			MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID
+		FROM
+			(SELECT MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID
+			FROM MOVIE
+			WHERE MOVIE_SHOWING = '1'
+			ORDER BY MOVIE_TITLE DESC)
+		WHERE
+			ROWNUM < 6
+	]]>
 	</select>
-	
+
 	<select id="all2" parameterType="String" resultType="MovieVO">
-	SELECT MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID FROM MOVIE 
-	WHERE MOVIE_COUNTRY = '한국'
-	</select>
-	
-	<select id="all3" parameterType="String" resultType="MovieVO">
-	<![CDATA[ 
-	SELECT MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID FROM MOVIE 
-	WHERE MOVIE_COUNTRY <> '한국'
+	<![CDATA[
+		SELECT
+			'NO.'||ROWNUM NUM,MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID
+		FROM
+			(SELECT MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID
+			FROM MOVIE
+			WHERE MOVIE_COUNTRY = '한국')
+		WHERE
+			ROWNUM < 6
 	]]>
 	</select>
 	
-	
+
+	<select id="all3" parameterType="String" resultType="MovieVO">
+	<![CDATA[
+		SELECT
+			'NO.'||ROWNUM NUM,MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID
+		FROM
+			(SELECT MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID
+			FROM MOVIE
+			WHERE MOVIE_COUNTRY <> '한국')
+		WHERE
+			ROWNUM < 6
+	]]>
+	</select>
+
+	<select id="all4" parameterType="String" resultType="MovieVO">
+		<![CDATA[
+		SELECT
+			'NO.'||ROWNUM NUM,MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID
+		FROM
+			(SELECT MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID
+			FROM MOVIE
+			WHERE MOVIE_GENRE LIKE '%액션%' OR MOVIE_GENRE LIKE '%SF%')
+		WHERE
+			ROWNUM < 6
+	]]>
+	</select>
+
+
 </mapper>

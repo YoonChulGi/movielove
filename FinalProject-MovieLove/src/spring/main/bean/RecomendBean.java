@@ -58,7 +58,7 @@ public class RecomendBean {
 			System.out.println(result.size());
 			request.setAttribute("genre",result);
 		}
-		//if(request.getParameter("sel") == null || request.getParameter("sel").equals("1") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("") ) {
+
 		if(request.getParameter("sel") == null || "".equals(request.getParameter("sel"))||"1".equals(request.getParameter("sel"))) { 
 			System.out.println("전체");
 			System.out.println(request.getParameter("sel"));
@@ -84,8 +84,34 @@ public class RecomendBean {
 			}
 			model.addAttribute("list",list);
 			
+		}else if(request.getParameter("sel").equals("3")) { 
+			System.out.println("해외");
+			model.addAttribute("sel","3");
+			List<MovieVO> list = sqlSession.selectList("movie.all3");
+			
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getMOVIE_TITLE());
+				System.out.println(list.get(i).getMOVIE_YEAR());
+				System.out.println(list.get(i).getMOVIE_IMG());
+				System.out.println(list.get(i).getMOVIE_RATE());
+			}
+			model.addAttribute("list",list);
+			
+		}else if(request.getParameter("sel").equals("4")) { 
+			System.out.println("액션/SF");
+			model.addAttribute("sel","4");
+			List<MovieVO> list = sqlSession.selectList("movie.all4");
+			
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getMOVIE_TITLE());
+				System.out.println(list.get(i).getMOVIE_YEAR());
+				System.out.println(list.get(i).getMOVIE_IMG());
+				System.out.println(list.get(i).getMOVIE_RATE());
+			}
+			model.addAttribute("list",list);
+			
 		}
-		
+
 			
 		
 		
