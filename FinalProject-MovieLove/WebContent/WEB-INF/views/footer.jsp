@@ -7,7 +7,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
   <head>
 	<style>
@@ -16,6 +16,16 @@
 		}
 	</style>
     <!-- Custom styles for this template -->
+    
+    
+	<!-- 스크롤 up 버튼 스크립트 -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		function fnMove(seq){
+    		var offset = $("#scrollup" + seq).offset();
+       		$('html, body').animate({scrollTop : offset.top}, 300);
+    	}
+	</script>
     
   </head>
 
@@ -100,7 +110,9 @@
     </div>
     <!-- =====  FOOTER END  ===== -->
   </div>
-  <a id="scrollup"></a>
+  
+  <a id="scrollup" href="javascript:void(0);" onclick="fnMove()"></a>
+  
   <script src="js/jQuery_v3.1.1.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/bootstrap.min.js"></script>

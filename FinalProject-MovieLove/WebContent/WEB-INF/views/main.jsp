@@ -50,7 +50,6 @@
     	<jsp:include page="footer.jsp" flush="false"/>
     <!-- =====  FOOTER END  ===== -->
     	  
-  <a id="scrollup"></a>
   <script src="js/jQuery_v3.1.1.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
