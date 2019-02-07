@@ -27,6 +27,38 @@
 	});
 	</script>
 	
+	<!-- 공감 버튼 클릭 이벤트 스크립트 -->
+	<script>
+	function SympathyClick(writer, date){
+		var allData = { "writer": writer, "date": date };
+		
+		$.ajax({
+			async : true,
+			type : 'POST',
+			data : allData,
+			url : "sympathyUp.do"
+		});
+		
+		location.reload();  //페이지 새로고침
+	}
+	</script>
+	
+	<!-- 비공감 버튼 클릭 이벤트 스크립트 -->
+	<script>
+	function notSympathyClick(writer, date){
+		var allData = { "writer": writer, "date": date };
+		
+		$.ajax({
+			async : true,
+			type : 'POST',
+			data : allData,
+			url : "notSympathyUp.do"
+		});
+		
+		location.reload();  //페이지 새로고침
+	}
+	</script>
+	
 	<script>
 	$(document).ready(function(){
 		<!-- 하단 페이지 번호 스크립트 -->
@@ -95,8 +127,8 @@
 					</dl>
 				</div>
 				<div class="btn_area">
-					<a class="_sympathyButton" href="#" onclick="parent.clickcr(this, 'ara.sym', '', '', event);"></a><strong><span class="sympathy_14910863 count">${review.REVIEW_SYMPATHY}</span></strong>
-					<a class="_notSympathyButton" href="#" onclick="parent.clickcr(this, 'ara.opp', '', '', event);"></a><strong><span class="notSympathy_14910863 count v2">${review.REVIEW_NOTSYMPATHY}</span></strong>
+					<a id="sympathy${status.index}" class="_sympathyButton" href="javascript:void(0);" onclick="SympathyClick('${review.REVIEW_WRITER}', '${review.REVIEW_DATE}')"></a><strong><span class="sympathy_14910863 count">${review.REVIEW_SYMPATHY}</span></strong>
+					<a id="notSympathy${status.index}" class="_notSympathyButton" href="javascript:void(0);" onclick="notSympathyClick('${review.REVIEW_WRITER}', '${review.REVIEW_DATE}')"></a><strong><span class="notSympathy_14910863 count v2">${review.REVIEW_NOTSYMPATHY}</span></strong>
 				</div>
 			</li>
 			</c:forEach>
