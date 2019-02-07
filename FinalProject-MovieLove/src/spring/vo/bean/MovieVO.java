@@ -23,7 +23,14 @@ public class MovieVO {
 	private String MOVIE_DIRECTOR;
 	private String MOVIE_ACTORS;
 	private String MOVIE_TRAILER;
+	private String NUM;
 	
+	public String getNUM() {
+		return NUM;
+	}
+	public void setNUM(String nUM) {
+		NUM = nUM;
+	}
 	public String getMOVIE_TRAILER() {
 		return MOVIE_TRAILER;
 	}

@@ -68,6 +68,7 @@ public class RecomendBean {
 				System.out.println(list.get(i).getMOVIE_YEAR());
 				System.out.println(list.get(i).getMOVIE_IMG());
 				System.out.println(list.get(i).getMOVIE_RATE());
+				System.out.println(list.get(i).getNUM());
 			}
 			model.addAttribute("list",list);
 			model.addAttribute("sel","1");
@@ -102,6 +103,19 @@ public class RecomendBean {
 			model.addAttribute("sel","4");
 			List<MovieVO> list = sqlSession.selectList("movie.all4");
 			
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getMOVIE_TITLE());
+				System.out.println(list.get(i).getMOVIE_YEAR());
+				System.out.println(list.get(i).getMOVIE_IMG());
+				System.out.println(list.get(i).getMOVIE_RATE());
+			}
+			model.addAttribute("list",list);
+			
+		}else if(request.getParameter("sel").equals("5")) { 
+			System.out.println("멜로/드라마");
+			model.addAttribute("sel","5");
+			List<MovieVO> list = sqlSession.selectList("movie.all5");
+		
 			for(int i=0;i<list.size();i++) {
 				System.out.println(list.get(i).getMOVIE_TITLE());
 				System.out.println(list.get(i).getMOVIE_YEAR());
