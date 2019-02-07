@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.google.gson.JsonArray;
@@ -42,8 +43,11 @@ public class RankingBean {
 	private MovieVO Movievo = null;
 
 	@RequestMapping("movie_ranking_page.do")
-	public String movie_ranking_page(HttpServletRequest request) throws OpenAPIFault, Exception {
+	public String movie_ranking_page(HttpServletRequest request, Model model) throws OpenAPIFault, Exception {
 		System.out.println("MainBean-movie_ranking_page()");
+		
+		List<MovieVO> movieList = sqlSession.selectList("movie.movieInfoAll");  //전체 영화 정보 가져옴
+		model.addAttribute("movieList", movieList);
 
 		MovieRanking rankingInfo = new MovieRanking();
 		

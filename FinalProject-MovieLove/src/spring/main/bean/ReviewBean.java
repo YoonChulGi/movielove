@@ -16,7 +16,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import spring.vo.bean.MovieVO;
 import spring.vo.bean.ReviewVO;
@@ -197,7 +199,8 @@ public class ReviewBean {
 			page = "1";  //기본 페이지 1로 설정
 		}
 		System.out.println("movieId: "+movieId+", menu: "+menu+", page: "+page);
-		
+
+		model.addAttribute("movieId", movieId);
 		model.addAttribute("page", page);
 		model.addAttribute("menu", menu);
 
@@ -239,6 +242,30 @@ public class ReviewBean {
 		model.addAttribute("reviewList", pageList);
 		
 		return "frame_review_list";
+	}
+	
+	@RequestMapping("sympathyUp.do")
+	public void SympathyUp(@RequestParam(value="writer") String writer, @RequestParam(value="date") String date) throws Exception {
+		System.out.println("ReviewBean-sympathyUp()");
+		
+		System.out.println("writer: "+writer);
+		System.out.println("date: "+date);
+		Reviewvo.setREVIEW_WRITER(writer);
+		Reviewvo.setREVIEW_DATE(date);
+
+		sqlSession.update("review.SympathyUp", Reviewvo);
+	}
+	
+	@RequestMapping("notSympathyUp.do")
+	public void NotSympathyUp(@RequestParam(value="writer") String writer, @RequestParam(value="date") String date) throws Exception {
+		System.out.println("ReviewBean-notSympathyUp()");
+
+		System.out.println("writer: "+writer);
+		System.out.println("date: "+date);
+		Reviewvo.setREVIEW_WRITER(writer);
+		Reviewvo.setREVIEW_DATE(date);
+
+		sqlSession.update("review.notSympathyUp", Reviewvo);
 	}
 	
 }

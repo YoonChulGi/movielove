@@ -24,13 +24,11 @@
 		select * from MOVIE
 	</select>
 
-	<select id="movieInfoById" parameterType="String"
-		resultType="MovieVO">
+	<select id="movieInfoById" parameterType="String" resultType="MovieVO">
 		select * from MOVIE where MOVIE_ID=#{value}
 	</select>
 
-	<select id="movieInfoByTitle" parameterType="String"
-		resultType="MovieVO">
+	<select id="movieInfoByTitle" parameterType="String" resultType="MovieVO">
 		select * from MOVIE where MOVIE_TITLE=#{value}
 	</select>
 

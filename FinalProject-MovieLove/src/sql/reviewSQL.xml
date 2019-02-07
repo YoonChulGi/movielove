@@ -18,7 +18,6 @@
 		select * from REVIEW where REVIEW_MOVIEID=#{value}
 	</select>
 	
-	
 	<select id="reviewInfoById_OrderBySYMPATHY" parameterType="String" resultType="ReviewVO">
 		select * from REVIEW where REVIEW_MOVIEID=#{value} order by REVIEW_SYMPATHY DESC
 	</select>
@@ -32,4 +31,16 @@
 	<select id="reviewInfoById_OrderByRATING" parameterType="String" resultType="ReviewVO">
 		select * from REVIEW where REVIEW_MOVIEID=#{value} order by REVIEW_RATING DESC
 	</select>
+	
+	<update id="SympathyUp" parameterType="ReviewVO">
+		update REVIEW
+		set REVIEW_SYMPATHY=REVIEW_SYMPATHY+1
+		where REVIEW_DATE=#{REVIEW_DATE} and REVIEW_WRITER=#{REVIEW_WRITER}
+	</update>
+	
+	<update id="notSympathyUp" parameterType="ReviewVO">
+		update REVIEW
+		set REVIEW_NOTSYMPATHY=REVIEW_NOTSYMPATHY+1
+		where REVIEW_DATE=#{REVIEW_DATE} and REVIEW_WRITER=#{REVIEW_WRITER}
+	</update>
 </mapper>

@@ -76,7 +76,7 @@ public class MovieRanking {
 			vo.setTITLE((object.get("movieNm").toString()).replaceAll("\"",""));
 			vo.setAUDICNT(comma((object.get("audiCnt").toString()).replaceAll("\"","")));
 			vo.setRATE((object.get("salesShare").toString()).replaceAll("\"",""));
-			vo.setDATE(getDate(targetDt,weekGb));
+			vo.setDATE(targetDt);
 			
 			dailyList.add(vo);
 		}
@@ -117,6 +117,21 @@ public class MovieRanking {
 		targetDt = sdf.format(calendar.getTime());
 		System.out.println("Date: "+targetDt);
 		
+		String date = "";   //랭킹 기준 날짜 기간
+		String lastDate = "";  //기준 날짜의 시작 기간 
+		// 주간일 경우
+		if(weekGb.equals("0")) {
+			calendar.add(calendar.DATE, -6); // 6일을 뺀다
+			lastDate = sdf.format(calendar.getTime());
+			date = lastDate + " ~ " + targetDt;
+		}
+		// 주말일 경우
+		else if(weekGb.equals("1")) {
+			calendar.add(calendar.DATE, -2); // 2일을 뺀다
+			lastDate = sdf.format(calendar.getTime());
+			date = lastDate + " ~ " + targetDt;
+		}
+		
 		BufferedReader bufferedReader = null;
 		String result = "";
 		try {
@@ -150,7 +165,7 @@ public class MovieRanking {
 			vo.setTITLE((object.get("movieNm").toString()).replaceAll("\"",""));
 			vo.setAUDICNT(comma((object.get("audiCnt").toString()).replaceAll("\"","")));
 			vo.setRATE((object.get("salesShare").toString()).replaceAll("\"",""));
-			vo.setDATE(getDate(targetDt,weekGb));
+			vo.setDATE(date);
 			
 			weeklyList.add(vo);
 		}
@@ -158,6 +173,7 @@ public class MovieRanking {
 		return weeklyList;
 	}
 	
+	// 1000단위 콤마 넣기
 	public static String comma(String str) {
 		  int inValues = Integer.parseInt(str);
 		  DecimalFormat Commas = new DecimalFormat("#,###");
@@ -165,16 +181,4 @@ public class MovieRanking {
 		  return result_int;
 	}
 	
-	public static String getDate(String date, String weekGb) {
-		String last_date = "";
-		if(weekGb.equals("0")) {
-			last_date = String.valueOf(Integer.parseInt(date) - 6);
-			date = last_date + " ~ " + date;
-		} else if(weekGb.equals("1")) {
-			last_date = String.valueOf(Integer.parseInt(date) - 2);
-			date = last_date + " ~ " + date;
-		}
-		
-		return date;
-	}
 }
