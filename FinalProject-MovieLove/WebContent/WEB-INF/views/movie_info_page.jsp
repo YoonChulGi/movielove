@@ -184,7 +184,7 @@
       	<div class="row mt_20">
       	
       	<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
-      		<c:if test="${sel == '1' }">
+      		<c:if test="${sel == '1' || sel == '3'}">
 		   	<c:forEach var="i" begin="1" end="${list.size()}" step="4" varStatus="status">
 	      	<div class="row">
 	      		<c:if test="${list.size() <= status.index + 3}">
@@ -204,8 +204,9 @@
 				     				<h4 class="card-title" style="max-height:28px;overflow:hidden;">
 			      						<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }">${list.get(i-1).getMOVIE_TITLE() }</a> 
 			      					</h4>
-			      					<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
-			      					
+			      					<c:if test="${sel=='1' }">
+			      						<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
+			      					</c:if>
 			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()} 개봉</p>
 			      				</div>
 			      			</div>
@@ -230,7 +231,9 @@
 			     					<h4 class="card-title" style="max-height:28px;overflow:hidden;">
 			      						<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }">${list.get(i-1).getMOVIE_TITLE() }</a> 
 			      					</h4>
-			      					<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
+			      					<c:if test="${sel=='1' }">
+			      						<p class="card-text">예매율 ${list.get(i-1).getMOVIE_RATE()}%</p>
+			      					</c:if>
 			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()} 개봉</p>
 			      				</div>
 			      			</div>
@@ -298,31 +301,6 @@
 		    	</c:forEach>
 		    
 		    </c:if>
-		    
-		    
-		    <c:if test="${sel == '3' }">
-		      	<div class="row">
-			      	<c:forEach var="i" begin="1" end="3" step="1">
-		    		<div class="col-lg-3 col-sm-6 col-xs-6 col-md-6">
-		    			<div class="portfolio-item" align="center">
-		    				<div class="card h-100">
-		    					<div class="img-body" align="center">
-		    						<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG() }" alt="" style="width:100%;"></a>
-		    					</div>
-		    					<div class="card-body" id="card-body" align="center" style="max-height:54px">
-		    						<h4 class="card-title" style="max-height:28px;overflow:hidden;">
-			      						<a href="movie_detail_page.do?${list.get(i-1).getMOVIE_ID() }" class="movietitle">${ list.get(i-1).getMOVIE_TITLE()}</a> 
-			      					</h4>
-			      					<p class="card-text">${list.get(i-1).getMOVIE_YEAR()} 개봉</p> <!-- ${ids[i]} -->
-		    					</div>
-		    				</div>
-		    			</div>
-		    		</div>
-		    	</c:forEach>
-		      	</div>
-	      	</c:if>
-	      	
-	      	
 	      	
       	</div>
       	
