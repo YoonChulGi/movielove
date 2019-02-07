@@ -32,10 +32,11 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
   <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  
 </head>
 
 <body>
-	
+
       <div class="header-top">
         <div class="container">
           <div class="row">
@@ -74,9 +75,9 @@
             <p>menu</p>
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse"> <span class="i-bar"><i class="fa fa-bars"></i></span></button>
             <div class="main-search">
-                <input id="search-input" name="search" value="" placeholder="영화 검색" class="form-control input-lg mb_10" autocomplete="off" type="text">
+                <input id="search-menu" name="search" value="" placeholder="영화 검색" class="form-control input-lg mb_10" autocomplete="off" type="text">
                 <span class="input-group-btn">
-              		<button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+              		<button type="button" class="btn btn-default btn-lg" onclick="searchMovie()"><i class="fa fa-search"></i></button>
             	</span>
             </div>
             <div class="collapse navbar-collapse js-navbar-collapse"  style="float:right;">
@@ -120,13 +121,19 @@
     <!-- =====  HEADER END  ===== -->
     
   </div>
-  <a id="scrollup"></a>
-  <script src="js/jQuery_v3.1.1.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.magnific-popup.js"></script>
-  <script src="js/jquery.firstVisitPopup.js"></script>
-  <script src="js/custom.js"></script>
+  
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  	<script src="js/jQuery_v3.1.1.min.js"></script>
+  	<script src="js/jquery-ui.js"></script>
+  	<script src="js/jquery.magnific-popup.js"></script>
+  	<script src="js/jquery.firstVisitPopup.js"></script>
+  	<script src="js/owl.carousel.min.js"></script>
+  	<script src="js/bootstrap.min.js"></script>
+  	<script src="js/jquery.magnific-popup.js"></script>
+ 	<script src="js/jquery.firstVisitPopup.js"></script>
+ 	<script src="js/custom.js"></script>
 </body>
 
 </html>
