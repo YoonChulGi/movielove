@@ -227,7 +227,11 @@
     <jsp:include page="menu.jsp" flush="false"/>
     <!-- =====  HEADER END  ===== -->
     
-    <div class="container"> <!-- container -->
+    <div class="container" style="height:462px;"> <!-- container -->
+    	
+    	<c:if test="${!searchFlag }">
+    		<div style="height:150px;" align="center"><h2 style="padding-top:70px;">분석할 영화를 검색해주세요</h2></div>
+    	</c:if>
     	
     	<div class="analysis-search">
 			<input id="search-movie" name="review_title" placeholder="영화 검색" class="form-control input-lg" type="text">
@@ -308,9 +312,6 @@
 	    	</script>
     	</c:if>
     	
-    	<c:if test="${!searchFlag }">
-    		<div style="height:350px;"></div>
-    	</c:if>
     	
     	
     	

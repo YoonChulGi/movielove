@@ -169,7 +169,7 @@
 		    			<div class="portfolio-item" align="center">
 		    				<div class="card h-100">
 		    					<div class="img-body" align="center">
-		    						<a href="movie_detail_page.do?${list.get(i-1).getMOVIE_ID() }"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG() }" alt="" style="width:100%;"></a>
+		    						<a href="movie_detail_page.do?id=${list.get(i-1).getMOVIE_ID() }"><img class="card-img-top" src="${list.get(i-1).getMOVIE_IMG() }" alt="" style="width:100%;"></a>
 		    					</div>
 		    					<div class="card-body" id="card-body" align="center" style="max-height:54px">
 		    						<h4 class="card-title" style="max-height:28px;overflow:hidden;">

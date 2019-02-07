@@ -120,6 +120,7 @@ public class InfoBean {
 		System.out.println("id: "+id);
 		
 		vo = sqlSession.selectOne("movie.movieInfoById", id);
+		System.out.println("vo ok");
 		if(vo.getMOVIE_ACTORS().length() > 80) {
 			String actors = vo.getMOVIE_ACTORS().substring(0, 80);
 			vo.setMOVIE_ACTORS(actors+"...");
