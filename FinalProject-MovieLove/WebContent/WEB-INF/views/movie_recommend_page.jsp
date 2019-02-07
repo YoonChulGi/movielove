@@ -220,12 +220,11 @@
 						연령별 <b class="caret"></b>
 					</button>
 					<ul class="dropdown-menu col-lg-3 col-sm-6 col-md-4">
-						<li><a class="show8" href="movie_recommend_page.do?sel=8">10대</a></li>
-						<li><a class="show9" href="movie_recommend_page.do?sel=9">20대</a></li>
-						<li><a class="show10" href="movie_recommend_page.do?sel=10">30대</a></li>
-						<li><a class="show11" href="movie_recommend_page.do?sel=11">40대</a></li>
-						<li><a class="show12" href="movie_recommend_page.do?sel=12">50대</a></li>
-						<li><a class="show13" href="movie_recommend_page.do?sel=13">60대이상</a></li>
+						<li><a class="show8" href="movie_recommend_page.do?sel=8">전체이용가</a></li>
+						<li><a class="show9" href="movie_recommend_page.do?sel=9">12세이용가</a></li>
+						<li><a class="show10" href="movie_recommend_page.do?sel=10">15세이용가</a></li>
+						<li><a class="show11" href="movie_recommend_page.do?sel=11">청소년관람불가</a></li>
+						
 					</ul>
 				</div>
 				<div class="dropdown ">
@@ -235,16 +234,17 @@
 						연도별 <b class="caret"></b>
 					</button>
 					<ul class="dropdown-menu col-lg-3 col-sm-6 col-md-4">
-						<li><a class="show14" href="movie_recommend_page.do?sel=14">1970년대</a></li>
-						<li><a class="show15" href="movie_recommend_page.do?sel=15">1980년대</a></li>
-						<li><a class="show16" href="movie_recommend_page.do?sel=16">1990년대</a></li>
-						<li><a class="show17" href="movie_recommend_page.do?sel=17">2000년대</a></li>
-						<li><a class="show18" href="movie_recommend_page.do?sel=18">2010년대</a></li>
+						<li><a class="show14" href="movie_recommend_page.do?sel=12">1970년대</a></li>
+						<li><a class="show15" href="movie_recommend_page.do?sel=13">1980년대</a></li>
+						<li><a class="show16" href="movie_recommend_page.do?sel=14">1990년대</a></li>
+						<li><a class="show17" href="movie_recommend_page.do?sel=15">2000년대</a></li>
+						<li><a class="show18" href="movie_recommend_page.do?sel=16">2010년대</a></li>
 
 					</ul>
 				</div>
 			</nav>
 		</div>
+	
 
 	</div>
 
@@ -268,8 +268,6 @@
 			document.getElementById("show14").classList.remove('on');
 			document.getElementById("show15").classList.remove('on');
 			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
 
 		} else if (sel == '2') {
 			document.getElementById("show2").classList.add('on');
@@ -288,8 +286,7 @@
 			document.getElementById("show14").classList.remove('on');
 			document.getElementById("show15").classList.remove('on');
 			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
+
 		} else if (sel == '3') {
 			document.getElementById("show3").classList.add('on');
 			document.getElementById("show1").classList.remove('on');
@@ -307,8 +304,7 @@
 			document.getElementById("show14").classList.remove('on');
 			document.getElementById("show15").classList.remove('on');
 			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
+
 		} else if (sel == '4') {
 			document.getElementById("show4").classList.add('on');
 			document.getElementById("show1").classList.remove('on');
@@ -326,8 +322,7 @@
 			document.getElementById("show14").classList.remove('on');
 			document.getElementById("show15").classList.remove('on');
 			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
+
 		} else if (sel == '5') {
 			document.getElementById("show5").classList.add('on');
 			document.getElementById("show1").classList.remove('on');
@@ -345,8 +340,7 @@
 			document.getElementById("show14").classList.remove('on');
 			document.getElementById("show15").classList.remove('on');
 			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
+
 		} else if (sel == '6') {
 			document.getElementById("show6").classList.add('on');
 			document.getElementById("show1").classList.remove('on');
@@ -364,8 +358,7 @@
 			document.getElementById("show14").classList.remove('on');
 			document.getElementById("show15").classList.remove('on');
 			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
+
 		} else if (sel == '7') {
 			document.getElementById("show7").classList.add('on');
 			document.getElementById("show1").classList.remove('on');
@@ -383,8 +376,7 @@
 			document.getElementById("show14").classList.remove('on');
 			document.getElementById("show15").classList.remove('on');
 			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
+
 		} else if (sel == '8') {
 			document.getElementById("show8").classList.add('on');
 			document.getElementById("show1").classList.remove('on');
@@ -402,8 +394,7 @@
 			document.getElementById("show14").classList.remove('on');
 			document.getElementById("show15").classList.remove('on');
 			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
+
 		} else if (sel == '9') {
 			document.getElementById("show9").classList.add('on');
 			document.getElementById("show1").classList.remove('on');
@@ -421,8 +412,7 @@
 			document.getElementById("show14").classList.remove('on');
 			document.getElementById("show15").classList.remove('on');
 			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
+
 		} else if (sel == '10') {
 			document.getElementById("show10").classList.add('on');
 			document.getElementById("show1").classList.remove('on');
@@ -440,8 +430,7 @@
 			document.getElementById("show14").classList.remove('on');
 			document.getElementById("show15").classList.remove('on');
 			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
+
 		} else if (sel == '11') {
 			document.getElementById("show11").classList.add('on');
 			document.getElementById("show1").classList.remove('on');
@@ -459,8 +448,7 @@
 			document.getElementById("show14").classList.remove('on');
 			document.getElementById("show15").classList.remove('on');
 			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
+
 		} else if (sel == '12') {
 			document.getElementById("show12").classList.add('on');
 			document.getElementById("show1").classList.remove('on');
@@ -478,8 +466,7 @@
 			document.getElementById("show14").classList.remove('on');
 			document.getElementById("show15").classList.remove('on');
 			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
+
 		} else if (sel == '13') {
 			document.getElementById("show13").classList.add('on');
 			document.getElementById("show1").classList.remove('on');
@@ -497,8 +484,7 @@
 			document.getElementById("show14").classList.remove('on');
 			document.getElementById("show15").classList.remove('on');
 			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
+
 		} else if (sel == '14') {
 			document.getElementById("show14").classList.add('on');
 			document.getElementById("show1").classList.remove('on');
@@ -516,8 +502,7 @@
 			document.getElementById("show13").classList.remove('on');
 			document.getElementById("show15").classList.remove('on');
 			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
+
 		} else if (sel == '15') {
 			document.getElementById("show15").classList.add('on');
 			document.getElementById("show1").classList.remove('on');
@@ -535,8 +520,7 @@
 			document.getElementById("show13").classList.remove('on');
 			document.getElementById("show14").classList.remove('on');
 			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
+
 		} else if (sel == '16') {
 			document.getElementById("show16").classList.add('on');
 			document.getElementById("show1").classList.remove('on');
@@ -554,47 +538,8 @@
 			document.getElementById("show13").classList.remove('on');
 			document.getElementById("show14").classList.remove('on');
 			document.getElementById("show15").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
-		} else if (sel == '17') {
-			document.getElementById("show17").classList.add('on');
-			document.getElementById("show1").classList.remove('on');
-			document.getElementById("show2").classList.remove('on');
-			document.getElementById("show3").classList.remove('on');
-			document.getElementById("show4").classList.remove('on');
-			document.getElementById("show5").classList.remove('on');
-			document.getElementById("show6").classList.remove('on');
-			document.getElementById("show7").classList.remove('on');
-			document.getElementById("show8").classList.remove('on');
-			document.getElementById("show9").classList.remove('on');
-			document.getElementById("show10").classList.remove('on');
-			document.getElementById("show11").classList.remove('on');
-			document.getElementById("show12").classList.remove('on');
-			document.getElementById("show13").classList.remove('on');
-			document.getElementById("show14").classList.remove('on');
-			document.getElementById("show15").classList.remove('on');
-			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show18").classList.remove('on');
-		} else if (sel == '18') {
-			document.getElementById("show18").classList.add('on');
-			document.getElementById("show1").classList.remove('on');
-			document.getElementById("show2").classList.remove('on');
-			document.getElementById("show3").classList.remove('on');
-			document.getElementById("show4").classList.remove('on');
-			document.getElementById("show5").classList.remove('on');
-			document.getElementById("show6").classList.remove('on');
-			document.getElementById("show7").classList.remove('on');
-			document.getElementById("show8").classList.remove('on');
-			document.getElementById("show9").classList.remove('on');
-			document.getElementById("show10").classList.remove('on');
-			document.getElementById("show11").classList.remove('on');
-			document.getElementById("show12").classList.remove('on');
-			document.getElementById("show13").classList.remove('on');
-			document.getElementById("show14").classList.remove('on');
-			document.getElementById("show15").classList.remove('on');
-			document.getElementById("show16").classList.remove('on');
-			document.getElementById("show17").classList.remove('on');
-		}
+	
+	
 	</script>
 
 

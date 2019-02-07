@@ -124,6 +124,149 @@ public class RecomendBean {
 			}
 			model.addAttribute("list",list);
 			
+		}else if(request.getParameter("sel").equals("6")) { 
+			System.out.println("코미디");
+			model.addAttribute("sel","6");
+			List<MovieVO> list = sqlSession.selectList("movie.all6");
+		
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getMOVIE_TITLE());
+				System.out.println(list.get(i).getMOVIE_YEAR());
+				System.out.println(list.get(i).getMOVIE_IMG());
+				System.out.println(list.get(i).getMOVIE_RATE());
+			}
+			model.addAttribute("list",list);
+			
+		}else if(request.getParameter("sel").equals("7")) { 
+			System.out.println("공포/스릴러");
+			model.addAttribute("sel","7");
+			List<MovieVO> list = sqlSession.selectList("movie.all7");
+		
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getMOVIE_TITLE());
+				System.out.println(list.get(i).getMOVIE_YEAR());
+				System.out.println(list.get(i).getMOVIE_IMG());
+				System.out.println(list.get(i).getMOVIE_RATE());
+			}
+			model.addAttribute("list",list);
+			
+		}else if(request.getParameter("sel").equals("8")) { 
+			System.out.println("전체관람가");
+			model.addAttribute("sel","8");
+			List<MovieVO> list = sqlSession.selectList("movie.all8");
+		
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getMOVIE_TITLE());
+				System.out.println(list.get(i).getMOVIE_YEAR());
+				System.out.println(list.get(i).getMOVIE_IMG());
+				System.out.println(list.get(i).getMOVIE_RATE());
+			}
+			model.addAttribute("list",list);
+			
+		}else if(request.getParameter("sel").equals("9")) { 
+			System.out.println("12세관람가");
+			model.addAttribute("sel","9");
+			List<MovieVO> list = sqlSession.selectList("movie.all9");
+		
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getMOVIE_TITLE());
+				System.out.println(list.get(i).getMOVIE_YEAR());
+				System.out.println(list.get(i).getMOVIE_IMG());
+				System.out.println(list.get(i).getMOVIE_RATE());
+			}
+			model.addAttribute("list",list);
+			
+		}else if(request.getParameter("sel").equals("10")) { 
+			System.out.println("15세관람가");
+			model.addAttribute("sel","10");
+			List<MovieVO> list = sqlSession.selectList("movie.all10");
+		
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getMOVIE_TITLE());
+				System.out.println(list.get(i).getMOVIE_YEAR());
+				System.out.println(list.get(i).getMOVIE_IMG());
+				System.out.println(list.get(i).getMOVIE_RATE());
+			}
+			model.addAttribute("list",list);
+			
+		}else if(request.getParameter("sel").equals("11")) { 
+			System.out.println("19세관람가");
+			model.addAttribute("sel","11");
+			List<MovieVO> list = sqlSession.selectList("movie.all11");
+		
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getMOVIE_TITLE());
+				System.out.println(list.get(i).getMOVIE_YEAR());
+				System.out.println(list.get(i).getMOVIE_IMG());
+				System.out.println(list.get(i).getMOVIE_RATE());
+			}
+			model.addAttribute("list",list);
+			
+		}else if(request.getParameter("sel").equals("12")) { 
+			System.out.println("1970년대");
+			model.addAttribute("sel","12");
+			List<MovieVO> list = sqlSession.selectList("movie.all12");
+		
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getMOVIE_TITLE());
+				System.out.println(list.get(i).getMOVIE_YEAR());
+				System.out.println(list.get(i).getMOVIE_IMG());
+				System.out.println(list.get(i).getMOVIE_RATE());
+			}
+			model.addAttribute("list",list);
+			
+		}else if(request.getParameter("sel").equals("13")) { 
+			System.out.println("1980년대");
+			model.addAttribute("sel","13");
+			List<MovieVO> list = sqlSession.selectList("movie.all13");
+		
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getMOVIE_TITLE());
+				System.out.println(list.get(i).getMOVIE_YEAR());
+				System.out.println(list.get(i).getMOVIE_IMG());
+				System.out.println(list.get(i).getMOVIE_RATE());
+			}
+			model.addAttribute("list",list);
+			
+		}else if(request.getParameter("sel").equals("14")) { 
+			System.out.println("1990년대");
+			model.addAttribute("sel","14");
+			List<MovieVO> list = sqlSession.selectList("movie.all14");
+		
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getMOVIE_TITLE());
+				System.out.println(list.get(i).getMOVIE_YEAR());
+				System.out.println(list.get(i).getMOVIE_IMG());
+				System.out.println(list.get(i).getMOVIE_RATE());
+			}
+			model.addAttribute("list",list);
+			
+		}else if(request.getParameter("sel").equals("15")) { 
+			System.out.println("2000년대");
+			model.addAttribute("sel","15");
+			List<MovieVO> list = sqlSession.selectList("movie.all15");
+		
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getMOVIE_TITLE());
+				System.out.println(list.get(i).getMOVIE_YEAR());
+				System.out.println(list.get(i).getMOVIE_IMG());
+				System.out.println(list.get(i).getMOVIE_RATE());
+			}
+			model.addAttribute("list",list);
+			
+		}else if(request.getParameter("sel").equals("16")) { 
+			System.out.println("2010년대");
+			model.addAttribute("sel","16");
+			List<MovieVO> list = sqlSession.selectList("movie.all16");
+		
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getMOVIE_TITLE());
+				System.out.println(list.get(i).getMOVIE_YEAR());
+				System.out.println(list.get(i).getMOVIE_IMG());
+				System.out.println(list.get(i).getMOVIE_RATE());
+			}
+			model.addAttribute("list",list);
+			
 		}
 
 			
