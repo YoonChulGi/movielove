@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<% 
+	String sessionId = (String)session.getAttribute("memId");
+	System.out.println("sessionId: "+sessionId);
+%>
+
 <!DOCTYPE html>
 <html lang="kr">
 
@@ -225,6 +230,23 @@
 		movietools.tiara.send("moviedb", "info summary");
 	}
 	</script>
+	
+	<!-- 40자평 작성 버튼 스크립트 -->
+	<script> var session_id = '<%=sessionId%>'; </script>
+	<script type="text/javascript">
+	var popupX = (window.screen.width/2) - (750/2); 
+	var popupY = (window.screen.height/2) - (450/2);
+	
+	function openReviewWrite(){
+    	if(session_id == "null") {
+			alert("로그인 후 작성하실 수 있습니다.");
+			window.location.href='login.do';
+		} else {
+    		window.open('review_write_popup.do?movieTitle='+'${vo.getMOVIE_TITLE()}', '40자평 작성', 'toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=850,height=500,left='+popupX+',top='+popupY);
+		}
+	}
+	</script>
+	
 </head>
 
 <style>
@@ -350,7 +372,7 @@
 			
 			<div class="button" style="padding-top: 7px;">
 
-				<a href="/movie/nzreview/comment_form/?movie_id=51955&amp;star_container=star_container"
+				<a href="javascript:void(0);" onclick="openReviewWrite()"
 					class="btn btn_review" id="btn_review_write" style="background-color:#337ab7">40자평 남기기</a>
 			</div>
 		</div>

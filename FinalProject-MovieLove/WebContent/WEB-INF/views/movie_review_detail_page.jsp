@@ -8,7 +8,6 @@
 	System.out.println("sessionId: "+sessionId);
 %>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
