@@ -18,19 +18,20 @@ import spring.vo.bean.MovieVO;
 import spring.vo.bean.ReviewVO;
 @Controller
 public class InfoBean {
-	
 	@Autowired
 	private SqlSessionTemplate sqlSession = null;
-	
 	@Autowired
 	private RConnection conn = null;
-	
 	@Autowired 
 	private MovieVO vo = null;
 	
 	@RequestMapping("movie_info_page.do")
 	public String movie_info_page(Model model,HttpServletRequest request) {
 		System.out.println("MainBean-movie_info_page()");
+		
+		List<MovieVO> movieList = sqlSession.selectList("movie.movieInfoAll");  //전체 영화 정보 가져옴
+		model.addAttribute("movieList", movieList);
+		
 		
 		if(request.getParameter("sel") == null || request.getParameter("sel").equals("1") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("null")) { // 상영중
 			System.out.println("상영중");
@@ -118,6 +119,9 @@ public class InfoBean {
 	public String movie_detail_page(String id, Model model) {
 		System.out.println("MainBean-movie_detail_page()");
 		System.out.println("id: "+id);
+		
+		List<MovieVO> movieList = sqlSession.selectList("movie.movieInfoAll");  //전체 영화 정보 가져옴
+		model.addAttribute("movieList", movieList);
 		
 		vo = sqlSession.selectOne("movie.movieInfoById", id);
 		if(vo.getMOVIE_ACTORS().length() > 80) {

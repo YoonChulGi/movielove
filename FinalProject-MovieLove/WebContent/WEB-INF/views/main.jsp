@@ -116,32 +116,10 @@
 	}
 	</style>
 	
-	<!-- 검색 버튼 이벤트 스크립트 -->
-	<script>
-		function searchMovie(){
-			var inputTitle = document.getElementById("search-menu").value;
-
-		    //영화 자동완성 검색을 클릭했는지 여부
-			if(isClicked){
-				if(inputTitle ==''){
-	    			alert("영화 제목을 입력해주세요.");
-					return;
-				} else{
-	    			location.href='movie_review_page.do?movieTitle='+inputTitle;
-				}
-			} else{
-				alert("먼저 영화를 검색한 후 눌러주세요.");
-				return;
-			}
-    	}
-	</script>
-	
 	<!--  영화 검색 자동완성 스크립트 -->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
-	
-  	var isClicked = false;
 	
   	$( function() {
 		// 리스트 생성

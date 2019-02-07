@@ -25,10 +25,14 @@ public class MainBean {
 	}
 	
 	@RequestMapping("menu.do")
-	public String Menu(Model model) {
+	public String Menu() {
 		System.out.println("MainBean-menu()");
-		
 		return "menu";
 	}
-		
+
+	@RequestMapping("footer.do")
+	public String Footer() {
+		System.out.println("MainBean-footer()");
+		return "footer";
+	}
 }
