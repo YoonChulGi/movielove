@@ -117,12 +117,12 @@
 					<p>${review.REVIEW_CONTENTS} </p>
 					<dl>
 						<dt>
-							<em>
+							<em style="font-style:normal">
 								<a href="#" onclick="javascript:showPointListByNid(14910863, 'after');parent.clickcr(this, 'ara.uid', '', '', event); return false;" target="_top">
 								<span>${review.REVIEW_WRITER}</span>
 								</a>
 							</em>
-							<em style="background:none">${review.REVIEW_DATE}</em>
+							<em style="background:none; font-style:normal;">${review.REVIEW_DATE}</em>
 						</dt>
 					</dl>
 				</div>
