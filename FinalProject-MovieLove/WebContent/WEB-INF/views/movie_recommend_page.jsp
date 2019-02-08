@@ -32,6 +32,15 @@
 <link href="css/small-business.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 
+<style>
+.dropdown-menu{
+	display:none;
+}
+.dropdown:hover ul.dropdown-menu{
+	display:block;
+}
+</style>
+
 </head>
 
 <body>
@@ -206,7 +215,7 @@
 						data-toggle="dropdown">
 						장르 <b class="caret"></b>
 					</button>
-					<ul class="dropdown-menu col-lg-3 col-sm-6 col-md-4">
+					<ul class="dropdown-menu col-lg-3 col-sm-6 col-md-4" style="top:346.5px; left:287px;">
 						<li><a class="show4" href="movie_recommend_page.do?sel=4">액션/SF</a></li>
 						<li><a class="show5" href="movie_recommend_page.do?sel=5">멜로/드라마</a></li>
 						<li><a class="show6" href="movie_recommend_page.do?sel=6">코미디</a></li>
@@ -219,7 +228,7 @@
 						data-toggle="dropdown">
 						연령별 <b class="caret"></b>
 					</button>
-					<ul class="dropdown-menu col-lg-3 col-sm-6 col-md-4">
+					<ul class="dropdown-menu col-lg-3 col-sm-6 col-md-4" style="top:346.5px; left:575px;">
 						<li><a class="show8" href="movie_recommend_page.do?sel=8">전체이용가</a></li>
 						<li><a class="show9" href="movie_recommend_page.do?sel=9">12세이용가</a></li>
 						<li><a class="show10" href="movie_recommend_page.do?sel=10">15세이용가</a></li>
@@ -227,13 +236,13 @@
 						
 					</ul>
 				</div>
-				<div class="dropdown ">
+				<div class="dropdown">
 
 					<button class="btn dropdown-toggle col-lg-3 col-sm-6 col-md-4"
 						data-toggle="dropdown">
 						연도별 <b class="caret"></b>
 					</button>
-					<ul class="dropdown-menu col-lg-3 col-sm-6 col-md-4">
+					<ul class="dropdown-menu col-lg-3 col-sm-6 col-md-4" style="top:346.5px; left:862.5px;">
 						<li><a class="show14" href="movie_recommend_page.do?sel=12">1970년대</a></li>
 						<li><a class="show15" href="movie_recommend_page.do?sel=13">1980년대</a></li>
 						<li><a class="show16" href="movie_recommend_page.do?sel=14">1990년대</a></li>
