@@ -129,18 +129,18 @@
       source: jsonArray,
       success: function (result) {
     	    response($.map(jsonArray.slice (0,3), function(item) {
-    	    return {
-    	    value: item.label
-    	    };
+    	    	return {
+    	    		value: item.label
+    	    	};
     	    }));
       },
       focus: function( event, ui ) {
-        $( "#search-movie" ).val( ui.item.label );
+        //$( "#search-movie" ).val( ui.item.label );
         return false;
       },
       select: function( event, ui ) {
         $( "#search-movie" ).val( ui.item.label );
-        $( "#search-movie" ).autocomplete( "disable" );
+        $( "#search-movie" ).autocomplete( "disable");
         isClicked = true;
         return false;
       }
@@ -228,7 +228,7 @@ $(function() {
 						</c:if>
 						<div class="pcsgt_layer">
 							<div class="cate_pcsgt" id="movie_suggest_pc">
-								<ul id="ul-id-1" class="list_pcsgt ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" tabindex="0" style="display:none"></ul>
+								<ul id="ul-id-2" class="list_pcsgt ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" tabindex="0" style="display:none"></ul>
 							</div>
 							<a href="/search/main?searchText=%EC%95%84%EC%BF%A0%EC%95%84%EB%A7%A8&amp;returnUrl=https%3A%2F%2Fmovie.daum.net%2Fmoviedb%2Fmain%3FmovieId%3D94484" class="link_pcsgt #gnb #search #result">검색결과 전체보기<span class="ico_popcorn ico_arr"></span></a>
 						</div>
