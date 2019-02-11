@@ -358,23 +358,25 @@
     <jsp:include page="menu.jsp" flush="false"/>
     <!-- =====  HEADER END  ===== -->
     
-    <div class="container" style="height:462px;"> <!-- container -->
+    <div class="container"> <!-- container -->
     	
     	<c:if test="${!searchFlag }">
     		<div style="height:150px;" align="center"><h2 style="padding-top:70px;">분석할 영화를 검색해주세요</h2></div>
+    		<div class="analysis-search">
+				<input id="search-movie" name="review_title" placeholder="영화 검색" class="form-control input-lg" type="text">
+	    		<input type="button" class="btn btn-lg btn-search" onclick="searchMovie()" value="검색" style="width:80px; background-color:#d9534f; font-size:15px"/>
+        	</div>
+        	<div style="height:250px;"></div>
     	</c:if>
-    	
-    	<div class="analysis-search">
-			<input id="search-movie" name="review_title" placeholder="영화 검색" class="form-control input-lg" type="text">
-    		<input type="button" class="btn btn-lg btn-search" onclick="searchMovie()" value="검색" style="width:80px; background-color:#d9534f; font-size:15px"/>
-        </div>
-    	
-    	
-    	
+
     	<c:if test="${searchFlag }">
+    		<div class="analysis-search">
+				<input id="search-movie" name="review_title" placeholder="영화 검색" class="form-control input-lg" type="text">
+	    		<input type="button" class="btn btn-lg btn-search" onclick="searchMovie()" value="검색" style="width:80px; background-color:#d9534f; font-size:15px"/>
+        	</div>
 	    	<div class="row mb_50"> <!-- content -->
 	    		<div class="col-sm-7 col-xs-7 col-lg-7" >
-	    			<img alt="두 번째 겨울" src="${vo.getMOVIE_STEELCUT().split("#")[0] }">
+	    			<img alt="steelcut[0]" src='${vo.getMOVIE_STEELCUT() .split("#")[0] }' />
 	    		</div>
 	    		<div class="col-sm-7 col-xs-5 col-lg-5" >
 	    			<h1 class="mb_10">${vo.getMOVIE_TITLE() }</h1>
@@ -385,7 +387,7 @@
 	    	</div>
 	    	
 	    	<div class="row">
-	    		<div class="col-sm-4 col-xs-4 col-lg-4 col-md-4">
+	    		<div class="col-sm-6 col-xs-6 col-lg-6 col-md-6">
 	    			<h3>연령별</h3>
 	    			<c:if test="${ageArr[0] == 0 && ageArr[1] == 0 && ageArr[2] == 0 && ageArr[3] == 0 && ageArr[4] == 0 && ageArr[5] == 0 && ageArr[6] == 0}">
 	    				<p align="center" style="margin-top:100px;">no data..!</p>
@@ -395,7 +397,7 @@
 	    			</c:if>
 	    		</div>
 	    		
-	    		<div class="col-sm-4 col-xs-4 col-lg-4 col-md-4">
+	    		<div class="col-sm-6 col-xs-6 col-lg-6 col-md-6">
 	    			<h3>관람객 성비</h3>
 	    			<c:if test="${M == 0 && F == 0 }">
 	    				<p align="center" style="margin-top:100px;">no data..!</p>
@@ -406,10 +408,7 @@
 	    			
 	    		</div>
 	    		
-	    		<div class="col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	    			<h3>아몰라 분석3</h3>
-	    			<img alt="원형 그래프" src="http://www.hippochart.com/hippo/gallery/120501031647_hippo_Pie.png" />
-	    		</div>
+	    		
 	    	</div>
 	    	
 	    	<div class="row" >
