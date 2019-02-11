@@ -154,6 +154,10 @@ public class AnalysisBean {
 	public String movie_search_popup(String id, Model model) {
 		System.out.println("movie_search_popup.do");
 		model.addAttribute("id1",id);
+
+		List<MovieVO> movieList = sqlSession.selectList("movie.movieInfoAll");  //전체 영화 정보 가져옴
+		model.addAttribute("movieList", movieList);
+		
 		return "movie_search_popup";
 	}
 	
