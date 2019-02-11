@@ -169,7 +169,7 @@
     	<script type="text/javascript">
     		function search(){
     			var id1 = "${id1}";
-    			opener.location.href="movie_analysis_page2.do?id1="+id1+"&id2="+document.getElementById("search-input").value;
+    			opener.location.href="movie_analysis_page2.do?id1="+id1+"&id2="+document.getElementById("search-movie").value;
     			self.close();
     		}
     	</script>
