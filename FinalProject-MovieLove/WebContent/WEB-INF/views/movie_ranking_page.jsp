@@ -283,15 +283,14 @@
 	              				<h4 class="card-title">
 				                	<a href="movie_detail_page.do?id=${id_selResult.get(i.index)}">${boxoffice.TITLE}</a>
               					</h4>
-              					<span class="card-text">관객수 ${boxoffice.AUDICNT}</span>
-              					<span class="card-text">예매율 ${boxoffice.RATE}%</span>
 	            			</c:if>
 		          			<!-- 해당 영화 정보가 DB에 없는 경우 -->
 		          			<c:if test="${img_selResult.get(i.index) == null}">
 	              				<h4 class="card-title">${boxoffice.TITLE}</h4>
-              					<span class="card-text">관객수 ${boxoffice.AUDICNT}</span>
-              					<span class="card-text">예매율 ${boxoffice.RATE}%</span>
 	            			</c:if>
+              				<span class="card-text">관객수 ${boxoffice.AUDICNT}</span>
+              				<span class="card-text">누적 관객수 ${boxoffice.AUDIACC}</span>
+              				<span class="card-text">예매율 ${boxoffice.RATE}%</span>
             			</div>
           			</div>
         		</div>
