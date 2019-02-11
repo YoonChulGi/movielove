@@ -275,6 +275,7 @@
 		          			<c:if test="${img_selResult.get(i.index) == null}">
 								<img class="card-img-top" src="images/non_image.png" alt="" style="width:100%">
 	            			</c:if>
+	            			
 	            			<span class="boxoffice n${i.index+1}">${i.index+1}</span>
 	            		</div>
             			<div class="card-body mt_5" id="card-body" align="center">
@@ -288,7 +289,16 @@
 		          			<c:if test="${img_selResult.get(i.index) == null}">
 	              				<h4 class="card-title">${boxoffice.TITLE}</h4>
 	            			</c:if>
-              				<span class="card-text">관객수 ${boxoffice.AUDICNT}</span>
+	            			
+              				<% if(sel.equals("1")){ %>
+              				<span class="card-text">일간 관객수 ${boxoffice.AUDICNT}</span>
+              				<%} %>
+              				<% if(sel.equals("2")){ %>
+              				<span class="card-text">주간 관객수 ${boxoffice.AUDICNT}</span>
+              				<%} %>
+              				<% if(sel.equals("3")){ %>
+              				<span class="card-text">주말 관객수 ${boxoffice.AUDICNT}</span>
+              				<%} %>
               				<span class="card-text">누적 관객수 ${boxoffice.AUDIACC}</span>
               				<span class="card-text">예매율 ${boxoffice.RATE}%</span>
             			</div>

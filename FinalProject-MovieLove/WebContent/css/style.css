@@ -2843,7 +2843,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 	margin-top: 15px;	
 }
 #card-body {
-	font-size: 14px;
+	font-size: 13px;
 }
 .card{
 	width: 224px;
@@ -2901,7 +2901,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 	padding-top: 3px;
 	margin-bottom: 3px;
 	color: #333333;
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: bold;
 }
 .card-title a{
