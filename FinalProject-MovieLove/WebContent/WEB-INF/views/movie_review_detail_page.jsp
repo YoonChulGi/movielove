@@ -143,7 +143,7 @@
     	<div class="main_detail">
 			<div class="detail_summarize">
 				<span class="thumb_summary  #info #poster">
-					<a href="#" class="area_poster" target="_blank">
+					<a href="movie_detail_page.do?id=${movieInfo.getMOVIE_ID()}" class="area_poster">
 						<img src="${movieInfo.getMOVIE_IMG()}" class="img_summary" alt="말모이 포스터">
 					</a>
 				</span>
