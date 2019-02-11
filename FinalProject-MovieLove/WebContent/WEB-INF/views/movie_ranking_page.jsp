@@ -9,6 +9,7 @@
 	
 	String sel1="", sel2="", sel3="";
 	String sel = request.getParameter("sel");
+	if(sel == null){ sel="1"; }
 	
 	if(sel != null){
 		if(sel.equals("1")){
@@ -292,11 +293,9 @@
 	            			
               				<% if(sel.equals("1")){ %>
               				<span class="card-text">일간 관객수 ${boxoffice.AUDICNT}</span>
-              				<%} %>
-              				<% if(sel.equals("2")){ %>
+              				<%} else if(sel.equals("2")){ %>
               				<span class="card-text">주간 관객수 ${boxoffice.AUDICNT}</span>
-              				<%} %>
-              				<% if(sel.equals("3")){ %>
+              				<%} else if(sel.equals("3")){ %>
               				<span class="card-text">주말 관객수 ${boxoffice.AUDICNT}</span>
               				<%} %>
               				<span class="card-text">누적 관객수 ${boxoffice.AUDIACC}</span>
