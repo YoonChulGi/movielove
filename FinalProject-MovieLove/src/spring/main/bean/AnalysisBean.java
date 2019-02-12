@@ -1,6 +1,5 @@
 package spring.main.bean;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,15 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import spring.vo.bean.MemVO;
 import spring.vo.bean.MovieDAO;
 import spring.vo.bean.MovieVO;
-import spring.vo.bean.ReviewVO;
+
+import org.rosuda.REngine.REXPMismatchException;
+import org.rosuda.REngine.Rserve.RConnection;
+import org.rosuda.REngine.Rserve.RserveException;
+
 
 @Controller
 public class AnalysisBean {
 	@Autowired
 	private SqlSessionTemplate sqlSession = null;
-	
-	@Autowired
-	private MemVO memvo = null;
 	
 	@Autowired
 	private MovieVO mvo1 = null;
@@ -32,8 +32,10 @@ public class AnalysisBean {
 	
 	@Autowired
 	private MovieDAO dao = null;
+	
+	@Autowired
+	private RConnection conn = null;
 
-	@SuppressWarnings("deprecation")
 	@RequestMapping("movie_analysis_page.do")
 	public String movie_analysis_page(HttpServletRequest request, Model model) {
 		System.out.println("movie_analysis_page");
@@ -61,52 +63,50 @@ public class AnalysisBean {
 			}
 			int [] ageArr  = dao.analysis(movieId);
 			
-			// 남녀 성비 분석 (sex rate analysis) 
-			/*List<ReviewVO> li = sqlSession.selectList("review.reviewInfoById",movieId);
-			int M = 0; 
-			int F = 0;
-			Date today = new Date();
-			Date d = new Date();
-						     
-			int [] ageArr = {0,0,0,0,0,0,0};// baby's,10's,20's,30's,40's,50's,over 60's			
-			
-			for(int i=0;i<li.size();i++) {
-				memvo = sqlSession.selectOne("mem.selectMem",li.get(i).getREVIEW_WRITER());
-				String sex = memvo.getMEM_GENDER();
-				if(sex.equals("MALE")) {
-					M++;
-				} else {
-					F++;
-				}
-				String age = memvo.getMEM_AGE();
-				System.out.println("생년월일"+Integer.parseInt(""+age.charAt(0)+age.charAt(1)+age.charAt(2)+age.charAt(3)));
-				d.setYear(Integer.parseInt(""+age.charAt(0)+age.charAt(1)+age.charAt(2)+age.charAt(3)));
-				System.out.println(d.getYear());
-				int x = today.getYear() - d.getYear()+1900;
-				x++;
-				System.out.println("x= "+ x);
-				if(x>=0 && x<10) { // babies
-					ageArr[0] ++;
-				} else if(x>=10 && x<20) {
-					ageArr[1] ++;
-				} else if(x>=20 && x<30) {
-					ageArr[2] ++;
-				} else if(x>=30 && x<40) {
-					ageArr[3] ++;
-				} else if(x>=40 && x<50) {
-					ageArr[4] ++;
-				} else if(x>=50 && x<60) {
-					ageArr[5] ++;
-				} else if(x>=60) {
-					ageArr[6] ++;
-				}
-			}*/ // for 
 			model.addAttribute("M",ageArr[7]);
 			model.addAttribute("F",ageArr[8]);
 			for(int i=0;i<ageArr.length-2;i++) {
 				System.out.println("ageArr["+i+"]= "+ ageArr[i]);
 			}
 			model.addAttribute("ageArr",ageArr);
+			
+			// 워드 클라우드 R 자동화 
+			try {
+				conn.eval("library(rJava)");
+				conn.eval("library(DBI)");
+				conn.eval("library(RJDBC)");
+				conn.eval("library(KoNLP)");
+				conn.eval("useSejongDic()");
+				conn.eval("library(RColorBrewer)");
+				conn.eval("palete <- brewer.pal(9,'Set3')");
+				conn.eval("drv <- JDBC('oracle.jdbc.driver.OracleDriver','D:\\\\Chul\\\\RClass\\\\ojdbc6.jar')");
+				conn.eval("conn <- dbConnect(drv,\"jdbc:oracle:thin:@nullmaster.iptime.org:1521:xe\",\"final04\",\"final04\")");
+				conn.eval("moviedf <- dbGetQuery(conn,\"select MOVIE_TITLE, MOVIE_ID from movie\")");
+				String [] ids = conn.eval("moviedf$MOVIE_ID").asStrings();
+				/*conn.eval("");
+				conn.eval("");
+				conn.eval("");
+				conn.eval("");
+				conn.eval("");
+				conn.eval("");
+				conn.eval("");
+				conn.eval("");
+				conn.eval("");
+				conn.eval("");
+				conn.eval("");
+				conn.eval("");*/
+				for(int i=0;i<ids.length;i++) { 
+					System.out.println(ids[i]);
+				}
+				
+			} catch (RserveException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (REXPMismatchException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			
 			
 			
