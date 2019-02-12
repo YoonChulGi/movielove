@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +7,11 @@
 	<style>
 		body{
 			background-color:white;
-		}
+			font-size: 16px;
+    		line-height: 1.5;
+    		font-family: AppleSDGothicNeo-Regular, "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
+    		color: rgb(42, 42, 42);
+    		}
 		.officetd{
 			position:relative;
 		}
@@ -23,7 +28,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-  <body>
+  
+  <body class="main_content">
     <!-- Page Content -->
     <div class="container">
       <!-- Heading Row -->
@@ -107,8 +113,8 @@
         <div class="col-md-7 mb-6" style="position:relative;">
           <div class="h-100">
             <div class="card-body">
-              <h2 class="card-title">영화 분석</h2>
-              <a href="#" class="btn btn-primary" style="position:absolute;top:0px;right:20px;">More Info</a>
+              <h2 class="card-title" style="font-size:18px; padding:0;">영화 분석</h2>
+              <a href="movie_analysis_page.do?movieTitle=${movieShowingList.get(0).getMOVIE_TITLE()}" class="btn_more" style="position:absolute; right:30px; left:auto; top:0;"></a>
                <div id="myCarousel1" class="carousel slide" data-ride="carousel">
 		  <!-- Indicators -->
 		  <ol class="carousel-indicators">
@@ -122,7 +128,7 @@
 		  <!-- Wrapper for slides -->
 		  <div class="carousel-inner">
 		    <div class="item active">
-		      <h5>영화분석 1번 게시물</h5>
+		    <p style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(0).getMOVIE_TITLE()}]</p>	
 		      <div class="col-lg-6 col-sm-6 col-xs-6">
 		      	<p>원형 그래프</p>
 		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="http://www.hippochart.com/hippo/gallery/120501031647_hippo_Pie.png">
@@ -135,7 +141,7 @@
 		    </div>
 		
 		    <div class="item">
-		      <h5>영화분석 2번 게시물</h5>
+		      <p style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(1).getMOVIE_TITLE()}]</p>	
 		      <div class="col-lg-6 col-sm-6 col-xs-6">
 		      	<p>원형 그래프</p>
 		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="http://www.hippochart.com/hippo/gallery/120501031647_hippo_Pie.png">
@@ -147,7 +153,7 @@
 		    </div>
 		    
 		    <div class="item">
-		      <h5>영화분석 3번 게시물</h5>
+		      <p style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(2).getMOVIE_TITLE()}]</p>	
 		      <div class="col-lg-6 col-sm-6 col-xs-6">
 		      	<p>원형 그래프</p>
 		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="http://www.hippochart.com/hippo/gallery/120501031647_hippo_Pie.png">
@@ -159,7 +165,7 @@
 		    </div>
 		    
 		    <div class="item">
-		      <h5>영화분석 4번 게시물</h5>
+		      <p style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(3).getMOVIE_TITLE()}]</p>	
 		      <div class="col-lg-6 col-sm-6 col-xs-6">
 		      	<p>원형 그래프</p>
 		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="http://www.hippochart.com/hippo/gallery/120501031647_hippo_Pie.png">
@@ -171,7 +177,7 @@
 		    </div>
 		    
 		    <div class="item">
-		      <h5>영화분석 5번 게시물</h5>
+		      <p style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(4).getMOVIE_TITLE()}]</p>	
 		      <div class="col-lg-6 col-sm-6 col-xs-6">
 		      	<p>원형 그래프</p>
 		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="http://www.hippochart.com/hippo/gallery/120501031647_hippo_Pie.png">
@@ -191,237 +197,208 @@
             </div>
           </div>
         </div>
+        
         <!-- /.col-md-4 -->
         <div class="col-md-5 mb-4">
           <div class="h-100">
             <div class="card-body" style="position:relative;">
-              <h2 class="card-title">영화 감상평</h2>
+              <h2 class="card-title" style="font-size:18px; padding:0;">영화 40자평</h2>
               <!-- 영화 제목 -->
-              <p class="card-text">영화 제목</p>
+              <p class="card-text">${movie.getMOVIE_TITLE()}</p>
               <!-- more info -->
-              <a href="#" class="btn btn-primary" style="position:absolute;right:0px;top:0px;">More Info</a>
+              <a href="movie_review_detail_page.do?movieId=${movieShowingList.get(0).getMOVIE_ID()}" class="btn_more" style="position:absolute; right:30px; left:auto; top:0;"></a>
               <!-- 내용 -->
               <div class="row">
               	<div id="myCarousel2" class="carousel slide" data-ride="carousel">
-		  <!-- Indicators -->
-		  <ol class="carousel-indicators">
-		    <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
-		    <li data-target="#myCarousel2" data-slide-to="1"></li>
-		    <li data-target="#myCarousel2" data-slide-to="2"></li>
-		    <li data-target="#myCarousel2" data-slide-to="3"></li>
-		    <li data-target="#myCarousel2" data-slide-to="4"></li>
-		  </ol>
-
-		  <!-- Wrapper for slides -->
-		  <div class="carousel-inner" >
-		    <div class="item active">
-		      <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-	           <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-	            <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-	            <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-		    </div>
-		
-		    <div class="item">
-		      <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-	              
-	              <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-	              
-	              <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-	              
-	              <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-		    </div>
-		    
-		    <div class="item">
-		      <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-		    </div>
-		    
-		    <div class="item">
-		      <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-	              
-	              <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-	              
-	              <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-	              
-	              <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-	              
-	              <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-		    </div>
-		    
-		    <div class="item">
-		      <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-	              <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-	              
-	              <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-	              
-	              <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-	              
-	              <p class="card-text col-sm-8 col-xs-8 col-lg-8 col-md-8">본문 내용 본문내용 본문ㄴ내용 내가 본 영화중에 젤 재밌었따</p>
-	              <!-- 별점 -->
-	              <div class="star-rating col-sm-4 col-xs-4 col-lg-4 col-md-4">
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              	<span class="fa fa-star-o" data-raing="1"></span>
-	              </div>
-		    </div>
-		    
-		  </div>
-	</div>
-      
-              
-              
-              
-	              
+		  			<!-- Wrapper for slides -->
+		  			<div class="carousel-inner" >
+						<div class="item active" style="height:480px">
+		    				<h7 style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(0).getMOVIE_TITLE()}]</h7>
+		    				<ul class="list_review">
+								<c:if test="${empty reviewList.get(0)}">
+									<li>
+										<div class="review_info">
+											<span class="review_none" style="margin:10px 0 10px 0"> 등록된 40자평이 없습니다.</span>
+										</div>
+									</li>
+								</c:if>
+								
+								<c:if test="${reviewList.size() > 0}">
+		      						<c:forEach items="${reviewList.get(0)}" var="review" end="3" varStatus="statusReview">
+									<c:if test="${review != null}">
+									<li style="padding:0; font-size:14px;">
+										<div class="review_info">
+											<strong class="tit_profile">
+											<em style="color:#333; font-style:normal; font-weight:bold;">${review.REVIEW_WRITER}</em>
+											</strong>
+											<div class="review_grade">
+												<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:70.75%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
+												<em class="emph_grade" style="font-size:16px">${review.REVIEW_RATING}</em>
+												<span class="txt_grade" style="font-size:16px; padding-top:2px;">/10</span>
+											</div>
+											<p class="desc_review" style="padding-top:30px">${review.REVIEW_CONTENTS}</p>
+											<div class="append_review" style="padding-top:3px">
+												<span class="info_append">${review.REVIEW_DATE}</span>
+											</div>
+										</div>
+									</li>
+									</c:if>
+									</c:forEach>
+								</c:if>
+							</ul>
+						</div>
+						
+						<div class="item" style="height:480px">
+		    				<h7 style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(1).getMOVIE_TITLE()}]</h7>							
+		    				<ul class="list_review">
+								<c:if test="${empty reviewList.get(1)}">
+									<li>
+										<div class="review_info">
+											<span class="review_none" style="margin:10px 0 10px 0"> 등록된 40자평이 없습니다.</span>
+										</div>
+									</li>
+								</c:if>
+								
+								<c:if test="${reviewList.size() > 0}">
+		      						<c:forEach items="${reviewList.get(1)}" var="review" end="3" varStatus="statusReview">
+									<c:if test="${review != null}">
+									<li style="padding:0; font-size:14px;">
+										<div class="review_info">
+											<strong class="tit_profile">
+											<em style="color:#333; font-style:normal; font-weight:bold;">${review.REVIEW_WRITER}</em>
+											</strong>
+											<div class="review_grade">
+												<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:70.75%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
+												<em class="emph_grade" style="font-size:16px">${review.REVIEW_RATING}</em>
+												<span class="txt_grade" style="font-size:16px; padding-top:2px;">/10</span>
+											</div>
+											<p class="desc_review" style="padding-top:30px">${review.REVIEW_CONTENTS}</p>
+											<div class="append_review" style="padding-top:3px">
+												<span class="info_append">${review.REVIEW_DATE}</span>
+											</div>
+										</div>
+									</li>
+									</c:if>
+									</c:forEach>
+								</c:if>
+							</ul>
+						</div>
+						
+						<div class="item" style="height:480px">
+		    				<h7 style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(2).getMOVIE_TITLE()}]</h7>
+		    				<ul class="list_review">
+								<c:if test="${empty reviewList.get(2)}">
+									<li>
+										<div class="review_info">
+											<span class="review_none" style="margin:10px 0 10px 0"> 등록된 40자평이 없습니다.</span>
+										</div>
+									</li>
+								</c:if>
+		    				
+								<c:if test="${reviewList.size() > 0}">
+		      						<c:forEach items="${reviewList.get(2)}" var="review" end="3" varStatus="statusReview">
+									<c:if test="${review != null}">
+									<li style="padding:0; font-size:14px;">
+										<div class="review_info">
+											<strong class="tit_profile">
+											<em style="color:#333; font-style:normal; font-weight:bold;">${review.REVIEW_WRITER}</em>
+											</strong>
+											<div class="review_grade">
+												<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:70.75%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
+												<em class="emph_grade" style="font-size:16px">${review.REVIEW_RATING}</em>
+												<span class="txt_grade" style="font-size:16px; padding-top:2px;">/10</span>
+											</div>
+											<p class="desc_review" style="padding-top:30px">${review.REVIEW_CONTENTS}</p>
+											<div class="append_review" style="padding-top:3px">
+												<span class="info_append">${review.REVIEW_DATE}</span>
+											</div>
+										</div>
+									</li>
+									</c:if>
+									</c:forEach>
+								</c:if>
+							</ul>
+						</div>
+						
+						<div class="item" style="height:480px">
+		    				<h7 style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(3).getMOVIE_TITLE()}]</h7>
+		    				<ul class="list_review">
+								<c:if test="${empty reviewList.get(3)}">
+									<li>
+										<div class="review_info">
+											<span class="review_none" style="margin:10px 0 10px 0"> 등록된 40자평이 없습니다.</span>
+										</div>
+									</li>
+								</c:if>
+								
+								<c:if test="${reviewList.size() > 0}">
+		      						<c:forEach items="${reviewList.get(3)}" var="review" end="3" varStatus="statusReview">
+									<c:if test="${review != null}">
+									<li style="padding:0; font-size:14px;">
+										<div class="review_info">
+											<strong class="tit_profile">
+											<em style="color:#333; font-style:normal; font-weight:bold;">${review.REVIEW_WRITER}</em>
+											</strong>
+											<div class="review_grade">
+												<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:70.75%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
+												<em class="emph_grade" style="font-size:16px">${review.REVIEW_RATING}</em>
+												<span class="txt_grade" style="font-size:16px; padding-top:2px;">/10</span>
+											</div>
+											<p class="desc_review" style="padding-top:30px">${review.REVIEW_CONTENTS}</p>
+											<div class="append_review" style="padding-top:3px">
+												<span class="info_append">${review.REVIEW_DATE}</span>
+											</div>
+										</div>
+									</li>
+									</c:if>
+									</c:forEach>
+								</c:if>
+							</ul>
+						</div>
+						
+						<div class="item" style="height:480px">
+		    				<h7 style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(4).getMOVIE_TITLE()}]</h7>
+		    				<ul class="list_review">
+								<c:if test="${empty reviewList.get(4)}">
+									<li>
+										<div class="review_info">
+											<span class="review_none" style="margin:10px 0 10px 0"> 등록된 40자평이 없습니다.</span>
+										</div>
+									</li>
+								</c:if>
+								
+								<c:if test="${reviewList.size() > 0}">
+		      						<c:forEach items="${reviewList.get(4)}" var="review" end="3" varStatus="statusReview">
+									<c:if test="${review != null}">
+									<li style="padding:0; font-size:14px;">
+										<div class="review_info">
+											<strong class="tit_profile">
+											<em style="color:#333; font-style:normal; font-weight:bold;">${review.REVIEW_WRITER}</em>
+											</strong>
+											<div class="review_grade">
+												<span class="bg_star star_grade"><span class="bg_star inner_star" style="width:70.75%">평점</span></span> <!-- 116px이 100%, % 계산에서 width값에 적용-->
+												<em class="emph_grade" style="font-size:16px">${review.REVIEW_RATING}</em>
+												<span class="txt_grade" style="font-size:16px; padding-top:2px;">/10</span>
+											</div>
+											<p class="desc_review" style="padding-top:30px">${review.REVIEW_CONTENTS}</p>
+											<div class="append_review" style="padding-top:3px">
+												<span class="info_append">${review.REVIEW_DATE}</span>
+											</div>
+										</div>
+									</li>
+									</c:if>
+									</c:forEach>
+								</c:if>
+							</ul>
+						</div>
+		    			
+		  			</div>
+				  </div>
+				</div>
               </div>
-            </div>
-            <div class="card-footer">
+           	  <div class="card-footer">
               
-            </div>
+              </div>
           </div>
         </div>
         <!-- /.col-md-4 -->
