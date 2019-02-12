@@ -54,7 +54,7 @@
       </div>
       <br />
       <br />
-      <div id="myCarousel" class="carousel slide" data-ride="carousel" style="background-color:#aaa;padding-top:10px;padding-bottom:10px;">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel" style="background-color:#333;padding-top:10px;padding-bottom:10px;">
 		  <!-- Indicators -->
 		  <ol class="carousel-indicators">
 		    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -138,7 +138,7 @@
 		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzV8uSTuwhiQQ7Hl20YJqrA1rKO3wYQvVipgBO5PhzRttFhc2Uxw">
 		      </div>
 		      
-		    </div>
+<!-- 		    </div> -->
 		
 		    <div class="item">
 		      <p style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(1).getMOVIE_TITLE()}]</p>	
