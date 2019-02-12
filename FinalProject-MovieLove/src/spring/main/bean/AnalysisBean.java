@@ -69,21 +69,20 @@ public class AnalysisBean {
 				System.out.println("ageArr["+i+"]= "+ ageArr[i]);
 			}
 			model.addAttribute("ageArr",ageArr);
-			
+			/*
 			// 워드 클라우드 R 자동화 
 			try {
 				conn.eval("library(rJava)");
 				conn.eval("library(DBI)");
 				conn.eval("library(RJDBC)");
 				conn.eval("library(KoNLP)");
-				conn.eval("useSejongDic()");
+				conn.eval("useSejongDic();"); // 관리자권한때문에 자동화 불가 
 				conn.eval("library(RColorBrewer)");
 				conn.eval("palete <- brewer.pal(9,'Set3')");
 				conn.eval("drv <- JDBC('oracle.jdbc.driver.OracleDriver','D:\\\\Chul\\\\RClass\\\\ojdbc6.jar')");
 				conn.eval("conn <- dbConnect(drv,\"jdbc:oracle:thin:@nullmaster.iptime.org:1521:xe\",\"final04\",\"final04\")");
 				conn.eval("moviedf <- dbGetQuery(conn,\"select MOVIE_TITLE, MOVIE_ID from movie\")");
 				String [] ids = conn.eval("moviedf$MOVIE_ID").asStrings();
-				/*conn.eval("");
 				conn.eval("");
 				conn.eval("");
 				conn.eval("");
@@ -94,7 +93,8 @@ public class AnalysisBean {
 				conn.eval("");
 				conn.eval("");
 				conn.eval("");
-				conn.eval("");*/
+				conn.eval("");
+				conn.eval("");
 				for(int i=0;i<ids.length;i++) { 
 					System.out.println(ids[i]);
 				}
@@ -106,7 +106,7 @@ public class AnalysisBean {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+			*/
 			
 			
 			
