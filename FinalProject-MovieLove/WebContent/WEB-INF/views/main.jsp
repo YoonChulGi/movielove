@@ -183,7 +183,7 @@
     
     <!-- =====  CONTAINER START  ===== -->
     <div class="container">
-    	<jsp:include page="main_content.jsp" flush="false"/>
+    	<jsp:include page="/main_content.do" flush="false"/>
     </div>
     <!-- =====  CONTAINER END  ===== -->
         
