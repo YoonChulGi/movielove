@@ -55,7 +55,7 @@ public class MainBean {
 		}
 			
 		model.addAttribute("movieShowingList", movieShowingList_Top5);
-		model.addAttribute("reviewList",reviewList);
+		model.addAttribute("reviewList", reviewList);
 		
 		return "main_content";
 	}
