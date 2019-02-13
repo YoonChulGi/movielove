@@ -32,7 +32,6 @@ public class InfoBean {
 		List<MovieVO> movieList = sqlSession.selectList("movie.movieInfoAll");  //전체 영화 정보 가져옴
 		model.addAttribute("movieList", movieList);
 		
-		
 		if(request.getParameter("sel") == null || request.getParameter("sel").equals("1") || request.getParameter("sel").equals("") || request.getParameter("sel").equals("null")) { // 상영중
 			System.out.println("상영중");
 			System.out.println(request.getParameter("sel"));

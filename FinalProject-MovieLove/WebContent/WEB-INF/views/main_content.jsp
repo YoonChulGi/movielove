@@ -253,8 +253,6 @@
           <div class="h-100">
             <div class="card-body" style="position:relative;">
               <h2 class="card-title" style="font-size:18px; padding:0;">영화 40자평</h2>
-              <!-- 영화 제목 -->
-              <p class="card-text" style="font-weight:bold; font-size:20px; font-weight:bold; color:#555;">${movie.getMOVIE_TITLE()}</p>
               <!-- more info -->
               <a href="movie_review_detail_page.do?movieId=${movieShowingList.get(0).getMOVIE_ID()}" class="btn_more" style="position:absolute; right:0; left:auto; top:0;"></a>
               <!-- 내용 -->

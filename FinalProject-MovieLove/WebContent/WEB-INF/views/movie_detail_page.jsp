@@ -255,7 +255,6 @@
 	background-size: cover !important;
 	background-position: 50% 50% !important;
 	height: 430px;
-	/*opacity: 0.5;*/
 }
 
 .top_area_cover {
@@ -313,9 +312,7 @@
 		<!-- container -->
 
 		<div class="row">
-			<div
-				class="col-lg-12 col-xs-12 col-md-12 col-sm-12 movie_detail_top_area"
-				style="background: url('${steelcuts[0]}');">
+			<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12 movie_detail_top_area" style="background: url('${steelcuts[0]}');">
 				<div class="top_area_cover">
 					<div class="mov_top">
 						<div class="mov_poster">

@@ -97,11 +97,13 @@ public class ReviewBean {
 		Movievo = sqlSession.selectOne("movie.movieInfoById", request.getParameter("movieId"));
 		model.addAttribute("movieInfo", Movievo);
 		
+		List<MovieVO> movieList = sqlSession.selectList("movie.movieInfoAll");  //전체 영화 정보 가져옴
+		model.addAttribute("movieList", movieList);
+		
 		List<ReviewVO> list = new ArrayList<ReviewVO>();
 		list = sqlSession.selectList("review.reviewInfoById", Movievo.getMOVIE_ID());
 		model.addAttribute("reviewList", list);
 		
-
 		//리뷰 리스트 초기 높이값 지정
 		float listHeight;
 		if(list.size() >= 10) { listHeight = 1300; }
