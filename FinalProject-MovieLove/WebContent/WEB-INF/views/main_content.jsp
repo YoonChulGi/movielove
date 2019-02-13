@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<% 
+	int random = (int)Math.random()*5;
+%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,36 +31,41 @@
     <link href="css/small-business.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
   </head>
   
   <body class="main_content">
     <!-- Page Content -->
-    <div class="container">
+    <div class="container" style="padding: auto 10px auto 10px;">
       <!-- Heading Row -->
       <div class="row my-4" style="position:relative">
-        <div class="col-lg-8" align="center" class="embed-responsive embed-responsive-16by9" >
-		  <iframe width="100%" height="340" src="http://mp4.cine21.com/cine21.com/movie/trailer/2018/11/fruit_mtr.mp4"></iframe>
+        <div class="col-lg-7" align="left" class="embed-responsive embed-responsive-16by9" >
+		  <iframe width="100%" height="400" src="${randomMovie.getMOVIE_TRAILER()}"></iframe>
         </div>
         <!-- /.col-lg-8 -->
-        <div class="col-lg-4">
-          <h1 class="mb_10">국가부도의 날</h1>
-          <p>1997년, 대한민국 최고의 경제 호황을 믿어 의심치 않았던 그때, 곧 엄청난 경제 위기가 닥칠 것을 예견한 한국은행 통화정책팀장 ‘한시현’(김혜수)은 이 사실을 보고하고, 정부는 뒤늦게 국가부도 사태를 막기 위한 비공개 대책팀을 꾸린다. </p>
-          
+        <div class="col-lg-5 main-random" style="padding-right: 20px">
+          <p class="mb_10 main-title">${randomMovie.getMOVIE_TITLE()}</p>
+          <p class="mt_30 mb_10 main-ctitle" style="">${randomMovie.getMOVIE_CTITLE()}</p>
+          <em class="main-desc">${randomMovie.getMOVIE_CONTENTS()}</em>
         </div>
         <!-- /.col-md-4 -->
-        <a class="btn btn-primary btn-lg" href="#" style="position:absolute;right:0px;bottom:0px;">자세히 보러가기</a>
+        <a class="btn btn-primary btn-lg" href="movie_detail_page.do?id=${randomMovie.getMOVIE_ID()}" 
+           style="position:absolute; right:24px; bottom:0; font-size:14px;">자세히 보러가기</a>
       </div>
       <!-- /.row -->
 
       <!-- Call to Action Well -->
-      <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12">
-      	<h2>박스 오피스 순위</h2>
+      <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12" style="margin-top:20px; padding-left:5px;">
+      	<p style="font-size:20px; font-weight:bold;">박스 오피스 순위</p>
       </div>
       <br />
       <br />
-      <div id="myCarousel" class="carousel slide" data-ride="carousel" style="background-color:#333;padding-top:10px;padding-bottom:10px;">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel" style="background-color:#333; padding:10px 0 10px 0; margin-top:10px; margin-bottom:20px;">
 		  <!-- Indicators -->
-		  <ol class="carousel-indicators">
+		  <ol class="carousel-indicators" style="bottom:10px">
 		    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 		    <li data-target="#myCarousel" data-slide-to="1"></li>
 		  </ol>
@@ -66,11 +75,9 @@
 		    <div class="item active">
 		      <table>
 		      	<tr>
-		      		<td class="officetd"><h2 class="rank">1</h2><a href="#"><img src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/358ea40235e240fea2f0b6ec7ef93c431543201035934" alt="마약왕"></a></td>
-		      		<td class="officetd"><h2 class="rank">2</h2><a href="#"><img src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/4eeebce90dc441cdb208d11e27e356421544513634869" alt=""></a></td>
-		      		<td class="officetd"><h2 class="rank">3</h2><a href="#"><img src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/f4d3fea1a1004a44873cca0dac2d8ccf1542956549688" alt=""></a></td>
-		      		<td class="officetd"><h2 class="rank">4</h2><a href="#"><img src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/ce3cd6a875284e8b96414ef3696756a11544772388211" alt=""></a></td>
-		      		<td class="officetd"><h2 class="rank">5</h2><a href="#"><img src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/10073f4c7fab4a07a23589f8fbd4254d1541739643225" alt=""></a></td>
+		      		<c:forEach items="${movieShowingList}" var="movie" begin="0" end="4" varStatus="status">
+		      		<td class="officetd"><h2 class="rank">${status.index+1}</h2><a href="#"><img class="boxoffice-img" src="${movie.MOVIE_IMG}"></a></td>
+		      		</c:forEach>
 		      	</tr>
 		      </table>
 		    </div>
@@ -78,11 +85,9 @@
 		    <div class="item">
 		      <table>
 		      	<tr>
-		      		<td class="officetd"><h2 class="rank">6</h2><a href="#"><img src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/7f80906597164fe6b6504b3602946f631542963091970" alt=""></a></td>
-		      		<td class="officetd"><h2 class="rank">7</h2><a href="#"><img src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/f4d3fea1a1004a44873cca0dac2d8ccf1542956549688" alt=""></a></td>
-		      		<td class="officetd"><h2 class="rank">8</h2><a href="#"><img src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/25c7261d1e424fe59b68b7ef115b35d11542780702098" alt=""></a></td>
-		      		<td class="officetd"><h2 class="rank">9</h2><a href="#"><img src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/fa5991f792db40bdb93de11542c0502c1543986203103" alt=""></a></td>
-		      		<td class="officetd"><h2 class="rank">10</h2><a href="#"><img src="//img1.daumcdn.net/thumb/C180x260/?fname=http://t1.daumcdn.net/movie/eb9834885f7747d78e132b66c0cf46a21541478705054" alt=""></a></td>
+		      		<c:forEach items="${movieShowingList}" var="movie" begin="5" end="9" varStatus="status">
+		      		<td class="officetd"><h2 class="rank">${status.index+1}</h2><a href="#"><img class="boxoffice-img" src="${movie.MOVIE_IMG}"></a></td>
+		      		</c:forEach>
 		      	</tr>
 		      </table>
 		    </div>
@@ -116,19 +121,11 @@
               <h2 class="card-title" style="font-size:18px; padding:0;">영화 분석</h2>
               <a href="movie_analysis_page.do?movieTitle=${movieShowingList.get(0).getMOVIE_TITLE()}" class="btn_more" style="position:absolute; right:30px; left:auto; top:0;"></a>
                <div id="myCarousel1" class="carousel slide" data-ride="carousel">
-		  <!-- Indicators -->
-		  <ol class="carousel-indicators">
-		    <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
-		    <li data-target="#myCarousel1" data-slide-to="1"></li>
-		    <li data-target="#myCarousel1" data-slide-to="2"></li>
-		    <li data-target="#myCarousel1" data-slide-to="3"></li>
-		    <li data-target="#myCarousel1" data-slide-to="4"></li>
-		  </ol>
 
 		  <!-- Wrapper for slides -->
 		  <div class="carousel-inner">
 		    <div class="item active">
-		    <p style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(0).getMOVIE_TITLE()}]</p>	
+		   	<p style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(0).getMOVIE_TITLE()}]</p>	
 		      <div class="col-lg-6 col-sm-6 col-xs-6">
 		      	<p>원형 그래프</p>
 		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="http://www.hippochart.com/hippo/gallery/120501031647_hippo_Pie.png">
@@ -137,8 +134,7 @@
 		      	<p>막대그래프</p>
 		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzV8uSTuwhiQQ7Hl20YJqrA1rKO3wYQvVipgBO5PhzRttFhc2Uxw">
 		      </div>
-		      
-<!-- 		    </div> -->
+		    </div>
 		
 		    <div class="item">
 		      <p style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(1).getMOVIE_TITLE()}]</p>	
@@ -206,7 +202,7 @@
               <!-- 영화 제목 -->
               <p class="card-text">${movie.getMOVIE_TITLE()}</p>
               <!-- more info -->
-              <a href="movie_review_detail_page.do?movieId=${movieShowingList.get(0).getMOVIE_ID()}" class="btn_more" style="position:absolute; right:30px; left:auto; top:0;"></a>
+              <a href="movie_review_detail_page.do?movieId=${movieShowingList.get(0).getMOVIE_ID()}" class="btn_more" style="position:absolute; right:0; left:auto; top:0;"></a>
               <!-- 내용 -->
               <div class="row">
               	<div id="myCarousel2" class="carousel slide" data-ride="carousel">
@@ -214,7 +210,7 @@
 		  			<div class="carousel-inner" >
 						<div class="item active" style="height:480px">
 		    				<h7 style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(0).getMOVIE_TITLE()}]</h7>
-		    				<ul class="list_review">
+		    				<ul class="list_review" style="margin:0">
 								<c:if test="${empty reviewList.get(0)}">
 									<li>
 										<div class="review_info">

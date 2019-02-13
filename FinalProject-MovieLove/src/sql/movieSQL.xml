@@ -4,16 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="movie">
 	<select id="movieInfo_showing" resultType="MovieVO">
-		SELECT
-		MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_RATE,MOVIE_SHOWING,MOVIE_ID
+		SELECT *
 		FROM MOVIE
 		WHERE MOVIE_SHOWING = '1'
 		ORDER BY MOVIE_RATE DESC
 	</select>
 
 	<select id="movieInfo_past" resultType="MovieVO">
-		SELECT
-		MOVIE_TITLE,MOVIE_IMG,MOVIE_YEAR,MOVIE_ID
+		SELECT *
 		FROM MOVIE
 		WHERE MOVIE_SHOWING
 		= '0'
