@@ -104,7 +104,7 @@
 	    position: absolute;
 	    max-height: 175px;
 	    overflow-x: hidden;
-	    overflow-y: scroll;
+	    overflow-y: hidden;
 	    left: 753px;
 	    top: 325px;
 	    border-top: 0px;
@@ -307,7 +307,6 @@
     	    	}));
       	},
       	focus: function( event, ui ) {
-	        $( "#search-movie" ).val( ui.item.label );
         	return false;
       	},
       	select: function( event, ui ) {

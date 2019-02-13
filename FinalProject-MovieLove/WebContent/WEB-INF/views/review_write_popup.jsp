@@ -25,9 +25,9 @@
 	    position: absolute;
 	    max-height: 175px;
 	    overflow-x: hidden;
-	    overflow-y: scroll;
-	    left: 228px;
-	    top: 144px;
+	    overflow-y: hidden;
+	    left: 249px;
+	    top: 167px;
 	    border-top: 0px;
 	    border-left: 1px solid #565656;
 	    border-right: 1px solid #565656;
