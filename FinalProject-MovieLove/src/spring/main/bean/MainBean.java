@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import spring.vo.bean.MovieDAO;
 import spring.vo.bean.MovieVO;
 import spring.vo.bean.ReviewVO;
 
@@ -19,6 +20,9 @@ import spring.vo.bean.ReviewVO;
 public class MainBean {
 	@Autowired
 	private SqlSessionTemplate sqlSession = null;
+	
+	@Autowired
+	private MovieDAO dao = null;
 	
 	//@Autowired
 	//private RConnection conn = null;
@@ -129,6 +133,22 @@ public class MainBean {
 			}
 			reviewList.add(vo);
 		}
+
+		//영화 분석
+		MovieVO mvo1 = sqlSession.selectOne("movie.movieInfoById","167651");  //영화 '극한직업'
+		MovieVO mvo2 = sqlSession.selectOne("movie.movieInfoByTitle","내안의 그놈");  //영화 '내안의 그놈'
+		model.addAttribute("mvo1",mvo1);
+		model.addAttribute("mvo2",mvo2);
+		
+		int [] arr1 = dao.analysis(mvo1.getMOVIE_ID());
+		int [] arr2 = dao.analysis(mvo2.getMOVIE_ID());
+		model.addAttribute("M1",arr1[7]);
+		model.addAttribute("F1",arr1[8]);
+		model.addAttribute("M2",arr2[7]);
+		model.addAttribute("F2",arr2[8]);
+		model.addAttribute("ageArr1",arr1);
+		model.addAttribute("ageArr2",arr2);
+		//영화 분석
 
 		model.addAttribute("randomMovie", randomMovie);
 		model.addAttribute("movieShowingList", movieShowingList_Top10);

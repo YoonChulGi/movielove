@@ -35,6 +35,88 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawSexChart1);
+    function drawSexChart1() {
+        var data = google.visualization.arrayToDataTable([
+          ['남녀','성비'],
+          ['남자',${M1}],
+          ['여자',${F1}]
+        ]);
+
+        var options = {
+          //title: '관람객 성비',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('sexchart1'));
+        chart.draw(data, options);
+      }
+    google.charts.setOnLoadCallback(drawAgeChart1);
+    function drawAgeChart1() {
+        var data = google.visualization.arrayToDataTable([
+          ['연령대별 관람객','ageArr1[]'],
+          ['10세 미만',${ageArr1[0]}],
+          ['10대',${ageArr1[1]}],
+          ['20대',${ageArr1[2]}],
+          ['30대',${ageArr1[3]}],
+          ['40대',${ageArr1[4]}],
+          ['50대',${ageArr1[5]}],
+          ['60대 이상',${ageArr1[5]}]
+        ]);
+
+        var options = {
+          //title: '',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('agechart1'));
+        chart.draw(data, options);
+      }
+    
+    
+    // 22222222222
+    google.charts.setOnLoadCallback(drawSexChart2);
+    function drawSexChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ['남녀','성비'],
+          ['남자',${M2}],
+          ['여자',${F2}]
+        ]);
+
+        var options = {
+          //title: '관람객 성비',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('sexchart2'));
+        chart.draw(data, options);
+      }
+    google.charts.setOnLoadCallback(drawAgeChart2);
+    function drawAgeChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ['연령대별 관람객','ageArr2[]'],
+          ['10세 미만',${ageArr2[0]}],
+          ['10대',${ageArr2[1]}],
+          ['20대',${ageArr2[2]}],
+          ['30대',${ageArr2[3]}],
+          ['40대',${ageArr2[4]}],
+          ['50대',${ageArr2[5]}],
+          ['60대 이상',${ageArr2[5]}]
+        ]);
+
+        var options = {
+          //title: '',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('agechart2'));
+        chart.draw(data, options);
+      }
+    </script>
+	
   </head>
   
   <body class="main_content">
@@ -125,62 +207,34 @@
 		  <!-- Wrapper for slides -->
 		  <div class="carousel-inner">
 		    <div class="item active">
-		   	<p style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(0).getMOVIE_TITLE()}]</p>	
+		   	  <p style="margin: 10px 0 10px 0; display:block;">[${mvo1.getMOVIE_TITLE()}]</p>
 		      <div class="col-lg-6 col-sm-6 col-xs-6">
-		      	<p>원형 그래프</p>
-		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="http://www.hippochart.com/hippo/gallery/120501031647_hippo_Pie.png">
+	    		<p>연령별 분석</p>
+    			<div id="agechart1" align="center" style="width:100%; height:100%;"></div>
 		      </div>
 		      <div class="col-lg-6 col-sm-6 col-xs-6">
-		      	<p>막대그래프</p>
-		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzV8uSTuwhiQQ7Hl20YJqrA1rKO3wYQvVipgBO5PhzRttFhc2Uxw">
+    			<p>성비 분석</p>
+    			<div id="sexchart1" align="center" style="width:100%; height:100%;"></div>
+		      </div>
+    		  <p style="padding-left:10px">워드 클라우드</p>
+		      <div class="col-lg-12 col-sm-12 col-xs-12" align="center">
+    			<img alt="워드 클라우드" width="50%" height="300" src="${mvo1.getMOVIE_WDCL()}" />
 		      </div>
 		    </div>
 		
 		    <div class="item">
-		      <p style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(1).getMOVIE_TITLE()}]</p>	
+		   	  <p style="margin: 10px 0 10px 0; display:block;">[${mvo2.getMOVIE_TITLE()}]</p>
 		      <div class="col-lg-6 col-sm-6 col-xs-6">
-		      	<p>원형 그래프</p>
-		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="http://www.hippochart.com/hippo/gallery/120501031647_hippo_Pie.png">
+	    		<p>연령별 분석</p>
+    			<div id="agechart2" align="center" style="width:100%; height:100%;"></div>
 		      </div>
 		      <div class="col-lg-6 col-sm-6 col-xs-6">
-		      	<p>막대그래프</p>
-		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzV8uSTuwhiQQ7Hl20YJqrA1rKO3wYQvVipgBO5PhzRttFhc2Uxw">
+    			<p>성비 분석</p>
+    			<div id="sexchart2" align="center" style="width:100%; height:100%;"></div>
 		      </div>
-		    </div>
-		    
-		    <div class="item">
-		      <p style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(2).getMOVIE_TITLE()}]</p>	
-		      <div class="col-lg-6 col-sm-6 col-xs-6">
-		      	<p>원형 그래프</p>
-		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="http://www.hippochart.com/hippo/gallery/120501031647_hippo_Pie.png">
-		      </div>
-		      <div class="col-lg-6 col-sm-6 col-xs-6">
-		      	<p>막대그래프</p>
-		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzV8uSTuwhiQQ7Hl20YJqrA1rKO3wYQvVipgBO5PhzRttFhc2Uxw">
-		      </div>
-		    </div>
-		    
-		    <div class="item">
-		      <p style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(3).getMOVIE_TITLE()}]</p>	
-		      <div class="col-lg-6 col-sm-6 col-xs-6">
-		      	<p>원형 그래프</p>
-		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="http://www.hippochart.com/hippo/gallery/120501031647_hippo_Pie.png">
-		      </div>
-		      <div class="col-lg-6 col-sm-6 col-xs-6">
-		      	<p>막대그래프</p>
-		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzV8uSTuwhiQQ7Hl20YJqrA1rKO3wYQvVipgBO5PhzRttFhc2Uxw">
-		      </div>
-		    </div>
-		    
-		    <div class="item">
-		      <p style="margin: 10px 0 5px 0; display:block;">[${movieShowingList.get(4).getMOVIE_TITLE()}]</p>	
-		      <div class="col-lg-6 col-sm-6 col-xs-6">
-		      	<p>원형 그래프</p>
-		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="http://www.hippochart.com/hippo/gallery/120501031647_hippo_Pie.png">
-		      </div>
-		      <div class="col-lg-6 col-sm-6 col-xs-6">
-		      	<p>막대그래프</p>
-		      	<img class="col-lg-12 col-sm-12 col-xs-12" alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzV8uSTuwhiQQ7Hl20YJqrA1rKO3wYQvVipgBO5PhzRttFhc2Uxw">
+    		  <p style="padding-left:10px">워드 클라우드</p>
+		      <div class="col-lg-12 col-sm-12 col-xs-12" align="center">
+    			<img alt="워드 클라우드" width="50%" height="300" src="${mvo2.getMOVIE_WDCL()}" />
 		      </div>
 		    </div>
 		    
