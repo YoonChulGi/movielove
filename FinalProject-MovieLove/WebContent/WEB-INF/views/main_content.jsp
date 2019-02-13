@@ -140,12 +140,12 @@
       <!-- /.row -->
 
       <!-- Call to Action Well -->
-      <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12" style="margin-top:20px; padding-left:5px;">
-      	<p style="font-size:20px; font-weight:bold;">박스 오피스 순위</p>
+      <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12" style="margin-top:30px; padding-left:5px;">
+      	<p style="font-size:18px; font-weight:bold; font-size:20px;">박스 오피스 순위</p>
       </div>
       <br />
       <br />
-      <div id="myCarousel" class="carousel slide" data-ride="carousel" style="background-color:#333; padding:10px 0 10px 0; margin-top:10px; margin-bottom:20px;">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel" style="background-color:#333; padding:10px 0 10px 0; margin-top:20px; margin-bottom:20px;">
 		  <!-- Indicators -->
 		  <ol class="carousel-indicators" style="bottom:10px">
 		    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -197,42 +197,42 @@
 	</div>
       <!-- Content Row -->
       <div class="row">
-        <div class="col-md-7 mb-6" style="position:relative;">
+        <div class="col-md-7 mb-6" style="position:relative; padding-left:20px;">
           <div class="h-100">
             <div class="card-body">
-              <h2 class="card-title" style="font-size:18px; padding:0;">영화 분석</h2>
+              <h2 class="card-title" style="font-size:20px; padding:0;">영화 분석</h2>
               <a href="movie_analysis_page.do?movieTitle=${movieShowingList.get(0).getMOVIE_TITLE()}" class="btn_more" style="position:absolute; right:30px; left:auto; top:0;"></a>
                <div id="myCarousel1" class="carousel slide" data-ride="carousel">
 
 		  <!-- Wrapper for slides -->
 		  <div class="carousel-inner">
 		    <div class="item active">
-		   	  <p style="margin: 10px 0 10px 0; display:block;">[${mvo1.getMOVIE_TITLE()}]</p>
+		   	  <p style="margin:10px 0 10px 0; display:block; font-weight:bold; color:#555;">[${mvo1.getMOVIE_TITLE()}]</p>
 		      <div class="col-lg-6 col-sm-6 col-xs-6">
-	    		<p>연령별 분석</p>
+	    		<p style="color:#555">연령별 분석</p>
     			<div id="agechart1" align="center" style="width:100%; height:100%;"></div>
 		      </div>
 		      <div class="col-lg-6 col-sm-6 col-xs-6">
-    			<p>성비 분석</p>
+    			<p style="color:#555">성비 분석</p>
     			<div id="sexchart1" align="center" style="width:100%; height:100%;"></div>
 		      </div>
-    		  <p style="padding-left:10px">워드 클라우드</p>
+    		  <p style="padding-left:10px; color:#555">워드 클라우드</p>
 		      <div class="col-lg-12 col-sm-12 col-xs-12" align="center">
     			<img alt="워드 클라우드" width="50%" height="300" src="${mvo1.getMOVIE_WDCL()}" />
 		      </div>
 		    </div>
 		
 		    <div class="item">
-		   	  <p style="margin: 10px 0 10px 0; display:block;">[${mvo2.getMOVIE_TITLE()}]</p>
+		   	  <p style="margin:10px 0 10px 0; display:block; font-weight:bold; color:#555;">[${mvo2.getMOVIE_TITLE()}]</p>
 		      <div class="col-lg-6 col-sm-6 col-xs-6">
-	    		<p>연령별 분석</p>
+	    		<p style="color:#555">연령별 분석</p>
     			<div id="agechart2" align="center" style="width:100%; height:100%;"></div>
 		      </div>
 		      <div class="col-lg-6 col-sm-6 col-xs-6">
-    			<p>성비 분석</p>
+    			<p style="color:#555">성비 분석</p>
     			<div id="sexchart2" align="center" style="width:100%; height:100%;"></div>
 		      </div>
-    		  <p style="padding-left:10px">워드 클라우드</p>
+    		  <p style="padding-left:10px; color:#555">워드 클라우드</p>
 		      <div class="col-lg-12 col-sm-12 col-xs-12" align="center">
     			<img alt="워드 클라우드" width="50%" height="300" src="${mvo2.getMOVIE_WDCL()}" />
 		      </div>
@@ -254,7 +254,7 @@
             <div class="card-body" style="position:relative;">
               <h2 class="card-title" style="font-size:18px; padding:0;">영화 40자평</h2>
               <!-- 영화 제목 -->
-              <p class="card-text">${movie.getMOVIE_TITLE()}</p>
+              <p class="card-text" style="font-weight:bold; font-size:20px; color:#555;">${movie.getMOVIE_TITLE()}</p>
               <!-- more info -->
               <a href="movie_review_detail_page.do?movieId=${movieShowingList.get(0).getMOVIE_ID()}" class="btn_more" style="position:absolute; right:0; left:auto; top:0;"></a>
               <!-- 내용 -->

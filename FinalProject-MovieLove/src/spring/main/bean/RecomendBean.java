@@ -37,6 +37,9 @@ public class RecomendBean {
 		if (session.getAttribute("memId") != null) {
 			String genre = sqlSession.selectOne("mem.recommend",session.getAttribute("memId"));
 			
+			List<MovieVO> movieList = sqlSession.selectList("movie.movieInfoAll");  //전체 영화 정보 가져옴
+			model.addAttribute("movieList", movieList);
+			
 			byte[] gen = genre.getBytes();  // 
 			ArrayList choo = new ArrayList();
 			for(int i = 0 ; i < gen.length ; i++) {

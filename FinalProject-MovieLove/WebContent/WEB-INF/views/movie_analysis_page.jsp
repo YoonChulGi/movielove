@@ -19,7 +19,7 @@
 	    max-height: 175px;
 	    overflow-x: hidden;
 	    overflow-y: hidden;
-	    left: 1212px;
+	    left: 1301px;
 	    top: 232px;
 	    border-top: 0px;
 	    border-left: 1px solid #565656;
@@ -92,7 +92,7 @@
 	    max-height: 175px;
 	    overflow-x: hidden;
 	    overflow-y: scroll;
-	    left: 664.5px;
+	    left: 753px;
 	    top: 475px;
 	    border-top: 0px;
 	    border-left: 1px solid #565656;

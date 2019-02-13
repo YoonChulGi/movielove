@@ -29,7 +29,7 @@
 	    max-height: 175px;
 	    overflow-x: hidden;
 	    overflow-y: hidden;
-	    left: 1212px;
+	    left: 1301px;
 	    top: 231px;
 	    border-top: 0px;
 	    border-left: 1px solid #565656;
