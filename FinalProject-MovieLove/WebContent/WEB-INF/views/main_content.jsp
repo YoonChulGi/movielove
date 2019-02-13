@@ -274,7 +274,7 @@
 								</c:if>
 								
 								<c:if test="${reviewList.size() > 0}">
-		      						<c:forEach items="${reviewList.get(0)}" var="review" end="3" varStatus="statusReview">
+		      						<c:forEach items="${reviewList.get(0)}" var="review" end="4" varStatus="statusReview">
 									<c:if test="${review != null}">
 									<li style="padding:0; font-size:14px;">
 										<div class="review_info">
@@ -310,7 +310,7 @@
 								</c:if>
 								
 								<c:if test="${reviewList.size() > 0}">
-		      						<c:forEach items="${reviewList.get(1)}" var="review" end="3" varStatus="statusReview">
+		      						<c:forEach items="${reviewList.get(1)}" var="review" end="4" varStatus="statusReview">
 									<c:if test="${review != null}">
 									<li style="padding:0; font-size:14px;">
 										<div class="review_info">
@@ -346,7 +346,7 @@
 								</c:if>
 		    				
 								<c:if test="${reviewList.size() > 0}">
-		      						<c:forEach items="${reviewList.get(2)}" var="review" end="3" varStatus="statusReview">
+		      						<c:forEach items="${reviewList.get(2)}" var="review" end="4" varStatus="statusReview">
 									<c:if test="${review != null}">
 									<li style="padding:0; font-size:14px;">
 										<div class="review_info">
@@ -382,7 +382,7 @@
 								</c:if>
 								
 								<c:if test="${reviewList.size() > 0}">
-		      						<c:forEach items="${reviewList.get(3)}" var="review" end="3" varStatus="statusReview">
+		      						<c:forEach items="${reviewList.get(3)}" var="review" end="4" varStatus="statusReview">
 									<c:if test="${review != null}">
 									<li style="padding:0; font-size:14px;">
 										<div class="review_info">
@@ -418,7 +418,7 @@
 								</c:if>
 								
 								<c:if test="${reviewList.size() > 0}">
-		      						<c:forEach items="${reviewList.get(4)}" var="review" end="3" varStatus="statusReview">
+		      						<c:forEach items="${reviewList.get(4)}" var="review" end="4" varStatus="statusReview">
 									<c:if test="${review != null}">
 									<li style="padding:0; font-size:14px;">
 										<div class="review_info">
