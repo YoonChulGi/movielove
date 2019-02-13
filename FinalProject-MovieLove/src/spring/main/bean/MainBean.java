@@ -1,6 +1,6 @@
 package spring.main.bean;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.rosuda.REngine.Rserve.RConnection;
@@ -17,10 +17,7 @@ import spring.vo.bean.ReviewVO;
 public class MainBean {
 	@Autowired
 	private SqlSessionTemplate sqlSession = null;
-	
-	//@Autowired
-	//private RConnection conn = null;
-				
+
 	@RequestMapping("main.do")
 	public String Main(Model model) {
 		System.out.println("MainBean-Main()");
@@ -31,62 +28,7 @@ public class MainBean {
 		return "main";
 	}
 	
-	MainBean() throws RserveException{
-		//RConnection conn = new RConnection();
-		System.out.println("mainBean 생성자");
-		//try {
-			//conn.eval("a <- 1");
-			/*conn.eval("library(rJava)");
-			conn.eval("library(DBI)");
-			conn.eval("library(RJDBC)");*/
-			/*conn.eval("drv <- JDBC(\"oracle.jdbc.driver.OracleDriver\",\"D:\\\\Chul\\\\RClass\\\\ojdbc6.jar\")");
-			conn.eval("conn <- dbConnect(drv,\"jdbc:oracle:thin:@nullmaster.iptime.org:1521:xe\",\"final04\",\"final04\")");
-			conn.eval("moviedf <- dbGetQuery(conn,\"select * from movie where MOVIE_SHOWING='1'\")");
-			conn.eval("library(rvest)");
-			conn.eval("url <- 'https://movie.naver.com/movie/running/current.nhn?view=list&tab=normal&order=reserve'");
-			conn.eval("html <- read_html(url)");
-			conn.eval("ids <-c()");
-			conn.eval("titles <- c()");
-			conn.eval("nexturl <-c()");
-			conn.eval("posters <-c()");
-			conn.eval("rates<- c()");
-			conn.eval("years<- c()");
-			conn.eval("etitles <-c()");
-			conn.eval("ctitles <- c()");
-			conn.eval("contents <- c()");
-			conn.eval("genres <- c()");
-			conn.eval("countries <- c()");
-			conn.eval("ages<- c()");
-			conn.eval("runtimes<-c()");
-			conn.eval("audiences<-c()");
-			conn.eval("directors<-c()");
-			conn.eval("actors<-c()");
-			conn.eval("steelcuts<-c()");*/
-			/*conn.eval("");
-			conn.eval("");
-			conn.eval("");
-			conn.eval("");
-			conn.eval("");
-			conn.eval("");
-			conn.eval("");
-			conn.eval("");
-			conn.eval("");
-			conn.eval("");
-			conn.eval("");
-			conn.eval("");
-			conn.eval("");
-			conn.eval("");
-			conn.eval("");*/
-			
-		//} catch (RserveException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
-		//} finally {
-		//	conn.close();
-		//}
-		
-		
-	}
+	
 	
 	
 	@RequestMapping("main_content.do")
