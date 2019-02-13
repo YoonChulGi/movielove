@@ -386,8 +386,8 @@
 	    	</div>
 	    	
 	    	<div class="row">
-	    		<div class="col-sm-6 col-xs-6 col-lg-6 col-md-6">
-	    			<h3>연령별</h3>
+	    		<div class="col-sm-6 col-xs-6 col-lg-6 col-md-6" align="center">
+	    			<h3 align="left">연령별</h3>
 	    			<c:if test="${ageArr[0] == 0 && ageArr[1] == 0 && ageArr[2] == 0 && ageArr[3] == 0 && ageArr[4] == 0 && ageArr[5] == 0 && ageArr[6] == 0}">
 	    				<p align="center" style="margin-top:100px;">no data..!</p>
 	    			</c:if>
@@ -396,8 +396,8 @@
 	    			</c:if>
 	    		</div>
 	    		
-	    		<div class="col-sm-6 col-xs-6 col-lg-6 col-md-6">
-	    			<h3>관람객 성비</h3>
+	    		<div class="col-sm-6 col-xs-6 col-lg-6 col-md-6" align="center">
+	    			<h3 align="left">관람객 성비</h3>
 	    			<c:if test="${M == 0 && F == 0 }">
 	    				<p align="center" style="margin-top:100px;">no data..!</p>
 	    			</c:if>
